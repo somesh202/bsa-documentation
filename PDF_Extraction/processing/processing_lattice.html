@@ -1,0 +1,1667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.processing.processing_lattice API documentation</title>
+<meta name="description" content="Module: processing_lattice …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.processing.processing_lattice</code></h1>
+</header>
+<section id="section-intro">
+<p>Module: processing_lattice</p>
+<p>This module provides functionality for processing lattice-structured PDFs by segmenting pages,
+identifying table-like structures, and extracting tabular data from each segment. It includes
+the <code><a title="PDF_Extraction.processing.processing_lattice.ProcessLatticeData" href="#PDF_Extraction.processing.processing_lattice.ProcessLatticeData">ProcessLatticeData</a></code> class which inherits from <code>AbstractPDFProcessor</code> and provides methods
+to validate and extract tables from PDF pages.</p>
+<h2 id="classes">Classes</h2>
+<p>ProcessLatticeData: A class responsible for processing lattice-structured PDFs and extracting
+tabular data.</p>
+<h2 id="functions">Functions</h2>
+<p>__generate_ignore_list(df, table, page_bbox): Generates a list of table rows to ignore based
+on the presence of dates and specific keywords.
+is_valid_table(df): Validates if the DataFrame qualifies as a valid table based on the presence
+__lies_inside(cell, bbox): Checks if the boundaries of the cell lie completely inside or on the bbox.
+__check_valid_grid(item_list, ignore_list, page_bbox, min_allowed_cols, min_allowed_rows): Checks
+if the grid of table cells is valid based on the presence of rows and columns.
+__divide_df(df): Divides the DataFrame into multiple DataFrames based on specific keywords.
+extract_pdf(pdf_path, batch): Extracts table data from each page of a PDF file and returns it as
+a list of DataFrames.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.processing.processing_lattice.PageExplicitHLines"><code class="flex name class">
+<span>class <span class="ident">PageExplicitHLines</span></span>
+<span>(</span><span>page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PageExplicitHLines:
+    &#34;&#34;&#34;
+    A class to handle the generation of explicit horizontal lines from a given page, based on its lines, rect_edges, and curve_edges.
+
+    Attributes:
+        __page (object): The page object containing line, rect_edges, and curve_edges data.
+    &#34;&#34;&#34;
+
+    def __init__(self, page):
+        &#34;&#34;&#34;
+        Initializes the PageExplicitHLines object with the given page.
+
+        Args:
+            page (object): The page object containing the page&#39;s data such as lines, rect_edges, and curve_edges.
+        &#34;&#34;&#34;
+        self.__page = page
+
+    def __del__(self):
+        &#34;&#34;&#34;
+        Cleans up the resources by flushing the page&#39;s cache and closing the page when the object is destroyed.
+        &#34;&#34;&#34;
+        self.__page.flush_cache()
+        self.__page.close()
+
+    def generate_explicit_hlines(self):
+        &#34;&#34;&#34;
+        Generates explicit horizontal lines from the page&#39;s lines, rect_edges, and curve_edges and returns them in a dictionary.
+
+        The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.
+
+        Returns:
+            dict: A dictionary containing explicit horizontal lines, indexed by their y-coordinate.
+        &#34;&#34;&#34;
+        explicit_lines = []
+
+        page_lines = []
+        for line in self.__page.lines:
+            if line not in page_lines:
+                page_lines.append(line)
+
+        for line in page_lines:
+            if line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+                if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                    explicit_lines.append(line[&#34;pts&#34;][0][1])
+                if line[&#34;pts&#34;][1][1] not in explicit_lines:
+                    explicit_lines.append(line[&#34;pts&#34;][1][1])
+
+        page_rect_vlines = []
+        for line in self.__page.rect_edges:
+            if (line not in page_rect_vlines) and (
+                abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0])
+                &lt; abs(line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1])
+            ):
+                page_rect_vlines.append(line)
+                if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                    explicit_lines.append(line[&#34;pts&#34;][0][1])
+                if line[&#34;pts&#34;][2][1] not in explicit_lines:
+                    explicit_lines.append(line[&#34;pts&#34;][2][1])
+
+        page_curve_vlines = []
+        for line in self.__page.curve_edges:
+            if (
+                (line not in page_curve_vlines)
+                and line[&#34;x0&#34;] == line[&#34;x1&#34;]
+                and line[&#34;orientation&#34;] == &#34;v&#34;
+            ):
+                page_curve_vlines.append(line)
+                if line[&#34;top&#34;] not in explicit_lines:
+                    explicit_lines.append(line[&#34;top&#34;])
+                if line[&#34;bottom&#34;] not in explicit_lines:
+                    explicit_lines.append(line[&#34;bottom&#34;])
+
+        self.__page.flush_cache()
+
+        return explicit_lines</code></pre>
+</details>
+<div class="desc"><p>A class to handle the generation of explicit horizontal lines from a given page, based on its lines, rect_edges, and curve_edges.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing line, rect_edges, and curve_edges data.</dd>
+</dl>
+<p>Initializes the PageExplicitHLines object with the given page.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing the page's data such as lines, rect_edges, and curve_edges.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_lattice.PageExplicitHLines.generate_explicit_hlines"><code class="name flex">
+<span>def <span class="ident">generate_explicit_hlines</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_explicit_hlines(self):
+    &#34;&#34;&#34;
+    Generates explicit horizontal lines from the page&#39;s lines, rect_edges, and curve_edges and returns them in a dictionary.
+
+    The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.
+
+    Returns:
+        dict: A dictionary containing explicit horizontal lines, indexed by their y-coordinate.
+    &#34;&#34;&#34;
+    explicit_lines = []
+
+    page_lines = []
+    for line in self.__page.lines:
+        if line not in page_lines:
+            page_lines.append(line)
+
+    for line in page_lines:
+        if line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+            if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                explicit_lines.append(line[&#34;pts&#34;][0][1])
+            if line[&#34;pts&#34;][1][1] not in explicit_lines:
+                explicit_lines.append(line[&#34;pts&#34;][1][1])
+
+    page_rect_vlines = []
+    for line in self.__page.rect_edges:
+        if (line not in page_rect_vlines) and (
+            abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0])
+            &lt; abs(line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1])
+        ):
+            page_rect_vlines.append(line)
+            if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                explicit_lines.append(line[&#34;pts&#34;][0][1])
+            if line[&#34;pts&#34;][2][1] not in explicit_lines:
+                explicit_lines.append(line[&#34;pts&#34;][2][1])
+
+    page_curve_vlines = []
+    for line in self.__page.curve_edges:
+        if (
+            (line not in page_curve_vlines)
+            and line[&#34;x0&#34;] == line[&#34;x1&#34;]
+            and line[&#34;orientation&#34;] == &#34;v&#34;
+        ):
+            page_curve_vlines.append(line)
+            if line[&#34;top&#34;] not in explicit_lines:
+                explicit_lines.append(line[&#34;top&#34;])
+            if line[&#34;bottom&#34;] not in explicit_lines:
+                explicit_lines.append(line[&#34;bottom&#34;])
+
+    self.__page.flush_cache()
+
+    return explicit_lines</code></pre>
+</details>
+<div class="desc"><p>Generates explicit horizontal lines from the page's lines, rect_edges, and curve_edges and returns them in a dictionary.</p>
+<p>The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing explicit horizontal lines, indexed by their y-coordinate.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.ProcessLatticeData"><code class="flex name class">
+<span>class <span class="ident">ProcessLatticeData</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProcessLatticeData(AbstractPDFProcessor):
+    &#34;&#34;&#34;
+    A class responsible for processing lattice-structured PDFs by segmenting pages,
+    identifying table-like structures, and extracting tabular data from each segment.
+
+    Inherits from:
+    AbstractPDFProcessor: Provides the base functionality for PDF processing.
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        Initializes the ProcessLatticeData instance by calling the constructor
+        of the parent class AbstractPDFProcessor to set up any inherited properties.
+        &#34;&#34;&#34;
+        super().__init__()
+
+    def extract_pdf(self, pdf_path, batch):
+        &#34;&#34;&#34;
+        Extracts table data from each page of a PDF file and returns it as a list of DataFrames.
+
+        This function processes each page of a PDF using `pdfplumber`. It identifies unique vertical
+        and horizontal lines, extracts table data, and stores valid tables in DataFrames. These
+        tables are then appended to a list for further processing. Tables that don’t meet
+        minimum requirements are logged as invalid if `Constants.PRINT_LOG` is enabled.
+
+        Parameters:
+        ----------
+        pdf_path (str): The path to the PDF file to be processed.
+
+        Returns:
+        -------
+        list of pandas.DataFrame
+            A list containing DataFrames for each valid table found in the PDF.
+        &#34;&#34;&#34;
+        pdf_data_frames = []
+
+        with pdfplumber.open(pdf_path) as pdf:
+            first_page = pdf.pages[0]
+            last_page = pdf.pages[-1]
+
+            first_page_has_no_content = not first_page.chars
+            last_page_has_no_content = not last_page.chars
+
+            if first_page_has_no_content or last_page_has_no_content:
+                is_valid_stream = UtilFunctions.is_valid_pdf_stream(pdf_path)
+
+                if not is_valid_stream:
+                    _ = UtilFunctions.repair_pdf_inplace(pdf_path)
+
+        with pdfplumber.open(pdf_path) as pdf:
+            for page_index in batch:
+                page = pdf.pages[page_index]
+                extractor = WordExtractor(page)
+
+                if page_index == len(
+                    pdf.pages
+                ) - 1 and UtilsLattice.single_cell_on_last_page(page):
+                    page.flush_cache()
+                    pdf.flush_cache()
+                    raise CustomError.SingleCellOnLastPageError(pdf_path)
+
+                explicit_lines = PageExplicitHLines(page).generate_explicit_hlines()
+                explicit_lines.extend([page.bbox[1], page.bbox[3]])
+
+                tables = page.find_tables(
+                    table_settings={
+                        &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                        &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                    }
+                )
+
+                if tables:
+                    for table in tables:
+                        _, y1, _, y2 = table.bbox
+                        explicit_lines = [
+                            value for value in explicit_lines if not y1 &lt;= value &lt;= y2
+                        ]
+
+                explicit_vlines = UtilsLattice.detect_vlines_for_table_crossing_page(tables, page.bbox)
+
+                table_settings = {
+                    &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                    &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                    &#34;explicit_horizontal_lines&#34;: explicit_lines,
+                    &#34;explicit_vertical_lines&#34;: explicit_vlines,
+                }
+
+                tables = page.find_tables(table_settings)
+
+                if UtilsLattice.page_has_table_as_image(
+                    tables, extractor.get_words()
+                ):
+                    page.flush_cache()
+                    pdf.flush_cache()
+                    raise CustomError.TableAsImageError(pdf_path)
+
+                tables = UtilsLattice.find_tables_using_sections(
+                    tables, table_settings, page
+                )
+                if not tables:
+                    page.flush_cache()
+                    continue
+
+                extracted_tables = extractor.extract_text_from_tables(tables, pdf_path)
+                tables, extracted_tables = UtilsLattice.find_unique_tables(tables, extracted_tables)
+
+                page_data_frames = []
+                valid_table_count = 0
+                total_date_matches = 0
+
+                for table_index, table in enumerate(tables):
+                    extracted_table = extracted_tables[table_index]
+
+                    if not (
+                        extracted_table
+                        and len(extracted_table) &gt;= 1
+                        and len(extracted_table[0]) &gt;= 4
+                    ):
+                        continue
+
+                    df = pd.DataFrame(extracted_table)
+
+                    if UtilsLattice.is_valid_table(df):
+                        valid_table_count += 1
+
+                    date_mask = df.apply(
+                        lambda row: any(UtilFunctions.has_date(cell) for cell in row),
+                        axis=1,
+                    )
+                    total_date_matches += date_mask.sum()
+
+                    if not UtilsLattice.is_table_grid_valid(df, table, page.bbox):
+                        page.flush_cache()
+                        pdf.flush_cache()
+                        raise CustomError.InvalidGridError(pdf_path)
+
+                    df[&#34;page_num&#34;] = page_index
+                    df[&#34;table_seq&#34;] = table_index
+
+                    df_array = UtilsLattice.divide_df(df)
+                    page_data_frames.extend(df_array)
+
+                if total_date_matches == valid_table_count and valid_table_count &gt; 1:
+                    page.flush_cache()
+                    pdf.flush_cache()
+                    raise CustomError.AlternateRowMissError(pdf_path)
+
+                if page_data_frames:
+                    pdf_data_frames.extend(page_data_frames)
+
+                page.flush_cache()
+
+            pdf.flush_cache()
+
+        return pdf_data_frames, LatticeType.LATTICE</code></pre>
+</details>
+<div class="desc"><p>A class responsible for processing lattice-structured PDFs by segmenting pages,
+identifying table-like structures, and extracting tabular data from each segment.</p>
+<p>Inherits from:
+AbstractPDFProcessor: Provides the base functionality for PDF processing.</p>
+<p>Initializes the ProcessLatticeData instance by calling the constructor
+of the parent class AbstractPDFProcessor to set up any inherited properties.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_lattice.ProcessLatticeData.extract_pdf"><code class="name flex">
+<span>def <span class="ident">extract_pdf</span></span>(<span>self, pdf_path, batch)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_pdf(self, pdf_path, batch):
+    &#34;&#34;&#34;
+    Extracts table data from each page of a PDF file and returns it as a list of DataFrames.
+
+    This function processes each page of a PDF using `pdfplumber`. It identifies unique vertical
+    and horizontal lines, extracts table data, and stores valid tables in DataFrames. These
+    tables are then appended to a list for further processing. Tables that don’t meet
+    minimum requirements are logged as invalid if `Constants.PRINT_LOG` is enabled.
+
+    Parameters:
+    ----------
+    pdf_path (str): The path to the PDF file to be processed.
+
+    Returns:
+    -------
+    list of pandas.DataFrame
+        A list containing DataFrames for each valid table found in the PDF.
+    &#34;&#34;&#34;
+    pdf_data_frames = []
+
+    with pdfplumber.open(pdf_path) as pdf:
+        first_page = pdf.pages[0]
+        last_page = pdf.pages[-1]
+
+        first_page_has_no_content = not first_page.chars
+        last_page_has_no_content = not last_page.chars
+
+        if first_page_has_no_content or last_page_has_no_content:
+            is_valid_stream = UtilFunctions.is_valid_pdf_stream(pdf_path)
+
+            if not is_valid_stream:
+                _ = UtilFunctions.repair_pdf_inplace(pdf_path)
+
+    with pdfplumber.open(pdf_path) as pdf:
+        for page_index in batch:
+            page = pdf.pages[page_index]
+            extractor = WordExtractor(page)
+
+            if page_index == len(
+                pdf.pages
+            ) - 1 and UtilsLattice.single_cell_on_last_page(page):
+                page.flush_cache()
+                pdf.flush_cache()
+                raise CustomError.SingleCellOnLastPageError(pdf_path)
+
+            explicit_lines = PageExplicitHLines(page).generate_explicit_hlines()
+            explicit_lines.extend([page.bbox[1], page.bbox[3]])
+
+            tables = page.find_tables(
+                table_settings={
+                    &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                    &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                }
+            )
+
+            if tables:
+                for table in tables:
+                    _, y1, _, y2 = table.bbox
+                    explicit_lines = [
+                        value for value in explicit_lines if not y1 &lt;= value &lt;= y2
+                    ]
+
+            explicit_vlines = UtilsLattice.detect_vlines_for_table_crossing_page(tables, page.bbox)
+
+            table_settings = {
+                &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                &#34;explicit_horizontal_lines&#34;: explicit_lines,
+                &#34;explicit_vertical_lines&#34;: explicit_vlines,
+            }
+
+            tables = page.find_tables(table_settings)
+
+            if UtilsLattice.page_has_table_as_image(
+                tables, extractor.get_words()
+            ):
+                page.flush_cache()
+                pdf.flush_cache()
+                raise CustomError.TableAsImageError(pdf_path)
+
+            tables = UtilsLattice.find_tables_using_sections(
+                tables, table_settings, page
+            )
+            if not tables:
+                page.flush_cache()
+                continue
+
+            extracted_tables = extractor.extract_text_from_tables(tables, pdf_path)
+            tables, extracted_tables = UtilsLattice.find_unique_tables(tables, extracted_tables)
+
+            page_data_frames = []
+            valid_table_count = 0
+            total_date_matches = 0
+
+            for table_index, table in enumerate(tables):
+                extracted_table = extracted_tables[table_index]
+
+                if not (
+                    extracted_table
+                    and len(extracted_table) &gt;= 1
+                    and len(extracted_table[0]) &gt;= 4
+                ):
+                    continue
+
+                df = pd.DataFrame(extracted_table)
+
+                if UtilsLattice.is_valid_table(df):
+                    valid_table_count += 1
+
+                date_mask = df.apply(
+                    lambda row: any(UtilFunctions.has_date(cell) for cell in row),
+                    axis=1,
+                )
+                total_date_matches += date_mask.sum()
+
+                if not UtilsLattice.is_table_grid_valid(df, table, page.bbox):
+                    page.flush_cache()
+                    pdf.flush_cache()
+                    raise CustomError.InvalidGridError(pdf_path)
+
+                df[&#34;page_num&#34;] = page_index
+                df[&#34;table_seq&#34;] = table_index
+
+                df_array = UtilsLattice.divide_df(df)
+                page_data_frames.extend(df_array)
+
+            if total_date_matches == valid_table_count and valid_table_count &gt; 1:
+                page.flush_cache()
+                pdf.flush_cache()
+                raise CustomError.AlternateRowMissError(pdf_path)
+
+            if page_data_frames:
+                pdf_data_frames.extend(page_data_frames)
+
+            page.flush_cache()
+
+        pdf.flush_cache()
+
+    return pdf_data_frames, LatticeType.LATTICE</code></pre>
+</details>
+<div class="desc"><p>Extracts table data from each page of a PDF file and returns it as a list of DataFrames.</p>
+<p>This function processes each page of a PDF using <code>pdfplumber</code>. It identifies unique vertical
+and horizontal lines, extracts table data, and stores valid tables in DataFrames. These
+tables are then appended to a list for further processing. Tables that don’t meet
+minimum requirements are logged as invalid if <code>Constants.PRINT_LOG</code> is enabled.</p>
+<h2 id="parameters">Parameters:</h2>
+<p>pdf_path (str): The path to the PDF file to be processed.</p>
+<h2 id="returns">Returns:</h2>
+<p>list of pandas.DataFrame
+A list containing DataFrames for each valid table found in the PDF.</p></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></b></code>:
+<ul class="hlist">
+<li><code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf">process_pdf</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice"><code class="flex name class">
+<span>class <span class="ident">UtilsLattice</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UtilsLattice:
+    @staticmethod
+    def construct_vline(y0, y1, x):
+        &#34;&#34;&#34;
+        Constructs a vertical line object with the given coordinates and height.
+
+        Args:
+            y0 (float): The top Y-coordinate of the line.
+            y1 (float): The bottom Y-coordinate of the line.
+            x (float): The X-coordinate of the vertical line.
+
+        Returns:
+            dict: A dictionary representing the vertical line with its coordinates and height.
+        &#34;&#34;&#34;
+        line = {
+            &#34;x0&#34;: x,
+            &#34;top&#34;: y0,
+            &#34;x1&#34;: x,
+            &#34;bottom&#34;: y1,
+            &#34;object_type&#34;: &#34;line&#34;,
+            &#34;height&#34;: y1 - y0,
+        }
+
+        return line
+    
+    @staticmethod
+    def __generate_date_mask_for_ignore_list(df):
+        &#34;&#34;&#34;
+        Generates a mask to ignore rows that contain dates or certain keywords.
+
+        Args:
+            df (DataFrame): The dataframe to analyze.
+
+        Returns:
+            Series: A boolean mask indicating which rows should be ignored.
+        &#34;&#34;&#34;
+        date_mask = df.apply(
+            lambda row: (
+                any(UtilFunctions.has_date(cell) for cell in row)
+                and not any(
+                    &#34;generated&#34; in str(cell).lower()
+                    or &#34;date&#34; in str(cell).lower()
+                    or (
+                        &#34;statement&#34; in str(cell).lower() and &#34;from&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;closing&#34; in str(cell).lower()
+                        and &#34;balance&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;opening&#34; in str(cell).lower()
+                        and &#34;balance&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;brought&#34; in str(cell).lower()
+                        and &#34;forward&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;carried&#34; in str(cell).lower()
+                        and &#34;forward&#34; in str(cell).lower()
+                    )
+                    for cell in row
+                )
+            ),
+            axis=1,
+        )
+        return date_mask
+
+    @staticmethod
+    def __generate_ignore_list(df, table, page_bbox):
+        &#34;&#34;&#34;
+        Generates a list of bounding boxes to ignore based on date mask and table structure.
+
+        Args:
+            df (DataFrame): The dataframe to analyze.
+            table (Table): The table object containing rows and cells.
+            page_bbox (tuple): The bounding box of the page.
+
+        Returns:
+            tuple: A boolean indicating whether the table is junk, and a list of ignore bounding boxes.
+        &#34;&#34;&#34;
+        date_mask = UtilsLattice.__generate_date_mask_for_ignore_list(df)
+
+        ignore_list = []
+        is_table_junk = True
+        for i in range(len(table.rows)):
+            if i &gt;= df.shape[0]:
+                break
+
+            row_x0, row_y0, row_x1, row_y1 = table.rows[i].bbox
+
+            if row_y0 &gt;= page_bbox[3] or row_y1 &lt;= 0:
+                continue
+            if row_x0 &gt;= page_bbox[2] or row_x1 &lt;= 0:
+                continue
+
+            row_padding = 1
+            row_x0 = max(row_x0 - row_padding, 0)
+            row_y0 = max(row_y0 - row_padding, 0)
+            row_x1 = min(row_x1 + row_padding, page_bbox[2])
+            row_y1 = min(row_y1 + row_padding, page_bbox[3])
+            row_bbox = (row_x0, row_y0, row_x1, row_y1)
+
+            if not date_mask[i]:
+                ignore_list.append(row_bbox)
+            else:
+                is_table_junk = False
+
+        return is_table_junk, ignore_list
+
+    @staticmethod
+    def __lies_inside(cell, bbox):
+        &#34;&#34;&#34;
+        Checks if the boundaries of the cell lie completely inside or on the bbox.
+
+        Args:
+            cell (dict): The cell bounding box coordinates.
+            bbox (tuple): The bounding box to check against.
+
+        Returns:
+            bool: True if the cell is inside the bounding box, False otherwise.
+        &#34;&#34;&#34;
+        return (
+            cell[&#34;x0&#34;] &gt;= bbox[0]
+            and cell[&#34;y0&#34;] &gt;= bbox[1]
+            and cell[&#34;x1&#34;] &lt;= bbox[2]
+            and cell[&#34;y1&#34;] &lt;= bbox[3]
+        )
+
+    @staticmethod
+    def __modify_cells_to_rects(cells):
+        &#34;&#34;&#34;
+        Converts a list of cell coordinates into rectangle objects.
+
+        Args:
+            cells (list): A list of cell coordinates in the format [x0, y0, x1, y1].
+
+        Returns:
+            list: A list of unique rectangles represented as dictionaries.
+        &#34;&#34;&#34;
+        rects = [
+            {&#34;x0&#34;: cell[0], &#34;y0&#34;: cell[1], &#34;x1&#34;: cell[2], &#34;y1&#34;: cell[3]}
+            for cell in cells
+        ]
+        return list({tuple(sorted(d.items())): d for d in rects}.values())
+
+    @staticmethod
+    def __find_rect_in_ignore_list(rect, ignore_list, page_bbox):
+        &#34;&#34;&#34;
+        Checks if a rectangle is within any of the ignore list bounding boxes.
+
+        Args:
+            rect (dict): The rectangle coordinates to check.
+            ignore_list (list): The list of bounding boxes to ignore.
+            page_bbox (tuple): The bounding box of the page.
+
+        Returns:
+            bool: True if the rectangle is found in the ignore list, False otherwise.
+        &#34;&#34;&#34;
+        for bbox in ignore_list:
+            rect[&#34;x0&#34;] = max(0, rect[&#34;x0&#34;])
+            rect[&#34;x1&#34;] = min(page_bbox[2], rect[&#34;x1&#34;])
+            rect[&#34;y0&#34;] = max(0, rect[&#34;y0&#34;])
+            rect[&#34;y1&#34;] = min(page_bbox[3], rect[&#34;y1&#34;])
+            if UtilsLattice.__lies_inside(rect, bbox):
+                return True
+        return False
+
+    @staticmethod
+    def __rect_out_of_page_bbox(rect, bbox):
+        &#34;&#34;&#34;
+        Checks if a rectangle lies outside the page bounding box.
+
+        Args:
+            rect (dict): The rectangle to check.
+            bbox (tuple): The page bounding box.
+
+        Returns:
+            bool: True if the rectangle is outside the page bounding box, False otherwise.
+        &#34;&#34;&#34;
+        return (
+            rect[&#34;x1&#34;] &lt; 0
+            or rect[&#34;x0&#34;] &gt; bbox[2]
+            or rect[&#34;y1&#34;] &lt; 0
+            or rect[&#34;y0&#34;] &gt; bbox[3]
+        )
+
+    @staticmethod
+    def __check_valid_grid(
+        item_list, ignore_list, page_bbox, min_allowed_cols=1, min_allowed_rows=1
+    ):
+        &#34;&#34;&#34;
+        Validates the grid structure based on cell positions and grid dimensions.
+
+        Args:
+            item_list (list): The list of items (cells) to check.
+            ignore_list (list): The list of bounding boxes to ignore.
+            page_bbox (tuple): The bounding box of the page.
+            min_allowed_cols (int): The minimum number of columns required in the grid.
+            min_allowed_rows (int): The minimum number of rows required in the grid.
+
+        Returns:
+            bool: True if the grid is valid, False otherwise.
+        &#34;&#34;&#34;
+        rects = UtilsLattice.__modify_cells_to_rects(item_list)
+
+        rows_c1 = defaultdict(int)
+        cols_c1 = defaultdict(int)
+        rows_c2 = defaultdict(int)
+        cols_c2 = defaultdict(int)
+
+        for rect in rects:
+            if UtilsLattice.__rect_out_of_page_bbox(rect, page_bbox):
+                continue
+
+            found = UtilsLattice.__find_rect_in_ignore_list(
+                rect, ignore_list, page_bbox
+            )
+
+            if not found:
+                rows_c1[rect[&#34;y0&#34;]] += 1
+                cols_c1[rect[&#34;x0&#34;]] += 1
+                rows_c2[rect[&#34;y1&#34;]] += 1
+                cols_c2[rect[&#34;x1&#34;]] += 1
+
+        if (
+            len(set(rows_c1.values())) == 1
+            and len(set(cols_c1.values())) == 1
+            and len(set(rows_c2.values())) == 1
+            and len(set(rows_c2.values())) == 1
+        ):
+            if len(cols_c1) &gt;= min_allowed_cols and len(rows_c1) &gt;= min_allowed_rows:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    @staticmethod
+    def is_table_grid_valid(df, table, page_bbox):
+        &#34;&#34;&#34;
+        Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.
+
+        Args:
+            df (DataFrame): The dataframe to check.
+            table (Table): The table object containing rows and cells.
+            page_bbox (tuple): The bounding box of the page.
+
+        Returns:
+            bool: True if the grid is valid, False otherwise.
+        &#34;&#34;&#34;
+        is_table_junk, ignore_list = UtilsLattice.__generate_ignore_list(
+            df, table, page_bbox
+        )
+
+        is_grid_valid = False
+        if not is_table_junk:
+            if len(table.rows) &gt; 10 and len(ignore_list) / len(table.rows) &gt; 0.6:
+                is_grid_valid = False
+            else:
+                is_grid_valid = UtilsLattice.__check_valid_grid(
+                    table.cells,
+                    ignore_list,
+                    page_bbox,
+                    min_allowed_cols=4,
+                    min_allowed_rows=1,
+                )
+        else:
+            is_grid_valid = True
+
+        return is_grid_valid
+
+    @staticmethod
+    def divide_df(df):
+        &#34;&#34;&#34;
+        Divides the dataframe into multiple dataframes. Each new dataframe starts
+        from the row just below the one that contains the string &#34;closing balance&#34;
+        or just above the row containing the string &#34;date&#34; (considered as a header).
+
+        Parameters:
+            df (pd.DataFrame): The dataframe to be divided.
+
+        Returns:
+            list: A list of dataframes created from the divisions.
+        &#34;&#34;&#34;
+        closing_balance_indices = df[
+            df.apply(
+                lambda row: row.astype(str)
+                .str.contains(&#34;closing balance&#34;, case=False, na=False)
+                .any()
+                and not row.astype(str)
+                .str.contains(&#34;date&#34;, case=False, na=False)
+                .any(),
+                axis=1,
+            )
+        ].index.tolist()
+
+        date_header_indices = df[
+            df.apply(
+                lambda row: row.astype(str)
+                .str.contains(&#34;date&#34;, case=False, na=False)
+                .any()
+                and (
+                    row.astype(str)
+                    .str.contains(&#34;description&#34;, case=False, na=False)
+                    .any()
+                    or row.astype(str)
+                    .str.contains(&#34;narration&#34;, case=False, na=False)
+                    .any()
+                    or row.astype(str).str.contains(&#34;debit&#34;, case=False, na=False).any()
+                    or row.astype(str)
+                    .str.contains(&#34;credit&#34;, case=False, na=False)
+                    .any()
+                    or row.astype(str)
+                    .str.contains(&#34;balance&#34;, case=False, na=False)
+                    .any()
+                ),
+                axis=1,
+            )
+        ].index.tolist()
+
+        if not closing_balance_indices and not date_header_indices:
+            return [df]
+
+        break_indices = []
+        for index in closing_balance_indices:
+            break_indices.append(index + 1)
+        for index in date_header_indices:
+            if index != 0:
+                break_indices.append(index)
+        break_indices = sorted(break_indices)
+
+        result_dfs = []
+        start_idx = 0
+
+        for index in break_indices:
+            result_dfs.append(df.iloc[start_idx:index])
+            start_idx = index
+
+        if start_idx &lt; len(df):
+            result_dfs.append(df.iloc[start_idx:])
+
+        return result_dfs
+
+    @staticmethod
+    def is_valid_table(df):
+        &#34;&#34;&#34;
+        Validates if the DataFrame qualifies as a valid table based on the presence
+        of at least one date in any row.
+
+        Args:
+            df (pd.DataFrame): The DataFrame to validate.
+
+        Returns:
+            bool: True if the DataFrame contains at least one row with a date, False otherwise.
+        &#34;&#34;&#34;
+        for _, row in df.iterrows():
+            if any(UtilFunctions.has_date(cell) for cell in row):
+                return True
+        return False
+
+    @staticmethod
+    def single_cell_on_last_page(page):
+        &#34;&#34;&#34;
+        Checks if the given page contains exactly one cell in the specified area with specific properties.
+
+        This method verifies that the page has a single rectangle, and if so, checks that the rectangle:
+        - Lies within the bounds of the page.
+        - Has a specific non-stroking color.
+        - Contains non-empty text within its bounds.
+
+        Args:
+            page (object): The page object containing the page&#39;s data, such as rectangles and bounding boxes.
+
+        Returns:
+            bool: True if the page contains exactly one non-empty cell that matches the specified conditions, False otherwise.
+        &#34;&#34;&#34;
+        if len(page.rects) == 1:
+            for rect in page.rects:
+                if (
+                    rect[&#34;top&#34;] &lt;= page.bbox[1]
+                    and rect[&#34;x0&#34;] &gt;= page.bbox[0]
+                    and rect[&#34;x1&#34;] &lt;= page.bbox[2]
+                    and rect[&#34;non_stroking_color&#34;] == (0.59608, 0.68627, 0.78039)
+                    and page.within_bbox(
+                        (rect[&#34;x0&#34;], rect[&#34;top&#34;], rect[&#34;x1&#34;], rect[&#34;bottom&#34;])
+                    )
+                    .extract_text()
+                    .strip()
+                    != &#34;&#34;
+                ):
+                    return True
+        return False
+
+    @staticmethod
+    def __find_section_bboxes(tables, page_bbox):
+        &#34;&#34;&#34;
+        Finds and returns the bounding boxes of sections within the given page, based on the provided tables&#39; bounding boxes.
+
+        This method calculates the bounding boxes of each section in the page by considering the bounding boxes of the tables
+        and applying a tolerance value to expand or contract the boundaries.
+
+        Args:
+            tables (list): A list of table objects from which the bounding boxes are extracted.
+            page_bbox (tuple): The bounding box of the entire page (x0, y0, x1, y1).
+
+        Returns:
+            list: A list of section bounding boxes, each represented as a tuple (x0, y0, x1, y1).
+        &#34;&#34;&#34;
+        page_section_bboxes = []
+        tolerance = 5
+        for table in tables:
+            x0 = page_bbox[0]
+            x1 = page_bbox[2]
+
+            if table.bbox[1] &gt;= page_bbox[1]:
+                y0 = max(page_bbox[1], table.bbox[1] - tolerance)
+            else:
+                y0 = page_bbox[1]
+
+            if table.bbox[3] &lt;= page_bbox[3]:
+                y1 = min(page_bbox[3], table.bbox[3] + tolerance)
+            else:
+                y1 = page_bbox[3]
+
+            page_section_bboxes.append((x0, y0, x1, y1))
+
+        return page_section_bboxes
+
+    @staticmethod
+    def find_tables_using_sections(tables, table_settings, page):
+        &#34;&#34;&#34;
+        Finds tables within specified sections of a page using their bounding boxes.
+
+        This method crops the page into sections based on the bounding boxes of the tables and attempts to find tables in each section.
+        The method uses the given table settings for detecting tables in each section.
+
+        Args:
+            tables (list): A list of table objects whose bounding boxes will be used to define the sections.
+            table_settings (dict): A dictionary containing the settings for detecting tables (e.g., horizontal and vertical strategies).
+            page (object): The page object to be cropped and processed for table extraction.
+
+        Returns:
+            list: A list of tables found within the sections of the page.
+        &#34;&#34;&#34;
+        page_section_bboxes = UtilsLattice.__find_section_bboxes(tables, page.bbox)
+
+        tables = []
+        for section_bbox in page_section_bboxes:
+            section = page.crop(section_bbox)
+
+            section_table = section.find_table(table_settings)
+            if section_table:
+                tables.append(section_table)
+
+            section.flush_cache()
+
+        return tables
+
+    @staticmethod
+    def page_has_table_as_image(tables, words):
+        &#34;&#34;&#34;
+        Determines if the page contains a table represented as an image based on the presence of date-like text.
+
+        This method checks if the page has no extracted tables and then looks for clusters of words that contain date-like text.
+        If there are multiple date-like entries, it assumes the presence of a table as an image.
+
+        Args:
+            extracted_tables (list): A list of tables extracted from the page. If empty, the function searches for date-like words.
+            words (list): A list of word objects from the page.
+
+        Returns:
+            bool: True if a table is detected as an image based on the presence of multiple date-like words, False otherwise.
+        &#34;&#34;&#34;
+        if not tables:
+            dates = defaultdict(list)
+            for word in words:
+                if UtilFunctions.has_date(word[&#34;text&#34;]):
+                    dates[word[&#34;x0&#34;]].append(word)
+
+            for _, value in dates.items():
+                if len(value) &gt; 5:
+                    return True
+
+        return False
+    
+    @staticmethod
+    def detect_vlines_for_table_crossing_page(tables, page_bbox):
+        &#34;&#34;&#34;
+        Detects vertical lines for tables that cross the page boundary.
+
+        Args:
+            tables (list): A list of table objects, where each table has a `bbox` attribute 
+                        representing its bounding box as [x_min, y_min, x_max, y_max].
+            page_bbox (list): The bounding box of the page, represented as [x_min, y_min, x_max, y_max].
+
+        Returns:
+            list: A list of explicitly constructed vertical lines for tables that extend beyond the page&#39;s right boundary.
+        &#34;&#34;&#34;
+        explicit_vlines = []
+        for table in tables:
+            if table.bbox[2] &gt;= page_bbox[2]:
+                explicit_vlines.append(UtilsLattice.construct_vline(
+                    table.bbox[1],
+                    table.bbox[3],
+                    page_bbox[2]))
+        return explicit_vlines
+
+    @staticmethod
+    def find_unique_tables(tables, extracted_tables):
+        &#34;&#34;&#34;
+        Identifies unique tables from a list of extracted tables.
+
+        Args:
+            tables (list): A list of table objects corresponding to the extracted tables.
+            extracted_tables (list): A list of extracted table objects.
+
+        Returns:
+            tuple: A tuple containing:
+                - unique_tables (list): A list of unique table objects from the input `tables`.
+                - unique_extracted_tables (list): A list of unique table objects from `extracted_tables`.
+        &#34;&#34;&#34;
+        unique_tables = []
+        unique_extracted_tables = []
+        for table_index, table in enumerate(extracted_tables):
+            if table not in unique_extracted_tables:
+                unique_tables.append(tables[table_index])
+                unique_extracted_tables.append(table)
+
+        return unique_tables, unique_extracted_tables</code></pre>
+</details>
+<div class="desc"></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.construct_vline"><code class="name flex">
+<span>def <span class="ident">construct_vline</span></span>(<span>y0, y1, x)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def construct_vline(y0, y1, x):
+    &#34;&#34;&#34;
+    Constructs a vertical line object with the given coordinates and height.
+
+    Args:
+        y0 (float): The top Y-coordinate of the line.
+        y1 (float): The bottom Y-coordinate of the line.
+        x (float): The X-coordinate of the vertical line.
+
+    Returns:
+        dict: A dictionary representing the vertical line with its coordinates and height.
+    &#34;&#34;&#34;
+    line = {
+        &#34;x0&#34;: x,
+        &#34;top&#34;: y0,
+        &#34;x1&#34;: x,
+        &#34;bottom&#34;: y1,
+        &#34;object_type&#34;: &#34;line&#34;,
+        &#34;height&#34;: y1 - y0,
+    }
+
+    return line</code></pre>
+</details>
+<div class="desc"><p>Constructs a vertical line object with the given coordinates and height.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>y0</code></strong> :&ensp;<code>float</code></dt>
+<dd>The top Y-coordinate of the line.</dd>
+<dt><strong><code>y1</code></strong> :&ensp;<code>float</code></dt>
+<dd>The bottom Y-coordinate of the line.</dd>
+<dt><strong><code>x</code></strong> :&ensp;<code>float</code></dt>
+<dd>The X-coordinate of the vertical line.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary representing the vertical line with its coordinates and height.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.detect_vlines_for_table_crossing_page"><code class="name flex">
+<span>def <span class="ident">detect_vlines_for_table_crossing_page</span></span>(<span>tables, page_bbox)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def detect_vlines_for_table_crossing_page(tables, page_bbox):
+    &#34;&#34;&#34;
+    Detects vertical lines for tables that cross the page boundary.
+
+    Args:
+        tables (list): A list of table objects, where each table has a `bbox` attribute 
+                    representing its bounding box as [x_min, y_min, x_max, y_max].
+        page_bbox (list): The bounding box of the page, represented as [x_min, y_min, x_max, y_max].
+
+    Returns:
+        list: A list of explicitly constructed vertical lines for tables that extend beyond the page&#39;s right boundary.
+    &#34;&#34;&#34;
+    explicit_vlines = []
+    for table in tables:
+        if table.bbox[2] &gt;= page_bbox[2]:
+            explicit_vlines.append(UtilsLattice.construct_vline(
+                table.bbox[1],
+                table.bbox[3],
+                page_bbox[2]))
+    return explicit_vlines</code></pre>
+</details>
+<div class="desc"><p>Detects vertical lines for tables that cross the page boundary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>tables</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of table objects, where each table has a <code>bbox</code> attribute
+representing its bounding box as [x_min, y_min, x_max, y_max].</dd>
+<dt><strong><code>page_bbox</code></strong> :&ensp;<code>list</code></dt>
+<dd>The bounding box of the page, represented as [x_min, y_min, x_max, y_max].</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of explicitly constructed vertical lines for tables that extend beyond the page's right boundary.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.divide_df"><code class="name flex">
+<span>def <span class="ident">divide_df</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def divide_df(df):
+    &#34;&#34;&#34;
+    Divides the dataframe into multiple dataframes. Each new dataframe starts
+    from the row just below the one that contains the string &#34;closing balance&#34;
+    or just above the row containing the string &#34;date&#34; (considered as a header).
+
+    Parameters:
+        df (pd.DataFrame): The dataframe to be divided.
+
+    Returns:
+        list: A list of dataframes created from the divisions.
+    &#34;&#34;&#34;
+    closing_balance_indices = df[
+        df.apply(
+            lambda row: row.astype(str)
+            .str.contains(&#34;closing balance&#34;, case=False, na=False)
+            .any()
+            and not row.astype(str)
+            .str.contains(&#34;date&#34;, case=False, na=False)
+            .any(),
+            axis=1,
+        )
+    ].index.tolist()
+
+    date_header_indices = df[
+        df.apply(
+            lambda row: row.astype(str)
+            .str.contains(&#34;date&#34;, case=False, na=False)
+            .any()
+            and (
+                row.astype(str)
+                .str.contains(&#34;description&#34;, case=False, na=False)
+                .any()
+                or row.astype(str)
+                .str.contains(&#34;narration&#34;, case=False, na=False)
+                .any()
+                or row.astype(str).str.contains(&#34;debit&#34;, case=False, na=False).any()
+                or row.astype(str)
+                .str.contains(&#34;credit&#34;, case=False, na=False)
+                .any()
+                or row.astype(str)
+                .str.contains(&#34;balance&#34;, case=False, na=False)
+                .any()
+            ),
+            axis=1,
+        )
+    ].index.tolist()
+
+    if not closing_balance_indices and not date_header_indices:
+        return [df]
+
+    break_indices = []
+    for index in closing_balance_indices:
+        break_indices.append(index + 1)
+    for index in date_header_indices:
+        if index != 0:
+            break_indices.append(index)
+    break_indices = sorted(break_indices)
+
+    result_dfs = []
+    start_idx = 0
+
+    for index in break_indices:
+        result_dfs.append(df.iloc[start_idx:index])
+        start_idx = index
+
+    if start_idx &lt; len(df):
+        result_dfs.append(df.iloc[start_idx:])
+
+    return result_dfs</code></pre>
+</details>
+<div class="desc"><p>Divides the dataframe into multiple dataframes. Each new dataframe starts
+from the row just below the one that contains the string "closing balance"
+or just above the row containing the string "date" (considered as a header).</p>
+<h2 id="parameters">Parameters</h2>
+<p>df (pd.DataFrame): The dataframe to be divided.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of dataframes created from the divisions.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.find_tables_using_sections"><code class="name flex">
+<span>def <span class="ident">find_tables_using_sections</span></span>(<span>tables, table_settings, page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def find_tables_using_sections(tables, table_settings, page):
+    &#34;&#34;&#34;
+    Finds tables within specified sections of a page using their bounding boxes.
+
+    This method crops the page into sections based on the bounding boxes of the tables and attempts to find tables in each section.
+    The method uses the given table settings for detecting tables in each section.
+
+    Args:
+        tables (list): A list of table objects whose bounding boxes will be used to define the sections.
+        table_settings (dict): A dictionary containing the settings for detecting tables (e.g., horizontal and vertical strategies).
+        page (object): The page object to be cropped and processed for table extraction.
+
+    Returns:
+        list: A list of tables found within the sections of the page.
+    &#34;&#34;&#34;
+    page_section_bboxes = UtilsLattice.__find_section_bboxes(tables, page.bbox)
+
+    tables = []
+    for section_bbox in page_section_bboxes:
+        section = page.crop(section_bbox)
+
+        section_table = section.find_table(table_settings)
+        if section_table:
+            tables.append(section_table)
+
+        section.flush_cache()
+
+    return tables</code></pre>
+</details>
+<div class="desc"><p>Finds tables within specified sections of a page using their bounding boxes.</p>
+<p>This method crops the page into sections based on the bounding boxes of the tables and attempts to find tables in each section.
+The method uses the given table settings for detecting tables in each section.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>tables</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of table objects whose bounding boxes will be used to define the sections.</dd>
+<dt><strong><code>table_settings</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary containing the settings for detecting tables (e.g., horizontal and vertical strategies).</dd>
+<dt><strong><code>page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object to be cropped and processed for table extraction.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of tables found within the sections of the page.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.find_unique_tables"><code class="name flex">
+<span>def <span class="ident">find_unique_tables</span></span>(<span>tables, extracted_tables)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def find_unique_tables(tables, extracted_tables):
+    &#34;&#34;&#34;
+    Identifies unique tables from a list of extracted tables.
+
+    Args:
+        tables (list): A list of table objects corresponding to the extracted tables.
+        extracted_tables (list): A list of extracted table objects.
+
+    Returns:
+        tuple: A tuple containing:
+            - unique_tables (list): A list of unique table objects from the input `tables`.
+            - unique_extracted_tables (list): A list of unique table objects from `extracted_tables`.
+    &#34;&#34;&#34;
+    unique_tables = []
+    unique_extracted_tables = []
+    for table_index, table in enumerate(extracted_tables):
+        if table not in unique_extracted_tables:
+            unique_tables.append(tables[table_index])
+            unique_extracted_tables.append(table)
+
+    return unique_tables, unique_extracted_tables</code></pre>
+</details>
+<div class="desc"><p>Identifies unique tables from a list of extracted tables.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>tables</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of table objects corresponding to the extracted tables.</dd>
+<dt><strong><code>extracted_tables</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of extracted table objects.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing:
+- unique_tables (list): A list of unique table objects from the input <code>tables</code>.
+- unique_extracted_tables (list): A list of unique table objects from <code>extracted_tables</code>.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.is_table_grid_valid"><code class="name flex">
+<span>def <span class="ident">is_table_grid_valid</span></span>(<span>df, table, page_bbox)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_table_grid_valid(df, table, page_bbox):
+    &#34;&#34;&#34;
+    Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.
+
+    Args:
+        df (DataFrame): The dataframe to check.
+        table (Table): The table object containing rows and cells.
+        page_bbox (tuple): The bounding box of the page.
+
+    Returns:
+        bool: True if the grid is valid, False otherwise.
+    &#34;&#34;&#34;
+    is_table_junk, ignore_list = UtilsLattice.__generate_ignore_list(
+        df, table, page_bbox
+    )
+
+    is_grid_valid = False
+    if not is_table_junk:
+        if len(table.rows) &gt; 10 and len(ignore_list) / len(table.rows) &gt; 0.6:
+            is_grid_valid = False
+        else:
+            is_grid_valid = UtilsLattice.__check_valid_grid(
+                table.cells,
+                ignore_list,
+                page_bbox,
+                min_allowed_cols=4,
+                min_allowed_rows=1,
+            )
+    else:
+        is_grid_valid = True
+
+    return is_grid_valid</code></pre>
+</details>
+<div class="desc"><p>Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>The dataframe to check.</dd>
+<dt><strong><code>table</code></strong> :&ensp;<code>Table</code></dt>
+<dd>The table object containing rows and cells.</dd>
+<dt><strong><code>page_bbox</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The bounding box of the page.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the grid is valid, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.is_valid_table"><code class="name flex">
+<span>def <span class="ident">is_valid_table</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_valid_table(df):
+    &#34;&#34;&#34;
+    Validates if the DataFrame qualifies as a valid table based on the presence
+    of at least one date in any row.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to validate.
+
+    Returns:
+        bool: True if the DataFrame contains at least one row with a date, False otherwise.
+    &#34;&#34;&#34;
+    for _, row in df.iterrows():
+        if any(UtilFunctions.has_date(cell) for cell in row):
+            return True
+    return False</code></pre>
+</details>
+<div class="desc"><p>Validates if the DataFrame qualifies as a valid table based on the presence
+of at least one date in any row.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>The DataFrame to validate.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the DataFrame contains at least one row with a date, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.page_has_table_as_image"><code class="name flex">
+<span>def <span class="ident">page_has_table_as_image</span></span>(<span>tables, words)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def page_has_table_as_image(tables, words):
+    &#34;&#34;&#34;
+    Determines if the page contains a table represented as an image based on the presence of date-like text.
+
+    This method checks if the page has no extracted tables and then looks for clusters of words that contain date-like text.
+    If there are multiple date-like entries, it assumes the presence of a table as an image.
+
+    Args:
+        extracted_tables (list): A list of tables extracted from the page. If empty, the function searches for date-like words.
+        words (list): A list of word objects from the page.
+
+    Returns:
+        bool: True if a table is detected as an image based on the presence of multiple date-like words, False otherwise.
+    &#34;&#34;&#34;
+    if not tables:
+        dates = defaultdict(list)
+        for word in words:
+            if UtilFunctions.has_date(word[&#34;text&#34;]):
+                dates[word[&#34;x0&#34;]].append(word)
+
+        for _, value in dates.items():
+            if len(value) &gt; 5:
+                return True
+
+    return False</code></pre>
+</details>
+<div class="desc"><p>Determines if the page contains a table represented as an image based on the presence of date-like text.</p>
+<p>This method checks if the page has no extracted tables and then looks for clusters of words that contain date-like text.
+If there are multiple date-like entries, it assumes the presence of a table as an image.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>extracted_tables</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of tables extracted from the page. If empty, the function searches for date-like words.</dd>
+<dt><strong><code>words</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of word objects from the page.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if a table is detected as an image based on the presence of multiple date-like words, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_lattice.UtilsLattice.single_cell_on_last_page"><code class="name flex">
+<span>def <span class="ident">single_cell_on_last_page</span></span>(<span>page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def single_cell_on_last_page(page):
+    &#34;&#34;&#34;
+    Checks if the given page contains exactly one cell in the specified area with specific properties.
+
+    This method verifies that the page has a single rectangle, and if so, checks that the rectangle:
+    - Lies within the bounds of the page.
+    - Has a specific non-stroking color.
+    - Contains non-empty text within its bounds.
+
+    Args:
+        page (object): The page object containing the page&#39;s data, such as rectangles and bounding boxes.
+
+    Returns:
+        bool: True if the page contains exactly one non-empty cell that matches the specified conditions, False otherwise.
+    &#34;&#34;&#34;
+    if len(page.rects) == 1:
+        for rect in page.rects:
+            if (
+                rect[&#34;top&#34;] &lt;= page.bbox[1]
+                and rect[&#34;x0&#34;] &gt;= page.bbox[0]
+                and rect[&#34;x1&#34;] &lt;= page.bbox[2]
+                and rect[&#34;non_stroking_color&#34;] == (0.59608, 0.68627, 0.78039)
+                and page.within_bbox(
+                    (rect[&#34;x0&#34;], rect[&#34;top&#34;], rect[&#34;x1&#34;], rect[&#34;bottom&#34;])
+                )
+                .extract_text()
+                .strip()
+                != &#34;&#34;
+            ):
+                return True
+    return False</code></pre>
+</details>
+<div class="desc"><p>Checks if the given page contains exactly one cell in the specified area with specific properties.</p>
+<p>This method verifies that the page has a single rectangle, and if so, checks that the rectangle:
+- Lies within the bounds of the page.
+- Has a specific non-stroking color.
+- Contains non-empty text within its bounds.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing the page's data, such as rectangles and bounding boxes.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the page contains exactly one non-empty cell that matches the specified conditions, False otherwise.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.processing" href="index.html">PDF_Extraction.processing</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_lattice.PageExplicitHLines" href="#PDF_Extraction.processing.processing_lattice.PageExplicitHLines">PageExplicitHLines</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_lattice.PageExplicitHLines.generate_explicit_hlines" href="#PDF_Extraction.processing.processing_lattice.PageExplicitHLines.generate_explicit_hlines">generate_explicit_hlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_lattice.ProcessLatticeData" href="#PDF_Extraction.processing.processing_lattice.ProcessLatticeData">ProcessLatticeData</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_lattice.ProcessLatticeData.extract_pdf" href="#PDF_Extraction.processing.processing_lattice.ProcessLatticeData.extract_pdf">extract_pdf</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice">UtilsLattice</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.construct_vline" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.construct_vline">construct_vline</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.detect_vlines_for_table_crossing_page" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.detect_vlines_for_table_crossing_page">detect_vlines_for_table_crossing_page</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.divide_df" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.divide_df">divide_df</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.find_tables_using_sections" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.find_tables_using_sections">find_tables_using_sections</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.find_unique_tables" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.find_unique_tables">find_unique_tables</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.is_table_grid_valid" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.is_table_grid_valid">is_table_grid_valid</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.is_valid_table" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.is_valid_table">is_valid_table</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.page_has_table_as_image" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.page_has_table_as_image">page_has_table_as_image</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_lattice.UtilsLattice.single_cell_on_last_page" href="#PDF_Extraction.processing.processing_lattice.UtilsLattice.single_cell_on_last_page">single_cell_on_last_page</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

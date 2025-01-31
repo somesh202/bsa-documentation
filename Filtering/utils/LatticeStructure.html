@@ -1,0 +1,2667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>Filtering.utils.LatticeStructure API documentation</title>
+<meta name="description" content="This module provides utilities for analyzing and categorizing the structure of tables in PDF documents.
+It includes classes and methods for detecting …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Filtering.utils.LatticeStructure</code></h1>
+</header>
+<section id="section-intro">
+<p>This module provides utilities for analyzing and categorizing the structure of tables in PDF documents.
+It includes classes and methods for detecting table structures, validating table grids, and determining
+the type of lattice structure present in a PDF.</p>
+<h2 id="classes">Classes</h2>
+<p>LatticeType: Enum representing different types of lattice structures.
+CellType: Enum representing different types of cell structures.
+LatticeStructure: Main class for analyzing and categorizing table structures in PDFs.</p>
+<h2 id="functions">Functions</h2>
+<p>__random_color: Generates a random color tuple.
+check_valid_table: Checks if a DataFrame contains a valid date header and valid dates.
+__lies_inside: Checks if the boundaries of a cell lie completely inside or on the bounding box.
+check_valid_grid: Validates the grid structure of a table based on specified criteria.
+__construct_hline: Constructs a horizontal line dictionary.
+check_pdf: Analyzes a PDF to determine the type of lattice structure present.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Filtering.utils.LatticeStructure.CellType"><code class="flex name class">
+<span>class <span class="ident">CellType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CellType(Enum):
+    &#34;&#34;&#34;
+    This enumeration represents different types of cell structures in PDFs.
+    &#34;&#34;&#34;
+
+    RECTS = 0
+    CELLS = 1</code></pre>
+</details>
+<div class="desc"><p>This enumeration represents different types of cell structures in PDFs.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="Filtering.utils.LatticeStructure.CellType.CELLS"><code class="name">var <span class="ident">CELLS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.CellType.RECTS"><code class="name">var <span class="ident">RECTS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeStructure"><code class="flex name class">
+<span>class <span class="ident">LatticeStructure</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LatticeStructure:
+    &#34;&#34;&#34;
+    This class provides methods for analyzing and categorizing the structure of tables in PDF documents.
+    It includes functions for detecting table structures, validating table grids, and determining the type of
+    lattice structure present in a PDF.
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        self.__latticeType__ = LatticeType.UNDEFINED
+
+    @staticmethod
+    def __random_color():
+        &#34;&#34;&#34;
+        Generates a random color tuple.
+        &#34;&#34;&#34;
+        return tuple(random.randint(0, 255) for _ in range(3))
+
+    def check_valid_table(self, df):
+        &#34;&#34;&#34;Check if the DataFrame contains a valid date header and valid dates.&#34;&#34;&#34;
+        first_date_row = 0
+        date_count = 0
+
+        date_row_index = df.apply(
+            lambda row: row.astype(str).str.contains(&#34;date&#34;, case=False).any()
+            or row.astype(str).str.contains(&#34;dt&#34;, case=False).any(),
+            axis=1,
+        )
+
+        if not date_row_index.any():
+            return False, first_date_row, date_count
+
+        date_row_indexes = [index for index, val in enumerate(date_row_index) if val]
+
+        for row_index in date_row_indexes:
+            date_col_index = df.iloc[row_index].apply(
+                lambda cell: &#34;date&#34; in str(cell).lower() or &#34;dt&#34; in str(cell).lower()
+            )
+            date_col_indexes = [
+                index for index, val in enumerate(date_col_index) if val
+            ]
+
+            for col in date_col_indexes:
+                next_row_index = row_index + 1
+
+                while next_row_index &lt; len(df) and (
+                    pd.isna(df.iat[next_row_index, col])
+                    or df.iat[next_row_index, col] == &#34;&#34;
+                ):
+                    next_row_index += 1
+
+                if next_row_index &lt; len(df):
+                    cell_below = df.iat[next_row_index, col]
+
+                    cell_has_date, count = UtilFunctions.has_date(
+                        cell_below, MatchType.SEARCH, count=True
+                    )
+
+                    if cell_has_date:
+                        return True, row_index, count
+
+        return False, first_date_row, date_count
+
+    def __lies_inside(self, cell, bbox):
+        &#34;&#34;&#34;Checks if the boundaries of the cell lies completely inside or on the bbox&#34;&#34;&#34;
+        if (
+            cell[&#34;x0&#34;] &gt;= bbox[0]
+            and cell[&#34;y0&#34;] &gt;= bbox[1]
+            and cell[&#34;x1&#34;] &lt;= bbox[2]
+            and cell[&#34;y1&#34;] &lt;= bbox[3]
+        ):
+            return True
+        else:
+            return False
+
+    def check_valid_grid(
+        self,
+        item_list,
+        ignore_list,
+        page_bbox,
+        basedOn=CellType.CELLS,
+        min_allowed_cols=1,
+        min_allowed_rows=1,
+    ):
+        &#34;&#34;&#34;
+        Validates the grid structure of a table based on specified criteria.
+        &#34;&#34;&#34;
+        rects = []
+        if basedOn == CellType.RECTS:
+            min_size = 10
+            rects = [
+                rect
+                for rect in item_list
+                if rect[&#34;width&#34;] &gt;= min_size and rect[&#34;height&#34;] &gt;= min_size
+            ]
+            rects = [
+                {key: d[key] for key in [&#34;x0&#34;, &#34;y0&#34;, &#34;x1&#34;, &#34;y1&#34;] if key in d}
+                for d in rects
+            ]
+        elif basedOn == CellType.CELLS:
+            rects = [
+                {&#34;x0&#34;: cell[0], &#34;y0&#34;: cell[1], &#34;x1&#34;: cell[2], &#34;y1&#34;: cell[3]}
+                for cell in item_list
+            ]
+        else:
+            return False
+
+        unique_rects = []
+        for rect in rects:
+            if rect not in unique_rects:
+                unique_rects.append(rect)
+
+        rows = defaultdict(int)
+        cols = defaultdict(int)
+
+        for rect in unique_rects:
+            if rect[&#34;x0&#34;] &gt; page_bbox[2] or rect[&#34;x1&#34;] &lt; 0:
+                continue
+            if rect[&#34;y0&#34;] &gt; page_bbox[3] or rect[&#34;y1&#34;] &lt; 0:
+                continue
+
+            found = False
+            for bbox in ignore_list:
+                rect[&#34;x0&#34;] = max(0, rect[&#34;x0&#34;])
+                rect[&#34;x1&#34;] = min(page_bbox[2], rect[&#34;x1&#34;])
+                rect[&#34;y0&#34;] = max(0, rect[&#34;y0&#34;])
+                rect[&#34;y1&#34;] = min(page_bbox[3], rect[&#34;y1&#34;])
+                if self.__lies_inside(rect, bbox):
+                    found = True
+                    break
+
+            if not found:
+                rows[rect[&#34;y0&#34;]] += 1
+                cols[rect[&#34;x0&#34;]] += 1
+
+        if len(set(rows.values())) == 1 and len(set(cols.values())) == 1:
+            if len(cols) &gt;= min_allowed_cols and len(rows) &gt;= min_allowed_rows:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def __construct_hline(self, x0, x1, y):
+        &#34;&#34;&#34;
+        Constructs a horizontal line dictionary.
+        &#34;&#34;&#34;
+        line = {
+            &#34;x0&#34;: x0,
+            &#34;top&#34;: y,
+            &#34;x1&#34;: x1,
+            &#34;bottom&#34;: y,
+            &#34;object_type&#34;: &#34;line&#34;,
+            &#34;width&#34;: x1 - x0,
+        }
+
+        return line
+
+    def check_pdf(
+        self,
+        pdf_path,
+        check_only_first_page=False,
+        check_num_pages=4,
+        print_log=False,
+        debug_images=False,
+    ):
+        &#34;&#34;&#34;
+        Analyzes a PDF to determine the type of lattice structure present.
+        &#34;&#34;&#34;
+        self.__latticeType__ = LatticeType.UNDEFINED
+
+        try:
+            table_log = pd.DataFrame(
+                columns=[
+                    &#34;Page&#34;,
+                    &#34;Table&#34;,
+                    &#34;Valid Table&#34;,
+                    &#34;Valid Grid&#34;,
+                    &#34;Ignored Rows&#34;,
+                    &#34;Date Count&#34;,
+                    &#34;Remarks&#34;,
+                ]
+            )
+            first_valid_table_found = False
+            all_grid_valid = True
+            multi_date_found = False
+            multi_tables_found = False
+            table_exceeds_page = False
+
+            if print_log:
+                print(&#34;\nProcessing PDF:&#34;, pdf_path)
+
+            with pdfplumber.open(pdf_path) as pdf:
+                total_pages = len(pdf.pages)
+
+                if check_num_pages == -1:
+                    check_num_pages = total_pages
+
+                for page_num, page in enumerate(pdf.pages):
+                    if page_num &gt;= check_num_pages:
+                        break
+
+                    tables = []
+                    extracted_dfs = []
+                    ignore_list_tablewise = []
+                    is_table_junk = []
+
+                    explicit_lines = [page.bbox[1], page.bbox[3]]
+
+                    page_vlines = []
+                    for line in page.lines:
+                        if line not in page_vlines and line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+                            page_vlines.append(line)
+                            if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                                explicit_lines.append(line[&#34;pts&#34;][0][1])
+                            if line[&#34;pts&#34;][1][1] not in explicit_lines:
+                                explicit_lines.append(line[&#34;pts&#34;][1][1])
+
+                    page_rect_vlines = []
+                    for line in page.rect_edges:
+                        if (line not in page_rect_vlines) and (
+                            abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0])
+                            &lt; abs(line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1])
+                        ):
+                            page_rect_vlines.append(line)
+                            if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                                explicit_lines.append(line[&#34;pts&#34;][0][1])
+                            if line[&#34;pts&#34;][2][1] not in explicit_lines:
+                                explicit_lines.append(line[&#34;pts&#34;][2][1])
+
+                    tables_initial = page.find_tables(
+                        {&#34;horizontal_strategy&#34;: &#34;lines&#34;, &#34;vertical_strategy&#34;: &#34;lines&#34;}
+                    )
+
+                    if tables_initial:
+                        for table in tables_initial:
+                            x0, y0, x1, y1 = table.bbox
+
+                            if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                continue
+                            if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                continue
+
+                            tolerance = 1
+                            if (
+                                y0 &lt;= page.bbox[1] + tolerance
+                                and y1 &gt;= page.bbox[3] - tolerance
+                            ):
+                                table_exceeds_page = True
+                                break
+                            if (
+                                x0 &lt;= page.bbox[0] + tolerance
+                                and x1 &gt;= page.bbox[2] - tolerance
+                            ):
+                                table_exceeds_page = True
+                                break
+
+                            explicit_lines = [
+                                value
+                                for value in explicit_lines
+                                if not y0 &lt;= value &lt;= y1
+                            ]
+
+                    tables_mid = page.find_tables(
+                        {
+                            &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                            &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                            &#34;explicit_horizontal_lines&#34;: explicit_lines,
+                        }
+                    )
+
+                    explicit_lines_final = []
+                    if tables_mid:
+                        for table in tables_mid:
+                            x0, y0, x1, y1 = table.bbox
+
+                            if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                continue
+                            if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                continue
+
+                            tolerance = 1
+                            if (
+                                y0 &lt;= page.bbox[1] + tolerance
+                                and y1 &gt;= page.bbox[3] - tolerance
+                            ):
+                                table_exceeds_page = True
+                                break
+                            if (
+                                x0 &lt;= page.bbox[0] + tolerance
+                                and x1 &gt;= page.bbox[2] - tolerance
+                            ):
+                                table_exceeds_page = True
+                                break
+
+                            explicit_lines_final.append(
+                                self.__construct_hline(x0, x1, y0)
+                            )
+                            explicit_lines_final.append(
+                                self.__construct_hline(x0, x1, y1)
+                            )
+
+                    tables_final = page.find_tables(
+                        {
+                            &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                            &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                            &#34;explicit_horizontal_lines&#34;: explicit_lines_final,
+                        }
+                    )
+
+                    if tables_final:
+                        for table in tables_final:
+                            x0, y0, x1, y1 = table.bbox
+
+                            if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                continue
+                            if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                continue
+
+                            tolerance = 1
+                            if (
+                                y0 &lt;= page.bbox[1] + tolerance
+                                and y1 &gt;= page.bbox[3] - tolerance
+                            ):
+                                table_exceeds_page = True
+                                break
+                            if (
+                                x0 &lt;= page.bbox[0] + tolerance
+                                and x1 &gt;= page.bbox[2] - tolerance
+                            ):
+                                table_exceeds_page = True
+                                break
+
+                            tables.append(table)
+                            extracted_df = pd.DataFrame(table.extract())
+                            extracted_dfs.append(extracted_df)
+
+                            date_mask = extracted_df.apply(
+                                lambda row: any(
+                                    UtilFunctions.has_date(cell)
+                                    and not (
+                                        &#34;generated&#34; in cell_lower
+                                        or (
+                                            &#34;closing&#34; in cell_lower
+                                            and &#34;balance&#34; in cell_lower
+                                        )
+                                        or (
+                                            &#34;opening&#34; in cell_lower
+                                            and &#34;balance&#34; in cell_lower
+                                        )
+                                        or (
+                                            &#34;brought&#34; in cell_lower
+                                            and &#34;forward&#34; in cell_lower
+                                        )
+                                        or (
+                                            &#34;carried&#34; in cell_lower
+                                            and &#34;forward&#34; in cell_lower
+                                        )
+                                    )
+                                    for cell_lower, cell in (
+                                        (str(cell).lower(), cell) for cell in row
+                                    )
+                                ),
+                                axis=1,
+                            )
+
+                            temp = []
+                            found = False
+                            for i in range(len(table.rows)):
+                                if i &gt;= extracted_df.shape[0]:
+                                    break
+
+                                row_x0, row_y0, row_x1, row_y1 = table.rows[i].bbox
+
+                                if row_y0 &gt;= page.bbox[3] or row_y1 &lt;= 0:
+                                    continue
+                                if row_x0 &gt;= page.bbox[2] or row_x1 &lt;= 0:
+                                    continue
+
+                                row_padding = 1
+                                row_x0 = max(row_x0 - row_padding, 0)
+                                row_y0 = max(row_y0 - row_padding, 0)
+                                row_x1 = min(row_x1 + row_padding, page.bbox[2])
+                                row_y1 = min(row_y1 + row_padding, page.bbox[3])
+                                row_bbox = (row_x0, row_y0, row_x1, row_y1)
+
+                                if date_mask[i]:
+                                    found = True
+                                else:
+                                    temp.append(row_bbox)
+
+                            ignore_list_tablewise.append(temp)
+                            is_table_junk.append(not found)
+
+                        if tables:
+                            if debug_images:
+                                im = page.to_image(resolution=300)
+                                for index, table in enumerate(tables):
+                                    for cell in table.cells:
+                                        im.draw_rect(
+                                            cell,
+                                            stroke=LatticeStructure.__random_color(),
+                                            stroke_width=5,
+                                        )
+
+                                output_folder = os.path.splitext(pdf_path)[0]
+                                if not os.path.isdir(output_folder):
+                                    os.makedirs(output_folder)
+                                im.save(f&#34;{output_folder}/page_{page_num}.png&#34;)
+
+                            non_junk_tables = []
+                            non_junk_extracted_dfs = []
+                            non_junk_ignore_list_tablewise = []
+                            for index, table in enumerate(tables):
+                                if not is_table_junk[index]:
+                                    non_junk_tables.append(table)
+                                    non_junk_extracted_dfs.append(extracted_dfs[index])
+                                    non_junk_ignore_list_tablewise.append(
+                                        ignore_list_tablewise[index]
+                                    )
+
+                            if len(non_junk_tables) &gt;= 5:
+                                if print_log:
+                                    print(&#34;Error: Multiple tables found !!!&#34;)
+                                multi_tables_found = True
+                                page.flush_cache()
+                                break
+
+                            for index, table in enumerate(non_junk_tables):
+                                df = non_junk_extracted_dfs[index]
+                                df = df.apply(
+                                    lambda col: col.map(
+                                        lambda x: x.strip() if isinstance(x, str) else x
+                                    )
+                                )
+                                df = df.replace(&#34;&#34;, None)
+
+                                if not first_valid_table_found:
+                                    is_table_valid, first_row_index, date_count = (
+                                        self.check_valid_table(df)
+                                    )
+
+                                    if is_table_valid:
+                                        for i in range(0, first_row_index):
+                                            non_junk_ignore_list_tablewise[
+                                                index
+                                            ].append(table.rows[i].bbox)
+
+                                    is_grid_valid = self.check_valid_grid(
+                                        table.cells,
+                                        non_junk_ignore_list_tablewise[index],
+                                        page.bbox,
+                                        basedOn=CellType.CELLS,
+                                    )
+
+                                    if is_table_valid and is_grid_valid:
+                                        if date_count &gt; 2:
+                                            multi_date_found = True
+
+                                        df = df.iloc[first_row_index:].reset_index(
+                                            drop=True
+                                        )
+                                        df = df.dropna(axis=1, how=&#34;all&#34;)
+                                        headers = df.iloc[0].dropna().to_list()
+                                        if len(headers) &gt;= 4 and len(headers) == len(
+                                            df.columns
+                                        ):
+                                            first_valid_table_found = True
+                                        else:
+                                            is_table_valid = False
+
+                                    table_log.loc[len(table_log)] = [
+                                        page_num,
+                                        index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        len(non_junk_ignore_list_tablewise[index]),
+                                        date_count,
+                                        &#34;&#34;,
+                                    ]
+
+                                else:
+                                    if df.shape[1] &lt; 4:
+                                        continue
+
+                                    is_table_valid, first_row_index, date_count = (
+                                        self.check_valid_table(df)
+                                    )
+
+                                    if is_table_valid:
+                                        for i in range(0, first_row_index):
+                                            non_junk_ignore_list_tablewise[
+                                                index
+                                            ].append(table.rows[i].bbox)
+
+                                    is_grid_valid = self.check_valid_grid(
+                                        table.cells,
+                                        non_junk_ignore_list_tablewise[index],
+                                        page.bbox,
+                                        basedOn=CellType.CELLS,
+                                    )
+
+                                    if date_count &gt; 2:
+                                        multi_date_found = True
+
+                                    if not is_grid_valid:
+                                        table_log.loc[len(table_log)] = [
+                                            page_num,
+                                            index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            len(non_junk_ignore_list_tablewise[index]),
+                                            date_count,
+                                            &#34;Error: Invalid grid found !!!&#34;,
+                                        ]
+                                        all_grid_valid = False
+                                        break
+
+                                    table_log.loc[len(table_log)] = [
+                                        page_num,
+                                        index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        len(non_junk_ignore_list_tablewise[index]),
+                                        date_count,
+                                        &#34;&#34;,
+                                    ]
+
+                    page.flush_cache()
+
+                    if not all_grid_valid:
+                        break
+
+                    if table_exceeds_page or multi_tables_found:
+                        break
+
+                    if check_only_first_page:
+                        break
+
+                pdf.flush_cache()
+
+            if table_exceeds_page:
+                self.__latticeType__ = LatticeType.LATTICE_TOB
+            elif multi_tables_found:
+                self.__latticeType__ = LatticeType.UNSTRUCTURED
+            elif first_valid_table_found and all_grid_valid:
+                if not multi_date_found:
+                    self.__latticeType__ = LatticeType.LATTICE
+                else:
+                    self.__latticeType__ = LatticeType.NONLATTICE_HLM
+            else:
+                self.__latticeType__ = LatticeType.UNSTRUCTURED
+
+            if print_log:
+                print(&#34;&#34;)
+                print(tabulate(table_log, headers=&#34;keys&#34;, tablefmt=&#34;psql&#34;))
+
+                print(&#34;\nType of PDF: &#34;, end=&#34;&#34;)
+                if self.__latticeType__ == LatticeType.LATTICE:
+                    print(&#34;Lattice\n&#34;)
+                elif self.__latticeType__ == LatticeType.LATTICE_TOB:
+                    print(&#34;Lattice TOB\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_HLM:
+                    print(&#34;Non Lattice HLM\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_VLM:
+                    print(&#34;Non Lattice VLM\n&#34;)
+                elif self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                    print(&#34;Unstructured\n&#34;)
+                else:
+                    print(&#34;Undefined\n&#34;)
+
+            if self.__latticeType__ == LatticeType.LATTICE_TOB:
+                table_log = pd.DataFrame(
+                    columns=[
+                        &#34;Page&#34;,
+                        &#34;Table&#34;,
+                        &#34;Valid Table&#34;,
+                        &#34;Valid Grid&#34;,
+                        &#34;Ignored Rows&#34;,
+                        &#34;Date Count&#34;,
+                        &#34;Remarks&#34;,
+                    ]
+                )
+                first_valid_table_found = False
+                all_grid_valid = True
+                multi_date_found = False
+                multi_tables_found = False
+
+                with pdfplumber.open(pdf_path) as pdf:
+                    total_pages = len(pdf.pages)
+
+                    if check_num_pages == -1:
+                        check_num_pages = total_pages
+
+                    for page_num, page in enumerate(pdf.pages):
+                        if page_num &gt;= check_num_pages:
+                            break
+
+                        tables = []
+                        extracted_dfs = []
+                        ignore_list_tablewise = []
+                        is_table_junk = []
+
+                        page_lines = []
+                        for line in page.lines:
+                            if line not in page_lines:
+                                page_lines.append(line)
+
+                        hlines = [
+                            line for line in page_lines if line[&#34;y0&#34;] == line[&#34;y1&#34;]
+                        ]
+                        total_h_len = sum([line[&#34;width&#34;] for line in hlines])
+
+                        table_settings = {
+                            &#34;horizontal_strategy&#34;: (
+                                &#34;lines_strict&#34;
+                                if (
+                                    len(page_lines) &gt;= 8
+                                    and total_h_len &gt; page.width * 1.5
+                                )
+                                else &#34;lines&#34;
+                            ),
+                            &#34;vertical_strategy&#34;: (
+                                &#34;lines_strict&#34;
+                                if (
+                                    len(page_lines) &gt;= 8
+                                    and total_h_len &gt; page.width * 1.5
+                                )
+                                else &#34;lines&#34;
+                            ),
+                        }
+
+                        tables_initial = page.find_tables(table_settings)
+
+                        if tables_initial:
+                            for table in tables_initial:
+                                x0, y0, x1, y1 = table.bbox
+
+                                if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                    continue
+                                if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                    continue
+
+                                tables.append(table)
+                                extracted_df = pd.DataFrame(table.extract())
+                                extracted_dfs.append(extracted_df)
+
+                                date_mask = extracted_df.apply(
+                                    lambda row: any(
+                                        UtilFunctions.has_date(cell)
+                                        and not (
+                                            &#34;generated&#34; in cell_lower
+                                            or (
+                                                &#34;closing&#34; in cell_lower
+                                                and &#34;balance&#34; in cell_lower
+                                            )
+                                            or (
+                                                &#34;opening&#34; in cell_lower
+                                                and &#34;balance&#34; in cell_lower
+                                            )
+                                            or (
+                                                &#34;brought&#34; in cell_lower
+                                                and &#34;forward&#34; in cell_lower
+                                            )
+                                            or (
+                                                &#34;carried&#34; in cell_lower
+                                                and &#34;forward&#34; in cell_lower
+                                            )
+                                        )
+                                        for cell_lower, cell in (
+                                            (str(cell).lower(), cell) for cell in row
+                                        )
+                                    ),
+                                    axis=1,
+                                )
+
+                                temp = []
+                                found = False
+                                for i in range(len(table.rows)):
+                                    if i &gt;= extracted_df.shape[0]:
+                                        break
+
+                                    row_x0, row_y0, row_x1, row_y1 = table.rows[i].bbox
+
+                                    if row_y0 &gt;= page.bbox[3] or row_y1 &lt;= 0:
+                                        continue
+                                    if row_x0 &gt;= page.bbox[2] or row_x1 &lt;= 0:
+                                        continue
+
+                                    row_padding = 1
+                                    row_x0 = max(row_x0 - row_padding, 0)
+                                    row_y0 = max(row_y0 - row_padding, 0)
+                                    row_x1 = min(row_x1 + row_padding, page.bbox[2])
+                                    row_y1 = min(row_y1 + row_padding, page.bbox[3])
+                                    row_bbox = (row_x0, row_y0, row_x1, row_y1)
+
+                                    if date_mask[i]:
+                                        found = True
+                                    else:
+                                        temp.append(row_bbox)
+
+                                ignore_list_tablewise.append(temp)
+                                is_table_junk.append(not found)
+
+                            if tables:
+                                if debug_images:
+                                    im = page.to_image(resolution=300)
+                                    for index, table in enumerate(tables):
+                                        for cell in table.cells:
+                                            im.draw_rect(
+                                                cell,
+                                                stroke=LatticeStructure.__random_color(),
+                                                stroke_width=5,
+                                            )
+
+                                    output_folder = os.path.splitext(pdf_path)[0]
+                                    if not os.path.isdir(output_folder):
+                                        os.makedirs(output_folder)
+                                    im.save(f&#34;{output_folder}/page_{page_num}.png&#34;)
+
+                                non_junk_tables = []
+                                non_junk_extracted_dfs = []
+                                non_junk_ignore_list_tablewise = []
+                                for index, table in enumerate(tables):
+                                    if not is_table_junk[index]:
+                                        non_junk_tables.append(table)
+                                        non_junk_extracted_dfs.append(
+                                            extracted_dfs[index]
+                                        )
+                                        non_junk_ignore_list_tablewise.append(
+                                            ignore_list_tablewise[index]
+                                        )
+
+                                if len(non_junk_tables) &gt;= 5:
+                                    if print_log:
+                                        print(&#34;Error: Multiple tables found !!!&#34;)
+                                    multi_tables_found = True
+                                    page.flush_cache()
+                                    break
+
+                                for index, table in enumerate(non_junk_tables):
+                                    df = non_junk_extracted_dfs[index]
+                                    df = df.apply(
+                                        lambda col: col.map(
+                                            lambda x: (
+                                                x.strip() if isinstance(x, str) else x
+                                            )
+                                        )
+                                    )
+                                    df = df.replace(&#34;&#34;, None)
+
+                                    if not first_valid_table_found:
+                                        is_table_valid, first_row_index, date_count = (
+                                            self.check_valid_table(df)
+                                        )
+
+                                        if is_table_valid:
+                                            for i in range(0, first_row_index):
+                                                non_junk_ignore_list_tablewise[
+                                                    index
+                                                ].append(table.rows[i].bbox)
+
+                                        is_grid_valid = self.check_valid_grid(
+                                            table.cells,
+                                            non_junk_ignore_list_tablewise[index],
+                                            page.bbox,
+                                            basedOn=CellType.CELLS,
+                                        )
+
+                                        if is_table_valid and is_grid_valid:
+                                            if date_count &gt; 2:
+                                                multi_date_found = True
+
+                                            df = df.iloc[first_row_index:].reset_index(
+                                                drop=True
+                                            )
+                                            df = df.dropna(axis=1, how=&#34;all&#34;)
+                                            headers = df.iloc[0].dropna().to_list()
+                                            if len(headers) &gt;= 4 and len(
+                                                headers
+                                            ) == len(df.columns):
+                                                first_valid_table_found = True
+                                            else:
+                                                is_table_valid = False
+
+                                        table_log.loc[len(table_log)] = [
+                                            page_num,
+                                            index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            len(non_junk_ignore_list_tablewise[index]),
+                                            date_count,
+                                            &#34;&#34;,
+                                        ]
+
+                                    else:
+                                        if df.shape[1] &lt; 4:
+                                            continue
+
+                                        is_table_valid, first_row_index, date_count = (
+                                            self.check_valid_table(df)
+                                        )
+
+                                        if is_table_valid:
+                                            for i in range(0, first_row_index):
+                                                non_junk_ignore_list_tablewise[
+                                                    index
+                                                ].append(table.rows[i].bbox)
+
+                                        is_grid_valid = self.check_valid_grid(
+                                            table.cells,
+                                            non_junk_ignore_list_tablewise[index],
+                                            page.bbox,
+                                            basedOn=CellType.CELLS,
+                                        )
+
+                                        if date_count &gt; 2:
+                                            multi_date_found = True
+
+                                        if not is_grid_valid:
+                                            table_log.loc[len(table_log)] = [
+                                                page_num,
+                                                index,
+                                                is_table_valid,
+                                                is_grid_valid,
+                                                len(
+                                                    non_junk_ignore_list_tablewise[
+                                                        index
+                                                    ]
+                                                ),
+                                                date_count,
+                                                &#34;Error: Invalid grid found !!!&#34;,
+                                            ]
+                                            all_grid_valid = False
+                                            break
+
+                                        table_log.loc[len(table_log)] = [
+                                            page_num,
+                                            index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            len(non_junk_ignore_list_tablewise[index]),
+                                            date_count,
+                                            &#34;&#34;,
+                                        ]
+
+                        page.flush_cache()
+
+                        if not all_grid_valid:
+                            break
+
+                        if multi_tables_found:
+                            break
+
+                        if check_only_first_page:
+                            break
+
+                    pdf.flush_cache()
+
+                if first_valid_table_found and all_grid_valid:
+                    if multi_date_found:
+                        self.__latticeType__ = LatticeType.NONLATTICE_HLM_TOB
+                    elif multi_tables_found:
+                        self.__latticeType__ = LatticeType.UNSTRUCTURED
+                    else:
+                        self.__latticeType__ = LatticeType.LATTICE_TOB
+                else:
+                    self.__latticeType__ = LatticeType.UNSTRUCTURED
+
+                if print_log:
+                    print(&#34;&#34;)
+                    print(tabulate(table_log, headers=&#34;keys&#34;, tablefmt=&#34;psql&#34;))
+
+                    print(&#34;\nType of PDF: &#34;, end=&#34;&#34;)
+                    if self.__latticeType__ == LatticeType.LATTICE:
+                        print(&#34;Lattice\n&#34;)
+                    elif self.__latticeType__ == LatticeType.LATTICE_TOB:
+                        print(&#34;Lattice TOB\n&#34;)
+                    elif self.__latticeType__ == LatticeType.NONLATTICE_HLM:
+                        print(&#34;Non Lattice HLM\n&#34;)
+                    elif self.__latticeType__ == LatticeType.NONLATTICE_VLM:
+                        print(&#34;Non Lattice VLM\n&#34;)
+                    elif self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                        print(&#34;Unstructured\n&#34;)
+                    elif self.__latticeType__ == LatticeType.NONLATTICE_HLM_TOB:
+                        print(&#34;Non Lattice HLM TOB\n&#34;)
+                    else:
+                        print(&#34;Undefined\n&#34;)
+
+            if self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                first_valid_table_found = False
+                multi_tables_found = False
+                all_grid_valid = True
+                all_tables_VLM = True
+                multi_date_found = False
+                lines_found = False
+                table_log = pd.DataFrame(
+                    columns=[
+                        &#34;Page&#34;,
+                        &#34;Table&#34;,
+                        &#34;Valid Table&#34;,
+                        &#34;Valid Grid&#34;,
+                        &#34;Date Count&#34;,
+                        &#34;Remarks&#34;,
+                    ]
+                )
+
+                with pdfplumber.open(pdf_path) as pdf:
+                    total_pages = len(pdf.pages)
+
+                    if check_num_pages == -1:
+                        check_num_pages = total_pages
+
+                    for page_num, page in enumerate(pdf.pages):
+                        if page_num &gt;= check_num_pages:
+                            break
+
+                        if (
+                            len(
+                                page.find_tables(
+                                    {
+                                        &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                                        &#34;explicit_vertical_lines&#34;: [page.bbox[2] / 2],
+                                    }
+                                )
+                            )
+                            &gt;= 5
+                        ):
+                            if print_log:
+                                print(&#34;Error: Multiple tables found !!!&#34;)
+                            multi_tables_found = True
+                            page.flush_cache()
+                            break
+
+                        tables_initial = page.find_tables()
+                        if tables_initial:
+                            for table in tables:
+                                x0, y0, x1, y1 = table.bbox
+
+                                if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                    continue
+                                if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                    continue
+
+                                tolerance = 1
+                                if (
+                                    y0 &lt;= page.bbox[1] + tolerance
+                                    and y1 &gt;= page.bbox[3] - tolerance
+                                ):
+                                    continue
+                                if (
+                                    x0 &lt;= page.bbox[0] + tolerance
+                                    and x1 &gt;= page.bbox[2] - tolerance
+                                ):
+                                    continue
+
+                                if len(table.rows) &gt; 2:
+                                    lines_found = True
+
+                        table_settings = {
+                            &#34;vertical_strategy&#34;: &#34;lines_strict&#34;,
+                            &#34;horizontal_strategy&#34;: &#34;lines_strict&#34;,
+                        }
+
+                        tables = page.find_tables(table_settings)
+                        extracted_tables = page.extract_tables(table_settings)
+
+                        if tables:
+                            if debug_images:
+                                im = page.to_image(resolution=300)
+                                for index, table in enumerate(tables):
+                                    for cell in table.cells:
+                                        im.draw_rect(
+                                            cell,
+                                            stroke=LatticeStructure.__random_color(),
+                                            stroke_width=5,
+                                        )
+
+                                output_folder = os.path.splitext(pdf_path)[0]
+                                if not os.path.isdir(output_folder):
+                                    os.makedirs(output_folder)
+                                im.save(f&#34;{output_folder}/page_{page_num}.png&#34;)
+
+                            for table_index, table in enumerate(tables):
+                                df = pd.DataFrame(extracted_tables[table_index])
+                                df = df.apply(
+                                    lambda col: col.map(
+                                        lambda x: x.strip() if isinstance(x, str) else x
+                                    )
+                                )
+                                df = df.replace(&#34;&#34;, None)
+
+                                if not first_valid_table_found:
+                                    is_table_valid, first_row_index, date_count = (
+                                        self.check_valid_table(df)
+                                    )
+                                    is_grid_valid = self.check_valid_grid(
+                                        table.cells, [], page.bbox, CellType.CELLS, 1, 1
+                                    )
+
+                                    if date_count &gt; 5:
+                                        multi_date_found = True
+                                        table_log.loc[len(table_log)] = [
+                                            page.page_number - 1,
+                                            table_index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            date_count,
+                                            &#34;Error: Multi-Date Found !!!&#34;,
+                                        ]
+                                        break
+
+                                    if is_table_valid and is_grid_valid:
+                                        df = df.iloc[first_row_index:].reset_index(
+                                            drop=True
+                                        )
+                                        df = df.dropna(axis=1, how=&#34;all&#34;)
+                                        headers = df.iloc[0].dropna().to_list()
+                                        if len(headers) &lt; 4 and len(headers) == len(
+                                            df.columns
+                                        ):
+                                            first_valid_table_found = True
+                                        else:
+                                            is_table_valid = False
+
+                                    if first_valid_table_found:
+                                        table_log.loc[len(table_log)] = [
+                                            page.page_number - 1,
+                                            table_index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            date_count,
+                                            &#34;First Valid Table Found !!!&#34;,
+                                        ]
+                                    else:
+                                        table_log.loc[len(table_log)] = [
+                                            page.page_number - 1,
+                                            table_index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            date_count,
+                                            &#34;&#34;,
+                                        ]
+
+                                else:
+                                    is_table_valid, first_row_index, date_count = (
+                                        self.check_valid_table(df)
+                                    )
+                                    is_grid_valid = self.check_valid_grid(
+                                        table.cells, [], page.bbox, CellType.CELLS, 1, 1
+                                    )
+
+                                    if date_count &gt; 5:
+                                        multi_date_found = True
+                                        table_log.loc[len(table_log)] = [
+                                            page.page_number - 1,
+                                            table_index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            date_count,
+                                            &#34;Error: Multi-Date Found !!!&#34;,
+                                        ]
+                                        break
+
+                                    if is_grid_valid:
+                                        headers = df.iloc[0].to_list()
+                                        if len(headers) &gt;= 4:
+                                            all_tables_VLM = False
+                                            break
+
+                                    if not is_grid_valid:
+                                        table_log.loc[len(table_log)] = [
+                                            page.page_number - 1,
+                                            table_index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            date_count,
+                                            &#34;Error: Invalid grid found !!!&#34;,
+                                        ]
+                                        all_grid_valid = False
+                                        break
+
+                                    table_log.loc[len(table_log)] = [
+                                        page.page_number - 1,
+                                        table_index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        date_count,
+                                        &#34;&#34;,
+                                    ]
+
+                        page.flush_cache()
+
+                        if not all_grid_valid:
+                            break
+
+                        if not all_tables_VLM:
+                            break
+
+                        if multi_date_found:
+                            break
+
+                        if check_only_first_page:
+                            break
+
+                    pdf.flush_cache()
+
+                if multi_tables_found:
+                    self.__latticeType__ = LatticeType.UNSTRUCTURED
+                elif not lines_found:
+                    self.__latticeType__ = LatticeType.NONLATTICE_NOL
+                elif first_valid_table_found and all_grid_valid and all_tables_VLM:
+                    self.__latticeType__ = LatticeType.NONLATTICE_VLM
+                else:
+                    self.__latticeType__ = LatticeType.UNSTRUCTURED
+
+                if print_log:
+                    print(&#34;&#34;)
+                    print(tabulate(table_log, headers=&#34;keys&#34;, tablefmt=&#34;psql&#34;))
+
+                    print(&#34;\nType of PDF: &#34;, end=&#34;&#34;)
+                    if self.__latticeType__ == LatticeType.LATTICE:
+                        print(&#34;Lattice\n&#34;)
+                    elif self.__latticeType__ == LatticeType.LATTICE_TOB:
+                        print(&#34;Lattice TOB\n&#34;)
+                    elif self.__latticeType__ == LatticeType.NONLATTICE_HLM:
+                        print(&#34;Non Lattice HLM\n&#34;)
+                    elif self.__latticeType__ == LatticeType.NONLATTICE_VLM:
+                        print(&#34;Non Lattice VLM\n&#34;)
+                    elif self.__latticeType__ == LatticeType.NONLATTICE_NOL:
+                        print(&#34;Non Lattice NOL\n&#34;)
+                    elif self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                        print(&#34;Unstructured\n&#34;)
+                    else:
+                        print(&#34;Undefined\n&#34;)
+
+            if (
+                self.__latticeType__ == LatticeType.LATTICE
+                or self.__latticeType__ == LatticeType.NONLATTICE_HLM
+                or self.__latticeType__ == LatticeType.NONLATTICE_VLM
+            ):
+
+                with pdfplumber.open(pdf_path) as pdf:
+                    creator = pdf.metadata.get(&#34;Creator&#34;)
+                    producer = pdf.metadata.get(&#34;Producer&#34;)
+                    title = pdf.metadata.get(&#34;Title&#34;)
+                    author = pdf.metadata.get(&#34;Author&#34;)
+                    tags_to_remove = [
+                        &#34;BIRT Report Engine /dm_home/Oracle/products/Oracle_Home/user_projects/domains/VMW_DIGITAL_domain/servers/DIG_MSR1_CONSUMER/tmp/_WL_user/AppzillonCorpServer/djl01z/war/WEB-INF/lib/org.eclipse.birt.runtime-4.4.1.jar.&#34;,
+                        &#34;Foxit PhantomPDF Printer Version 6.1.0.0923&#34;,
+                        &#34;3.0.1 (5.0.1)&#34;,
+                        &#34;Sejda&#34;,
+                        &#34;excel&#34;,
+                        &#34;production version&#34;,
+                        &#34;Microsoft: print to PDF&#34;,
+                        &#34;Microsoft: Print To PDF&#34;,
+                        &#34;3-Heights&#34;,
+                        &#34;Conv2pdf.com&#34;,
+                        &#34;eCopy Desktop&#34;,
+                        &#34;Microsoft,Excel&#34;,
+                        &#34;Microsoft,Word&#34;,
+                        &#34;EXCEL.EXE&#34;,
+                        &#34;Google Sheets&#34;,
+                        &#34;Icecream PDF Split&amp;Merge&#34;,
+                        &#34;ilovepdf&#34;,
+                        &#34;Online2PDF.com&#34;,
+                        &#34;PDF Candy&#34;,
+                        &#34;PDFill&#34;,
+                        &#34;PDF Editor&#34;,
+                        &#34;pdf-tools&#34;,
+                        &#34;SAMBox&#34;,
+                        &#34;Soda PDF&#34;,
+                        &#34;Word&#34;,
+                        &#34;zamzar&#34;,
+                        &#34;smallpdf&#34;,
+                        &#34;ExpertPDF&#34;,
+                        &#34;xls&#34;,
+                        &#34;BIRT Report Engine /dm_home/Oracle/products/Oracle_Home/user_projects/domains/VMW_DIGITAL_domain/servers/DIG_MSR1_CONSUMER/tmp/_WL_user/AppzillonCorpServer/djl01z/war/WEB-INF/lib/org.eclipse.birt.runtime-4.4.1.jar.&#34;,
+                        &#34;BIRT Report Engine /dm_home/Oracle/products/Oracle_Home/user_projects/domains/VMW_DIGITAL_domain/servers/DIG_MSR2_CONSUMER/tmp/_WL_user/AppzillonCorpServer/ksd2cm/war/WEB-INF/lib/org.eclipse.birt.runtime-4.4.1.jar.&#34;,
+                        &#34;Microsoft® Excel® 2010&#34;,
+                        &#34;Microsoft® Excel® 2016&#34;,
+                        &#34;Microsoft® Excel® for Microsoft 365&#34;,
+                        &#34;Microsoft® Word 2010&#34;,
+                        &#34;Microsoft® Word 2016&#34;,
+                        &#34;Microsoft® Word 2019&#34;,
+                        &#34;PrimoPDF http://www.primopdf.com&#34;,
+                        &#34;GPL Ghostscript 9.06&#34;,
+                        &#34;3-Heights(TM) PDF Optimization Shell 4.8.25.2 (http://www.pdf-tools.com)&#34;
+                    ]
+
+                    tags_to_remove = [
+                        str(val).strip().lower() for val in tags_to_remove
+                    ]
+                    tag_present = False
+                    if creator:
+                        creator = str(creator).strip().lower()
+                        tag_present = any([creator in tag for tag in tags_to_remove])
+                        if tag_present:
+                            return LatticeType.UNAUTHENTICATED
+                    if producer:
+                        producer = str(producer).strip().lower()
+                        tag_present = any([producer in tag for tag in tags_to_remove])
+                        if tag_present:
+                            return LatticeType.UNAUTHENTICATED
+                    if title:
+                        title = str(title).strip().lower()
+                        tag_present = any([title in tag for tag in tags_to_remove])
+                        if tag_present:
+                            return LatticeType.UNAUTHENTICATED
+
+                    if author:
+                        author = str(author).strip().lower()
+                        tag_present = &#34;apache poi&#34; in author
+                        if tag_present:
+                            return LatticeType.UNAUTHENTICATED
+
+        except Exception as e:
+            print(&#34;Error in PDF:&#34;, pdf_path, e)
+
+        return self.__latticeType__</code></pre>
+</details>
+<div class="desc"><p>This class provides methods for analyzing and categorizing the structure of tables in PDF documents.
+It includes functions for detecting table structures, validating table grids, and determining the type of
+lattice structure present in a PDF.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.utils.LatticeStructure.LatticeStructure.check_pdf"><code class="name flex">
+<span>def <span class="ident">check_pdf</span></span>(<span>self,<br>pdf_path,<br>check_only_first_page=False,<br>check_num_pages=4,<br>print_log=False,<br>debug_images=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_pdf(
+    self,
+    pdf_path,
+    check_only_first_page=False,
+    check_num_pages=4,
+    print_log=False,
+    debug_images=False,
+):
+    &#34;&#34;&#34;
+    Analyzes a PDF to determine the type of lattice structure present.
+    &#34;&#34;&#34;
+    self.__latticeType__ = LatticeType.UNDEFINED
+
+    try:
+        table_log = pd.DataFrame(
+            columns=[
+                &#34;Page&#34;,
+                &#34;Table&#34;,
+                &#34;Valid Table&#34;,
+                &#34;Valid Grid&#34;,
+                &#34;Ignored Rows&#34;,
+                &#34;Date Count&#34;,
+                &#34;Remarks&#34;,
+            ]
+        )
+        first_valid_table_found = False
+        all_grid_valid = True
+        multi_date_found = False
+        multi_tables_found = False
+        table_exceeds_page = False
+
+        if print_log:
+            print(&#34;\nProcessing PDF:&#34;, pdf_path)
+
+        with pdfplumber.open(pdf_path) as pdf:
+            total_pages = len(pdf.pages)
+
+            if check_num_pages == -1:
+                check_num_pages = total_pages
+
+            for page_num, page in enumerate(pdf.pages):
+                if page_num &gt;= check_num_pages:
+                    break
+
+                tables = []
+                extracted_dfs = []
+                ignore_list_tablewise = []
+                is_table_junk = []
+
+                explicit_lines = [page.bbox[1], page.bbox[3]]
+
+                page_vlines = []
+                for line in page.lines:
+                    if line not in page_vlines and line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+                        page_vlines.append(line)
+                        if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                            explicit_lines.append(line[&#34;pts&#34;][0][1])
+                        if line[&#34;pts&#34;][1][1] not in explicit_lines:
+                            explicit_lines.append(line[&#34;pts&#34;][1][1])
+
+                page_rect_vlines = []
+                for line in page.rect_edges:
+                    if (line not in page_rect_vlines) and (
+                        abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0])
+                        &lt; abs(line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1])
+                    ):
+                        page_rect_vlines.append(line)
+                        if line[&#34;pts&#34;][0][1] not in explicit_lines:
+                            explicit_lines.append(line[&#34;pts&#34;][0][1])
+                        if line[&#34;pts&#34;][2][1] not in explicit_lines:
+                            explicit_lines.append(line[&#34;pts&#34;][2][1])
+
+                tables_initial = page.find_tables(
+                    {&#34;horizontal_strategy&#34;: &#34;lines&#34;, &#34;vertical_strategy&#34;: &#34;lines&#34;}
+                )
+
+                if tables_initial:
+                    for table in tables_initial:
+                        x0, y0, x1, y1 = table.bbox
+
+                        if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                            continue
+                        if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                            continue
+
+                        tolerance = 1
+                        if (
+                            y0 &lt;= page.bbox[1] + tolerance
+                            and y1 &gt;= page.bbox[3] - tolerance
+                        ):
+                            table_exceeds_page = True
+                            break
+                        if (
+                            x0 &lt;= page.bbox[0] + tolerance
+                            and x1 &gt;= page.bbox[2] - tolerance
+                        ):
+                            table_exceeds_page = True
+                            break
+
+                        explicit_lines = [
+                            value
+                            for value in explicit_lines
+                            if not y0 &lt;= value &lt;= y1
+                        ]
+
+                tables_mid = page.find_tables(
+                    {
+                        &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                        &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                        &#34;explicit_horizontal_lines&#34;: explicit_lines,
+                    }
+                )
+
+                explicit_lines_final = []
+                if tables_mid:
+                    for table in tables_mid:
+                        x0, y0, x1, y1 = table.bbox
+
+                        if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                            continue
+                        if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                            continue
+
+                        tolerance = 1
+                        if (
+                            y0 &lt;= page.bbox[1] + tolerance
+                            and y1 &gt;= page.bbox[3] - tolerance
+                        ):
+                            table_exceeds_page = True
+                            break
+                        if (
+                            x0 &lt;= page.bbox[0] + tolerance
+                            and x1 &gt;= page.bbox[2] - tolerance
+                        ):
+                            table_exceeds_page = True
+                            break
+
+                        explicit_lines_final.append(
+                            self.__construct_hline(x0, x1, y0)
+                        )
+                        explicit_lines_final.append(
+                            self.__construct_hline(x0, x1, y1)
+                        )
+
+                tables_final = page.find_tables(
+                    {
+                        &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                        &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                        &#34;explicit_horizontal_lines&#34;: explicit_lines_final,
+                    }
+                )
+
+                if tables_final:
+                    for table in tables_final:
+                        x0, y0, x1, y1 = table.bbox
+
+                        if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                            continue
+                        if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                            continue
+
+                        tolerance = 1
+                        if (
+                            y0 &lt;= page.bbox[1] + tolerance
+                            and y1 &gt;= page.bbox[3] - tolerance
+                        ):
+                            table_exceeds_page = True
+                            break
+                        if (
+                            x0 &lt;= page.bbox[0] + tolerance
+                            and x1 &gt;= page.bbox[2] - tolerance
+                        ):
+                            table_exceeds_page = True
+                            break
+
+                        tables.append(table)
+                        extracted_df = pd.DataFrame(table.extract())
+                        extracted_dfs.append(extracted_df)
+
+                        date_mask = extracted_df.apply(
+                            lambda row: any(
+                                UtilFunctions.has_date(cell)
+                                and not (
+                                    &#34;generated&#34; in cell_lower
+                                    or (
+                                        &#34;closing&#34; in cell_lower
+                                        and &#34;balance&#34; in cell_lower
+                                    )
+                                    or (
+                                        &#34;opening&#34; in cell_lower
+                                        and &#34;balance&#34; in cell_lower
+                                    )
+                                    or (
+                                        &#34;brought&#34; in cell_lower
+                                        and &#34;forward&#34; in cell_lower
+                                    )
+                                    or (
+                                        &#34;carried&#34; in cell_lower
+                                        and &#34;forward&#34; in cell_lower
+                                    )
+                                )
+                                for cell_lower, cell in (
+                                    (str(cell).lower(), cell) for cell in row
+                                )
+                            ),
+                            axis=1,
+                        )
+
+                        temp = []
+                        found = False
+                        for i in range(len(table.rows)):
+                            if i &gt;= extracted_df.shape[0]:
+                                break
+
+                            row_x0, row_y0, row_x1, row_y1 = table.rows[i].bbox
+
+                            if row_y0 &gt;= page.bbox[3] or row_y1 &lt;= 0:
+                                continue
+                            if row_x0 &gt;= page.bbox[2] or row_x1 &lt;= 0:
+                                continue
+
+                            row_padding = 1
+                            row_x0 = max(row_x0 - row_padding, 0)
+                            row_y0 = max(row_y0 - row_padding, 0)
+                            row_x1 = min(row_x1 + row_padding, page.bbox[2])
+                            row_y1 = min(row_y1 + row_padding, page.bbox[3])
+                            row_bbox = (row_x0, row_y0, row_x1, row_y1)
+
+                            if date_mask[i]:
+                                found = True
+                            else:
+                                temp.append(row_bbox)
+
+                        ignore_list_tablewise.append(temp)
+                        is_table_junk.append(not found)
+
+                    if tables:
+                        if debug_images:
+                            im = page.to_image(resolution=300)
+                            for index, table in enumerate(tables):
+                                for cell in table.cells:
+                                    im.draw_rect(
+                                        cell,
+                                        stroke=LatticeStructure.__random_color(),
+                                        stroke_width=5,
+                                    )
+
+                            output_folder = os.path.splitext(pdf_path)[0]
+                            if not os.path.isdir(output_folder):
+                                os.makedirs(output_folder)
+                            im.save(f&#34;{output_folder}/page_{page_num}.png&#34;)
+
+                        non_junk_tables = []
+                        non_junk_extracted_dfs = []
+                        non_junk_ignore_list_tablewise = []
+                        for index, table in enumerate(tables):
+                            if not is_table_junk[index]:
+                                non_junk_tables.append(table)
+                                non_junk_extracted_dfs.append(extracted_dfs[index])
+                                non_junk_ignore_list_tablewise.append(
+                                    ignore_list_tablewise[index]
+                                )
+
+                        if len(non_junk_tables) &gt;= 5:
+                            if print_log:
+                                print(&#34;Error: Multiple tables found !!!&#34;)
+                            multi_tables_found = True
+                            page.flush_cache()
+                            break
+
+                        for index, table in enumerate(non_junk_tables):
+                            df = non_junk_extracted_dfs[index]
+                            df = df.apply(
+                                lambda col: col.map(
+                                    lambda x: x.strip() if isinstance(x, str) else x
+                                )
+                            )
+                            df = df.replace(&#34;&#34;, None)
+
+                            if not first_valid_table_found:
+                                is_table_valid, first_row_index, date_count = (
+                                    self.check_valid_table(df)
+                                )
+
+                                if is_table_valid:
+                                    for i in range(0, first_row_index):
+                                        non_junk_ignore_list_tablewise[
+                                            index
+                                        ].append(table.rows[i].bbox)
+
+                                is_grid_valid = self.check_valid_grid(
+                                    table.cells,
+                                    non_junk_ignore_list_tablewise[index],
+                                    page.bbox,
+                                    basedOn=CellType.CELLS,
+                                )
+
+                                if is_table_valid and is_grid_valid:
+                                    if date_count &gt; 2:
+                                        multi_date_found = True
+
+                                    df = df.iloc[first_row_index:].reset_index(
+                                        drop=True
+                                    )
+                                    df = df.dropna(axis=1, how=&#34;all&#34;)
+                                    headers = df.iloc[0].dropna().to_list()
+                                    if len(headers) &gt;= 4 and len(headers) == len(
+                                        df.columns
+                                    ):
+                                        first_valid_table_found = True
+                                    else:
+                                        is_table_valid = False
+
+                                table_log.loc[len(table_log)] = [
+                                    page_num,
+                                    index,
+                                    is_table_valid,
+                                    is_grid_valid,
+                                    len(non_junk_ignore_list_tablewise[index]),
+                                    date_count,
+                                    &#34;&#34;,
+                                ]
+
+                            else:
+                                if df.shape[1] &lt; 4:
+                                    continue
+
+                                is_table_valid, first_row_index, date_count = (
+                                    self.check_valid_table(df)
+                                )
+
+                                if is_table_valid:
+                                    for i in range(0, first_row_index):
+                                        non_junk_ignore_list_tablewise[
+                                            index
+                                        ].append(table.rows[i].bbox)
+
+                                is_grid_valid = self.check_valid_grid(
+                                    table.cells,
+                                    non_junk_ignore_list_tablewise[index],
+                                    page.bbox,
+                                    basedOn=CellType.CELLS,
+                                )
+
+                                if date_count &gt; 2:
+                                    multi_date_found = True
+
+                                if not is_grid_valid:
+                                    table_log.loc[len(table_log)] = [
+                                        page_num,
+                                        index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        len(non_junk_ignore_list_tablewise[index]),
+                                        date_count,
+                                        &#34;Error: Invalid grid found !!!&#34;,
+                                    ]
+                                    all_grid_valid = False
+                                    break
+
+                                table_log.loc[len(table_log)] = [
+                                    page_num,
+                                    index,
+                                    is_table_valid,
+                                    is_grid_valid,
+                                    len(non_junk_ignore_list_tablewise[index]),
+                                    date_count,
+                                    &#34;&#34;,
+                                ]
+
+                page.flush_cache()
+
+                if not all_grid_valid:
+                    break
+
+                if table_exceeds_page or multi_tables_found:
+                    break
+
+                if check_only_first_page:
+                    break
+
+            pdf.flush_cache()
+
+        if table_exceeds_page:
+            self.__latticeType__ = LatticeType.LATTICE_TOB
+        elif multi_tables_found:
+            self.__latticeType__ = LatticeType.UNSTRUCTURED
+        elif first_valid_table_found and all_grid_valid:
+            if not multi_date_found:
+                self.__latticeType__ = LatticeType.LATTICE
+            else:
+                self.__latticeType__ = LatticeType.NONLATTICE_HLM
+        else:
+            self.__latticeType__ = LatticeType.UNSTRUCTURED
+
+        if print_log:
+            print(&#34;&#34;)
+            print(tabulate(table_log, headers=&#34;keys&#34;, tablefmt=&#34;psql&#34;))
+
+            print(&#34;\nType of PDF: &#34;, end=&#34;&#34;)
+            if self.__latticeType__ == LatticeType.LATTICE:
+                print(&#34;Lattice\n&#34;)
+            elif self.__latticeType__ == LatticeType.LATTICE_TOB:
+                print(&#34;Lattice TOB\n&#34;)
+            elif self.__latticeType__ == LatticeType.NONLATTICE_HLM:
+                print(&#34;Non Lattice HLM\n&#34;)
+            elif self.__latticeType__ == LatticeType.NONLATTICE_VLM:
+                print(&#34;Non Lattice VLM\n&#34;)
+            elif self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                print(&#34;Unstructured\n&#34;)
+            else:
+                print(&#34;Undefined\n&#34;)
+
+        if self.__latticeType__ == LatticeType.LATTICE_TOB:
+            table_log = pd.DataFrame(
+                columns=[
+                    &#34;Page&#34;,
+                    &#34;Table&#34;,
+                    &#34;Valid Table&#34;,
+                    &#34;Valid Grid&#34;,
+                    &#34;Ignored Rows&#34;,
+                    &#34;Date Count&#34;,
+                    &#34;Remarks&#34;,
+                ]
+            )
+            first_valid_table_found = False
+            all_grid_valid = True
+            multi_date_found = False
+            multi_tables_found = False
+
+            with pdfplumber.open(pdf_path) as pdf:
+                total_pages = len(pdf.pages)
+
+                if check_num_pages == -1:
+                    check_num_pages = total_pages
+
+                for page_num, page in enumerate(pdf.pages):
+                    if page_num &gt;= check_num_pages:
+                        break
+
+                    tables = []
+                    extracted_dfs = []
+                    ignore_list_tablewise = []
+                    is_table_junk = []
+
+                    page_lines = []
+                    for line in page.lines:
+                        if line not in page_lines:
+                            page_lines.append(line)
+
+                    hlines = [
+                        line for line in page_lines if line[&#34;y0&#34;] == line[&#34;y1&#34;]
+                    ]
+                    total_h_len = sum([line[&#34;width&#34;] for line in hlines])
+
+                    table_settings = {
+                        &#34;horizontal_strategy&#34;: (
+                            &#34;lines_strict&#34;
+                            if (
+                                len(page_lines) &gt;= 8
+                                and total_h_len &gt; page.width * 1.5
+                            )
+                            else &#34;lines&#34;
+                        ),
+                        &#34;vertical_strategy&#34;: (
+                            &#34;lines_strict&#34;
+                            if (
+                                len(page_lines) &gt;= 8
+                                and total_h_len &gt; page.width * 1.5
+                            )
+                            else &#34;lines&#34;
+                        ),
+                    }
+
+                    tables_initial = page.find_tables(table_settings)
+
+                    if tables_initial:
+                        for table in tables_initial:
+                            x0, y0, x1, y1 = table.bbox
+
+                            if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                continue
+                            if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                continue
+
+                            tables.append(table)
+                            extracted_df = pd.DataFrame(table.extract())
+                            extracted_dfs.append(extracted_df)
+
+                            date_mask = extracted_df.apply(
+                                lambda row: any(
+                                    UtilFunctions.has_date(cell)
+                                    and not (
+                                        &#34;generated&#34; in cell_lower
+                                        or (
+                                            &#34;closing&#34; in cell_lower
+                                            and &#34;balance&#34; in cell_lower
+                                        )
+                                        or (
+                                            &#34;opening&#34; in cell_lower
+                                            and &#34;balance&#34; in cell_lower
+                                        )
+                                        or (
+                                            &#34;brought&#34; in cell_lower
+                                            and &#34;forward&#34; in cell_lower
+                                        )
+                                        or (
+                                            &#34;carried&#34; in cell_lower
+                                            and &#34;forward&#34; in cell_lower
+                                        )
+                                    )
+                                    for cell_lower, cell in (
+                                        (str(cell).lower(), cell) for cell in row
+                                    )
+                                ),
+                                axis=1,
+                            )
+
+                            temp = []
+                            found = False
+                            for i in range(len(table.rows)):
+                                if i &gt;= extracted_df.shape[0]:
+                                    break
+
+                                row_x0, row_y0, row_x1, row_y1 = table.rows[i].bbox
+
+                                if row_y0 &gt;= page.bbox[3] or row_y1 &lt;= 0:
+                                    continue
+                                if row_x0 &gt;= page.bbox[2] or row_x1 &lt;= 0:
+                                    continue
+
+                                row_padding = 1
+                                row_x0 = max(row_x0 - row_padding, 0)
+                                row_y0 = max(row_y0 - row_padding, 0)
+                                row_x1 = min(row_x1 + row_padding, page.bbox[2])
+                                row_y1 = min(row_y1 + row_padding, page.bbox[3])
+                                row_bbox = (row_x0, row_y0, row_x1, row_y1)
+
+                                if date_mask[i]:
+                                    found = True
+                                else:
+                                    temp.append(row_bbox)
+
+                            ignore_list_tablewise.append(temp)
+                            is_table_junk.append(not found)
+
+                        if tables:
+                            if debug_images:
+                                im = page.to_image(resolution=300)
+                                for index, table in enumerate(tables):
+                                    for cell in table.cells:
+                                        im.draw_rect(
+                                            cell,
+                                            stroke=LatticeStructure.__random_color(),
+                                            stroke_width=5,
+                                        )
+
+                                output_folder = os.path.splitext(pdf_path)[0]
+                                if not os.path.isdir(output_folder):
+                                    os.makedirs(output_folder)
+                                im.save(f&#34;{output_folder}/page_{page_num}.png&#34;)
+
+                            non_junk_tables = []
+                            non_junk_extracted_dfs = []
+                            non_junk_ignore_list_tablewise = []
+                            for index, table in enumerate(tables):
+                                if not is_table_junk[index]:
+                                    non_junk_tables.append(table)
+                                    non_junk_extracted_dfs.append(
+                                        extracted_dfs[index]
+                                    )
+                                    non_junk_ignore_list_tablewise.append(
+                                        ignore_list_tablewise[index]
+                                    )
+
+                            if len(non_junk_tables) &gt;= 5:
+                                if print_log:
+                                    print(&#34;Error: Multiple tables found !!!&#34;)
+                                multi_tables_found = True
+                                page.flush_cache()
+                                break
+
+                            for index, table in enumerate(non_junk_tables):
+                                df = non_junk_extracted_dfs[index]
+                                df = df.apply(
+                                    lambda col: col.map(
+                                        lambda x: (
+                                            x.strip() if isinstance(x, str) else x
+                                        )
+                                    )
+                                )
+                                df = df.replace(&#34;&#34;, None)
+
+                                if not first_valid_table_found:
+                                    is_table_valid, first_row_index, date_count = (
+                                        self.check_valid_table(df)
+                                    )
+
+                                    if is_table_valid:
+                                        for i in range(0, first_row_index):
+                                            non_junk_ignore_list_tablewise[
+                                                index
+                                            ].append(table.rows[i].bbox)
+
+                                    is_grid_valid = self.check_valid_grid(
+                                        table.cells,
+                                        non_junk_ignore_list_tablewise[index],
+                                        page.bbox,
+                                        basedOn=CellType.CELLS,
+                                    )
+
+                                    if is_table_valid and is_grid_valid:
+                                        if date_count &gt; 2:
+                                            multi_date_found = True
+
+                                        df = df.iloc[first_row_index:].reset_index(
+                                            drop=True
+                                        )
+                                        df = df.dropna(axis=1, how=&#34;all&#34;)
+                                        headers = df.iloc[0].dropna().to_list()
+                                        if len(headers) &gt;= 4 and len(
+                                            headers
+                                        ) == len(df.columns):
+                                            first_valid_table_found = True
+                                        else:
+                                            is_table_valid = False
+
+                                    table_log.loc[len(table_log)] = [
+                                        page_num,
+                                        index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        len(non_junk_ignore_list_tablewise[index]),
+                                        date_count,
+                                        &#34;&#34;,
+                                    ]
+
+                                else:
+                                    if df.shape[1] &lt; 4:
+                                        continue
+
+                                    is_table_valid, first_row_index, date_count = (
+                                        self.check_valid_table(df)
+                                    )
+
+                                    if is_table_valid:
+                                        for i in range(0, first_row_index):
+                                            non_junk_ignore_list_tablewise[
+                                                index
+                                            ].append(table.rows[i].bbox)
+
+                                    is_grid_valid = self.check_valid_grid(
+                                        table.cells,
+                                        non_junk_ignore_list_tablewise[index],
+                                        page.bbox,
+                                        basedOn=CellType.CELLS,
+                                    )
+
+                                    if date_count &gt; 2:
+                                        multi_date_found = True
+
+                                    if not is_grid_valid:
+                                        table_log.loc[len(table_log)] = [
+                                            page_num,
+                                            index,
+                                            is_table_valid,
+                                            is_grid_valid,
+                                            len(
+                                                non_junk_ignore_list_tablewise[
+                                                    index
+                                                ]
+                                            ),
+                                            date_count,
+                                            &#34;Error: Invalid grid found !!!&#34;,
+                                        ]
+                                        all_grid_valid = False
+                                        break
+
+                                    table_log.loc[len(table_log)] = [
+                                        page_num,
+                                        index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        len(non_junk_ignore_list_tablewise[index]),
+                                        date_count,
+                                        &#34;&#34;,
+                                    ]
+
+                    page.flush_cache()
+
+                    if not all_grid_valid:
+                        break
+
+                    if multi_tables_found:
+                        break
+
+                    if check_only_first_page:
+                        break
+
+                pdf.flush_cache()
+
+            if first_valid_table_found and all_grid_valid:
+                if multi_date_found:
+                    self.__latticeType__ = LatticeType.NONLATTICE_HLM_TOB
+                elif multi_tables_found:
+                    self.__latticeType__ = LatticeType.UNSTRUCTURED
+                else:
+                    self.__latticeType__ = LatticeType.LATTICE_TOB
+            else:
+                self.__latticeType__ = LatticeType.UNSTRUCTURED
+
+            if print_log:
+                print(&#34;&#34;)
+                print(tabulate(table_log, headers=&#34;keys&#34;, tablefmt=&#34;psql&#34;))
+
+                print(&#34;\nType of PDF: &#34;, end=&#34;&#34;)
+                if self.__latticeType__ == LatticeType.LATTICE:
+                    print(&#34;Lattice\n&#34;)
+                elif self.__latticeType__ == LatticeType.LATTICE_TOB:
+                    print(&#34;Lattice TOB\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_HLM:
+                    print(&#34;Non Lattice HLM\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_VLM:
+                    print(&#34;Non Lattice VLM\n&#34;)
+                elif self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                    print(&#34;Unstructured\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_HLM_TOB:
+                    print(&#34;Non Lattice HLM TOB\n&#34;)
+                else:
+                    print(&#34;Undefined\n&#34;)
+
+        if self.__latticeType__ == LatticeType.UNSTRUCTURED:
+            first_valid_table_found = False
+            multi_tables_found = False
+            all_grid_valid = True
+            all_tables_VLM = True
+            multi_date_found = False
+            lines_found = False
+            table_log = pd.DataFrame(
+                columns=[
+                    &#34;Page&#34;,
+                    &#34;Table&#34;,
+                    &#34;Valid Table&#34;,
+                    &#34;Valid Grid&#34;,
+                    &#34;Date Count&#34;,
+                    &#34;Remarks&#34;,
+                ]
+            )
+
+            with pdfplumber.open(pdf_path) as pdf:
+                total_pages = len(pdf.pages)
+
+                if check_num_pages == -1:
+                    check_num_pages = total_pages
+
+                for page_num, page in enumerate(pdf.pages):
+                    if page_num &gt;= check_num_pages:
+                        break
+
+                    if (
+                        len(
+                            page.find_tables(
+                                {
+                                    &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                                    &#34;explicit_vertical_lines&#34;: [page.bbox[2] / 2],
+                                }
+                            )
+                        )
+                        &gt;= 5
+                    ):
+                        if print_log:
+                            print(&#34;Error: Multiple tables found !!!&#34;)
+                        multi_tables_found = True
+                        page.flush_cache()
+                        break
+
+                    tables_initial = page.find_tables()
+                    if tables_initial:
+                        for table in tables:
+                            x0, y0, x1, y1 = table.bbox
+
+                            if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                                continue
+                            if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                                continue
+
+                            tolerance = 1
+                            if (
+                                y0 &lt;= page.bbox[1] + tolerance
+                                and y1 &gt;= page.bbox[3] - tolerance
+                            ):
+                                continue
+                            if (
+                                x0 &lt;= page.bbox[0] + tolerance
+                                and x1 &gt;= page.bbox[2] - tolerance
+                            ):
+                                continue
+
+                            if len(table.rows) &gt; 2:
+                                lines_found = True
+
+                    table_settings = {
+                        &#34;vertical_strategy&#34;: &#34;lines_strict&#34;,
+                        &#34;horizontal_strategy&#34;: &#34;lines_strict&#34;,
+                    }
+
+                    tables = page.find_tables(table_settings)
+                    extracted_tables = page.extract_tables(table_settings)
+
+                    if tables:
+                        if debug_images:
+                            im = page.to_image(resolution=300)
+                            for index, table in enumerate(tables):
+                                for cell in table.cells:
+                                    im.draw_rect(
+                                        cell,
+                                        stroke=LatticeStructure.__random_color(),
+                                        stroke_width=5,
+                                    )
+
+                            output_folder = os.path.splitext(pdf_path)[0]
+                            if not os.path.isdir(output_folder):
+                                os.makedirs(output_folder)
+                            im.save(f&#34;{output_folder}/page_{page_num}.png&#34;)
+
+                        for table_index, table in enumerate(tables):
+                            df = pd.DataFrame(extracted_tables[table_index])
+                            df = df.apply(
+                                lambda col: col.map(
+                                    lambda x: x.strip() if isinstance(x, str) else x
+                                )
+                            )
+                            df = df.replace(&#34;&#34;, None)
+
+                            if not first_valid_table_found:
+                                is_table_valid, first_row_index, date_count = (
+                                    self.check_valid_table(df)
+                                )
+                                is_grid_valid = self.check_valid_grid(
+                                    table.cells, [], page.bbox, CellType.CELLS, 1, 1
+                                )
+
+                                if date_count &gt; 5:
+                                    multi_date_found = True
+                                    table_log.loc[len(table_log)] = [
+                                        page.page_number - 1,
+                                        table_index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        date_count,
+                                        &#34;Error: Multi-Date Found !!!&#34;,
+                                    ]
+                                    break
+
+                                if is_table_valid and is_grid_valid:
+                                    df = df.iloc[first_row_index:].reset_index(
+                                        drop=True
+                                    )
+                                    df = df.dropna(axis=1, how=&#34;all&#34;)
+                                    headers = df.iloc[0].dropna().to_list()
+                                    if len(headers) &lt; 4 and len(headers) == len(
+                                        df.columns
+                                    ):
+                                        first_valid_table_found = True
+                                    else:
+                                        is_table_valid = False
+
+                                if first_valid_table_found:
+                                    table_log.loc[len(table_log)] = [
+                                        page.page_number - 1,
+                                        table_index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        date_count,
+                                        &#34;First Valid Table Found !!!&#34;,
+                                    ]
+                                else:
+                                    table_log.loc[len(table_log)] = [
+                                        page.page_number - 1,
+                                        table_index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        date_count,
+                                        &#34;&#34;,
+                                    ]
+
+                            else:
+                                is_table_valid, first_row_index, date_count = (
+                                    self.check_valid_table(df)
+                                )
+                                is_grid_valid = self.check_valid_grid(
+                                    table.cells, [], page.bbox, CellType.CELLS, 1, 1
+                                )
+
+                                if date_count &gt; 5:
+                                    multi_date_found = True
+                                    table_log.loc[len(table_log)] = [
+                                        page.page_number - 1,
+                                        table_index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        date_count,
+                                        &#34;Error: Multi-Date Found !!!&#34;,
+                                    ]
+                                    break
+
+                                if is_grid_valid:
+                                    headers = df.iloc[0].to_list()
+                                    if len(headers) &gt;= 4:
+                                        all_tables_VLM = False
+                                        break
+
+                                if not is_grid_valid:
+                                    table_log.loc[len(table_log)] = [
+                                        page.page_number - 1,
+                                        table_index,
+                                        is_table_valid,
+                                        is_grid_valid,
+                                        date_count,
+                                        &#34;Error: Invalid grid found !!!&#34;,
+                                    ]
+                                    all_grid_valid = False
+                                    break
+
+                                table_log.loc[len(table_log)] = [
+                                    page.page_number - 1,
+                                    table_index,
+                                    is_table_valid,
+                                    is_grid_valid,
+                                    date_count,
+                                    &#34;&#34;,
+                                ]
+
+                    page.flush_cache()
+
+                    if not all_grid_valid:
+                        break
+
+                    if not all_tables_VLM:
+                        break
+
+                    if multi_date_found:
+                        break
+
+                    if check_only_first_page:
+                        break
+
+                pdf.flush_cache()
+
+            if multi_tables_found:
+                self.__latticeType__ = LatticeType.UNSTRUCTURED
+            elif not lines_found:
+                self.__latticeType__ = LatticeType.NONLATTICE_NOL
+            elif first_valid_table_found and all_grid_valid and all_tables_VLM:
+                self.__latticeType__ = LatticeType.NONLATTICE_VLM
+            else:
+                self.__latticeType__ = LatticeType.UNSTRUCTURED
+
+            if print_log:
+                print(&#34;&#34;)
+                print(tabulate(table_log, headers=&#34;keys&#34;, tablefmt=&#34;psql&#34;))
+
+                print(&#34;\nType of PDF: &#34;, end=&#34;&#34;)
+                if self.__latticeType__ == LatticeType.LATTICE:
+                    print(&#34;Lattice\n&#34;)
+                elif self.__latticeType__ == LatticeType.LATTICE_TOB:
+                    print(&#34;Lattice TOB\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_HLM:
+                    print(&#34;Non Lattice HLM\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_VLM:
+                    print(&#34;Non Lattice VLM\n&#34;)
+                elif self.__latticeType__ == LatticeType.NONLATTICE_NOL:
+                    print(&#34;Non Lattice NOL\n&#34;)
+                elif self.__latticeType__ == LatticeType.UNSTRUCTURED:
+                    print(&#34;Unstructured\n&#34;)
+                else:
+                    print(&#34;Undefined\n&#34;)
+
+        if (
+            self.__latticeType__ == LatticeType.LATTICE
+            or self.__latticeType__ == LatticeType.NONLATTICE_HLM
+            or self.__latticeType__ == LatticeType.NONLATTICE_VLM
+        ):
+
+            with pdfplumber.open(pdf_path) as pdf:
+                creator = pdf.metadata.get(&#34;Creator&#34;)
+                producer = pdf.metadata.get(&#34;Producer&#34;)
+                title = pdf.metadata.get(&#34;Title&#34;)
+                author = pdf.metadata.get(&#34;Author&#34;)
+                tags_to_remove = [
+                    &#34;BIRT Report Engine /dm_home/Oracle/products/Oracle_Home/user_projects/domains/VMW_DIGITAL_domain/servers/DIG_MSR1_CONSUMER/tmp/_WL_user/AppzillonCorpServer/djl01z/war/WEB-INF/lib/org.eclipse.birt.runtime-4.4.1.jar.&#34;,
+                    &#34;Foxit PhantomPDF Printer Version 6.1.0.0923&#34;,
+                    &#34;3.0.1 (5.0.1)&#34;,
+                    &#34;Sejda&#34;,
+                    &#34;excel&#34;,
+                    &#34;production version&#34;,
+                    &#34;Microsoft: print to PDF&#34;,
+                    &#34;Microsoft: Print To PDF&#34;,
+                    &#34;3-Heights&#34;,
+                    &#34;Conv2pdf.com&#34;,
+                    &#34;eCopy Desktop&#34;,
+                    &#34;Microsoft,Excel&#34;,
+                    &#34;Microsoft,Word&#34;,
+                    &#34;EXCEL.EXE&#34;,
+                    &#34;Google Sheets&#34;,
+                    &#34;Icecream PDF Split&amp;Merge&#34;,
+                    &#34;ilovepdf&#34;,
+                    &#34;Online2PDF.com&#34;,
+                    &#34;PDF Candy&#34;,
+                    &#34;PDFill&#34;,
+                    &#34;PDF Editor&#34;,
+                    &#34;pdf-tools&#34;,
+                    &#34;SAMBox&#34;,
+                    &#34;Soda PDF&#34;,
+                    &#34;Word&#34;,
+                    &#34;zamzar&#34;,
+                    &#34;smallpdf&#34;,
+                    &#34;ExpertPDF&#34;,
+                    &#34;xls&#34;,
+                    &#34;BIRT Report Engine /dm_home/Oracle/products/Oracle_Home/user_projects/domains/VMW_DIGITAL_domain/servers/DIG_MSR1_CONSUMER/tmp/_WL_user/AppzillonCorpServer/djl01z/war/WEB-INF/lib/org.eclipse.birt.runtime-4.4.1.jar.&#34;,
+                    &#34;BIRT Report Engine /dm_home/Oracle/products/Oracle_Home/user_projects/domains/VMW_DIGITAL_domain/servers/DIG_MSR2_CONSUMER/tmp/_WL_user/AppzillonCorpServer/ksd2cm/war/WEB-INF/lib/org.eclipse.birt.runtime-4.4.1.jar.&#34;,
+                    &#34;Microsoft® Excel® 2010&#34;,
+                    &#34;Microsoft® Excel® 2016&#34;,
+                    &#34;Microsoft® Excel® for Microsoft 365&#34;,
+                    &#34;Microsoft® Word 2010&#34;,
+                    &#34;Microsoft® Word 2016&#34;,
+                    &#34;Microsoft® Word 2019&#34;,
+                    &#34;PrimoPDF http://www.primopdf.com&#34;,
+                    &#34;GPL Ghostscript 9.06&#34;,
+                    &#34;3-Heights(TM) PDF Optimization Shell 4.8.25.2 (http://www.pdf-tools.com)&#34;
+                ]
+
+                tags_to_remove = [
+                    str(val).strip().lower() for val in tags_to_remove
+                ]
+                tag_present = False
+                if creator:
+                    creator = str(creator).strip().lower()
+                    tag_present = any([creator in tag for tag in tags_to_remove])
+                    if tag_present:
+                        return LatticeType.UNAUTHENTICATED
+                if producer:
+                    producer = str(producer).strip().lower()
+                    tag_present = any([producer in tag for tag in tags_to_remove])
+                    if tag_present:
+                        return LatticeType.UNAUTHENTICATED
+                if title:
+                    title = str(title).strip().lower()
+                    tag_present = any([title in tag for tag in tags_to_remove])
+                    if tag_present:
+                        return LatticeType.UNAUTHENTICATED
+
+                if author:
+                    author = str(author).strip().lower()
+                    tag_present = &#34;apache poi&#34; in author
+                    if tag_present:
+                        return LatticeType.UNAUTHENTICATED
+
+    except Exception as e:
+        print(&#34;Error in PDF:&#34;, pdf_path, e)
+
+    return self.__latticeType__</code></pre>
+</details>
+<div class="desc"><p>Analyzes a PDF to determine the type of lattice structure present.</p></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeStructure.check_valid_grid"><code class="name flex">
+<span>def <span class="ident">check_valid_grid</span></span>(<span>self,<br>item_list,<br>ignore_list,<br>page_bbox,<br>basedOn=CellType.CELLS,<br>min_allowed_cols=1,<br>min_allowed_rows=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_valid_grid(
+    self,
+    item_list,
+    ignore_list,
+    page_bbox,
+    basedOn=CellType.CELLS,
+    min_allowed_cols=1,
+    min_allowed_rows=1,
+):
+    &#34;&#34;&#34;
+    Validates the grid structure of a table based on specified criteria.
+    &#34;&#34;&#34;
+    rects = []
+    if basedOn == CellType.RECTS:
+        min_size = 10
+        rects = [
+            rect
+            for rect in item_list
+            if rect[&#34;width&#34;] &gt;= min_size and rect[&#34;height&#34;] &gt;= min_size
+        ]
+        rects = [
+            {key: d[key] for key in [&#34;x0&#34;, &#34;y0&#34;, &#34;x1&#34;, &#34;y1&#34;] if key in d}
+            for d in rects
+        ]
+    elif basedOn == CellType.CELLS:
+        rects = [
+            {&#34;x0&#34;: cell[0], &#34;y0&#34;: cell[1], &#34;x1&#34;: cell[2], &#34;y1&#34;: cell[3]}
+            for cell in item_list
+        ]
+    else:
+        return False
+
+    unique_rects = []
+    for rect in rects:
+        if rect not in unique_rects:
+            unique_rects.append(rect)
+
+    rows = defaultdict(int)
+    cols = defaultdict(int)
+
+    for rect in unique_rects:
+        if rect[&#34;x0&#34;] &gt; page_bbox[2] or rect[&#34;x1&#34;] &lt; 0:
+            continue
+        if rect[&#34;y0&#34;] &gt; page_bbox[3] or rect[&#34;y1&#34;] &lt; 0:
+            continue
+
+        found = False
+        for bbox in ignore_list:
+            rect[&#34;x0&#34;] = max(0, rect[&#34;x0&#34;])
+            rect[&#34;x1&#34;] = min(page_bbox[2], rect[&#34;x1&#34;])
+            rect[&#34;y0&#34;] = max(0, rect[&#34;y0&#34;])
+            rect[&#34;y1&#34;] = min(page_bbox[3], rect[&#34;y1&#34;])
+            if self.__lies_inside(rect, bbox):
+                found = True
+                break
+
+        if not found:
+            rows[rect[&#34;y0&#34;]] += 1
+            cols[rect[&#34;x0&#34;]] += 1
+
+    if len(set(rows.values())) == 1 and len(set(cols.values())) == 1:
+        if len(cols) &gt;= min_allowed_cols and len(rows) &gt;= min_allowed_rows:
+            return True
+        else:
+            return False
+    else:
+        return False</code></pre>
+</details>
+<div class="desc"><p>Validates the grid structure of a table based on specified criteria.</p></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeStructure.check_valid_table"><code class="name flex">
+<span>def <span class="ident">check_valid_table</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_valid_table(self, df):
+    &#34;&#34;&#34;Check if the DataFrame contains a valid date header and valid dates.&#34;&#34;&#34;
+    first_date_row = 0
+    date_count = 0
+
+    date_row_index = df.apply(
+        lambda row: row.astype(str).str.contains(&#34;date&#34;, case=False).any()
+        or row.astype(str).str.contains(&#34;dt&#34;, case=False).any(),
+        axis=1,
+    )
+
+    if not date_row_index.any():
+        return False, first_date_row, date_count
+
+    date_row_indexes = [index for index, val in enumerate(date_row_index) if val]
+
+    for row_index in date_row_indexes:
+        date_col_index = df.iloc[row_index].apply(
+            lambda cell: &#34;date&#34; in str(cell).lower() or &#34;dt&#34; in str(cell).lower()
+        )
+        date_col_indexes = [
+            index for index, val in enumerate(date_col_index) if val
+        ]
+
+        for col in date_col_indexes:
+            next_row_index = row_index + 1
+
+            while next_row_index &lt; len(df) and (
+                pd.isna(df.iat[next_row_index, col])
+                or df.iat[next_row_index, col] == &#34;&#34;
+            ):
+                next_row_index += 1
+
+            if next_row_index &lt; len(df):
+                cell_below = df.iat[next_row_index, col]
+
+                cell_has_date, count = UtilFunctions.has_date(
+                    cell_below, MatchType.SEARCH, count=True
+                )
+
+                if cell_has_date:
+                    return True, row_index, count
+
+    return False, first_date_row, date_count</code></pre>
+</details>
+<div class="desc"><p>Check if the DataFrame contains a valid date header and valid dates.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType"><code class="flex name class">
+<span>class <span class="ident">LatticeType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LatticeType(Enum):
+    &#34;&#34;&#34;
+    This enumeration represents different types of lattice structures in PDFs.
+    &#34;&#34;&#34;
+
+    UNDEFINED = 0
+    LATTICE = 1
+    LATTICE_TOB = 2
+    NONLATTICE_HLM = 3
+    NONLATTICE_VLM = 4
+    NONLATTICE_NOL = 5
+    UNSTRUCTURED = 6
+    NONLATTICE_HLM_TOB = 7
+    ENCRYPTED = 8
+    UNAUTHENTICATED = 9</code></pre>
+</details>
+<div class="desc"><p>This enumeration represents different types of lattice structures in PDFs.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.ENCRYPTED"><code class="name">var <span class="ident">ENCRYPTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.LATTICE"><code class="name">var <span class="ident">LATTICE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.LATTICE_TOB"><code class="name">var <span class="ident">LATTICE_TOB</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_HLM"><code class="name">var <span class="ident">NONLATTICE_HLM</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_HLM_TOB"><code class="name">var <span class="ident">NONLATTICE_HLM_TOB</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_NOL"><code class="name">var <span class="ident">NONLATTICE_NOL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_VLM"><code class="name">var <span class="ident">NONLATTICE_VLM</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.UNAUTHENTICATED"><code class="name">var <span class="ident">UNAUTHENTICATED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.UNDEFINED"><code class="name">var <span class="ident">UNDEFINED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.utils.LatticeStructure.LatticeType.UNSTRUCTURED"><code class="name">var <span class="ident">UNSTRUCTURED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Filtering.utils" href="index.html">Filtering.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Filtering.utils.LatticeStructure.CellType" href="#Filtering.utils.LatticeStructure.CellType">CellType</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.utils.LatticeStructure.CellType.CELLS" href="#Filtering.utils.LatticeStructure.CellType.CELLS">CELLS</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.CellType.RECTS" href="#Filtering.utils.LatticeStructure.CellType.RECTS">RECTS</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.utils.LatticeStructure.LatticeStructure" href="#Filtering.utils.LatticeStructure.LatticeStructure">LatticeStructure</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeStructure.check_pdf" href="#Filtering.utils.LatticeStructure.LatticeStructure.check_pdf">check_pdf</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeStructure.check_valid_grid" href="#Filtering.utils.LatticeStructure.LatticeStructure.check_valid_grid">check_valid_grid</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeStructure.check_valid_table" href="#Filtering.utils.LatticeStructure.LatticeStructure.check_valid_table">check_valid_table</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.utils.LatticeStructure.LatticeType" href="#Filtering.utils.LatticeStructure.LatticeType">LatticeType</a></code></h4>
+<ul class="two-column">
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.ENCRYPTED" href="#Filtering.utils.LatticeStructure.LatticeType.ENCRYPTED">ENCRYPTED</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.LATTICE" href="#Filtering.utils.LatticeStructure.LatticeType.LATTICE">LATTICE</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.LATTICE_TOB" href="#Filtering.utils.LatticeStructure.LatticeType.LATTICE_TOB">LATTICE_TOB</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_HLM" href="#Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_HLM">NONLATTICE_HLM</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_HLM_TOB" href="#Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_HLM_TOB">NONLATTICE_HLM_TOB</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_NOL" href="#Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_NOL">NONLATTICE_NOL</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_VLM" href="#Filtering.utils.LatticeStructure.LatticeType.NONLATTICE_VLM">NONLATTICE_VLM</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.UNAUTHENTICATED" href="#Filtering.utils.LatticeStructure.LatticeType.UNAUTHENTICATED">UNAUTHENTICATED</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.UNDEFINED" href="#Filtering.utils.LatticeStructure.LatticeType.UNDEFINED">UNDEFINED</a></code></li>
+<li><code><a title="Filtering.utils.LatticeStructure.LatticeType.UNSTRUCTURED" href="#Filtering.utils.LatticeStructure.LatticeType.UNSTRUCTURED">UNSTRUCTURED</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

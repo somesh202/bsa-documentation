@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.utils.constants API documentation</title>
+<meta name="description" content="This module defines constants, enumerations, and utility functions for PDF extraction and processing …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.utils.constants</code></h1>
+</header>
+<section id="section-intro">
+<p>This module defines constants, enumerations, and utility functions for PDF extraction and processing.</p>
+<h2 id="classes">Classes</h2>
+<p>Constants: Contains various constants used throughout the application, including date patterns, directory paths, and other literals.
+LatticeType: Enum representing different types of lattice structures in PDFs.
+MatchType: Enum representing different types of matching strategies.
+MutliProcessingStrategy: Enum representing different multiprocessing strategies.
+FileType: Enum representing different file types and their associated extensions and directories.</p>
+<h2 id="constants">Constants</h2>
+<p>DATE_PATTERNS: List of regex patterns for matching various date formats.
+combined_pattern: Compiled regex pattern combining all date patterns.
+PDF_DIR: Directory path for PDF files.
+EXCEL_DIR: Directory path for Excel files.
+CSV_DIR: Directory path for CSV files.
+TXT_DIR: Directory path for text files.
+TXT_OLD_DIR: Directory path for old text files.
+JSON_DIR: Directory path for JSON files.
+PYTEST_PDF: Directory path for pytest PDF files.
+PYTEST_CSV: Directory path for pytest CSV files.
+PYTEST_EXCEL: Directory path for pytest Excel files.
+HUNDRED: Constant value 100.0.
+DATE_COUNT_THRESHOLD: Threshold value for date count.
+PDF_PAGE_COUNT_THRESHOLD: Threshold value for PDF page count.
+PRINT_LOG: Flag to enable or disable printing logs.
+TIME_FUNCTION_ENABLED: Flag to enable or disable timing functions.
+MEMORY_FUNCTION_ENABLED: Flag to enable or disable memory functions.
+KEYWORDS_IGNORE_MERGING: List of keywords to ignore during row merging.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.utils.constants.Constants"><code class="flex name class">
+<span>class <span class="ident">Constants</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Constants:
+    &#34;&#34;&#34;
+    A class to hold various constants used throughout the PDF extraction and processing application.
+    &#34;&#34;&#34;
+
+    DATE_PATTERNS = [
+        r&#34;\b(?:0?[1-9]|1[0-2])/(?:0?[1-9]|[12][0-9]|3[01])/(?:\d{4})\b&#34;,
+        r&#34;\b\d{4}-\d{2}-\d{2}\b&#34;
+        r&#34;\b(?:0?[1-9]|1[0-2])-(?:0?[1-9]|[12][0-9]|3[01])-(?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])/(?:0?[1-9]|1[0-2])/(?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])/(?:0?[1-9]|1[0-2])/(?:\d{2})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-(?:0?[1-9]|1[0-2])-(?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-(?:0?[1-9]|1[0-2])-(?:\d{2})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01]) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01]) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (?:\d{2})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01]) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])[/-](?:0?[1-9]|1[0-2])[/-](?:\d{2}|\d{4})\b&#34;,
+        r&#34;\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (?:0?[1-9]|[12][0-9]|3[01]), (?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-[A-Za-z]{3}-\d{4}\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-[A-Za-z]{3}-\d{2}\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])/(?:0?[1-9]|1[0-2])/(?:\d{2}|\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-(?:0?[1-9]|1[0-2])-(?:\d{4})[^ ]*\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-(?:\d{2})-\s*\d{4}\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])-\s*\d{2}-\s*\d{4}\b&#34;,
+        r&#34;^(?:[0-2]?[0-9]|3[01])(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})$&#34;,
+        r&#34;^(?:[0-2]?[0-9]|3[01])\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s*(\d{4})$&#34;,
+        r&#34;^(?:[0-2]?[0-9]|3[01])(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)(\d{4})$&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])[-\s]*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-\s]*(?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])[-\s]*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-\s]*(?:\d{2})\b&#34;,
+        r&#34;^\s*(0[1-9]|[12][0-9]|3[01])\s*-\s*(0[1-9]|1[0-2])\s*-\s*(\d{4})\s*$&#34;,
+        r&#34;\b(?:\d{4})[-\s](?:0?[1-9]|1[0-2])[-\s](?:0?[1-9]|[12][0-9]|3[01])\b&#34;,
+        r&#34;\b(?:\d{4})[-\s](?:0?[1-9]|1[0-2])[-\s](?:0?[1-9]|[12][0-9]|3[01])\s*&#34;,
+        r&#34;\b(?:\d{4})[-\s](?:0?[1-9]|1[0-2])\s*[-\s](?:0?[1-9]|[12][0-9]|3[01])\b&#34;,
+        r&#34;\b(?:\d{4})\s*[-](?:0?[1-9]|1[0-2])\s*[-](?:0?[1-9]|[12][0-9]|3[01])\b&#34;,
+        r&#34;\b(?:\d{4})[-\s]+(?:0?[1-9]|1[0-2])[-\s]+(?:0?[1-9]|[12][0-9]|3[01])\b&#34;
+        r&#34;\b(?:\d{4})[-](?:0?[1-9]|1[0-2])[-](?:0?[1-9]|[12][0-9]|3[01])\b&#34;,
+        r&#34;\b(?:\d{4})[-](0[1-9]|1[0-2])[-](0[1-9]|[12][0-9]|3[01])\b&#34;,
+        r&#34;\b\d{2} ?[A-Za-z]{3} ?&#39;?(?:\d{2}|\d{4})\b&#34;,
+        r&#34;\b(?:\d{2}) ?/ ?(?:\d{2}) ?/ ?(?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])[-\.\s]+(?:0?[1-9]|1[0-2])[-\.\s]+(?:\d{4})\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])/(?:0?[1-9]|1[0-2])\s\d/\d{4}\b&#34;,
+        r&#34;\b\d\s(?:0?[1-9]|1[0-2])/(?:0?[1-9]|[12][0-9]|3[01])/\d{4}\b&#34;,
+        r&#34;\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (?:0?[1-9]|[12][0-9]|3[01]) \d{4}\b&#34;,
+        r&#34;\b\d{1,2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) 0 \d{4}\b&#34;,
+        r&#34;^\d{1,2}-[A-Z]{3}_\d{4}$&#34;,
+        r&#34;\bP(?:0?[1-9]|[12][0-9]|3[01])-(?:0?[1-9]|1[0-2])-(?:\d{2})\b&#34;,
+        r&#34;\b\d{1,2}\s(?:JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s\d{4}\b&#34;,
+        r&#34;\b(?:0?[1-9]|[12][0-9]|3[01])/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/(?:\d{4})\b&#34;,
+        r&#34;\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (0?[1-9]|[12][0-9]|3[01]) (\d{4})\b&#34;,
+        r&#34;&#39;\b(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[0-2])/(\d{4})\b&#34;,
+        r&#34;&#39;\b(?:0?[1-9]|[12][0-9]|3[01])/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/(?:\d{4})\b&#34;,
+
+    ]
+
+    combined_pattern = re.compile(&#34;|&#34;.join(DATE_PATTERNS), re.IGNORECASE)
+    home_dir = os.path.expanduser(&#34;~&#34;)
+    PDF_DIR = &#34;/media/SSD/Filtering_test_TOB/PDF_Lattice_TOB&#34;
+    EXCEL_DIR = &#34;/home/somesh/Desktop/Excel_Data&#34;
+    CSV_DIR = &#34;/media/SSD/Merged_dataFrames_bug&#34;
+    TXT_DIR = &#34;/home/somesh/Desktop/pdf_bug&#34;
+    TXT_OLD_DIR = &#34;/home/somesh/Desktop/Updated_TXT&#34;
+    JSON_DIR = &#34;/home/sde3/sde1_mount/JSON_14_01_25&#34;
+    PYTEST_PDF = os.path.join(home_dir, &#34;Desktop&#34;, &#34;test_pdf&#34;)
+    PYTEST_CSV = os.path.join(home_dir, &#34;Desktop&#34;, &#34;test_dataframes&#34;)
+    PYTEST_EXCEL = os.path.join(home_dir, &#34;Desktop&#34;, &#34;test_excel&#34;)
+
+    HUNDRED = 100.0
+    DATE_COUNT_THRESHOLD = 0.19
+    PDF_PAGE_COUNT_THRESHOLD = 1000
+
+    PRINT_LOG = False
+    TIME_FUNCTION_ENABLED = False
+    MEMORY_FUNCTION_ENABLED = False
+
+    KEYWORDS_IGNORE_MERGING = [
+        &#34;total:&#34;,
+        &#34;total amount:&#34;,
+        &#34;transaction total&#34;,
+        &#34;grand total&#34;,
+        &#34;carry forward&#34;,
+        &#34;opening balance&#34;,
+        &#34;closing balance&#34;,
+        &#34;carried forward&#34;,
+        &#34;brought forward&#34;,
+        &#34;statement&#34;,
+        &#34;b/f balance&#34;,
+        &#34;balance b/f&#34;,
+        &#34;no. of transactions&#34;,
+        &#34;transaction details for your account number&#34;,
+        &#34;page no&#34;,
+    ]
+    CLOSING_BALANCE = &#34;closing balance&#34;</code></pre>
+</details>
+<div class="desc"><p>A class to hold various constants used throughout the PDF extraction and processing application.</p></div>
+<h3>Class variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.constants.Constants.CLOSING_BALANCE"><code class="name">var <span class="ident">CLOSING_BALANCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.CSV_DIR"><code class="name">var <span class="ident">CSV_DIR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.DATE_COUNT_THRESHOLD"><code class="name">var <span class="ident">DATE_COUNT_THRESHOLD</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.DATE_PATTERNS"><code class="name">var <span class="ident">DATE_PATTERNS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.EXCEL_DIR"><code class="name">var <span class="ident">EXCEL_DIR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.HUNDRED"><code class="name">var <span class="ident">HUNDRED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.JSON_DIR"><code class="name">var <span class="ident">JSON_DIR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.KEYWORDS_IGNORE_MERGING"><code class="name">var <span class="ident">KEYWORDS_IGNORE_MERGING</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.MEMORY_FUNCTION_ENABLED"><code class="name">var <span class="ident">MEMORY_FUNCTION_ENABLED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.PDF_DIR"><code class="name">var <span class="ident">PDF_DIR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.PDF_PAGE_COUNT_THRESHOLD"><code class="name">var <span class="ident">PDF_PAGE_COUNT_THRESHOLD</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.PRINT_LOG"><code class="name">var <span class="ident">PRINT_LOG</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.PYTEST_CSV"><code class="name">var <span class="ident">PYTEST_CSV</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.PYTEST_EXCEL"><code class="name">var <span class="ident">PYTEST_EXCEL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.PYTEST_PDF"><code class="name">var <span class="ident">PYTEST_PDF</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.TIME_FUNCTION_ENABLED"><code class="name">var <span class="ident">TIME_FUNCTION_ENABLED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.TXT_DIR"><code class="name">var <span class="ident">TXT_DIR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.TXT_OLD_DIR"><code class="name">var <span class="ident">TXT_OLD_DIR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.combined_pattern"><code class="name">var <span class="ident">combined_pattern</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.Constants.home_dir"><code class="name">var <span class="ident">home_dir</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType"><code class="flex name class">
+<span>class <span class="ident">FileType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FileType(Enum):
+    PDF = {&#34;EXT&#34;: &#34;.pdf&#34;, &#34;DIR&#34;: Constants.PDF_DIR}
+    CSV = {&#34;EXT&#34;: &#34;.csv&#34;, &#34;DIR&#34;: Constants.CSV_DIR}
+    EXCEL = {&#34;EXT&#34;: &#34;.xlsx&#34;, &#34;DIR&#34;: Constants.EXCEL_DIR}
+    TXT = {&#34;EXT&#34;: &#34;.txt&#34;, &#34;DIR&#34;: Constants.TXT_DIR}
+    JSON = {&#34;EXT&#34;: &#34;.json&#34;, &#34;DIR&#34;: Constants.JSON_DIR}
+    TXT2 = {&#34;EXT&#34;: &#34;.txt&#34;, &#34;DIR&#34;: Constants.TXT_OLD_DIR}
+
+    @property
+    def EXT(self):
+        return self.value[&#34;EXT&#34;]
+
+    @property
+    def DIR(self):
+        return self.value[&#34;DIR&#34;]</code></pre>
+</details>
+<div class="desc"><p>An enumeration.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.constants.FileType.CSV"><code class="name">var <span class="ident">CSV</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType.EXCEL"><code class="name">var <span class="ident">EXCEL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType.JSON"><code class="name">var <span class="ident">JSON</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType.PDF"><code class="name">var <span class="ident">PDF</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType.TXT"><code class="name">var <span class="ident">TXT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType.TXT2"><code class="name">var <span class="ident">TXT2</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.constants.FileType.DIR"><code class="name">prop <span class="ident">DIR</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def DIR(self):
+    return self.value[&#34;DIR&#34;]</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.FileType.EXT"><code class="name">prop <span class="ident">EXT</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def EXT(self):
+    return self.value[&#34;EXT&#34;]</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType"><code class="flex name class">
+<span>class <span class="ident">LatticeType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LatticeType(Enum):
+    UNDEFINED = 0
+    LATTICE = 1
+    LATTICE_TOB = 2
+    NONLATTICE_HLM = 3
+    NONLATTICE_VLM = 4
+    NONLATTICE_NOL = 5
+    UNSTRUCTURED = 6
+    NONLATTICE_HLM_TOB = 7
+    ENCRYPTED = 8
+    UNAUTHENTICATED = 9</code></pre>
+</details>
+<div class="desc"><p>An enumeration.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.constants.LatticeType.ENCRYPTED"><code class="name">var <span class="ident">ENCRYPTED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.LATTICE"><code class="name">var <span class="ident">LATTICE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.LATTICE_TOB"><code class="name">var <span class="ident">LATTICE_TOB</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_HLM"><code class="name">var <span class="ident">NONLATTICE_HLM</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_HLM_TOB"><code class="name">var <span class="ident">NONLATTICE_HLM_TOB</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_NOL"><code class="name">var <span class="ident">NONLATTICE_NOL</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_VLM"><code class="name">var <span class="ident">NONLATTICE_VLM</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.UNAUTHENTICATED"><code class="name">var <span class="ident">UNAUTHENTICATED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.UNDEFINED"><code class="name">var <span class="ident">UNDEFINED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.LatticeType.UNSTRUCTURED"><code class="name">var <span class="ident">UNSTRUCTURED</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.utils.constants.MatchType"><code class="flex name class">
+<span>class <span class="ident">MatchType</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MatchType(Enum):
+    SEARCH = 0
+    FULLMATCH = 1</code></pre>
+</details>
+<div class="desc"><p>An enumeration.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.constants.MatchType.FULLMATCH"><code class="name">var <span class="ident">FULLMATCH</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.MatchType.SEARCH"><code class="name">var <span class="ident">SEARCH</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.utils.constants.MutliProcessingStrategy"><code class="flex name class">
+<span>class <span class="ident">MutliProcessingStrategy</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MutliProcessingStrategy(Enum):
+    PDFWISE = 0
+    PAGEWISE = 1</code></pre>
+</details>
+<div class="desc"><p>An enumeration.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.constants.MutliProcessingStrategy.PAGEWISE"><code class="name">var <span class="ident">PAGEWISE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="PDF_Extraction.utils.constants.MutliProcessingStrategy.PDFWISE"><code class="name">var <span class="ident">PDFWISE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.utils" href="index.html">PDF_Extraction.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.utils.constants.Constants" href="#PDF_Extraction.utils.constants.Constants">Constants</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.constants.Constants.CLOSING_BALANCE" href="#PDF_Extraction.utils.constants.Constants.CLOSING_BALANCE">CLOSING_BALANCE</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.CSV_DIR" href="#PDF_Extraction.utils.constants.Constants.CSV_DIR">CSV_DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.DATE_COUNT_THRESHOLD" href="#PDF_Extraction.utils.constants.Constants.DATE_COUNT_THRESHOLD">DATE_COUNT_THRESHOLD</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.DATE_PATTERNS" href="#PDF_Extraction.utils.constants.Constants.DATE_PATTERNS">DATE_PATTERNS</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.EXCEL_DIR" href="#PDF_Extraction.utils.constants.Constants.EXCEL_DIR">EXCEL_DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.HUNDRED" href="#PDF_Extraction.utils.constants.Constants.HUNDRED">HUNDRED</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.JSON_DIR" href="#PDF_Extraction.utils.constants.Constants.JSON_DIR">JSON_DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.KEYWORDS_IGNORE_MERGING" href="#PDF_Extraction.utils.constants.Constants.KEYWORDS_IGNORE_MERGING">KEYWORDS_IGNORE_MERGING</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.MEMORY_FUNCTION_ENABLED" href="#PDF_Extraction.utils.constants.Constants.MEMORY_FUNCTION_ENABLED">MEMORY_FUNCTION_ENABLED</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.PDF_DIR" href="#PDF_Extraction.utils.constants.Constants.PDF_DIR">PDF_DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.PDF_PAGE_COUNT_THRESHOLD" href="#PDF_Extraction.utils.constants.Constants.PDF_PAGE_COUNT_THRESHOLD">PDF_PAGE_COUNT_THRESHOLD</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.PRINT_LOG" href="#PDF_Extraction.utils.constants.Constants.PRINT_LOG">PRINT_LOG</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.PYTEST_CSV" href="#PDF_Extraction.utils.constants.Constants.PYTEST_CSV">PYTEST_CSV</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.PYTEST_EXCEL" href="#PDF_Extraction.utils.constants.Constants.PYTEST_EXCEL">PYTEST_EXCEL</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.PYTEST_PDF" href="#PDF_Extraction.utils.constants.Constants.PYTEST_PDF">PYTEST_PDF</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.TIME_FUNCTION_ENABLED" href="#PDF_Extraction.utils.constants.Constants.TIME_FUNCTION_ENABLED">TIME_FUNCTION_ENABLED</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.TXT_DIR" href="#PDF_Extraction.utils.constants.Constants.TXT_DIR">TXT_DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.TXT_OLD_DIR" href="#PDF_Extraction.utils.constants.Constants.TXT_OLD_DIR">TXT_OLD_DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.combined_pattern" href="#PDF_Extraction.utils.constants.Constants.combined_pattern">combined_pattern</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.Constants.home_dir" href="#PDF_Extraction.utils.constants.Constants.home_dir">home_dir</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.utils.constants.FileType" href="#PDF_Extraction.utils.constants.FileType">FileType</a></code></h4>
+<ul class="two-column">
+<li><code><a title="PDF_Extraction.utils.constants.FileType.CSV" href="#PDF_Extraction.utils.constants.FileType.CSV">CSV</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.DIR" href="#PDF_Extraction.utils.constants.FileType.DIR">DIR</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.EXCEL" href="#PDF_Extraction.utils.constants.FileType.EXCEL">EXCEL</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.EXT" href="#PDF_Extraction.utils.constants.FileType.EXT">EXT</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.JSON" href="#PDF_Extraction.utils.constants.FileType.JSON">JSON</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.PDF" href="#PDF_Extraction.utils.constants.FileType.PDF">PDF</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.TXT" href="#PDF_Extraction.utils.constants.FileType.TXT">TXT</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.FileType.TXT2" href="#PDF_Extraction.utils.constants.FileType.TXT2">TXT2</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.utils.constants.LatticeType" href="#PDF_Extraction.utils.constants.LatticeType">LatticeType</a></code></h4>
+<ul class="two-column">
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.ENCRYPTED" href="#PDF_Extraction.utils.constants.LatticeType.ENCRYPTED">ENCRYPTED</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.LATTICE" href="#PDF_Extraction.utils.constants.LatticeType.LATTICE">LATTICE</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.LATTICE_TOB" href="#PDF_Extraction.utils.constants.LatticeType.LATTICE_TOB">LATTICE_TOB</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_HLM" href="#PDF_Extraction.utils.constants.LatticeType.NONLATTICE_HLM">NONLATTICE_HLM</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_HLM_TOB" href="#PDF_Extraction.utils.constants.LatticeType.NONLATTICE_HLM_TOB">NONLATTICE_HLM_TOB</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_NOL" href="#PDF_Extraction.utils.constants.LatticeType.NONLATTICE_NOL">NONLATTICE_NOL</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.NONLATTICE_VLM" href="#PDF_Extraction.utils.constants.LatticeType.NONLATTICE_VLM">NONLATTICE_VLM</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.UNAUTHENTICATED" href="#PDF_Extraction.utils.constants.LatticeType.UNAUTHENTICATED">UNAUTHENTICATED</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.UNDEFINED" href="#PDF_Extraction.utils.constants.LatticeType.UNDEFINED">UNDEFINED</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.LatticeType.UNSTRUCTURED" href="#PDF_Extraction.utils.constants.LatticeType.UNSTRUCTURED">UNSTRUCTURED</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.utils.constants.MatchType" href="#PDF_Extraction.utils.constants.MatchType">MatchType</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.constants.MatchType.FULLMATCH" href="#PDF_Extraction.utils.constants.MatchType.FULLMATCH">FULLMATCH</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.MatchType.SEARCH" href="#PDF_Extraction.utils.constants.MatchType.SEARCH">SEARCH</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.utils.constants.MutliProcessingStrategy" href="#PDF_Extraction.utils.constants.MutliProcessingStrategy">MutliProcessingStrategy</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.constants.MutliProcessingStrategy.PAGEWISE" href="#PDF_Extraction.utils.constants.MutliProcessingStrategy.PAGEWISE">PAGEWISE</a></code></li>
+<li><code><a title="PDF_Extraction.utils.constants.MutliProcessingStrategy.PDFWISE" href="#PDF_Extraction.utils.constants.MutliProcessingStrategy.PDFWISE">PDFWISE</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

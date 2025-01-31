@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.processing.pdf_processing_strategy API documentation</title>
+<meta name="description" content="Module: pdf_processing_strategy …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.processing.pdf_processing_strategy</code></h1>
+</header>
+<section id="section-intro">
+<p>Module: pdf_processing_strategy</p>
+<p>This module defines the <code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></code> class for processing PDF documents,
+including methods for merging DataFrames, cleaning data, and extracting tabular
+information.</p>
+<p>Usage:
+Subclass <code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></code> to implement specific PDF processing logic.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor"><code class="flex name class">
+<span>class <span class="ident">AbstractPDFProcessor</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AbstractPDFProcessor(ABC):
+    &#34;&#34;&#34;Abstract class for processing PDF documents. Subclasses should implement
+    methods to process pages, segment pages,
+    identify segments, and extract tabular data from segments.&#34;&#34;&#34;
+
+    def __init__(self):
+        self.file_path = None
+        self.__latticetype__ = None
+
+    @UtilFunctions.conditional_decorator(
+        Constants.TIME_FUNCTION_ENABLED, UtilFunctions.time_function
+    )
+    def __merge_dataframes(self, df_array, pdf_path) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Merge DataFrames from the result array and align columns
+        based on the number of columns in headers.
+        &#34;&#34;&#34;
+
+        if df_array and any(df.shape[1] != df_array[0].shape[1] for df in df_array[1:]):
+            no_of_cols = 0
+            for index, df in enumerate(df_array):
+                df, date_header_found = self.__clean_dataframe(
+                    df, no_of_cols, MatchType.FULLMATCH
+                )
+                if date_header_found:
+                    df_array[index] = df
+                    no_of_cols = df.shape[1]
+            for index, df in enumerate(df_array):
+                df, date_header_found = self.__clean_dataframe(
+                    df, no_of_cols, MatchType.FULLMATCH
+                )
+                if date_header_found:
+                    df_array[index] = df
+                    no_of_cols = df.shape[1]
+
+        for df in df_array:
+            date_count_validity_mask = df.apply(
+                lambda col: col.apply(
+                    lambda cell: UtilFunctions.has_date(cell, count=True)[1] &lt;= 10
+                )
+            )
+            if not date_count_validity_mask.all().all():
+                raise CustomError.MultipleJunkDatesError(pdf_path)
+
+        grouped_dfs = defaultdict(list)
+        for df in df_array:
+            df.columns = range(0, df.shape[1])
+            grouped_dfs[df.shape[1]].append(df)
+
+        max_row_df = None
+        for _, dfs in grouped_dfs.items():
+            merged_df = pd.concat(dfs, ignore_index=True)
+            if merged_df.empty:
+                continue
+
+            if max_row_df is not None and merged_df.shape[0] &lt;= max_row_df.shape[0]:
+                continue
+
+            date_mask = merged_df.apply(
+                lambda row: any(UtilFunctions.has_date(cell) for cell in row), axis=1
+            )
+            total_date_matches = date_mask.sum()
+            total_row_count = merged_df.shape[0]
+            dynamic_threshold = Constants.DATE_COUNT_THRESHOLD
+
+            date_count_ratio = float(total_date_matches / total_row_count)
+            if date_count_ratio &gt; dynamic_threshold:
+                max_row_df = merged_df
+
+        if max_row_df is not None and not max_row_df.empty:
+            pages = sorted([int(x) for x in max_row_df.iloc[:, -2].unique()])
+            expected = list(range(pages[0], pages[-1] + 1))
+            diff = set(expected) - set(pages)
+
+            if diff:
+                raise CustomError.MissingPagesError(pdf_path)
+
+        return max_row_df
+
+    @UtilFunctions.conditional_decorator(
+        Constants.TIME_FUNCTION_ENABLED, UtilFunctions.time_function
+    )
+    def __clean_dataframe(self, df, no_of_cols, match_type=MatchType.SEARCH):
+        if df is None or df.empty:
+            return pd.DataFrame(), False
+
+        flag = False
+
+        df = df.apply(
+            lambda col: col.apply(lambda x: x.strip() if isinstance(x, str) else x)
+        )
+        df = df.replace(&#34;&#34;, None)
+
+        date_row_mask = df.apply(
+            lambda row: row.astype(str).str.contains(&#34;date&#34;, case=False).any(), axis=1
+        )
+
+        if not date_row_mask.any():
+            num_none_columns = df.isna().all().sum()
+            if df.shape[1] - num_none_columns == no_of_cols:
+                df = df.dropna(axis=1, how=&#34;all&#34;)
+                flag = True
+            return df, flag
+
+        date_row_indexes = [index for index, val in enumerate(date_row_mask) if val]
+
+        for date_row_index in date_row_indexes:
+            date_col_mask = df.iloc[date_row_index].str.contains(&#34;date&#34;, case=False)
+            date_col_indexes = [index for index, val in enumerate(date_col_mask) if val]
+
+            for date_col_index in date_col_indexes:
+                next_row_index = date_row_index + 1
+
+                while next_row_index &lt; len(df) and (
+                    pd.isna(df.iat[next_row_index, date_col_index])
+                    or df.iat[next_row_index, date_col_index] == &#34;&#34;
+                    or &#34;opening balance&#34;
+                    in str(df.iat[next_row_index, date_col_index]).lower()
+                ):
+                    next_row_index += 1
+
+                if next_row_index &lt; len(df):
+                    cell_below = df.iat[next_row_index, date_col_index]
+
+                    if UtilFunctions.has_date(str(cell_below), match_type):
+                        flag = True
+                        df = df.iloc[date_row_index:]
+                        break
+            if flag:
+                break
+
+        df = df.reset_index(drop=True)
+
+        if flag:
+            df = df.dropna(axis=1, how=&#34;all&#34;)
+            df = df.dropna(axis=1, subset=[0])
+        else:
+            num_none_columns = df.isna().all().sum()
+            if df.shape[1] - num_none_columns == no_of_cols:
+                df = df.dropna(axis=1, how=&#34;all&#34;)
+                flag = True
+
+        return df, flag
+
+    @UtilFunctions.conditional_decorator(
+        Constants.TIME_FUNCTION_ENABLED, UtilFunctions.time_function
+    )
+    def __clean_merged_df(self, merged_df, pdf_path):
+        if merged_df is None or merged_df.empty:
+            return pd.DataFrame()
+
+        merged_df, date_header_found = self.__clean_dataframe(
+            merged_df, 0, MatchType.SEARCH
+        )
+
+        if not date_header_found:
+            return pd.DataFrame()
+
+        lower_df = merged_df.apply(lambda col: col.map(lambda x: str(x).lower()))
+        merged_df = merged_df.dropna(how=&#34;all&#34;)
+        columns_to_check = merged_df.iloc[:, :-2]
+
+        merged_df = merged_df[~columns_to_check.isnull().all(axis=1)]
+        if lower_df.iloc[0].str.contains(&#34;date&#34;).any():
+            header_value = merged_df.iloc[0]
+            merged_df.columns = header_value
+            merged_df = merged_df[1:].reset_index(drop=True)
+        else:
+            merged_df.columns = merged_df.iloc[0]
+            merged_df = merged_df[1:].reset_index(drop=True)
+
+        header_value_str = merged_df.columns.astype(str).tolist()
+        merged_df = merged_df[
+            ~merged_df.apply(
+                lambda row: all(
+                    cell == header_value_str[idx]
+                    for idx, cell in enumerate(row.astype(str).tolist()[:-2])
+                ),
+                axis=1,
+            )
+        ]
+        df_cols = merged_df.columns
+        if df_cols[0] != &#34;&#34;:
+            first_col_df = merged_df[df_cols[0]]
+
+            first_column_mask = first_col_df.isnull()
+
+            if first_column_mask.all():
+                raise CustomError.ColumnBreakError(pdf_path)
+
+        date_columns = [
+            col for col in merged_df.columns.astype(str) if &#34;date&#34; in col.lower()
+        ]
+        date_mask = merged_df[date_columns].apply(
+            lambda row: any(UtilFunctions.has_date(cell) for cell in row), axis=1
+        )
+        date_count_ratio = date_mask.sum() / merged_df.shape[0]
+        if merged_df.shape[0] &gt;= 10 and date_count_ratio &lt; 0.55:
+            raise CustomError.MultiLineDescriptionExceedingLimitError(pdf_path)
+
+        specific_keywords = [
+            &#34;total:&#34;,
+            &#34;closing balance&#34;,
+            &#34;opening balance&#34;,
+            &#34;total no. of transactions&#34;,
+            &#34;any discrepancy in this document of accounts should be notified to the bank&#34;,
+        ]
+
+        date_columns_empty = merged_df[date_columns].isnull() | merged_df[
+            date_columns
+        ].apply(lambda col: col.map(lambda x: str(x).strip() == &#34;&#34;))
+
+        all_date_columns_empty = date_columns_empty.all(axis=1)
+
+        non_date_columns = [
+            col for col in merged_df.columns[:-2] if col not in date_columns
+        ]
+        non_date_keywords_present = merged_df[non_date_columns].apply(
+            lambda row: any(
+                any(keyword in str(cell).lower() for keyword in specific_keywords)
+                for cell in row
+            ),
+            axis=1,
+        )
+        numeric_regex = r&#34;^\d{1,2}$&#34;
+
+        non_date_keywords_present_strict = merged_df[non_date_columns].apply(
+            lambda row: any(re.fullmatch(numeric_regex, str(cell)) for cell in row),
+            axis=1,
+        )
+
+        if merged_df.shape[1] &gt; 2:
+            merged_df[&#34;diff&#34;] = (
+                pd.to_numeric(merged_df.iloc[:, -2], errors=&#34;coerce&#34;)
+                .fillna(0)
+                .diff()
+                .fillna(0)
+            )
+        diff_shifted = merged_df[&#34;diff&#34;].shift(-1)
+
+        rows_to_remove_strict = (
+            (merged_df[&#34;diff&#34;] == 0)
+            &amp; (diff_shifted == 1)
+            &amp; non_date_keywords_present_strict
+            &amp; all_date_columns_empty
+        )
+        if rows_to_remove_strict.any():
+            raise CustomError.JunkDataInLastRowError(pdf_path)
+
+        merged_df = merged_df.drop(columns=[&#34;diff&#34;])
+
+        rows_to_remove = all_date_columns_empty &amp; non_date_keywords_present
+
+        merged_df = merged_df[~rows_to_remove]
+
+        junk_keywords = [
+            &#34;generated&#34;,
+            &#34;a/c statement&#34;,
+            &#34;closing balance&#34;,
+            &#34;total amount&#34;,
+            &#34;a/c&#34;,
+        ]
+        merged_df = merged_df[
+            ~merged_df[date_columns].apply(
+                lambda row: any(
+                    any(keyword in str(cell).lower() for keyword in junk_keywords)
+                    for cell in row
+                ),
+                axis=1,
+            )
+        ]
+        merged_df = ProcessingUtilFunctions.append_columns_with_empty_date(merged_df)
+        merged_df = ProcessingUtilFunctions.merge_rows_on_empty_date(merged_df)
+        desc_split = ProcessingUtilFunctions.validate_invalid_rows(merged_df, pdf_path)
+        if desc_split:
+            raise CustomError.MultiLineDescriptionExceedingLimitError(pdf_path)
+
+        merged_df = merged_df.apply(
+            lambda col: (
+                col.str.replace(
+                    &#34;**This is computer generated statement and does not require a signature.**&#34;,
+                    &#34;&#34;,
+                )
+                if col.dtype == &#34;object&#34;
+                else col
+            )
+        )
+
+        merged_df[date_columns] = merged_df[date_columns].apply(
+            lambda col: col.str.replace(&#34;BANK LIMITED&#34;, &#34;&#34;, regex=True, case=False)
+        )
+        date_columns = [
+            col for col in merged_df.columns.astype(str) if &#34;date&#34; in col.lower()
+        ]
+
+        false_date_mask = ~merged_df[date_columns].apply(
+            lambda row: any(UtilFunctions.has_date(cell) for cell in row)
+            and all(
+                UtilFunctions.has_date(cell) or pd.isna(cell) or cell == &#34;&#34;
+                for cell in row
+            ),
+            axis=1,
+        )
+
+        invalid_rows = merged_df[false_date_mask]
+
+        invalid_rows_cleaned = invalid_rows[date_columns].apply(
+            lambda col: col.apply(ProcessingUtilFunctions.extract_and_validate_date)
+        )
+
+        valid_dates = invalid_rows_cleaned.any(axis=1)
+
+        if valid_dates.any():
+            raise CustomError.RowMismatchError(pdf_path)
+
+        merged_df = merged_df[
+            merged_df[date_columns].apply(
+                lambda row: any(UtilFunctions.has_date(cell) for cell in row)
+                and all(
+                    UtilFunctions.has_date(cell) or pd.isna(cell) or cell == &#34;&#34;
+                    for cell in row
+                ),
+                axis=1,
+            )
+        ]
+
+        balance_columns = [
+            col
+            for col in merged_df.columns.astype(str)
+            if (
+                &#34;balance&#34; in col.lower()
+                or &#34;debit&#34; in col.lower()
+                or &#34;credit&#34; in col.lower()
+                or &#34;total amount dr/cr&#34; in col.lower()
+            )
+        ]
+
+        pattern = re.compile(r&#34;(?&lt;=\d)\.&#34;)
+
+        for col in balance_columns:
+            invalid_rows = (
+                merged_df[col].astype(str).apply(lambda x: len(pattern.findall(x)) &gt; 1)
+            )
+
+            if invalid_rows.any():
+                raise CustomError.MultipleTransactionsError(pdf_path)
+
+        if self.__latticetype__ == LatticeType.NONLATTICE_HLM:
+            date_count_validity_mask = merged_df[date_columns].apply(
+                lambda col: col.apply(
+                    lambda cell: UtilFunctions.has_date(cell, count=True)[1] &lt;= 1
+                )
+            )
+            if not date_count_validity_mask.all().all():
+                raise CustomError.MultipleTransactionsError(pdf_path)
+
+        if self.__latticetype__ == LatticeType.LATTICE:
+            date_count_validity_mask = merged_df[date_columns].apply(
+                lambda col: col.apply(
+                    lambda cell: UtilFunctions.has_date(cell, count=True)[1] &lt;= 2
+                )
+            )
+            if not date_count_validity_mask.all().all():
+                raise CustomError.MultipleJunkDatesError(pdf_path)
+
+        merged_df = merged_df[
+            ~merged_df.loc[
+                :,
+                [col for col in merged_df.columns.astype(str) if &#34;date&#34; in col.lower()],
+            ]
+            .apply(
+                lambda col: col.str.contains(&#34;generated&#34;, case=False, na=False)
+                | col.str.contains(&#34;statement&#34;, case=False, na=False)
+                | col.str.contains(&#34;closing balance&#34;, case=False, na=False)
+            )
+            .any(axis=1)
+        ]
+
+        if merged_df.shape[1] &gt; 2:
+            merged_df = merged_df.iloc[:, :-2]
+
+        s_no_columns = [col for col in merged_df.columns if &#34;S No.&#34; in col]
+
+        for col in s_no_columns:
+            if not merged_df[col].str.isnumeric().all():
+                raise CustomError.InvalidSerialNoError(pdf_path)
+        merged_df = merged_df.replace(
+            {
+                r&#34;\(cid:9\)&#34;: &#34;\t&#34;,
+                r&#34;\(cid:10\)&#34;: &#34;\n&#34;,
+                r&#34;\(cid:13\)&#34;: &#34;&#34;,
+                r&#34;\(cid:19\)&#34;: &#34;&#34;,
+            },
+            regex=True,
+        )
+
+        flag = ProcessingUtilFunctions.validate_date_column_lengths(merged_df, pdf_path)
+        if not flag:
+            raise CustomError.InvalidDatesError(pdf_path)
+        
+        return merged_df
+
+    def process_pdf(self, pdf_path, csv_dir):
+        &#34;&#34;&#34;
+        Processes a PDF file to extract table data, clean it, and save it as a CSV file.
+
+        This function uses the `extract_pdf` method to retrieve data from each page in the PDF.
+        It merges these data frames into a single DataFrame, performs cleaning, and then saves the
+        final DataFrame as a CSV file in a predefined directory. The file name is derived from the
+        original PDF name.
+
+        Parameters:
+        ----------
+        pdf_path : str
+            The path to the PDF file to be processed.
+
+        Returns:
+        -------
+        None
+            The function saves the cleaned, merged table data as a CSV file in `Constants.CSV_DIR`.
+        &#34;&#34;&#34;
+
+        merged_df_directory = csv_dir
+
+        if not os.path.exists(merged_df_directory):
+            os.makedirs(merged_df_directory)
+
+        try:
+            if not os.path.isfile(pdf_path):
+                raise CustomError.FileNotFoundError(pdf_path)
+
+            total_pages = UtilFunctions.get_pdf_page_count(pdf_path)
+
+            pdf_data_frames, self.__latticetype__ = self.extract_pdf(
+                pdf_path, list(range(0, total_pages))
+            )
+
+            if not pdf_data_frames:
+                raise CustomError.ProcessingError(pdf_path)
+
+            merged_df = self.__merge_dataframes(pdf_data_frames, pdf_path)
+
+            if merged_df is None or merged_df.empty:
+                raise CustomError.DataFrameMergingError(pdf_path)
+
+            merged_df = self.__clean_merged_df(merged_df, pdf_path)
+
+            if merged_df is None or merged_df.empty:
+                raise CustomError.DataFrameCleaningError(pdf_path)
+
+            del pdf_data_frames
+
+            return SuccessCode.S200, f&#34;{pdf_path} {SuccessCode.S200.Message}&#34;, merged_df
+
+        except CustomError.FileNotFoundError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.ProcessingError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.DataFrameMergingError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.DataFrameCleaningError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.ColumnMismatchError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.MultiRowsUnderSameDate as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.InvalidGridError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.MissingPagesError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.MultiLineDescriptionExceedingLimitError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.MultipleTransactionsError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.AlternateRowMissError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.InvalidTransactionsError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.TableExtractionError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.OverlappingWordsError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.SingleCellOnLastPageError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.JunkDataInLastRowError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.MultipleJunkDatesError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.TableAsImageError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.RowMismatchError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.InvalidSerialNoError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except CustomError.ColumnBreakError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+        
+        except CustomError.InvalidDatesError as e:
+            return e.code, e.__str__(), pd.DataFrame()
+
+        except Exception as e:
+            return (
+                ErrorCode.E500,
+                f&#34;{pdf_path} {ErrorCode.E500.Message} {e}&#34;,
+                pd.DataFrame(),
+            )
+
+    @abstractmethod
+    def extract_pdf(self, pdf_path, batch):
+        &#34;&#34;&#34;Processes the PDF and extracts data.
+        Subclasses must implement this method.&#34;&#34;&#34;
+        raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Abstract class for processing PDF documents. Subclasses should implement
+methods to process pages, segment pages,
+identify segments, and extract tabular data from segments.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData" href="processing_hlm.html#PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData">ProcessNonLatticeHLMData</a></li>
+<li><a title="PDF_Extraction.processing.processing_lattice.ProcessLatticeData" href="processing_lattice.html#PDF_Extraction.processing.processing_lattice.ProcessLatticeData">ProcessLatticeData</a></li>
+<li><a title="PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData" href="processing_vlm.html#PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData">ProcessNonLatticeVLMData</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.extract_pdf"><code class="name flex">
+<span>def <span class="ident">extract_pdf</span></span>(<span>self, pdf_path, batch)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def extract_pdf(self, pdf_path, batch):
+    &#34;&#34;&#34;Processes the PDF and extracts data.
+    Subclasses must implement this method.&#34;&#34;&#34;
+    raise NotImplementedError</code></pre>
+</details>
+<div class="desc"><p>Processes the PDF and extracts data.
+Subclasses must implement this method.</p></div>
+</dd>
+<dt id="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf"><code class="name flex">
+<span>def <span class="ident">process_pdf</span></span>(<span>self, pdf_path, csv_dir)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_pdf(self, pdf_path, csv_dir):
+    &#34;&#34;&#34;
+    Processes a PDF file to extract table data, clean it, and save it as a CSV file.
+
+    This function uses the `extract_pdf` method to retrieve data from each page in the PDF.
+    It merges these data frames into a single DataFrame, performs cleaning, and then saves the
+    final DataFrame as a CSV file in a predefined directory. The file name is derived from the
+    original PDF name.
+
+    Parameters:
+    ----------
+    pdf_path : str
+        The path to the PDF file to be processed.
+
+    Returns:
+    -------
+    None
+        The function saves the cleaned, merged table data as a CSV file in `Constants.CSV_DIR`.
+    &#34;&#34;&#34;
+
+    merged_df_directory = csv_dir
+
+    if not os.path.exists(merged_df_directory):
+        os.makedirs(merged_df_directory)
+
+    try:
+        if not os.path.isfile(pdf_path):
+            raise CustomError.FileNotFoundError(pdf_path)
+
+        total_pages = UtilFunctions.get_pdf_page_count(pdf_path)
+
+        pdf_data_frames, self.__latticetype__ = self.extract_pdf(
+            pdf_path, list(range(0, total_pages))
+        )
+
+        if not pdf_data_frames:
+            raise CustomError.ProcessingError(pdf_path)
+
+        merged_df = self.__merge_dataframes(pdf_data_frames, pdf_path)
+
+        if merged_df is None or merged_df.empty:
+            raise CustomError.DataFrameMergingError(pdf_path)
+
+        merged_df = self.__clean_merged_df(merged_df, pdf_path)
+
+        if merged_df is None or merged_df.empty:
+            raise CustomError.DataFrameCleaningError(pdf_path)
+
+        del pdf_data_frames
+
+        return SuccessCode.S200, f&#34;{pdf_path} {SuccessCode.S200.Message}&#34;, merged_df
+
+    except CustomError.FileNotFoundError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.ProcessingError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.DataFrameMergingError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.DataFrameCleaningError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.ColumnMismatchError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.MultiRowsUnderSameDate as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.InvalidGridError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.MissingPagesError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.MultiLineDescriptionExceedingLimitError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.MultipleTransactionsError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.AlternateRowMissError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.InvalidTransactionsError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.TableExtractionError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.OverlappingWordsError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.SingleCellOnLastPageError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.JunkDataInLastRowError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.MultipleJunkDatesError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.TableAsImageError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.RowMismatchError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.InvalidSerialNoError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except CustomError.ColumnBreakError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+    
+    except CustomError.InvalidDatesError as e:
+        return e.code, e.__str__(), pd.DataFrame()
+
+    except Exception as e:
+        return (
+            ErrorCode.E500,
+            f&#34;{pdf_path} {ErrorCode.E500.Message} {e}&#34;,
+            pd.DataFrame(),
+        )</code></pre>
+</details>
+<div class="desc"><p>Processes a PDF file to extract table data, clean it, and save it as a CSV file.</p>
+<p>This function uses the <code>extract_pdf</code> method to retrieve data from each page in the PDF.
+It merges these data frames into a single DataFrame, performs cleaning, and then saves the
+final DataFrame as a CSV file in a predefined directory. The file name is derived from the
+original PDF name.</p>
+<h2 id="parameters">Parameters:</h2>
+<p>pdf_path : str
+The path to the PDF file to be processed.</p>
+<h2 id="returns">Returns:</h2>
+<p>None
+The function saves the cleaned, merged table data as a CSV file in <code>Constants.CSV_DIR</code>.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.processing" href="index.html">PDF_Extraction.processing</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.extract_pdf" href="#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.extract_pdf">extract_pdf</a></code></li>
+<li><code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf" href="#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf">process_pdf</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

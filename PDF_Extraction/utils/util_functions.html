@@ -1,0 +1,2457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.utils.util_functions API documentation</title>
+<meta name="description" content="Classes:
+- UtilFunctions: A collection of static utility functions for common tasks.
+- ProcessingUtilFunctions: Functions for processing and …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.utils.util_functions</code></h1>
+</header>
+<section id="section-intro">
+<p>Classes:
+- UtilFunctions: A collection of static utility functions for common tasks.
+- ProcessingUtilFunctions: Functions for processing and reconfiguring dataframes.</p>
+<h2 id="utilfunctions-methods">UtilFunctions Methods:</h2>
+<h2 id="processingutilfunctions-methods">ProcessingUtilFunctions Methods:</h2>
+<ul>
+<li>find_common_false_segments(lists): Identifies continuous segments of <code>False</code> values across all provided lists.</li>
+<li>replace_rows_with_concatenated_row(df, start_row, end_row): Replace rows with a concatenated row.</li>
+<li>merge_description(df): Merge description rows in a DataFrame.</li>
+<li>append_columns_with_empty_date(df): Append columns with empty date values.</li>
+<li>merge_rows_on_empty_date(df): Merge rows in a DataFrame where the date column is empty or invalid.</li>
+<li>check_valid_table(df, date_columns): Check if the DataFrame contains a valid date header and valid dates.</li>
+<li>remove_junk_tables(df_array): Remove junk tables from an array of DataFrames.</li>
+<li>reconfigure_dataframes(df_array): Reconfigure an array of DataFrames to extract valid tables.</li>
+</ul>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions"><code class="flex name class">
+<span>class <span class="ident">ProcessingUtilFunctions</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProcessingUtilFunctions:
+    &#34;&#34;&#34;
+    A utility class for processing and manipulating data within DataFrames.
+
+    This class provides a collection of static methods to perform various operations
+    on pandas DataFrames, such as identifying common segments, merging rows, validating
+    data, and cleaning date columns. The methods are designed to handle specific data
+    processing tasks commonly encountered in data extraction and transformation workflows.
+
+    Methods:
+    find_common_false_segments(lists):
+
+    replace_rows_with_concatenated_row(df, start_row, end_row):
+
+    merge_description(df):
+        Merges descriptions in the DataFrame based on certain conditions.
+
+    append_columns_with_empty_date(df):
+        Merges rows based on conditions related to date columns and differences.
+
+    should_ignore_row(row, non_date_columns, keywords):
+        Determines if a row should be ignored based on the presence of keywords
+        and multiple non-empty columns.
+
+    should_ignore_row_strict(row, non_date_columns, keywords):
+
+    validate_invalid_rows(df, pdf_path):
+        Validates rows in the DataFrame and identifies invalid rows based on
+        certain criteria.
+
+    merge_rows_on_empty_date(df):
+        Merges rows in a DataFrame where the date column is empty or invalid.
+
+    clean_date_column(df):
+        Cleans the date columns in the DataFrame by ensuring the values do not
+        exceed a reasonable length.
+
+    extract_and_validate_date(date_str):
+        Extracts and validates a date from a given string.
+
+    check_valid_table(df, date_columns):
+        Checks if the DataFrame contains a valid date header and valid dates.
+
+    remove_junk_tables(df_array):
+        Removes junk tables from a list of DataFrames based on content validation.
+
+    reconfigure_dataframes(df_array):
+        Reconfigures an array of DataFrames to extract valid tables while
+        identifying and discarding junk tables based on content.
+    &#34;&#34;&#34;
+
+    @staticmethod
+    def find_common_false_segments(lists):
+        &#34;&#34;&#34;
+        Identifies continuous segments of `False` values across all provided lists
+        and returns the start and end indices of these segments.
+
+        Args:
+        -----
+        lists (List[List[bool]]): A list of lists, where each inner list contains
+                                    boolean values representing conditions for each position.
+
+        Returns:
+        --------
+        List[Tuple[int, int]]: A list of tuples, where each tuple contains the start and
+                                end indices of a segment of `False` values common to all lists.
+        &#34;&#34;&#34;
+
+        if not lists:
+            return []
+
+        list_length = len(lists[0])
+        common_false_segments = []
+        start_index = None
+
+        for i in range(list_length):
+            if any(lst[i] is False for lst in lists):
+                if start_index is None:
+                    start_index = i
+            else:
+                if start_index is not None:
+                    common_false_segments.append((start_index, i - 1))
+                    start_index = None
+
+        if start_index is not None:
+            common_false_segments.append((start_index, list_length - 1))
+
+        return common_false_segments
+
+    @staticmethod
+    def replace_rows_with_concatenated_row(df, start_row, end_row):
+        &#34;&#34;&#34;
+        Replace a range of rows in a DataFrame with a single concatenated row.
+
+        This function takes a DataFrame and replaces the rows from `start_row` to `end_row`
+        (inclusive) with a single row where the values are concatenated as strings.
+
+        Parameters:
+        df (pd.DataFrame): The DataFrame to modify.
+        start_row (int): The starting index of the rows to be replaced.
+        end_row (int): The ending index of the rows to be replaced.
+
+        Returns:
+        pd.DataFrame: The modified DataFrame with the specified rows replaced by a single concatenated row.
+        &#34;&#34;&#34;
+        end_row = min(end_row, len(df) - 1)
+        selected_rows = df.iloc[start_row : end_row + 1].fillna(&#34;&#34;)
+        concatenated_row = selected_rows.astype(str).agg(&#34;&#34;.join)
+        df.drop(df.index[range(start_row, end_row + 1)], inplace=True)
+        top = df.iloc[:start_row]
+        bottom = df.iloc[start_row:]
+        df = pd.concat([top, concatenated_row.to_frame().T, bottom]).reset_index(
+            drop=True
+        )
+        return df
+
+    @staticmethod
+    def append_columns_with_empty_date(df):
+        &#34;&#34;&#34;
+        Merge rows based on conditions:
+        - The current row&#39;s &#39;diff&#39; is 0, and the next row&#39;s &#39;diff&#39; is 1.
+        - Both rows have non-empty data in any date column.
+        - At least one column in the two rows contains invalid (non-empty but not valid) dates.
+
+        Args:
+            df (pd.DataFrame): Input DataFrame to process.
+
+        Returns:
+            pd.DataFrame: Updated DataFrame after merging rows.
+        &#34;&#34;&#34;
+        try:
+            df.reset_index(drop=True, inplace=True)
+
+            try:
+                date_columns = UtilFunctions.find_date_column(df)
+            except KeyError as ke:
+                print(f&#34;KeyError: Missing columns for date identification: {ke}&#34;)
+                return df
+
+            date_not_empty = pd.DataFrame(
+                [
+                    [val is not None and str(val).strip() != &#34;&#34; for val in df[date_col]]
+                    for date_col in date_columns
+                ]
+            ).T
+
+            if df.shape[1] &gt; 2:
+                try:
+                    df[&#34;diff&#34;] = pd.to_numeric(df.iloc[:, -2], errors=&#34;coerce&#34;).diff()
+                except KeyError as ke:
+                    print(f&#34;KeyError while calculating &#39;diff&#39;: {ke}&#34;)
+                    return df
+
+            i = 0
+            while i &lt; len(df) - 1:
+                try:
+                    if ((df.loc[i, &#34;diff&#34;] == 0 and df.loc[i + 1, &#34;diff&#34;] == 1) and (
+                        date_not_empty.iloc[i].any()
+                        and date_not_empty.iloc[i + 1].any()
+                    )):
+                        invalid_dates_present = any(
+                            (
+                                not UtilFunctions.has_date(str(df.loc[i, col]))
+                                and str(df.loc[i, col]).strip() != &#34;&#34;
+                            )
+                            or (
+                                not UtilFunctions.has_date(str(df.loc[i + 1, col]))
+                                and str(df.loc[i + 1, col]).strip() != &#34;&#34;
+                            )
+                            for col in date_columns
+                        )
+                        if invalid_dates_present:
+                            selected_rows = df.loc[i : i + 1].fillna(&#34;&#34;)
+                            concatenated_row = selected_rows.astype(str).agg(&#34;&#34;.join)
+                            valid_dates_after_merge = all(
+                                UtilFunctions.has_date(
+                                    str(concatenated_row[col]),
+                                    match_type=MatchType.FULLMATCH,
+                                )
+                                for col in date_columns
+                            )
+                            if valid_dates_after_merge:
+                                df = ProcessingUtilFunctions.replace_rows_with_concatenated_row(
+                                    df, i, i + 1
+                                )
+                                df.reset_index(drop=True, inplace=True)
+                                date_not_empty = pd.DataFrame(
+                                    [
+                                        [
+                                            val is not None and str(val).strip() != &#34;&#34;
+                                            for val in df[date_col]
+                                        ]
+                                        for date_col in date_columns
+                                    ]
+                                ).T
+                                continue
+
+                except KeyError as ke:
+                    print(
+                        f&#34;KeyError encountered while processing rows {i} and {i + 1}: {ke}&#34;
+                    )
+                except Exception as e:
+                    print(
+                        f&#34;An error occurred while processing rows {i} and {i + 1}: {e}&#34;
+                    )
+                i += 1
+
+        except KeyError as ke:
+            print(f&#34;KeyError encountered in DataFrame processing: {ke}&#34;)
+        except Exception as e:
+            print(f&#34;An error occurred while processing the DataFrame: {e}&#34;)
+
+        df.drop(columns=[&#34;diff&#34;], inplace=True, errors=&#34;ignore&#34;)
+
+        return df
+
+    @staticmethod
+    def should_ignore_row(row, non_date_columns, keywords):
+        &#34;&#34;&#34;
+        Determines if a row should be ignored based on the presence of keywords
+        &#34;&#34;&#34;
+        contains_keyword = any(
+            keyword in row[non_date_columns].to_string(index=False).lower()
+            for keyword in keywords
+        )
+        multiple_non_empty_columns = (
+            row[non_date_columns]
+            .apply(lambda x: bool(x.strip()) if isinstance(x, str) else pd.notna(x))
+            .sum()
+            &gt; 1
+        )
+        return contains_keyword and multiple_non_empty_columns
+
+    @staticmethod
+    def should_ignore_row_strict(row, non_date_columns, keywords):
+        &#34;&#34;&#34;
+        Determines if a row should be ignored based on exact keyword matches.
+
+        Parameters:
+            row (pd.Series): The row to check.
+            non_date_columns (list): The list of non-date column names.
+            keywords (list): The list of keywords to check for.
+
+        Returns:
+            bool: True if the row should be ignored, False otherwise.
+        &#34;&#34;&#34;
+        concatenated_string = (
+            row[non_date_columns].to_string(index=False).lower().strip()
+        )
+
+        for key in keywords:
+            if concatenated_string == key:
+                return True
+
+        return False
+
+    @staticmethod
+    def validate_invalid_rows(df, pdf_path):
+        &#34;&#34;&#34;
+        Validates rows in the DataFrame and identifies invalid rows based on
+        the number of invalid rows in between a page excluding first and last row.
+        &#34;&#34;&#34;
+        if df.empty:
+            raise ValueError(&#34;The DataFrame is empty.&#34;)
+
+        temp_df = copy.deepcopy(df)
+        temp_df = temp_df.reset_index(drop=True)
+
+        date_columns = UtilFunctions.find_date_column(temp_df)
+
+        if not date_columns:
+            raise ValueError(&#34;No date columns found in the DataFrame.&#34;)
+
+        if temp_df.shape[1] &gt; 2:
+            temp_df[&#34;diff&#34;] = pd.to_numeric(temp_df.iloc[:, -2], errors=&#34;coerce&#34;).diff()
+
+        temp_df[&#34;diff&#34;] = (
+            pd.to_numeric(temp_df[&#34;diff&#34;], errors=&#34;coerce&#34;).fillna(0).astype(int)
+        )
+        non_date_columns = [
+            col for col in temp_df.columns if col not in date_columns and col != &#34;diff&#34;
+        ]
+
+        temp_df = temp_df.fillna(&#34;&#34;).astype(str)
+
+        is_invalid_date = temp_df[date_columns].apply(
+            lambda row: (row.isna().all() or (row == &#34;&#34;).all() or (row == &#34; &#34;).all()),
+            axis=1,
+        )
+        invalid_indices = temp_df.index[is_invalid_date]
+        page_invalid_count = {}
+        keywords = Constants.KEYWORDS_IGNORE_MERGING
+
+        filtered_invalid_indices = [
+            idx
+            for idx in invalid_indices
+            if not ProcessingUtilFunctions.should_ignore_row(
+                temp_df.loc[idx], non_date_columns, keywords
+            )
+        ]
+        for page_num, group in temp_df.groupby(temp_df.iloc[:, -3]):
+            page_rows = group.index.tolist()
+            first_row = page_rows[0]
+            last_row = page_rows[-1]
+
+            for i in filtered_invalid_indices:
+                if i in page_rows and i != first_row and i != last_row:
+                    if page_num not in page_invalid_count:
+                        page_invalid_count[page_num] = 0
+                    page_invalid_count[page_num] += 1
+
+        invalid_grid = False
+        for page_num, count in page_invalid_count.items():
+            if count &gt; 0:
+                invalid_grid = True
+
+        return invalid_grid
+
+    @staticmethod
+    def _get_invalid_date_flags(temp_df, date_columns):
+        &#34;&#34;&#34;
+        Returns a series with flags indicating invalid date entries.
+        &#34;&#34;&#34;
+        return temp_df[date_columns].apply(
+            lambda row: (
+                row.isna().all()
+                or (row == &#34;&#34;).all()
+                or (row == &#34; &#34;).all()
+                or any(re.match(r&#34;^\d{1,2}:\d{2}:\d{2}$&#34;, str(x)) for x in row)
+            ),
+            axis=1,
+        )
+
+    @staticmethod
+    def _merge_with_previous(
+        temp_df, i, column_names, page_num_diff, is_invalid_date, non_date_columns
+    ):
+        &#34;&#34;&#34;
+        Merges the current row with the previous row if the conditions are met.
+        &#34;&#34;&#34;
+        prev_page_num_diff = temp_df.iloc[i - 1, -1]
+        if (
+            pd.notna(prev_page_num_diff)
+            and (
+                (page_num_diff == 1 and prev_page_num_diff == 0)
+                or (page_num_diff == 1 and prev_page_num_diff == 1)
+            )
+            and not ProcessingUtilFunctions.should_ignore_row(
+                temp_df.loc[i - 1], non_date_columns, [&#34;closing balance&#34;]
+            )
+        ):
+            for col in column_names:
+                temp_df[col] = temp_df[col].astype(str)
+                temp_df.at[i - 1, col] = (
+                    f&#34;{temp_df.at[i - 1, col]} {temp_df.at[i, col]}&#34;.strip()
+                )
+            is_invalid_date.iloc[i] = False
+
+    @staticmethod
+    def _merge_with_next(temp_df, i, column_names, page_num_diff, is_invalid_date):
+        &#34;&#34;&#34;
+        Merges the current row with the next row if the conditions are met.
+        &#34;&#34;&#34;
+        next_page_num_diff = temp_df.iloc[i + 1, -1]
+        if pd.notna(next_page_num_diff) and (
+            page_num_diff == 0 and next_page_num_diff == 1
+        ):
+            for col in column_names:
+                temp_df[col] = temp_df[col].astype(str)
+                temp_df.at[i + 1, col] = (
+                    f&#34;{temp_df.at[i, col]} {temp_df.at[i + 1, col]}&#34;.strip()
+                )
+            is_invalid_date.iloc[i] = False
+
+    @staticmethod
+    def merge_rows_on_empty_date(df):
+        &#34;&#34;&#34;
+        Merges rows in a DataFrame where the date column is empty or invalid,
+        by concatenating the data with the previous or next row.
+
+        Parameters:
+        -----------
+        df (pd.DataFrame): The input DataFrame.
+
+        Returns:
+        --------
+        pd.DataFrame: A DataFrame with rows merged where the date column was empty.
+        &#34;&#34;&#34;
+        df.reset_index(drop=True, inplace=True)
+        if df.empty:
+            raise ValueError(&#34;The DataFrame is empty.&#34;)
+
+        temp_df = copy.deepcopy(df)
+
+        date_columns = UtilFunctions.find_date_column(temp_df)
+        if not date_columns:
+            raise ValueError(&#34;No date columns found in the DataFrame.&#34;)
+
+        is_invalid_date = ProcessingUtilFunctions._get_invalid_date_flags(
+            temp_df, date_columns
+        )
+
+        if temp_df.shape[1] &gt; 2:
+            temp_df[&#34;diff&#34;] = (
+                pd.to_numeric(temp_df.iloc[:, -2], errors=&#34;coerce&#34;)
+                .fillna(0)
+                .diff()
+                .fillna(0)
+            )
+        non_date_columns = [
+            col for col in temp_df.columns if col not in date_columns and col != &#34;diff&#34;
+        ]
+
+        for col in non_date_columns + date_columns:
+            temp_df[col] = temp_df[col].fillna(&#34;&#34;).astype(str)
+
+        invalid_indices = temp_df.index[is_invalid_date]
+
+        keywords = Constants.KEYWORDS_IGNORE_MERGING
+
+        filtered_invalid_indices = [
+            idx
+            for idx in invalid_indices
+            if not ProcessingUtilFunctions.should_ignore_row(
+                temp_df.loc[idx], non_date_columns, keywords
+            )
+        ]
+
+        for i in filtered_invalid_indices:
+            if i &lt; 0 or i &gt;= len(temp_df):
+                continue
+
+            page_num_diff = temp_df.iloc[i, -1]
+
+            if pd.isna(page_num_diff):
+                continue
+            column_names = [col for col in temp_df.columns if col != &#34;diff&#34;]
+
+            if i &gt; 0 and not is_invalid_date.iloc[i - 1]:
+                try:
+                    ProcessingUtilFunctions._merge_with_previous(
+                        temp_df,
+                        i,
+                        column_names,
+                        page_num_diff,
+                        is_invalid_date,
+                        non_date_columns,
+                    )
+                except KeyError:
+                    pass
+
+            if i + 1 &lt; len(temp_df) and not is_invalid_date.iloc[i + 1]:
+                try:
+                    ProcessingUtilFunctions._merge_with_next(
+                        temp_df, i, column_names, page_num_diff, is_invalid_date
+                    )
+                except KeyError:
+                    pass
+
+        temp_df.drop(columns=[&#34;diff&#34;], inplace=True, errors=&#34;ignore&#34;)
+
+        return temp_df
+
+    @staticmethod
+    def validate_date_column_lengths(df, pdf_path):
+        &#34;&#34;&#34;
+        Validates the lengths of date values in date columns. Raises an error if lengths
+        outside the acceptable range (mode ± 1) are found.
+        &#34;&#34;&#34;
+        try:
+            df.reset_index(drop=True, inplace=True)
+
+            # Find date columns
+            date_columns = UtilFunctions.find_date_column(df)
+
+            for col in date_columns:
+                if col not in df.columns:
+                    print(f&#34;Column &#39;{col}&#39; not found in DataFrame. Skipping.&#34;)
+                    continue
+
+                # Prepare the length count dictionary
+                length_count_dict = {}
+                for i in range(len(df)):
+                    try:
+                        curr_value = str(df.at[i, col]).strip()  # Get the current value
+                        curr_length = len(curr_value)  # Calculate its length
+
+                        # Update the length count dictionary
+                        length_count_dict[curr_length] = length_count_dict.get(curr_length, 0) + 1
+
+                    except KeyError as e:
+                        print(f&#34;KeyError while accessing row {i} in column &#39;{col}&#39;: {e}&#34;)
+                    except Exception as e:
+                        print(f&#34;Unexpected error while processing row {i} in column &#39;{col}&#39;: {e}&#34;)
+
+                # Identify the mode of lengths
+                mode_length = max(length_count_dict, key=length_count_dict.get)
+                mode_count = length_count_dict[mode_length]
+
+                # Check for invalid lengths outside mode ± 1
+                valid_lengths = {0, mode_length - 1, mode_length, mode_length + 1}
+                invalid_lengths = {length for length in length_count_dict if length &gt;= mode_length and length not in valid_lengths}
+
+                if invalid_lengths:
+                    # print(
+                    #     f&#34;Invalid lengths found in column &#39;{col}&#39;: {invalid_lengths}. &#34;
+                    #     f&#34;Mode length is {mode_length} with {mode_count} occurrences. &#34;
+                    #     f&#34;Lengths must be within mode ± 1.&#34;
+                    # )
+                    return False
+
+            # print(&#34;All date columns validated successfully.&#34;)
+            return True
+
+        except Exception as e:
+            print(f&#34;An error occurred in validate_date_column_lengths: {e}&#34;)
+            raise
+
+
+
+    @staticmethod
+    def extract_and_validate_date(date_str):
+        &#34;&#34;&#34;
+        Extracts and validates a date from a given string.
+        &#34;&#34;&#34;
+        date_part = re.sub(r&#34;(\d{2}-[A-Za-z]{3}-\d{2,4})\D.*&#34;, r&#34;\1&#34;, str(date_str))
+        
+        if UtilFunctions.has_date(str(date_part)):
+            return True
+        return False
+
+    @staticmethod
+    def check_valid_table(df, date_columns):
+        &#34;&#34;&#34;Check if the DataFrame contains a valid date header and valid dates.&#34;&#34;&#34;
+
+        date_row_index = df.apply(
+            lambda row: row.astype(str).str.contains(&#34;date&#34;, case=False).any(), axis=1
+        )
+
+        if date_row_index.any():
+            date_row_indexes = [
+                index for index, val in enumerate(date_row_index) if val
+            ]
+
+            for row_index in date_row_indexes:
+                date_col_index = df.iloc[row_index].apply(
+                    lambda cell: &#34;date&#34; in str(cell).lower()
+                )
+                date_col_indexes = [
+                    index for index, val in enumerate(date_col_index) if val
+                ]
+
+                for col in date_col_indexes:
+                    next_row_index = row_index + 1
+
+                    while next_row_index &lt; len(df) and (
+                        pd.isna(df.iat[next_row_index, col])
+                        or df.iat[next_row_index, col] == &#34;&#34;
+                    ):
+                        next_row_index += 1
+
+                    if next_row_index &lt; len(df):
+                        cell_below = df.iat[next_row_index, col]
+
+                        cell_has_date, count = UtilFunctions.has_date(
+                            cell_below, MatchType.SEARCH, count=True
+                        )
+
+                        if cell_has_date:
+                            return True, row_index, count
+
+        if not date_columns:
+            return False, 0, 0
+
+        date_col_indexes = date_columns
+        for col in date_col_indexes:
+            next_row_index = 1
+
+            while next_row_index &lt; len(df) and (
+                pd.isna(df.iat[next_row_index, col])
+                or df.iat[next_row_index, col] == &#34;&#34;
+            ):
+                next_row_index += 1
+
+            if next_row_index &lt; len(df):
+                cell_below = df.iat[next_row_index, col]
+
+                cell_has_date, count = UtilFunctions.has_date(
+                    cell_below, MatchType.SEARCH, count=True
+                )
+
+                if cell_has_date:
+                    return True, -1, count
+
+        return False, 0, 0
+
+    @staticmethod
+    def remove_junk_tables(df_array):
+        &#34;&#34;&#34;
+        Removes junk tables from a list of DataFrames.
+
+        This function iterates over a list of DataFrames, checks if each DataFrame is a valid table,
+        and removes those that are not. A table is considered valid based on certain criteria checked
+        by the `ProcessingUtilFunctions.check_valid_table` method. If a table is valid, it is added to
+        the `modified_df_array`. Additionally, if the table has a header row, the function identifies
+        columns that contain date information and updates the `date_columns` list accordingly.
+
+        Args:
+            df_array (list of pandas.DataFrame): A list of DataFrames to be processed.
+
+        Returns:
+            list of pandas.DataFrame: A list of DataFrames that are considered valid tables.
+        &#34;&#34;&#34;
+        date_columns = []
+        modified_df_array = []
+
+        for df in df_array:
+            df.columns = range(0, df.shape[1])
+            is_table_valid, header_row, _ = ProcessingUtilFunctions.check_valid_table(
+                df, date_columns
+            )
+
+            if is_table_valid:
+                modified_df_array.append(df)
+                if header_row != -1:
+                    date_mask = (
+                        df.iloc[header_row]
+                        .astype(str)
+                        .apply(lambda cell: &#34;date&#34; in str(cell).lower())
+                    )
+                    date_columns = [index for index, val in enumerate(date_mask) if val]
+
+        return modified_df_array</code></pre>
+</details>
+<div class="desc"><p>A utility class for processing and manipulating data within DataFrames.</p>
+<p>This class provides a collection of static methods to perform various operations
+on pandas DataFrames, such as identifying common segments, merging rows, validating
+data, and cleaning date columns. The methods are designed to handle specific data
+processing tasks commonly encountered in data extraction and transformation workflows.</p>
+<p>Methods:
+find_common_false_segments(lists):</p>
+<p>replace_rows_with_concatenated_row(df, start_row, end_row):</p>
+<p>merge_description(df):
+Merges descriptions in the DataFrame based on certain conditions.</p>
+<p>append_columns_with_empty_date(df):
+Merges rows based on conditions related to date columns and differences.</p>
+<p>should_ignore_row(row, non_date_columns, keywords):
+Determines if a row should be ignored based on the presence of keywords
+and multiple non-empty columns.</p>
+<p>should_ignore_row_strict(row, non_date_columns, keywords):</p>
+<p>validate_invalid_rows(df, pdf_path):
+Validates rows in the DataFrame and identifies invalid rows based on
+certain criteria.</p>
+<p>merge_rows_on_empty_date(df):
+Merges rows in a DataFrame where the date column is empty or invalid.</p>
+<p>clean_date_column(df):
+Cleans the date columns in the DataFrame by ensuring the values do not
+exceed a reasonable length.</p>
+<p>extract_and_validate_date(date_str):
+Extracts and validates a date from a given string.</p>
+<p>check_valid_table(df, date_columns):
+Checks if the DataFrame contains a valid date header and valid dates.</p>
+<p>remove_junk_tables(df_array):
+Removes junk tables from a list of DataFrames based on content validation.</p>
+<p>reconfigure_dataframes(df_array):
+Reconfigures an array of DataFrames to extract valid tables while
+identifying and discarding junk tables based on content.</p></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.append_columns_with_empty_date"><code class="name flex">
+<span>def <span class="ident">append_columns_with_empty_date</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def append_columns_with_empty_date(df):
+    &#34;&#34;&#34;
+    Merge rows based on conditions:
+    - The current row&#39;s &#39;diff&#39; is 0, and the next row&#39;s &#39;diff&#39; is 1.
+    - Both rows have non-empty data in any date column.
+    - At least one column in the two rows contains invalid (non-empty but not valid) dates.
+
+    Args:
+        df (pd.DataFrame): Input DataFrame to process.
+
+    Returns:
+        pd.DataFrame: Updated DataFrame after merging rows.
+    &#34;&#34;&#34;
+    try:
+        df.reset_index(drop=True, inplace=True)
+
+        try:
+            date_columns = UtilFunctions.find_date_column(df)
+        except KeyError as ke:
+            print(f&#34;KeyError: Missing columns for date identification: {ke}&#34;)
+            return df
+
+        date_not_empty = pd.DataFrame(
+            [
+                [val is not None and str(val).strip() != &#34;&#34; for val in df[date_col]]
+                for date_col in date_columns
+            ]
+        ).T
+
+        if df.shape[1] &gt; 2:
+            try:
+                df[&#34;diff&#34;] = pd.to_numeric(df.iloc[:, -2], errors=&#34;coerce&#34;).diff()
+            except KeyError as ke:
+                print(f&#34;KeyError while calculating &#39;diff&#39;: {ke}&#34;)
+                return df
+
+        i = 0
+        while i &lt; len(df) - 1:
+            try:
+                if ((df.loc[i, &#34;diff&#34;] == 0 and df.loc[i + 1, &#34;diff&#34;] == 1) and (
+                    date_not_empty.iloc[i].any()
+                    and date_not_empty.iloc[i + 1].any()
+                )):
+                    invalid_dates_present = any(
+                        (
+                            not UtilFunctions.has_date(str(df.loc[i, col]))
+                            and str(df.loc[i, col]).strip() != &#34;&#34;
+                        )
+                        or (
+                            not UtilFunctions.has_date(str(df.loc[i + 1, col]))
+                            and str(df.loc[i + 1, col]).strip() != &#34;&#34;
+                        )
+                        for col in date_columns
+                    )
+                    if invalid_dates_present:
+                        selected_rows = df.loc[i : i + 1].fillna(&#34;&#34;)
+                        concatenated_row = selected_rows.astype(str).agg(&#34;&#34;.join)
+                        valid_dates_after_merge = all(
+                            UtilFunctions.has_date(
+                                str(concatenated_row[col]),
+                                match_type=MatchType.FULLMATCH,
+                            )
+                            for col in date_columns
+                        )
+                        if valid_dates_after_merge:
+                            df = ProcessingUtilFunctions.replace_rows_with_concatenated_row(
+                                df, i, i + 1
+                            )
+                            df.reset_index(drop=True, inplace=True)
+                            date_not_empty = pd.DataFrame(
+                                [
+                                    [
+                                        val is not None and str(val).strip() != &#34;&#34;
+                                        for val in df[date_col]
+                                    ]
+                                    for date_col in date_columns
+                                ]
+                            ).T
+                            continue
+
+            except KeyError as ke:
+                print(
+                    f&#34;KeyError encountered while processing rows {i} and {i + 1}: {ke}&#34;
+                )
+            except Exception as e:
+                print(
+                    f&#34;An error occurred while processing rows {i} and {i + 1}: {e}&#34;
+                )
+            i += 1
+
+    except KeyError as ke:
+        print(f&#34;KeyError encountered in DataFrame processing: {ke}&#34;)
+    except Exception as e:
+        print(f&#34;An error occurred while processing the DataFrame: {e}&#34;)
+
+    df.drop(columns=[&#34;diff&#34;], inplace=True, errors=&#34;ignore&#34;)
+
+    return df</code></pre>
+</details>
+<div class="desc"><p>Merge rows based on conditions:
+- The current row's 'diff' is 0, and the next row's 'diff' is 1.
+- Both rows have non-empty data in any date column.
+- At least one column in the two rows contains invalid (non-empty but not valid) dates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>Input DataFrame to process.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>pd.DataFrame</code></dt>
+<dd>Updated DataFrame after merging rows.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.check_valid_table"><code class="name flex">
+<span>def <span class="ident">check_valid_table</span></span>(<span>df, date_columns)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def check_valid_table(df, date_columns):
+    &#34;&#34;&#34;Check if the DataFrame contains a valid date header and valid dates.&#34;&#34;&#34;
+
+    date_row_index = df.apply(
+        lambda row: row.astype(str).str.contains(&#34;date&#34;, case=False).any(), axis=1
+    )
+
+    if date_row_index.any():
+        date_row_indexes = [
+            index for index, val in enumerate(date_row_index) if val
+        ]
+
+        for row_index in date_row_indexes:
+            date_col_index = df.iloc[row_index].apply(
+                lambda cell: &#34;date&#34; in str(cell).lower()
+            )
+            date_col_indexes = [
+                index for index, val in enumerate(date_col_index) if val
+            ]
+
+            for col in date_col_indexes:
+                next_row_index = row_index + 1
+
+                while next_row_index &lt; len(df) and (
+                    pd.isna(df.iat[next_row_index, col])
+                    or df.iat[next_row_index, col] == &#34;&#34;
+                ):
+                    next_row_index += 1
+
+                if next_row_index &lt; len(df):
+                    cell_below = df.iat[next_row_index, col]
+
+                    cell_has_date, count = UtilFunctions.has_date(
+                        cell_below, MatchType.SEARCH, count=True
+                    )
+
+                    if cell_has_date:
+                        return True, row_index, count
+
+    if not date_columns:
+        return False, 0, 0
+
+    date_col_indexes = date_columns
+    for col in date_col_indexes:
+        next_row_index = 1
+
+        while next_row_index &lt; len(df) and (
+            pd.isna(df.iat[next_row_index, col])
+            or df.iat[next_row_index, col] == &#34;&#34;
+        ):
+            next_row_index += 1
+
+        if next_row_index &lt; len(df):
+            cell_below = df.iat[next_row_index, col]
+
+            cell_has_date, count = UtilFunctions.has_date(
+                cell_below, MatchType.SEARCH, count=True
+            )
+
+            if cell_has_date:
+                return True, -1, count
+
+    return False, 0, 0</code></pre>
+</details>
+<div class="desc"><p>Check if the DataFrame contains a valid date header and valid dates.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.extract_and_validate_date"><code class="name flex">
+<span>def <span class="ident">extract_and_validate_date</span></span>(<span>date_str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def extract_and_validate_date(date_str):
+    &#34;&#34;&#34;
+    Extracts and validates a date from a given string.
+    &#34;&#34;&#34;
+    date_part = re.sub(r&#34;(\d{2}-[A-Za-z]{3}-\d{2,4})\D.*&#34;, r&#34;\1&#34;, str(date_str))
+    
+    if UtilFunctions.has_date(str(date_part)):
+        return True
+    return False</code></pre>
+</details>
+<div class="desc"><p>Extracts and validates a date from a given string.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.find_common_false_segments"><code class="name flex">
+<span>def <span class="ident">find_common_false_segments</span></span>(<span>lists)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def find_common_false_segments(lists):
+    &#34;&#34;&#34;
+    Identifies continuous segments of `False` values across all provided lists
+    and returns the start and end indices of these segments.
+
+    Args:
+    -----
+    lists (List[List[bool]]): A list of lists, where each inner list contains
+                                boolean values representing conditions for each position.
+
+    Returns:
+    --------
+    List[Tuple[int, int]]: A list of tuples, where each tuple contains the start and
+                            end indices of a segment of `False` values common to all lists.
+    &#34;&#34;&#34;
+
+    if not lists:
+        return []
+
+    list_length = len(lists[0])
+    common_false_segments = []
+    start_index = None
+
+    for i in range(list_length):
+        if any(lst[i] is False for lst in lists):
+            if start_index is None:
+                start_index = i
+        else:
+            if start_index is not None:
+                common_false_segments.append((start_index, i - 1))
+                start_index = None
+
+    if start_index is not None:
+        common_false_segments.append((start_index, list_length - 1))
+
+    return common_false_segments</code></pre>
+</details>
+<div class="desc"><p>Identifies continuous segments of <code>False</code> values across all provided lists
+and returns the start and end indices of these segments.</p>
+<h2 id="args">Args:</h2>
+<p>lists (List[List[bool]]): A list of lists, where each inner list contains
+boolean values representing conditions for each position.</p>
+<h2 id="returns">Returns:</h2>
+<p>List[Tuple[int, int]]: A list of tuples, where each tuple contains the start and
+end indices of a segment of <code>False</code> values common to all lists.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.merge_rows_on_empty_date"><code class="name flex">
+<span>def <span class="ident">merge_rows_on_empty_date</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def merge_rows_on_empty_date(df):
+    &#34;&#34;&#34;
+    Merges rows in a DataFrame where the date column is empty or invalid,
+    by concatenating the data with the previous or next row.
+
+    Parameters:
+    -----------
+    df (pd.DataFrame): The input DataFrame.
+
+    Returns:
+    --------
+    pd.DataFrame: A DataFrame with rows merged where the date column was empty.
+    &#34;&#34;&#34;
+    df.reset_index(drop=True, inplace=True)
+    if df.empty:
+        raise ValueError(&#34;The DataFrame is empty.&#34;)
+
+    temp_df = copy.deepcopy(df)
+
+    date_columns = UtilFunctions.find_date_column(temp_df)
+    if not date_columns:
+        raise ValueError(&#34;No date columns found in the DataFrame.&#34;)
+
+    is_invalid_date = ProcessingUtilFunctions._get_invalid_date_flags(
+        temp_df, date_columns
+    )
+
+    if temp_df.shape[1] &gt; 2:
+        temp_df[&#34;diff&#34;] = (
+            pd.to_numeric(temp_df.iloc[:, -2], errors=&#34;coerce&#34;)
+            .fillna(0)
+            .diff()
+            .fillna(0)
+        )
+    non_date_columns = [
+        col for col in temp_df.columns if col not in date_columns and col != &#34;diff&#34;
+    ]
+
+    for col in non_date_columns + date_columns:
+        temp_df[col] = temp_df[col].fillna(&#34;&#34;).astype(str)
+
+    invalid_indices = temp_df.index[is_invalid_date]
+
+    keywords = Constants.KEYWORDS_IGNORE_MERGING
+
+    filtered_invalid_indices = [
+        idx
+        for idx in invalid_indices
+        if not ProcessingUtilFunctions.should_ignore_row(
+            temp_df.loc[idx], non_date_columns, keywords
+        )
+    ]
+
+    for i in filtered_invalid_indices:
+        if i &lt; 0 or i &gt;= len(temp_df):
+            continue
+
+        page_num_diff = temp_df.iloc[i, -1]
+
+        if pd.isna(page_num_diff):
+            continue
+        column_names = [col for col in temp_df.columns if col != &#34;diff&#34;]
+
+        if i &gt; 0 and not is_invalid_date.iloc[i - 1]:
+            try:
+                ProcessingUtilFunctions._merge_with_previous(
+                    temp_df,
+                    i,
+                    column_names,
+                    page_num_diff,
+                    is_invalid_date,
+                    non_date_columns,
+                )
+            except KeyError:
+                pass
+
+        if i + 1 &lt; len(temp_df) and not is_invalid_date.iloc[i + 1]:
+            try:
+                ProcessingUtilFunctions._merge_with_next(
+                    temp_df, i, column_names, page_num_diff, is_invalid_date
+                )
+            except KeyError:
+                pass
+
+    temp_df.drop(columns=[&#34;diff&#34;], inplace=True, errors=&#34;ignore&#34;)
+
+    return temp_df</code></pre>
+</details>
+<div class="desc"><p>Merges rows in a DataFrame where the date column is empty or invalid,
+by concatenating the data with the previous or next row.</p>
+<h2 id="parameters">Parameters:</h2>
+<p>df (pd.DataFrame): The input DataFrame.</p>
+<h2 id="returns">Returns:</h2>
+<p>pd.DataFrame: A DataFrame with rows merged where the date column was empty.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.remove_junk_tables"><code class="name flex">
+<span>def <span class="ident">remove_junk_tables</span></span>(<span>df_array)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def remove_junk_tables(df_array):
+    &#34;&#34;&#34;
+    Removes junk tables from a list of DataFrames.
+
+    This function iterates over a list of DataFrames, checks if each DataFrame is a valid table,
+    and removes those that are not. A table is considered valid based on certain criteria checked
+    by the `ProcessingUtilFunctions.check_valid_table` method. If a table is valid, it is added to
+    the `modified_df_array`. Additionally, if the table has a header row, the function identifies
+    columns that contain date information and updates the `date_columns` list accordingly.
+
+    Args:
+        df_array (list of pandas.DataFrame): A list of DataFrames to be processed.
+
+    Returns:
+        list of pandas.DataFrame: A list of DataFrames that are considered valid tables.
+    &#34;&#34;&#34;
+    date_columns = []
+    modified_df_array = []
+
+    for df in df_array:
+        df.columns = range(0, df.shape[1])
+        is_table_valid, header_row, _ = ProcessingUtilFunctions.check_valid_table(
+            df, date_columns
+        )
+
+        if is_table_valid:
+            modified_df_array.append(df)
+            if header_row != -1:
+                date_mask = (
+                    df.iloc[header_row]
+                    .astype(str)
+                    .apply(lambda cell: &#34;date&#34; in str(cell).lower())
+                )
+                date_columns = [index for index, val in enumerate(date_mask) if val]
+
+    return modified_df_array</code></pre>
+</details>
+<div class="desc"><p>Removes junk tables from a list of DataFrames.</p>
+<p>This function iterates over a list of DataFrames, checks if each DataFrame is a valid table,
+and removes those that are not. A table is considered valid based on certain criteria checked
+by the <code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.check_valid_table" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.check_valid_table">ProcessingUtilFunctions.check_valid_table()</a></code> method. If a table is valid, it is added to
+the <code>modified_df_array</code>. Additionally, if the table has a header row, the function identifies
+columns that contain date information and updates the <code>date_columns</code> list accordingly.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df_array</code></strong> :&ensp;<code>list</code> of <code>pandas.DataFrame</code></dt>
+<dd>A list of DataFrames to be processed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>pandas.DataFrame</code></dt>
+<dd>A list of DataFrames that are considered valid tables.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.replace_rows_with_concatenated_row"><code class="name flex">
+<span>def <span class="ident">replace_rows_with_concatenated_row</span></span>(<span>df, start_row, end_row)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def replace_rows_with_concatenated_row(df, start_row, end_row):
+    &#34;&#34;&#34;
+    Replace a range of rows in a DataFrame with a single concatenated row.
+
+    This function takes a DataFrame and replaces the rows from `start_row` to `end_row`
+    (inclusive) with a single row where the values are concatenated as strings.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame to modify.
+    start_row (int): The starting index of the rows to be replaced.
+    end_row (int): The ending index of the rows to be replaced.
+
+    Returns:
+    pd.DataFrame: The modified DataFrame with the specified rows replaced by a single concatenated row.
+    &#34;&#34;&#34;
+    end_row = min(end_row, len(df) - 1)
+    selected_rows = df.iloc[start_row : end_row + 1].fillna(&#34;&#34;)
+    concatenated_row = selected_rows.astype(str).agg(&#34;&#34;.join)
+    df.drop(df.index[range(start_row, end_row + 1)], inplace=True)
+    top = df.iloc[:start_row]
+    bottom = df.iloc[start_row:]
+    df = pd.concat([top, concatenated_row.to_frame().T, bottom]).reset_index(
+        drop=True
+    )
+    return df</code></pre>
+</details>
+<div class="desc"><p>Replace a range of rows in a DataFrame with a single concatenated row.</p>
+<p>This function takes a DataFrame and replaces the rows from <code>start_row</code> to <code>end_row</code>
+(inclusive) with a single row where the values are concatenated as strings.</p>
+<p>Parameters:
+df (pd.DataFrame): The DataFrame to modify.
+start_row (int): The starting index of the rows to be replaced.
+end_row (int): The ending index of the rows to be replaced.</p>
+<p>Returns:
+pd.DataFrame: The modified DataFrame with the specified rows replaced by a single concatenated row.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.should_ignore_row"><code class="name flex">
+<span>def <span class="ident">should_ignore_row</span></span>(<span>row, non_date_columns, keywords)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def should_ignore_row(row, non_date_columns, keywords):
+    &#34;&#34;&#34;
+    Determines if a row should be ignored based on the presence of keywords
+    &#34;&#34;&#34;
+    contains_keyword = any(
+        keyword in row[non_date_columns].to_string(index=False).lower()
+        for keyword in keywords
+    )
+    multiple_non_empty_columns = (
+        row[non_date_columns]
+        .apply(lambda x: bool(x.strip()) if isinstance(x, str) else pd.notna(x))
+        .sum()
+        &gt; 1
+    )
+    return contains_keyword and multiple_non_empty_columns</code></pre>
+</details>
+<div class="desc"><p>Determines if a row should be ignored based on the presence of keywords</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.should_ignore_row_strict"><code class="name flex">
+<span>def <span class="ident">should_ignore_row_strict</span></span>(<span>row, non_date_columns, keywords)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def should_ignore_row_strict(row, non_date_columns, keywords):
+    &#34;&#34;&#34;
+    Determines if a row should be ignored based on exact keyword matches.
+
+    Parameters:
+        row (pd.Series): The row to check.
+        non_date_columns (list): The list of non-date column names.
+        keywords (list): The list of keywords to check for.
+
+    Returns:
+        bool: True if the row should be ignored, False otherwise.
+    &#34;&#34;&#34;
+    concatenated_string = (
+        row[non_date_columns].to_string(index=False).lower().strip()
+    )
+
+    for key in keywords:
+        if concatenated_string == key:
+            return True
+
+    return False</code></pre>
+</details>
+<div class="desc"><p>Determines if a row should be ignored based on exact keyword matches.</p>
+<h2 id="parameters">Parameters</h2>
+<p>row (pd.Series): The row to check.
+non_date_columns (list): The list of non-date column names.
+keywords (list): The list of keywords to check for.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the row should be ignored, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.validate_date_column_lengths"><code class="name flex">
+<span>def <span class="ident">validate_date_column_lengths</span></span>(<span>df, pdf_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def validate_date_column_lengths(df, pdf_path):
+    &#34;&#34;&#34;
+    Validates the lengths of date values in date columns. Raises an error if lengths
+    outside the acceptable range (mode ± 1) are found.
+    &#34;&#34;&#34;
+    try:
+        df.reset_index(drop=True, inplace=True)
+
+        # Find date columns
+        date_columns = UtilFunctions.find_date_column(df)
+
+        for col in date_columns:
+            if col not in df.columns:
+                print(f&#34;Column &#39;{col}&#39; not found in DataFrame. Skipping.&#34;)
+                continue
+
+            # Prepare the length count dictionary
+            length_count_dict = {}
+            for i in range(len(df)):
+                try:
+                    curr_value = str(df.at[i, col]).strip()  # Get the current value
+                    curr_length = len(curr_value)  # Calculate its length
+
+                    # Update the length count dictionary
+                    length_count_dict[curr_length] = length_count_dict.get(curr_length, 0) + 1
+
+                except KeyError as e:
+                    print(f&#34;KeyError while accessing row {i} in column &#39;{col}&#39;: {e}&#34;)
+                except Exception as e:
+                    print(f&#34;Unexpected error while processing row {i} in column &#39;{col}&#39;: {e}&#34;)
+
+            # Identify the mode of lengths
+            mode_length = max(length_count_dict, key=length_count_dict.get)
+            mode_count = length_count_dict[mode_length]
+
+            # Check for invalid lengths outside mode ± 1
+            valid_lengths = {0, mode_length - 1, mode_length, mode_length + 1}
+            invalid_lengths = {length for length in length_count_dict if length &gt;= mode_length and length not in valid_lengths}
+
+            if invalid_lengths:
+                # print(
+                #     f&#34;Invalid lengths found in column &#39;{col}&#39;: {invalid_lengths}. &#34;
+                #     f&#34;Mode length is {mode_length} with {mode_count} occurrences. &#34;
+                #     f&#34;Lengths must be within mode ± 1.&#34;
+                # )
+                return False
+
+        # print(&#34;All date columns validated successfully.&#34;)
+        return True
+
+    except Exception as e:
+        print(f&#34;An error occurred in validate_date_column_lengths: {e}&#34;)
+        raise</code></pre>
+</details>
+<div class="desc"><p>Validates the lengths of date values in date columns. Raises an error if lengths
+outside the acceptable range (mode ± 1) are found.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.validate_invalid_rows"><code class="name flex">
+<span>def <span class="ident">validate_invalid_rows</span></span>(<span>df, pdf_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def validate_invalid_rows(df, pdf_path):
+    &#34;&#34;&#34;
+    Validates rows in the DataFrame and identifies invalid rows based on
+    the number of invalid rows in between a page excluding first and last row.
+    &#34;&#34;&#34;
+    if df.empty:
+        raise ValueError(&#34;The DataFrame is empty.&#34;)
+
+    temp_df = copy.deepcopy(df)
+    temp_df = temp_df.reset_index(drop=True)
+
+    date_columns = UtilFunctions.find_date_column(temp_df)
+
+    if not date_columns:
+        raise ValueError(&#34;No date columns found in the DataFrame.&#34;)
+
+    if temp_df.shape[1] &gt; 2:
+        temp_df[&#34;diff&#34;] = pd.to_numeric(temp_df.iloc[:, -2], errors=&#34;coerce&#34;).diff()
+
+    temp_df[&#34;diff&#34;] = (
+        pd.to_numeric(temp_df[&#34;diff&#34;], errors=&#34;coerce&#34;).fillna(0).astype(int)
+    )
+    non_date_columns = [
+        col for col in temp_df.columns if col not in date_columns and col != &#34;diff&#34;
+    ]
+
+    temp_df = temp_df.fillna(&#34;&#34;).astype(str)
+
+    is_invalid_date = temp_df[date_columns].apply(
+        lambda row: (row.isna().all() or (row == &#34;&#34;).all() or (row == &#34; &#34;).all()),
+        axis=1,
+    )
+    invalid_indices = temp_df.index[is_invalid_date]
+    page_invalid_count = {}
+    keywords = Constants.KEYWORDS_IGNORE_MERGING
+
+    filtered_invalid_indices = [
+        idx
+        for idx in invalid_indices
+        if not ProcessingUtilFunctions.should_ignore_row(
+            temp_df.loc[idx], non_date_columns, keywords
+        )
+    ]
+    for page_num, group in temp_df.groupby(temp_df.iloc[:, -3]):
+        page_rows = group.index.tolist()
+        first_row = page_rows[0]
+        last_row = page_rows[-1]
+
+        for i in filtered_invalid_indices:
+            if i in page_rows and i != first_row and i != last_row:
+                if page_num not in page_invalid_count:
+                    page_invalid_count[page_num] = 0
+                page_invalid_count[page_num] += 1
+
+    invalid_grid = False
+    for page_num, count in page_invalid_count.items():
+        if count &gt; 0:
+            invalid_grid = True
+
+    return invalid_grid</code></pre>
+</details>
+<div class="desc"><p>Validates rows in the DataFrame and identifies invalid rows based on
+the number of invalid rows in between a page excluding first and last row.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions"><code class="flex name class">
+<span>class <span class="ident">UtilFunctions</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UtilFunctions:
+    &#34;&#34;&#34;
+    This module contains utility functions for various common tasks such as date handling, file operations,
+    performance measurement, and memory usage analysis.
+
+    Functions:
+    ----------
+    - has_date(cell, match_type=MatchType.SEARCH, count=False): Check if a cell contains a date.
+    - find_date_column(col): Find values in a column that contain the keyword &#39;date&#39;.
+    - clean_date(cell): Clean and check if the cell content can be parsed as a date.
+    - list_files_in_directory(directory, extension): List files in a directory with a specific extension.
+    - get_pdf_page_count(pdf_path): Get the number of pages in a PDF file.
+    - time_function(func): Decorator to measure and print the execution time of a function.
+    - conditional_decorator(condition, decorator): Returns a decorator that applies the given decorator conditionally.
+    - get_total_size(obj, seen=None): Recursively find the total memory size of an object and its contents.
+    - measure_memory_size(func): Decorator to measure and print memory usage of the function&#39;s return value.
+    - measure_ram_usage(func): Decorator to measure and print RAM usage before and after executing a function.
+
+        A collection of static utility functions for various common tasks.
+    &#34;&#34;&#34;
+
+    @staticmethod
+    def clean_and_trim_time(cell_value):
+        &#34;&#34;&#34;
+        Clean and trim a cell value to remove spaces and time information.
+        &#34;&#34;&#34;
+        # Normalize spaces
+        normalized = re.sub(r&#34;\s+&#34;, &#34;&#34;, str(cell_value))
+
+        # Avoiding multiple quantifiers in a single pattern by splitting into smaller steps
+        time_pattern = r&#34;^\d{1,2}:\d{2}$&#34;  # Matches hh:mm
+        seconds_pattern = r&#34;^\d{1,2}:\d{2}:\d{2}$&#34;  # Matches hh:mm:ss
+        am_pm_pattern = r&#34;(am|pm)$&#34;
+        # Remove time (hh:mm or hh:mm:ss)
+        if re.match(seconds_pattern, normalized):
+            normalized = re.sub(seconds_pattern, &#34;&#34;, normalized)
+        elif re.match(time_pattern, normalized):
+            normalized = re.sub(time_pattern, &#34;&#34;, normalized)
+
+        # Remove AM/PM suffix (handles both cases)
+        normalized = re.sub(am_pm_pattern, &#34;&#34;, normalized, flags=re.IGNORECASE)
+
+        return normalized
+
+    @staticmethod
+    def is_valid_pdf_stream(pdf_path):
+        &#34;&#34;&#34;
+        Check if a PDF file contains valid streams and can be opened with pikepdf.
+        &#34;&#34;&#34;
+        try:
+            with pikepdf.open(pdf_path) as pdf:
+                for obj in pdf.objects:
+                    if isinstance(obj, pikepdf.Stream):
+                        content = obj.read()
+                        print(content)
+                        if len(content) == 0:
+                            print(&#34;Found an empty stream in the PDF.&#34;)
+                            return False
+                        try:
+                            content.decode(&#34;utf-8&#34;)
+                        except (UnicodeDecodeError, TypeError):
+                            print(&#34;Stream contains non-text content or is corrupted.&#34;)
+                            return False
+
+                return True
+        except Exception:
+            return False
+
+    @staticmethod
+    def repair_pdf_inplace(input_pdf):
+        &#34;&#34;&#34;
+        Repair a broken PDF using pikepdf, overwriting the original file.
+        &#34;&#34;&#34;
+        try:
+            with pikepdf.open(input_pdf, allow_overwriting_input=True) as pdf:
+                pdf.save(input_pdf, linearize=True)
+                print(f&#34;The PDF &#39;{input_pdf}&#39; has been repaired.&#34;)
+                return True
+        except pikepdf.PdfError as e:
+            print(f&#34;Failed to repair the PDF &#39;{input_pdf}&#39;: {e}&#34;)
+            return False
+        except Exception as e:
+            print(f&#34;Unexpected error: {e}&#34;)
+            return False
+
+    @staticmethod
+    def has_date(cell, match_type=MatchType.SEARCH, count=False):
+        &#34;&#34;&#34;
+        Check if a cell contains a date.
+        &#34;&#34;&#34;
+        if match_type == MatchType.FULLMATCH:
+            if not count:
+                return re.fullmatch(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+                ) or re.fullmatch(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+                )
+            else:
+                if re.fullmatch(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+                ):
+                    return (
+                        True,
+                        len(
+                            re.findall(
+                                Constants.combined_pattern,
+                                str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip(),
+                            )
+                        ),
+                    )
+
+                if re.fullmatch(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+                ):
+                    return (
+                        True,
+                        len(
+                            re.findall(
+                                Constants.combined_pattern,
+                                str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip(),
+                            )
+                        ),
+                    )
+
+                return (False, 0)
+        elif match_type == MatchType.SEARCH:
+
+            if not count:
+                cleaned_cell = UtilFunctions.clean_and_trim_time(cell)
+                return (
+                    re.search(
+                        Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+                    )
+                    or re.search(
+                        Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+                    )
+                    or re.search(Constants.combined_pattern, str(cleaned_cell))
+                )
+            else:
+                if re.search(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+                ):
+                    return (
+                        True,
+                        len(
+                            re.findall(
+                                Constants.combined_pattern,
+                                str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip(),
+                            )
+                        ),
+                    )
+
+                if re.search(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+                ):
+                    return (
+                        True,
+                        len(
+                            re.findall(
+                                Constants.combined_pattern,
+                                str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip(),
+                            )
+                        ),
+                    )
+
+                return (False, 0)
+        else:
+            return None
+
+    @staticmethod
+    def find_date_column(col):
+        &#34;&#34;&#34;
+        Find values in a column that contain the keyword &#39;date&#39;.
+
+        Args:
+        ----
+        col (iterable): The column values to search through.
+
+        Returns:
+        -------
+        list: A list of values containing the keyword &#39;date&#39; (case-insensitive).
+        &#34;&#34;&#34;
+        result = []
+        for val in col:
+            if re.search(r&#34;date&#34;, str(val), re.IGNORECASE):
+                result.append(val)
+        return result
+
+    @staticmethod
+    def clean_date(cell):
+        &#34;&#34;&#34;
+        Clean and check if the cell content can be parsed as a date.
+
+        Args:
+        ----
+        cell (str): The cell content to clean and parse.
+
+        Returns:
+        -------
+        bool: True if the cleaned cell can be parsed as a date, False otherwise.
+        &#34;&#34;&#34;
+
+        cleaned_cell = str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+
+        try:
+            parse(cleaned_cell, fuzzy=True)
+            return True
+        except ValueError:
+            cleaned_cell_with_space = str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+            try:
+                parse(cleaned_cell_with_space, fuzzy=True)
+                return True
+            except ValueError:
+                return False
+
+    @staticmethod
+    def list_files_in_directory(directory, extension):
+        &#34;&#34;&#34;
+        List files in a directory with a specific extension.
+
+        Args:
+        -----
+        directory (str): Directory to search.
+        extension (str): File extension to filter by.
+
+        Returns:
+        -------
+        list: List of file names with the specified extension.
+        &#34;&#34;&#34;
+        return [f for f in os.listdir(directory) if f.endswith(extension)]
+
+    @staticmethod
+    def get_pdf_page_count(pdf_path):
+        &#34;&#34;&#34;
+        Get the number of pages in a PDF file.
+
+        Args:
+        -------
+        pdf_path (str): Path to the PDF file
+
+        Returns:
+        -------
+        Number of pages in the PDF
+        &#34;&#34;&#34;
+
+        with pdfplumber.open(pdf_path) as pdf:
+            return len(pdf.pages)
+
+    @staticmethod
+    def time_function(func):
+        &#34;&#34;&#34;
+        Decorator to measure and print the execution time of a function.
+        Params:
+        -------
+        func: The function to be timed
+
+        Returns:
+        --------
+        The wrapper function that executes the original function
+
+        &#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            start_time = time.perf_counter()
+            result = func(*args, **kwargs)
+            end_time = time.perf_counter()
+            elapsed_time = end_time - start_time
+            print(f&#34;{func.__name__} took {elapsed_time:.6f} seconds&#34;)
+            return result
+
+        return wrapper
+
+    @staticmethod
+    def conditional_decorator(condition, decorator):
+        &#34;&#34;&#34;
+        Returns a decorator that applies the given decorator conditionally.
+
+        Params:
+        -------
+        condition: Boolean value indicating whether to apply the decorator
+        decorator: The decorator to apply if the condition is True
+
+        Returns:
+        -------
+        A wrapper function that conditionally applies the decorator
+
+        &#34;&#34;&#34;
+
+        def decorator_wrapper(func):
+            if condition:
+                return decorator(func)
+            return func
+
+        return decorator_wrapper
+
+    @staticmethod
+    def get_total_size(obj, seen=None):
+        &#34;&#34;&#34;
+        Recursively find the total memory size of an object and its contents.
+
+        Params:
+        -------
+        obj: The object to measure
+        seen: Set of object IDs already encountered to avoid double counting
+
+        Returns:
+        --------
+        Total size in bytes
+
+        &#34;&#34;&#34;
+        if seen is None:
+            seen = set()
+        obj_id = id(obj)
+        if obj_id in seen:
+            return 0
+        seen.add(obj_id)
+
+        size = sys.getsizeof(obj)
+
+        if isinstance(obj, dict):
+            size += sum([UtilFunctions.get_total_size(v, seen) for v in obj.values()])
+            size += sum([UtilFunctions.get_total_size(k, seen) for k in obj.keys()])
+        elif hasattr(obj, &#34;__dict__&#34;):
+            size += UtilFunctions.get_total_size(vars(obj), seen)
+        elif hasattr(obj, &#34;__iter__&#34;) and not isinstance(obj, (str, bytes, bytearray)):
+            size += sum([UtilFunctions.get_total_size(i, seen) for i in obj])
+
+        return size
+
+    @staticmethod
+    def measure_memory_size(func):
+        &#34;&#34;&#34;
+        Decorator to measure and print memory usage of the function&#39;s return value.
+
+        Params:
+        ------
+        func: The function to be decorated
+
+        Returns:
+        --------
+        The original function&#39;s return value
+
+        &#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            result = func(*args, **kwargs)
+            memory_usage = UtilFunctions.get_total_size(result)
+            print(
+                f&#34;Memory usage of the result of {func.__name__}: {memory_usage} bytes&#34;
+            )
+            return result
+
+        return wrapper
+
+    @staticmethod
+    def measure_ram_usage(func):
+        &#34;&#34;&#34;
+        Decorator to measure and print RAM usage before and after executing a function.
+
+        Params
+        ------
+        func: The function to be decorated
+
+        Returns:
+        -------
+        The original function&#39;s return value
+
+        &#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            process = psutil.Process()
+            mem_before = process.memory_info().rss / (1024 * 1024)
+            print(f&#34;Memory usage before &#39;{func.__name__}&#39;: {mem_before:.2f} MB&#34;)
+
+            result = func(*args, **kwargs)
+
+            mem_after = process.memory_info().rss / (1024 * 1024)
+            print(f&#34;Memory usage after &#39;{func.__name__}&#39;: {mem_after:.2f} MB&#34;)
+            print(
+                f&#34;Memory change during &#39;{func.__name__}&#39;: {mem_after - mem_before:.2f} MB&#34;
+            )
+
+            return result
+
+        return wrapper</code></pre>
+</details>
+<div class="desc"><p>This module contains utility functions for various common tasks such as date handling, file operations,
+performance measurement, and memory usage analysis.</p>
+<h2 id="functions">Functions:</h2>
+<ul>
+<li>has_date(cell, match_type=MatchType.SEARCH, count=False): Check if a cell contains a date.</li>
+<li>find_date_column(col): Find values in a column that contain the keyword 'date'.</li>
+<li>clean_date(cell): Clean and check if the cell content can be parsed as a date.</li>
+<li>list_files_in_directory(directory, extension): List files in a directory with a specific extension.</li>
+<li>get_pdf_page_count(pdf_path): Get the number of pages in a PDF file.</li>
+<li>time_function(func): Decorator to measure and print the execution time of a function.</li>
+<li>conditional_decorator(condition, decorator): Returns a decorator that applies the given decorator conditionally.</li>
+<li>get_total_size(obj, seen=None): Recursively find the total memory size of an object and its contents.</li>
+<li>measure_memory_size(func): Decorator to measure and print memory usage of the function's return value.</li>
+<li>
+<p>measure_ram_usage(func): Decorator to measure and print RAM usage before and after executing a function.</p>
+<p>A collection of static utility functions for various common tasks.</p>
+</li>
+</ul></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.clean_and_trim_time"><code class="name flex">
+<span>def <span class="ident">clean_and_trim_time</span></span>(<span>cell_value)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def clean_and_trim_time(cell_value):
+    &#34;&#34;&#34;
+    Clean and trim a cell value to remove spaces and time information.
+    &#34;&#34;&#34;
+    # Normalize spaces
+    normalized = re.sub(r&#34;\s+&#34;, &#34;&#34;, str(cell_value))
+
+    # Avoiding multiple quantifiers in a single pattern by splitting into smaller steps
+    time_pattern = r&#34;^\d{1,2}:\d{2}$&#34;  # Matches hh:mm
+    seconds_pattern = r&#34;^\d{1,2}:\d{2}:\d{2}$&#34;  # Matches hh:mm:ss
+    am_pm_pattern = r&#34;(am|pm)$&#34;
+    # Remove time (hh:mm or hh:mm:ss)
+    if re.match(seconds_pattern, normalized):
+        normalized = re.sub(seconds_pattern, &#34;&#34;, normalized)
+    elif re.match(time_pattern, normalized):
+        normalized = re.sub(time_pattern, &#34;&#34;, normalized)
+
+    # Remove AM/PM suffix (handles both cases)
+    normalized = re.sub(am_pm_pattern, &#34;&#34;, normalized, flags=re.IGNORECASE)
+
+    return normalized</code></pre>
+</details>
+<div class="desc"><p>Clean and trim a cell value to remove spaces and time information.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.clean_date"><code class="name flex">
+<span>def <span class="ident">clean_date</span></span>(<span>cell)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def clean_date(cell):
+    &#34;&#34;&#34;
+    Clean and check if the cell content can be parsed as a date.
+
+    Args:
+    ----
+    cell (str): The cell content to clean and parse.
+
+    Returns:
+    -------
+    bool: True if the cleaned cell can be parsed as a date, False otherwise.
+    &#34;&#34;&#34;
+
+    cleaned_cell = str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+
+    try:
+        parse(cleaned_cell, fuzzy=True)
+        return True
+    except ValueError:
+        cleaned_cell_with_space = str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+        try:
+            parse(cleaned_cell_with_space, fuzzy=True)
+            return True
+        except ValueError:
+            return False</code></pre>
+</details>
+<div class="desc"><p>Clean and check if the cell content can be parsed as a date.</p>
+<h2 id="args">Args:</h2>
+<p>cell (str): The cell content to clean and parse.</p>
+<h2 id="returns">Returns:</h2>
+<p>bool: True if the cleaned cell can be parsed as a date, False otherwise.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.conditional_decorator"><code class="name flex">
+<span>def <span class="ident">conditional_decorator</span></span>(<span>condition, decorator)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def conditional_decorator(condition, decorator):
+    &#34;&#34;&#34;
+    Returns a decorator that applies the given decorator conditionally.
+
+    Params:
+    -------
+    condition: Boolean value indicating whether to apply the decorator
+    decorator: The decorator to apply if the condition is True
+
+    Returns:
+    -------
+    A wrapper function that conditionally applies the decorator
+
+    &#34;&#34;&#34;
+
+    def decorator_wrapper(func):
+        if condition:
+            return decorator(func)
+        return func
+
+    return decorator_wrapper</code></pre>
+</details>
+<div class="desc"><p>Returns a decorator that applies the given decorator conditionally.</p>
+<h2 id="params">Params:</h2>
+<p>condition: Boolean value indicating whether to apply the decorator
+decorator: The decorator to apply if the condition is True</p>
+<h2 id="returns">Returns:</h2>
+<p>A wrapper function that conditionally applies the decorator</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.find_date_column"><code class="name flex">
+<span>def <span class="ident">find_date_column</span></span>(<span>col)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def find_date_column(col):
+    &#34;&#34;&#34;
+    Find values in a column that contain the keyword &#39;date&#39;.
+
+    Args:
+    ----
+    col (iterable): The column values to search through.
+
+    Returns:
+    -------
+    list: A list of values containing the keyword &#39;date&#39; (case-insensitive).
+    &#34;&#34;&#34;
+    result = []
+    for val in col:
+        if re.search(r&#34;date&#34;, str(val), re.IGNORECASE):
+            result.append(val)
+    return result</code></pre>
+</details>
+<div class="desc"><p>Find values in a column that contain the keyword 'date'.</p>
+<h2 id="args">Args:</h2>
+<p>col (iterable): The column values to search through.</p>
+<h2 id="returns">Returns:</h2>
+<p>list: A list of values containing the keyword 'date' (case-insensitive).</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.get_pdf_page_count"><code class="name flex">
+<span>def <span class="ident">get_pdf_page_count</span></span>(<span>pdf_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_pdf_page_count(pdf_path):
+    &#34;&#34;&#34;
+    Get the number of pages in a PDF file.
+
+    Args:
+    -------
+    pdf_path (str): Path to the PDF file
+
+    Returns:
+    -------
+    Number of pages in the PDF
+    &#34;&#34;&#34;
+
+    with pdfplumber.open(pdf_path) as pdf:
+        return len(pdf.pages)</code></pre>
+</details>
+<div class="desc"><p>Get the number of pages in a PDF file.</p>
+<h2 id="args">Args:</h2>
+<p>pdf_path (str): Path to the PDF file</p>
+<h2 id="returns">Returns:</h2>
+<p>Number of pages in the PDF</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.get_total_size"><code class="name flex">
+<span>def <span class="ident">get_total_size</span></span>(<span>obj, seen=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_total_size(obj, seen=None):
+    &#34;&#34;&#34;
+    Recursively find the total memory size of an object and its contents.
+
+    Params:
+    -------
+    obj: The object to measure
+    seen: Set of object IDs already encountered to avoid double counting
+
+    Returns:
+    --------
+    Total size in bytes
+
+    &#34;&#34;&#34;
+    if seen is None:
+        seen = set()
+    obj_id = id(obj)
+    if obj_id in seen:
+        return 0
+    seen.add(obj_id)
+
+    size = sys.getsizeof(obj)
+
+    if isinstance(obj, dict):
+        size += sum([UtilFunctions.get_total_size(v, seen) for v in obj.values()])
+        size += sum([UtilFunctions.get_total_size(k, seen) for k in obj.keys()])
+    elif hasattr(obj, &#34;__dict__&#34;):
+        size += UtilFunctions.get_total_size(vars(obj), seen)
+    elif hasattr(obj, &#34;__iter__&#34;) and not isinstance(obj, (str, bytes, bytearray)):
+        size += sum([UtilFunctions.get_total_size(i, seen) for i in obj])
+
+    return size</code></pre>
+</details>
+<div class="desc"><p>Recursively find the total memory size of an object and its contents.</p>
+<h2 id="params">Params:</h2>
+<p>obj: The object to measure
+seen: Set of object IDs already encountered to avoid double counting</p>
+<h2 id="returns">Returns:</h2>
+<p>Total size in bytes</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.has_date"><code class="name flex">
+<span>def <span class="ident">has_date</span></span>(<span>cell, match_type=MatchType.SEARCH, count=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def has_date(cell, match_type=MatchType.SEARCH, count=False):
+    &#34;&#34;&#34;
+    Check if a cell contains a date.
+    &#34;&#34;&#34;
+    if match_type == MatchType.FULLMATCH:
+        if not count:
+            return re.fullmatch(
+                Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+            ) or re.fullmatch(
+                Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+            )
+        else:
+            if re.fullmatch(
+                Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+            ):
+                return (
+                    True,
+                    len(
+                        re.findall(
+                            Constants.combined_pattern,
+                            str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip(),
+                        )
+                    ),
+                )
+
+            if re.fullmatch(
+                Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+            ):
+                return (
+                    True,
+                    len(
+                        re.findall(
+                            Constants.combined_pattern,
+                            str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip(),
+                        )
+                    ),
+                )
+
+            return (False, 0)
+    elif match_type == MatchType.SEARCH:
+
+        if not count:
+            cleaned_cell = UtilFunctions.clean_and_trim_time(cell)
+            return (
+                re.search(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+                )
+                or re.search(
+                    Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+                )
+                or re.search(Constants.combined_pattern, str(cleaned_cell))
+            )
+        else:
+            if re.search(
+                Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip()
+            ):
+                return (
+                    True,
+                    len(
+                        re.findall(
+                            Constants.combined_pattern,
+                            str(cell).replace(&#34;\n&#34;, &#34; &#34;).strip(),
+                        )
+                    ),
+                )
+
+            if re.search(
+                Constants.combined_pattern, str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip()
+            ):
+                return (
+                    True,
+                    len(
+                        re.findall(
+                            Constants.combined_pattern,
+                            str(cell).replace(&#34;\n&#34;, &#34;&#34;).strip(),
+                        )
+                    ),
+                )
+
+            return (False, 0)
+    else:
+        return None</code></pre>
+</details>
+<div class="desc"><p>Check if a cell contains a date.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.is_valid_pdf_stream"><code class="name flex">
+<span>def <span class="ident">is_valid_pdf_stream</span></span>(<span>pdf_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_valid_pdf_stream(pdf_path):
+    &#34;&#34;&#34;
+    Check if a PDF file contains valid streams and can be opened with pikepdf.
+    &#34;&#34;&#34;
+    try:
+        with pikepdf.open(pdf_path) as pdf:
+            for obj in pdf.objects:
+                if isinstance(obj, pikepdf.Stream):
+                    content = obj.read()
+                    print(content)
+                    if len(content) == 0:
+                        print(&#34;Found an empty stream in the PDF.&#34;)
+                        return False
+                    try:
+                        content.decode(&#34;utf-8&#34;)
+                    except (UnicodeDecodeError, TypeError):
+                        print(&#34;Stream contains non-text content or is corrupted.&#34;)
+                        return False
+
+            return True
+    except Exception:
+        return False</code></pre>
+</details>
+<div class="desc"><p>Check if a PDF file contains valid streams and can be opened with pikepdf.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.list_files_in_directory"><code class="name flex">
+<span>def <span class="ident">list_files_in_directory</span></span>(<span>directory, extension)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def list_files_in_directory(directory, extension):
+    &#34;&#34;&#34;
+    List files in a directory with a specific extension.
+
+    Args:
+    -----
+    directory (str): Directory to search.
+    extension (str): File extension to filter by.
+
+    Returns:
+    -------
+    list: List of file names with the specified extension.
+    &#34;&#34;&#34;
+    return [f for f in os.listdir(directory) if f.endswith(extension)]</code></pre>
+</details>
+<div class="desc"><p>List files in a directory with a specific extension.</p>
+<h2 id="args">Args:</h2>
+<p>directory (str): Directory to search.
+extension (str): File extension to filter by.</p>
+<h2 id="returns">Returns:</h2>
+<p>list: List of file names with the specified extension.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.measure_memory_size"><code class="name flex">
+<span>def <span class="ident">measure_memory_size</span></span>(<span>func)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def measure_memory_size(func):
+    &#34;&#34;&#34;
+    Decorator to measure and print memory usage of the function&#39;s return value.
+
+    Params:
+    ------
+    func: The function to be decorated
+
+    Returns:
+    --------
+    The original function&#39;s return value
+
+    &#34;&#34;&#34;
+
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        memory_usage = UtilFunctions.get_total_size(result)
+        print(
+            f&#34;Memory usage of the result of {func.__name__}: {memory_usage} bytes&#34;
+        )
+        return result
+
+    return wrapper</code></pre>
+</details>
+<div class="desc"><p>Decorator to measure and print memory usage of the function's return value.</p>
+<h2 id="params">Params:</h2>
+<p>func: The function to be decorated</p>
+<h2 id="returns">Returns:</h2>
+<p>The original function's return value</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.measure_ram_usage"><code class="name flex">
+<span>def <span class="ident">measure_ram_usage</span></span>(<span>func)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def measure_ram_usage(func):
+    &#34;&#34;&#34;
+    Decorator to measure and print RAM usage before and after executing a function.
+
+    Params
+    ------
+    func: The function to be decorated
+
+    Returns:
+    -------
+    The original function&#39;s return value
+
+    &#34;&#34;&#34;
+
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        process = psutil.Process()
+        mem_before = process.memory_info().rss / (1024 * 1024)
+        print(f&#34;Memory usage before &#39;{func.__name__}&#39;: {mem_before:.2f} MB&#34;)
+
+        result = func(*args, **kwargs)
+
+        mem_after = process.memory_info().rss / (1024 * 1024)
+        print(f&#34;Memory usage after &#39;{func.__name__}&#39;: {mem_after:.2f} MB&#34;)
+        print(
+            f&#34;Memory change during &#39;{func.__name__}&#39;: {mem_after - mem_before:.2f} MB&#34;
+        )
+
+        return result
+
+    return wrapper</code></pre>
+</details>
+<div class="desc"><p>Decorator to measure and print RAM usage before and after executing a function.</p>
+<h2 id="params">Params</h2>
+<p>func: The function to be decorated</p>
+<h2 id="returns">Returns:</h2>
+<p>The original function's return value</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.repair_pdf_inplace"><code class="name flex">
+<span>def <span class="ident">repair_pdf_inplace</span></span>(<span>input_pdf)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def repair_pdf_inplace(input_pdf):
+    &#34;&#34;&#34;
+    Repair a broken PDF using pikepdf, overwriting the original file.
+    &#34;&#34;&#34;
+    try:
+        with pikepdf.open(input_pdf, allow_overwriting_input=True) as pdf:
+            pdf.save(input_pdf, linearize=True)
+            print(f&#34;The PDF &#39;{input_pdf}&#39; has been repaired.&#34;)
+            return True
+    except pikepdf.PdfError as e:
+        print(f&#34;Failed to repair the PDF &#39;{input_pdf}&#39;: {e}&#34;)
+        return False
+    except Exception as e:
+        print(f&#34;Unexpected error: {e}&#34;)
+        return False</code></pre>
+</details>
+<div class="desc"><p>Repair a broken PDF using pikepdf, overwriting the original file.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.util_functions.UtilFunctions.time_function"><code class="name flex">
+<span>def <span class="ident">time_function</span></span>(<span>func)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def time_function(func):
+    &#34;&#34;&#34;
+    Decorator to measure and print the execution time of a function.
+    Params:
+    -------
+    func: The function to be timed
+
+    Returns:
+    --------
+    The wrapper function that executes the original function
+
+    &#34;&#34;&#34;
+
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        elapsed_time = end_time - start_time
+        print(f&#34;{func.__name__} took {elapsed_time:.6f} seconds&#34;)
+        return result
+
+    return wrapper</code></pre>
+</details>
+<div class="desc"><p>Decorator to measure and print the execution time of a function.
+Params:</p>
+<hr>
+<p>func: The function to be timed</p>
+<h2 id="returns">Returns:</h2>
+<p>The wrapper function that executes the original function</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul>
+<li><a href="#utilfunctions-methods">UtilFunctions Methods:</a></li>
+<li><a href="#processingutilfunctions-methods">ProcessingUtilFunctions Methods:</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.utils" href="index.html">PDF_Extraction.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions">ProcessingUtilFunctions</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.append_columns_with_empty_date" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.append_columns_with_empty_date">append_columns_with_empty_date</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.check_valid_table" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.check_valid_table">check_valid_table</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.extract_and_validate_date" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.extract_and_validate_date">extract_and_validate_date</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.find_common_false_segments" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.find_common_false_segments">find_common_false_segments</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.merge_rows_on_empty_date" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.merge_rows_on_empty_date">merge_rows_on_empty_date</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.remove_junk_tables" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.remove_junk_tables">remove_junk_tables</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.replace_rows_with_concatenated_row" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.replace_rows_with_concatenated_row">replace_rows_with_concatenated_row</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.should_ignore_row" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.should_ignore_row">should_ignore_row</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.should_ignore_row_strict" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.should_ignore_row_strict">should_ignore_row_strict</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.validate_date_column_lengths" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.validate_date_column_lengths">validate_date_column_lengths</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.validate_invalid_rows" href="#PDF_Extraction.utils.util_functions.ProcessingUtilFunctions.validate_invalid_rows">validate_invalid_rows</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions" href="#PDF_Extraction.utils.util_functions.UtilFunctions">UtilFunctions</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.clean_and_trim_time" href="#PDF_Extraction.utils.util_functions.UtilFunctions.clean_and_trim_time">clean_and_trim_time</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.clean_date" href="#PDF_Extraction.utils.util_functions.UtilFunctions.clean_date">clean_date</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.conditional_decorator" href="#PDF_Extraction.utils.util_functions.UtilFunctions.conditional_decorator">conditional_decorator</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.find_date_column" href="#PDF_Extraction.utils.util_functions.UtilFunctions.find_date_column">find_date_column</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.get_pdf_page_count" href="#PDF_Extraction.utils.util_functions.UtilFunctions.get_pdf_page_count">get_pdf_page_count</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.get_total_size" href="#PDF_Extraction.utils.util_functions.UtilFunctions.get_total_size">get_total_size</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.has_date" href="#PDF_Extraction.utils.util_functions.UtilFunctions.has_date">has_date</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.is_valid_pdf_stream" href="#PDF_Extraction.utils.util_functions.UtilFunctions.is_valid_pdf_stream">is_valid_pdf_stream</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.list_files_in_directory" href="#PDF_Extraction.utils.util_functions.UtilFunctions.list_files_in_directory">list_files_in_directory</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.measure_memory_size" href="#PDF_Extraction.utils.util_functions.UtilFunctions.measure_memory_size">measure_memory_size</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.measure_ram_usage" href="#PDF_Extraction.utils.util_functions.UtilFunctions.measure_ram_usage">measure_ram_usage</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.repair_pdf_inplace" href="#PDF_Extraction.utils.util_functions.UtilFunctions.repair_pdf_inplace">repair_pdf_inplace</a></code></li>
+<li><code><a title="PDF_Extraction.utils.util_functions.UtilFunctions.time_function" href="#PDF_Extraction.utils.util_functions.UtilFunctions.time_function">time_function</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

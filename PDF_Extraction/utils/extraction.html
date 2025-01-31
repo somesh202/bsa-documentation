@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.utils.extraction API documentation</title>
+<meta name="description" content="This module contains the WordExtractor class which is used to extract words from a PDF page.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.utils.extraction</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains the WordExtractor class which is used to extract words from a PDF page.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.utils.extraction.WordExtractor"><code class="flex name class">
+<span>class <span class="ident">WordExtractor</span></span>
+<span>(</span><span>page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WordExtractor:
+    &#34;&#34;&#34;
+    This class is used to extract words from a PDF page.
+    &#34;&#34;&#34;
+
+    def __init__(self, page):
+        self.__page = page
+        self.__words = None
+
+    def __combine_chars_into_word_dict(self, word_chars):
+        &#34;&#34;&#34;
+        Combines characters into a word based on the spacing between them.
+        &#34;&#34;&#34;
+        word_text = pdfplumber.utils.text.extract_text(word_chars)
+        x0 = word_chars[0][&#34;x0&#34;]
+        x1 = word_chars[-1][&#34;x1&#34;]
+        top = min(char[&#34;top&#34;] for char in word_chars)
+        bottom = max(char[&#34;bottom&#34;] for char in word_chars)
+        bbox = (x0, top, x1, bottom)
+        height = bottom - top
+        width = x1 - x0
+        doctop = top
+
+        word_dict = {
+            &#34;text&#34;: word_text,
+            &#34;x0&#34;: x0,
+            &#34;x1&#34;: x1,
+            &#34;top&#34;: top,
+            &#34;doctop&#34;: doctop,
+            &#34;bottom&#34;: bottom,
+            &#34;bbox&#34;: bbox,
+            &#34;upright&#34;: word_chars[0][&#34;upright&#34;],
+            &#34;height&#34;: height,
+            &#34;width&#34;: width,
+            &#34;direction&#34;: &#34;ltr&#34;,
+        }
+
+        return word_dict
+
+    def __combine_words_into_block_dict(self, block_words, pdf_path):
+        &#34;&#34;&#34;
+        Combines words into a block based on the spacing between them.
+        &#34;&#34;&#34;
+        sorted_words = sorted(block_words, key=lambda word: word[&#34;x0&#34;])
+        for i in range(len(sorted_words) - 1):
+            word1 = sorted_words[i]
+            word2 = sorted_words[i + 1]
+
+            if word1[&#34;width&#34;] == 0 or word2[&#34;width&#34;] == 0:
+                continue
+            if word1[&#34;height&#34;] == 0 or word2[&#34;height&#34;] == 0:
+                continue
+
+            overlap_width = max(
+                0, min(word1[&#34;x1&#34;], word2[&#34;x1&#34;]) - max(word1[&#34;x0&#34;], word2[&#34;x0&#34;])
+            )
+            overlap_height = max(
+                0,
+                min(word1[&#34;bottom&#34;], word2[&#34;bottom&#34;]) - max(word1[&#34;top&#34;], word2[&#34;top&#34;]),
+            )
+            if min(word1[&#34;width&#34;], word2[&#34;width&#34;]) == 0:
+                continue
+            if (
+                overlap_width / min(word1[&#34;width&#34;], word2[&#34;width&#34;]) &gt;= 0.4
+                and overlap_height / min(word1[&#34;height&#34;], word2[&#34;height&#34;]) &gt;= 0.25
+            ):
+                raise CustomError.OverlappingWordsError(pdf_path)
+
+        word_text = &#34; &#34;.join([word[&#34;text&#34;] for word in block_words])
+        x0 = block_words[0][&#34;x0&#34;]
+        x1 = block_words[-1][&#34;x1&#34;]
+        top = min(word[&#34;top&#34;] for word in block_words)
+        bottom = max(word[&#34;bottom&#34;] for word in block_words)
+        bbox = (x0, top, x1, bottom)
+        height = bottom - top
+        width = x1 - x0
+        doctop = top
+
+        block_dict = {
+            &#34;text&#34;: word_text,
+            &#34;x0&#34;: x0,
+            &#34;x1&#34;: x1,
+            &#34;top&#34;: top,
+            &#34;doctop&#34;: doctop,
+            &#34;bottom&#34;: bottom,
+            &#34;bbox&#34;: bbox,
+            &#34;upright&#34;: block_words[0][&#34;upright&#34;],
+            &#34;height&#34;: height,
+            &#34;width&#34;: width,
+            &#34;direction&#34;: &#34;ltr&#34;,
+        }
+
+        return block_dict
+
+    def __group_and_create_word_dicts(self, sorted_chars, spacing_threshold=1):
+        &#34;&#34;&#34;
+        Groups characters into words based on the spacing between them.
+        &#34;&#34;&#34;
+        words = []
+        current_word_chars = []
+
+        for _, char in enumerate(sorted_chars):
+            if char[&#34;text&#34;].strip() == &#34;&#34;:
+                continue
+
+            if not current_word_chars:
+                current_word_chars.append(char)
+            else:
+                previous_char = current_word_chars[-1]
+                spacing = char[&#34;x0&#34;] - previous_char[&#34;x1&#34;]
+
+                if spacing &lt;= spacing_threshold and spacing &gt;= -1 * spacing_threshold:
+                    current_word_chars.append(char)
+                else:
+                    words.append(
+                        self.__combine_chars_into_word_dict(current_word_chars)
+                    )
+                    current_word_chars = [char]
+
+        if current_word_chars:
+            words.append(self.__combine_chars_into_word_dict(current_word_chars))
+
+        return words
+
+    def extract_words(self):
+        &#34;&#34;&#34;
+        Extracts words from the PDF page.
+        &#34;&#34;&#34;
+        chars = self.__page.chars
+
+        unique_chars = []
+        seen = set()
+
+        for char in chars:
+            char_tuple = frozenset(char.items())
+            if char_tuple not in seen:
+                seen.add(char_tuple)
+                unique_chars.append(char)
+
+        lines = {}
+        for char in unique_chars:
+            lines.setdefault(char[&#34;top&#34;], []).append(char)
+        lines = dict(sorted(lines.items()))
+
+        combined_lines = {}
+
+        last_line_key = None
+        last_line_chars = []
+
+        for key, chars in lines.items():
+            heights = [char[&#34;height&#34;] for char in chars]
+            if heights:
+                tolerance = max(1, 0.25 * (sum(heights) / len(heights)))
+            else:
+                tolerance = 1
+
+            if last_line_key is None or abs(key - last_line_key) &gt; tolerance:
+                if last_line_key is not None:
+                    combined_lines[last_line_key] = last_line_chars
+                last_line_key = key
+                last_line_chars = chars
+
+                for char in last_line_chars:
+                    char[&#34;top&#34;] = last_line_key
+            else:
+                for char in chars:
+                    insert_index = next(
+                        (
+                            i
+                            for i, c in enumerate(last_line_chars)
+                            if char[&#34;x0&#34;] &lt; c[&#34;x0&#34;]
+                        ),
+                        len(last_line_chars),
+                    )
+                    last_line_chars.insert(insert_index, char)
+                    char[&#34;top&#34;] = last_line_key
+
+        if last_line_key is not None:
+            combined_lines[last_line_key] = last_line_chars
+
+        words = []
+        for key, line in combined_lines.items():
+            distances = [
+                line[i][&#34;x0&#34;] - line[i - 1][&#34;x1&#34;]
+                for i in range(1, len(line))
+                if 0 &lt; (line[i][&#34;x0&#34;] - line[i - 1][&#34;x1&#34;]) &lt;= 1
+            ]
+
+            if not distances:
+                tolerance = 0.85
+            else:
+                tolerance = 2 * (sum(distances) / len(distances))
+                tolerance = min(max(0.6, tolerance), 1)
+
+            words.extend(self.__group_and_create_word_dicts(line, tolerance))
+
+        self.__words = words
+
+    def get_words(self):
+        &#34;&#34;&#34;
+        Returns the extracted words from the PDF page.
+        &#34;&#34;&#34;
+        if self.__words is None:
+            self.extract_words()
+
+            if not self.__words:
+                return []
+
+        return self.__words
+
+    def extract_text_from_tables(self, tables, pdf_path):
+        &#34;&#34;&#34;
+        Extracts text from tables in the PDF page.
+        &#34;&#34;&#34;
+        if self.__words is None:
+            self.extract_words()
+
+            if not self.__words:
+                return []
+
+        extracted_text_from_tables = []
+        if tables:
+            for table in tables:
+                cell_data = {}
+                self.__adjust_words_for_columns(table, pdf_path)
+                diff_word_tolerance = 1
+
+                for cell in table.cells:
+                    if cell is None:
+                        continue
+
+                    cell_words = self.__get_cell_words(
+                        cell, diff_word_tolerance, pdf_path
+                    )
+                    cell_blocks = self.__get_cell_blocks(cell_words, pdf_path)
+                    cell_data[(cell[0], cell[1])] = self.__combine_cell_blocks(
+                        cell_blocks
+                    )
+
+                if cell_data:
+                    extracted_text_from_tables.append(
+                        self.__create_grid_from_cell_data(cell_data)
+                    )
+
+        return extracted_text_from_tables
+
+    def __adjust_words_for_columns(self, table, pdf_path):
+        &#34;&#34;&#34;
+        Adjusts words for columns in the table.
+        &#34;&#34;&#34;
+        for word in self.__words:
+            for col in table.columns:
+                if (
+                    word[&#34;x0&#34;] &lt; col.bbox[0]
+                    and (0.28 * col.bbox[0] + 0.72 * col.bbox[2]) &lt; word[&#34;x1&#34;]
+                    and word[&#34;top&#34;] &gt; col.bbox[1]
+                    and word[&#34;bottom&#34;] &lt; col.bbox[3]
+                    and 0 &lt; col.bbox[0] - word[&#34;x0&#34;] &lt; 15
+                ):
+                    word[&#34;x0&#34;] += col.bbox[0] - word[&#34;x0&#34;]
+                    word[&#34;x1&#34;] += col.bbox[0] - word[&#34;x0&#34;]
+
+                if (
+                    word[&#34;x0&#34;] &lt; col.bbox[0]
+                    and word[&#34;x1&#34;] &gt; (0.8 * col.bbox[0] + 0.2 * col.bbox[2])
+                    and word[&#34;top&#34;] &gt; col.bbox[1]
+                    and word[&#34;bottom&#34;] &lt; col.bbox[3]
+                ):
+                    if 0 &lt; col.bbox[0] - word[&#34;x0&#34;] &lt; 10:
+                        word[&#34;x0&#34;] += col.bbox[0] - word[&#34;x0&#34;]
+                        word[&#34;x1&#34;] += col.bbox[0] - word[&#34;x0&#34;]
+                    else:
+                        if (0.3 * col.bbox[0] + 0.7 * col.bbox[2]) &lt; word[&#34;x1&#34;]:
+                            raise CustomError.TableExtractionError(pdf_path)
+
+    def __get_cell_words(self, cell, diff_word_tolerance, pdf_path):
+        &#34;&#34;&#34;
+        Gets words within a cell.
+        &#34;&#34;&#34;
+        cell_words = []
+        for word in self.__words:
+            if (
+                word[&#34;x0&#34;] &gt; cell[0] - diff_word_tolerance
+                and word[&#34;x0&#34;] &lt; cell[2] - diff_word_tolerance
+                and word[&#34;top&#34;] &gt; cell[1] - diff_word_tolerance
+                and word[&#34;top&#34;] &lt; cell[3] - diff_word_tolerance
+            ):
+                if word[&#34;bottom&#34;] &gt; cell[3] + 0.5 * word[&#34;height&#34;]:
+                    raise CustomError.TableExtractionError(pdf_path)
+                cell_words.append(word)
+        return cell_words
+
+    def __get_cell_blocks(self, cell_words, pdf_path):
+        &#34;&#34;&#34;
+        Gets blocks of words within a cell.
+        &#34;&#34;&#34;
+        cell_blocks = []
+        current_block = []
+        for word in cell_words:
+            if not current_block:
+                current_block.append(word)
+            else:
+                last_word = current_block[-1]
+                tolerance = 0.25 * (word[&#34;bottom&#34;] - word[&#34;top&#34;])
+                if (
+                    last_word[&#34;top&#34;] &lt;= word[&#34;top&#34;] &lt;= last_word[&#34;bottom&#34;] - tolerance
+                    or last_word[&#34;top&#34;] + tolerance
+                    &lt;= word[&#34;bottom&#34;]
+                    &lt;= last_word[&#34;bottom&#34;]
+                    or (
+                        last_word[&#34;top&#34;] &gt;= word[&#34;top&#34;]
+                        and last_word[&#34;bottom&#34;] &lt;= word[&#34;bottom&#34;]
+                    )
+                ):
+                    insert_index = next(
+                        (
+                            i
+                            for i, c in enumerate(current_block)
+                            if word[&#34;x0&#34;] &lt; c[&#34;x0&#34;]
+                        ),
+                        len(current_block),
+                    )
+                    current_block.insert(insert_index, word)
+                else:
+                    cell_blocks.append(
+                        self.__combine_words_into_block_dict(current_block, pdf_path)
+                    )
+                    current_block = [word]
+        if current_block:
+            cell_blocks.append(
+                self.__combine_words_into_block_dict(current_block, pdf_path)
+            )
+        return cell_blocks
+
+    def __combine_cell_blocks(self, cell_blocks):
+        &#34;&#34;&#34;
+        Combines cell blocks into a single string.
+        &#34;&#34;&#34;
+        temp = {}
+        for word in cell_blocks:
+            if word[&#34;top&#34;] not in temp:
+                temp[word[&#34;top&#34;]] = word[&#34;text&#34;]
+            else:
+                temp[word[&#34;top&#34;]] += f&#34; {word[&#39;text&#39;]}&#34;
+        temp = dict(sorted(temp.items()))
+        return &#34;\n&#34;.join(temp.values())
+
+    def __create_grid_from_cell_data(self, cell_data):
+        &#34;&#34;&#34;
+        Creates a grid from cell data.
+        &#34;&#34;&#34;
+        rows = defaultdict(list)
+        for (x, y), text in cell_data.items():
+            rows[y].append((x, text))
+
+        all_x_coords = sorted({x for x, y in cell_data.keys()})
+
+        grid = []
+        for y in sorted(rows.keys()):
+            row = [&#34;&#34;] * len(all_x_coords)
+            for x, text in rows[y]:
+                col_index = all_x_coords.index(x)
+                row[col_index] = text
+            grid.append(row)
+
+        return grid
+
+    def extract_blocks(self, pdf_path):
+        &#34;&#34;&#34;
+        Extracts blocks of words from the PDF page.
+        &#34;&#34;&#34;
+        if self.__words is None:
+            self.extract_words()
+
+            if not self.__words:
+                return []
+
+        lines = defaultdict(list)
+        for word in self.__words:
+            lines[word[&#34;top&#34;]].append(word)
+
+        blocks = []
+        for key, val in lines.items():
+            line_words = sorted(val, key=lambda w: w[&#34;x0&#34;])
+
+            distances = [
+                line_words[i][&#34;x0&#34;] - line_words[i - 1][&#34;x1&#34;]
+                for i in range(1, len(line_words))
+                if 0 &lt; (line_words[i][&#34;x0&#34;] - line_words[i - 1][&#34;x1&#34;]) &lt;= 10
+            ]
+
+            if not distances:
+                tolerance = 5
+            else:
+                tolerance = 1.2 * (sum(distances) / len(distances))
+                tolerance = min(max(3, tolerance), 10)
+
+            current_block = []
+            for word in line_words:
+                if not current_block:
+                    current_block.append(word)
+                else:
+                    last_word = current_block[-1]
+                    if word[&#34;x0&#34;] &lt;= last_word[&#34;x1&#34;] + tolerance:
+                        current_block.append(word)
+                    else:
+                        blocks.append(
+                            self.__combine_words_into_block_dict(
+                                current_block, pdf_path
+                            )
+                        )
+                        current_block = [word]
+
+            if current_block:
+                blocks.append(
+                    self.__combine_words_into_block_dict(current_block, pdf_path)
+                )
+
+        return blocks</code></pre>
+</details>
+<div class="desc"><p>This class is used to extract words from a PDF page.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.utils.extraction.WordExtractor.extract_blocks"><code class="name flex">
+<span>def <span class="ident">extract_blocks</span></span>(<span>self, pdf_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_blocks(self, pdf_path):
+    &#34;&#34;&#34;
+    Extracts blocks of words from the PDF page.
+    &#34;&#34;&#34;
+    if self.__words is None:
+        self.extract_words()
+
+        if not self.__words:
+            return []
+
+    lines = defaultdict(list)
+    for word in self.__words:
+        lines[word[&#34;top&#34;]].append(word)
+
+    blocks = []
+    for key, val in lines.items():
+        line_words = sorted(val, key=lambda w: w[&#34;x0&#34;])
+
+        distances = [
+            line_words[i][&#34;x0&#34;] - line_words[i - 1][&#34;x1&#34;]
+            for i in range(1, len(line_words))
+            if 0 &lt; (line_words[i][&#34;x0&#34;] - line_words[i - 1][&#34;x1&#34;]) &lt;= 10
+        ]
+
+        if not distances:
+            tolerance = 5
+        else:
+            tolerance = 1.2 * (sum(distances) / len(distances))
+            tolerance = min(max(3, tolerance), 10)
+
+        current_block = []
+        for word in line_words:
+            if not current_block:
+                current_block.append(word)
+            else:
+                last_word = current_block[-1]
+                if word[&#34;x0&#34;] &lt;= last_word[&#34;x1&#34;] + tolerance:
+                    current_block.append(word)
+                else:
+                    blocks.append(
+                        self.__combine_words_into_block_dict(
+                            current_block, pdf_path
+                        )
+                    )
+                    current_block = [word]
+
+        if current_block:
+            blocks.append(
+                self.__combine_words_into_block_dict(current_block, pdf_path)
+            )
+
+    return blocks</code></pre>
+</details>
+<div class="desc"><p>Extracts blocks of words from the PDF page.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.extraction.WordExtractor.extract_text_from_tables"><code class="name flex">
+<span>def <span class="ident">extract_text_from_tables</span></span>(<span>self, tables, pdf_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_text_from_tables(self, tables, pdf_path):
+    &#34;&#34;&#34;
+    Extracts text from tables in the PDF page.
+    &#34;&#34;&#34;
+    if self.__words is None:
+        self.extract_words()
+
+        if not self.__words:
+            return []
+
+    extracted_text_from_tables = []
+    if tables:
+        for table in tables:
+            cell_data = {}
+            self.__adjust_words_for_columns(table, pdf_path)
+            diff_word_tolerance = 1
+
+            for cell in table.cells:
+                if cell is None:
+                    continue
+
+                cell_words = self.__get_cell_words(
+                    cell, diff_word_tolerance, pdf_path
+                )
+                cell_blocks = self.__get_cell_blocks(cell_words, pdf_path)
+                cell_data[(cell[0], cell[1])] = self.__combine_cell_blocks(
+                    cell_blocks
+                )
+
+            if cell_data:
+                extracted_text_from_tables.append(
+                    self.__create_grid_from_cell_data(cell_data)
+                )
+
+    return extracted_text_from_tables</code></pre>
+</details>
+<div class="desc"><p>Extracts text from tables in the PDF page.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.extraction.WordExtractor.extract_words"><code class="name flex">
+<span>def <span class="ident">extract_words</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_words(self):
+    &#34;&#34;&#34;
+    Extracts words from the PDF page.
+    &#34;&#34;&#34;
+    chars = self.__page.chars
+
+    unique_chars = []
+    seen = set()
+
+    for char in chars:
+        char_tuple = frozenset(char.items())
+        if char_tuple not in seen:
+            seen.add(char_tuple)
+            unique_chars.append(char)
+
+    lines = {}
+    for char in unique_chars:
+        lines.setdefault(char[&#34;top&#34;], []).append(char)
+    lines = dict(sorted(lines.items()))
+
+    combined_lines = {}
+
+    last_line_key = None
+    last_line_chars = []
+
+    for key, chars in lines.items():
+        heights = [char[&#34;height&#34;] for char in chars]
+        if heights:
+            tolerance = max(1, 0.25 * (sum(heights) / len(heights)))
+        else:
+            tolerance = 1
+
+        if last_line_key is None or abs(key - last_line_key) &gt; tolerance:
+            if last_line_key is not None:
+                combined_lines[last_line_key] = last_line_chars
+            last_line_key = key
+            last_line_chars = chars
+
+            for char in last_line_chars:
+                char[&#34;top&#34;] = last_line_key
+        else:
+            for char in chars:
+                insert_index = next(
+                    (
+                        i
+                        for i, c in enumerate(last_line_chars)
+                        if char[&#34;x0&#34;] &lt; c[&#34;x0&#34;]
+                    ),
+                    len(last_line_chars),
+                )
+                last_line_chars.insert(insert_index, char)
+                char[&#34;top&#34;] = last_line_key
+
+    if last_line_key is not None:
+        combined_lines[last_line_key] = last_line_chars
+
+    words = []
+    for key, line in combined_lines.items():
+        distances = [
+            line[i][&#34;x0&#34;] - line[i - 1][&#34;x1&#34;]
+            for i in range(1, len(line))
+            if 0 &lt; (line[i][&#34;x0&#34;] - line[i - 1][&#34;x1&#34;]) &lt;= 1
+        ]
+
+        if not distances:
+            tolerance = 0.85
+        else:
+            tolerance = 2 * (sum(distances) / len(distances))
+            tolerance = min(max(0.6, tolerance), 1)
+
+        words.extend(self.__group_and_create_word_dicts(line, tolerance))
+
+    self.__words = words</code></pre>
+</details>
+<div class="desc"><p>Extracts words from the PDF page.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.extraction.WordExtractor.get_words"><code class="name flex">
+<span>def <span class="ident">get_words</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_words(self):
+    &#34;&#34;&#34;
+    Returns the extracted words from the PDF page.
+    &#34;&#34;&#34;
+    if self.__words is None:
+        self.extract_words()
+
+        if not self.__words:
+            return []
+
+    return self.__words</code></pre>
+</details>
+<div class="desc"><p>Returns the extracted words from the PDF page.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.utils" href="index.html">PDF_Extraction.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.utils.extraction.WordExtractor" href="#PDF_Extraction.utils.extraction.WordExtractor">WordExtractor</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.extraction.WordExtractor.extract_blocks" href="#PDF_Extraction.utils.extraction.WordExtractor.extract_blocks">extract_blocks</a></code></li>
+<li><code><a title="PDF_Extraction.utils.extraction.WordExtractor.extract_text_from_tables" href="#PDF_Extraction.utils.extraction.WordExtractor.extract_text_from_tables">extract_text_from_tables</a></code></li>
+<li><code><a title="PDF_Extraction.utils.extraction.WordExtractor.extract_words" href="#PDF_Extraction.utils.extraction.WordExtractor.extract_words">extract_words</a></code></li>
+<li><code><a title="PDF_Extraction.utils.extraction.WordExtractor.get_words" href="#PDF_Extraction.utils.extraction.WordExtractor.get_words">get_words</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

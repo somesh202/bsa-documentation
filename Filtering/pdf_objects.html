@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>Filtering.pdf_objects API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Filtering.pdf_objects</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="Filtering.pdf_objects.AddPlugin"><code class="name flex">
+<span>def <span class="ident">AddPlugin</span></span>(<span>cClass)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.C2BIP3"><code class="name flex">
+<span>def <span class="ident">C2BIP3</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.File2Strings"><code class="name flex">
+<span>def <span class="ident">File2Strings</span></span>(<span>filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.FilenameCheckHash"><code class="name flex">
+<span>def <span class="ident">FilenameCheckHash</span></span>(<span>filename, literalfilenames)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.FindPDFHeaderRelaxed"><code class="name flex">
+<span>def <span class="ident">FindPDFHeaderRelaxed</span></span>(<span>oBinaryFile)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.GetScriptPath"><code class="name flex">
+<span>def <span class="ident">GetScriptPath</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.Hexcode2String"><code class="name flex">
+<span>def <span class="ident">Hexcode2String</span></span>(<span>char)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.HexcodeName2String"><code class="name flex">
+<span>def <span class="ident">HexcodeName2String</span></span>(<span>hexcodeName)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.LoadPlugins"><code class="name flex">
+<span>def <span class="ident">LoadPlugins</span></span>(<span>plugins, verbose)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.Main"><code class="name flex">
+<span>def <span class="ident">Main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.MakeCSVLine"><code class="name flex">
+<span>def <span class="ident">MakeCSVLine</span></span>(<span>fields, separator=';', quote='"')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.PDFiD"><code class="name flex">
+<span>def <span class="ident">PDFiD</span></span>(<span>file, allNames=False, extraData=False, disarm=False, force=False, data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Example of XML output:
+<PDFiD ErrorOccured="False" ErrorMessage="" Filename="test.pdf" Header="%PDF-1.1" IsPDF="True" Version="0.0.4" Entropy="4.28">
+<Keywords>
+<Keyword Count="7" HexcodeCount="0" Name="obj"/>
+<Keyword Count="7" HexcodeCount="0" Name="endobj"/>
+<Keyword Count="1" HexcodeCount="0" Name="stream"/>
+<Keyword Count="1" HexcodeCount="0" Name="endstream"/>
+<Keyword Count="1" HexcodeCount="0" Name="xref"/>
+<Keyword Count="1" HexcodeCount="0" Name="trailer"/>
+<Keyword Count="1" HexcodeCount="0" Name="startxref"/>
+<Keyword Count="1" HexcodeCount="0" Name="/Page"/>
+<Keyword Count="0" HexcodeCount="0" Name="/Encrypt"/>
+<Keyword Count="1" HexcodeCount="0" Name="/JS"/>
+<Keyword Count="1" HexcodeCount="0" Name="/JavaScript"/>
+<Keyword Count="0" HexcodeCount="0" Name="/AA"/>
+<Keyword Count="1" HexcodeCount="0" Name="/OpenAction"/>
+<Keyword Count="0" HexcodeCount="0" Name="/JBIG2Decode"/>
+</Keywords>
+<Dates>
+<Date Value="D:20090128132916+01'00" Name="/ModDate"/>
+</Dates>
+</PDFiD></p></div>
+</dd>
+<dt id="Filtering.pdf_objects.PDFiD2JSON"><code class="name flex">
+<span>def <span class="ident">PDFiD2JSON</span></span>(<span>xmlDoc, force)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.PDFiD2String"><code class="name flex">
+<span>def <span class="ident">PDFiD2String</span></span>(<span>xmlDoc, nozero, force)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.PDFiDMain"><code class="name flex">
+<span>def <span class="ident">PDFiDMain</span></span>(<span>filenames, options)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.ParseINIFile"><code class="name flex">
+<span>def <span class="ident">ParseINIFile</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.Print"><code class="name flex">
+<span>def <span class="ident">Print</span></span>(<span>lines, options)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.ProcessAt"><code class="name flex">
+<span>def <span class="ident">ProcessAt</span></span>(<span>argument)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.ProcessFile"><code class="name flex">
+<span>def <span class="ident">ProcessFile</span></span>(<span>filename, options, plugins)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.Quote"><code class="name flex">
+<span>def <span class="ident">Quote</span></span>(<span>value, separator, quote)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.Scan"><code class="name flex">
+<span>def <span class="ident">Scan</span></span>(<span>directory, options, plugins)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.SwapCase"><code class="name flex">
+<span>def <span class="ident">SwapCase</span></span>(<span>char)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.SwapName"><code class="name flex">
+<span>def <span class="ident">SwapName</span></span>(<span>wordExact)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.UpdateWords"><code class="name flex">
+<span>def <span class="ident">UpdateWords</span></span>(<span>word, wordExact, slash, words, hexcode, allNames, lastName, insideStream, oEntropy, fOut)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.XMLAddAttribute"><code class="name flex">
+<span>def <span class="ident">XMLAddAttribute</span></span>(<span>xmlDoc, name, value=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.fEntropy"><code class="name flex">
+<span>def <span class="ident">fEntropy</span></span>(<span>countByte, countTotal)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Filtering.pdf_objects.cBinaryFile"><code class="flex name class">
+<span>class <span class="ident">cBinaryFile</span></span>
+<span>(</span><span>file, data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cBinaryFile.byte"><code class="name flex">
+<span>def <span class="ident">byte</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cBinaryFile.bytes"><code class="name flex">
+<span>def <span class="ident">bytes</span></span>(<span>self, size)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cBinaryFile.unget"><code class="name flex">
+<span>def <span class="ident">unget</span></span>(<span>self, byte)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cBinaryFile.ungets"><code class="name flex">
+<span>def <span class="ident">ungets</span></span>(<span>self, bytes)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.pdf_objects.cCVE_2009_3459"><code class="flex name class">
+<span>class <span class="ident">cCVE_2009_3459</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cCVE_2009_3459.Check"><code class="name flex">
+<span>def <span class="ident">Check</span></span>(<span>self, lastName, word)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.pdf_objects.cCount"><code class="flex name class">
+<span>class <span class="ident">cCount</span></span>
+<span>(</span><span>count, hexcode)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cEntropy"><code class="flex name class">
+<span>class <span class="ident">cEntropy</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cEntropy.add"><code class="name flex">
+<span>def <span class="ident">add</span></span>(<span>self, byte, insideStream)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cEntropy.calc"><code class="name flex">
+<span>def <span class="ident">calc</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cEntropy.removeInsideStream"><code class="name flex">
+<span>def <span class="ident">removeInsideStream</span></span>(<span>self, byte)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.pdf_objects.cExpandFilenameArguments"><code class="flex name class">
+<span>class <span class="ident">cExpandFilenameArguments</span></span>
+<span>(</span><span>filenames,<br>literalfilenames=False,<br>recursedir=False,<br>checkfilenames=False,<br>expressionprefix=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cExpandFilenameArguments.CheckIfFilesAreValid"><code class="name flex">
+<span>def <span class="ident">CheckIfFilesAreValid</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cExpandFilenameArguments.Filenames"><code class="name flex">
+<span>def <span class="ident">Filenames</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cExpandFilenameArguments.Glob"><code class="name flex">
+<span>def <span class="ident">Glob</span></span>(<span>self, filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.pdf_objects.cPDFDate"><code class="flex name class">
+<span>class <span class="ident">cPDFDate</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cPDFDate.parse"><code class="name flex">
+<span>def <span class="ident">parse</span></span>(<span>self, char: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.pdf_objects.cPDFEOF"><code class="flex name class">
+<span>class <span class="ident">cPDFEOF</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cPDFEOF.parse"><code class="name flex">
+<span>def <span class="ident">parse</span></span>(<span>self, char)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="Filtering.pdf_objects.cPDFiD"><code class="flex name class">
+<span>class <span class="ident">cPDFiD</span></span>
+<span>(</span><span>xmlDoc, force)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Filtering.pdf_objects.cPluginParent"><code class="flex name class">
+<span>class <span class="ident">cPluginParent</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<h3>Class variables</h3>
+<dl>
+<dt id="Filtering.pdf_objects.cPluginParent.onlyValidPDF"><code class="name">var <span class="ident">onlyValidPDF</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Filtering" href="index.html">Filtering</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.AddPlugin" href="#Filtering.pdf_objects.AddPlugin">AddPlugin</a></code></li>
+<li><code><a title="Filtering.pdf_objects.C2BIP3" href="#Filtering.pdf_objects.C2BIP3">C2BIP3</a></code></li>
+<li><code><a title="Filtering.pdf_objects.File2Strings" href="#Filtering.pdf_objects.File2Strings">File2Strings</a></code></li>
+<li><code><a title="Filtering.pdf_objects.FilenameCheckHash" href="#Filtering.pdf_objects.FilenameCheckHash">FilenameCheckHash</a></code></li>
+<li><code><a title="Filtering.pdf_objects.FindPDFHeaderRelaxed" href="#Filtering.pdf_objects.FindPDFHeaderRelaxed">FindPDFHeaderRelaxed</a></code></li>
+<li><code><a title="Filtering.pdf_objects.GetScriptPath" href="#Filtering.pdf_objects.GetScriptPath">GetScriptPath</a></code></li>
+<li><code><a title="Filtering.pdf_objects.Hexcode2String" href="#Filtering.pdf_objects.Hexcode2String">Hexcode2String</a></code></li>
+<li><code><a title="Filtering.pdf_objects.HexcodeName2String" href="#Filtering.pdf_objects.HexcodeName2String">HexcodeName2String</a></code></li>
+<li><code><a title="Filtering.pdf_objects.LoadPlugins" href="#Filtering.pdf_objects.LoadPlugins">LoadPlugins</a></code></li>
+<li><code><a title="Filtering.pdf_objects.Main" href="#Filtering.pdf_objects.Main">Main</a></code></li>
+<li><code><a title="Filtering.pdf_objects.MakeCSVLine" href="#Filtering.pdf_objects.MakeCSVLine">MakeCSVLine</a></code></li>
+<li><code><a title="Filtering.pdf_objects.PDFiD" href="#Filtering.pdf_objects.PDFiD">PDFiD</a></code></li>
+<li><code><a title="Filtering.pdf_objects.PDFiD2JSON" href="#Filtering.pdf_objects.PDFiD2JSON">PDFiD2JSON</a></code></li>
+<li><code><a title="Filtering.pdf_objects.PDFiD2String" href="#Filtering.pdf_objects.PDFiD2String">PDFiD2String</a></code></li>
+<li><code><a title="Filtering.pdf_objects.PDFiDMain" href="#Filtering.pdf_objects.PDFiDMain">PDFiDMain</a></code></li>
+<li><code><a title="Filtering.pdf_objects.ParseINIFile" href="#Filtering.pdf_objects.ParseINIFile">ParseINIFile</a></code></li>
+<li><code><a title="Filtering.pdf_objects.Print" href="#Filtering.pdf_objects.Print">Print</a></code></li>
+<li><code><a title="Filtering.pdf_objects.ProcessAt" href="#Filtering.pdf_objects.ProcessAt">ProcessAt</a></code></li>
+<li><code><a title="Filtering.pdf_objects.ProcessFile" href="#Filtering.pdf_objects.ProcessFile">ProcessFile</a></code></li>
+<li><code><a title="Filtering.pdf_objects.Quote" href="#Filtering.pdf_objects.Quote">Quote</a></code></li>
+<li><code><a title="Filtering.pdf_objects.Scan" href="#Filtering.pdf_objects.Scan">Scan</a></code></li>
+<li><code><a title="Filtering.pdf_objects.SwapCase" href="#Filtering.pdf_objects.SwapCase">SwapCase</a></code></li>
+<li><code><a title="Filtering.pdf_objects.SwapName" href="#Filtering.pdf_objects.SwapName">SwapName</a></code></li>
+<li><code><a title="Filtering.pdf_objects.UpdateWords" href="#Filtering.pdf_objects.UpdateWords">UpdateWords</a></code></li>
+<li><code><a title="Filtering.pdf_objects.XMLAddAttribute" href="#Filtering.pdf_objects.XMLAddAttribute">XMLAddAttribute</a></code></li>
+<li><code><a title="Filtering.pdf_objects.fEntropy" href="#Filtering.pdf_objects.fEntropy">fEntropy</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cBinaryFile" href="#Filtering.pdf_objects.cBinaryFile">cBinaryFile</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cBinaryFile.byte" href="#Filtering.pdf_objects.cBinaryFile.byte">byte</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cBinaryFile.bytes" href="#Filtering.pdf_objects.cBinaryFile.bytes">bytes</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cBinaryFile.unget" href="#Filtering.pdf_objects.cBinaryFile.unget">unget</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cBinaryFile.ungets" href="#Filtering.pdf_objects.cBinaryFile.ungets">ungets</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cCVE_2009_3459" href="#Filtering.pdf_objects.cCVE_2009_3459">cCVE_2009_3459</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cCVE_2009_3459.Check" href="#Filtering.pdf_objects.cCVE_2009_3459.Check">Check</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cCount" href="#Filtering.pdf_objects.cCount">cCount</a></code></h4>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cEntropy" href="#Filtering.pdf_objects.cEntropy">cEntropy</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cEntropy.add" href="#Filtering.pdf_objects.cEntropy.add">add</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cEntropy.calc" href="#Filtering.pdf_objects.cEntropy.calc">calc</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cEntropy.removeInsideStream" href="#Filtering.pdf_objects.cEntropy.removeInsideStream">removeInsideStream</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cExpandFilenameArguments" href="#Filtering.pdf_objects.cExpandFilenameArguments">cExpandFilenameArguments</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cExpandFilenameArguments.CheckIfFilesAreValid" href="#Filtering.pdf_objects.cExpandFilenameArguments.CheckIfFilesAreValid">CheckIfFilesAreValid</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cExpandFilenameArguments.Filenames" href="#Filtering.pdf_objects.cExpandFilenameArguments.Filenames">Filenames</a></code></li>
+<li><code><a title="Filtering.pdf_objects.cExpandFilenameArguments.Glob" href="#Filtering.pdf_objects.cExpandFilenameArguments.Glob">Glob</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cPDFDate" href="#Filtering.pdf_objects.cPDFDate">cPDFDate</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cPDFDate.parse" href="#Filtering.pdf_objects.cPDFDate.parse">parse</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cPDFEOF" href="#Filtering.pdf_objects.cPDFEOF">cPDFEOF</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cPDFEOF.parse" href="#Filtering.pdf_objects.cPDFEOF.parse">parse</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cPDFiD" href="#Filtering.pdf_objects.cPDFiD">cPDFiD</a></code></h4>
+</li>
+<li>
+<h4><code><a title="Filtering.pdf_objects.cPluginParent" href="#Filtering.pdf_objects.cPluginParent">cPluginParent</a></code></h4>
+<ul class="">
+<li><code><a title="Filtering.pdf_objects.cPluginParent.onlyValidPDF" href="#Filtering.pdf_objects.cPluginParent.onlyValidPDF">onlyValidPDF</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

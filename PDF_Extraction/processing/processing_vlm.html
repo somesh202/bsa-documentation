@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.processing.processing_vlm API documentation</title>
+<meta name="description" content="This module provides utilities and classes for processing PDF documents and extracting table data using vertical and horizontal line detection …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.processing.processing_vlm</code></h1>
+</header>
+<section id="section-intro">
+<p>This module provides utilities and classes for processing PDF documents and extracting table data using vertical and horizontal line detection.</p>
+<h2 id="classes">Classes</h2>
+<p>UtilsVLM: A utility class for constructing line objects, generating ignore lists, validating grids, and detecting vertical lines.
+PageExplicitHLines: A class for generating explicit horizontal lines from a given page based on its lines, rect_edges, and curve_edges.
+ProcessNonLatticeVLMData: A class for processing non-lattice VLM (Vertical Lines and Metadata) data from a PDF and extracting tables into DataFrames.</p>
+<h2 id="functions">Functions</h2>
+<p>construct_vline(y0, y1, x): Constructs a vertical line object with the given coordinates and height.
+construct_hline(x0, x1, y): Constructs a horizontal line object with the given coordinates and width.
+__generate_date_mask_for_ignore_list(df): Generates a mask to ignore rows that contain dates or certain keywords.
+__generate_ignore_list(df, table, page_bbox): Generates a list of bounding boxes to ignore based on date mask and table structure.
+__lies_inside(cell, bbox): Checks if the boundaries of the cell lie completely inside or on the bbox.
+__modify_cells_to_rects(cells): Converts a list of cell coordinates into rectangle objects.
+__find_rect_in_ignore_list(rect, ignore_list, page_bbox): Checks if a rectangle is within any of the ignore list bounding boxes.
+__rect_out_of_page_bbox(rect, bbox): Checks if a rectangle lies outside the page bounding box.
+__check_valid_grid(item_list, ignore_list, page_bbox, min_allowed_cols, min_allowed_rows): Validates the grid structure based on cell positions and grid dimensions.
+is_table_grid_valid(df, table, page_bbox): Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.
+__blocks_overlapping(block1, block2): Checks if two blocks overlap.
+__merge_blocks(block1, block2): Merges two overlapping blocks into one.
+__combine_header_and_column_blocks(header_col_blocks, col_blocks): Combines header and column blocks by merging overlapping blocks.
+__merge_intervals(intervals): Merges overlapping intervals into a single interval.
+__cluster_blocks_in_rows(blocks, table_rows): Clusters the given blocks into rows based on their bounding box coordinates and the provided table rows.
+__is_date_header_candidate(text): Checks if the given text is a potential date header based on the presence of the word 'date' and absence of 'dated'.
+__get_next_nonempty_row(blocks_rowwise, start_index): Finds the next non-empty row in the blocks_rowwise list starting from the given index.
+__find_date_header(blocks_rowwise): Searches for a row that contains a date header and returns the index of that row.
+__find_and_extend_column_blocks(block, col_blocks): Extends the given column blocks to include the bounds of the given block if there is an overlap.
+__update_column_blocks(row_blocks, col_blocks): Updates the column blocks by extending them to include the bounds of the blocks in the given row.
+__generate_column_blocks(blocks_rowwise, date_header_found, header_col_blocks): Generates the column blocks based on the given row-wise blocks, date header status, and existing header column blocks.
+detect_vlines_based_on_blocks(blocks, table, header_col_blocks): Detects vertical lines in the table layout based on the positions of blocks, and returns the constructed vertical lines.
+__extend_explicit_lines_dict(explicit_lines_dict, bbox): Extends the explicit lines dictionary by adding or updating the horizontal line data in the dictionary.
+generate_explicit_hlines(): Generates explicit horizontal lines from the page's lines, rect_edges, and curve_edges and returns them in a dictionary.
+extract_pdf(pdf_path, batch): Extracts data from the specified PDF file for a given batch of pages, processes the tables on those pages, and returns the extracted DataFrames.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.processing.processing_vlm.PageExplicitHLines"><code class="flex name class">
+<span>class <span class="ident">PageExplicitHLines</span></span>
+<span>(</span><span>page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PageExplicitHLines:
+    &#34;&#34;&#34;
+    A class to handle the generation of explicit horizontal lines from a given page, based on its lines, rect_edges, and curve_edges.
+
+    Attributes:
+        __page (object): The page object containing line, rect_edges, and curve_edges data.
+    &#34;&#34;&#34;
+
+    def __init__(self, page):
+        &#34;&#34;&#34;
+        Initializes the PageExplicitHLines object with the given page.
+
+        Args:
+            page (object): The page object containing the page&#39;s data such as lines, rect_edges, and curve_edges.
+        &#34;&#34;&#34;
+        self.__page = page
+
+    def __del__(self):
+        &#34;&#34;&#34;
+        Cleans up the resources by flushing the page&#39;s cache and closing the page when the object is destroyed.
+        &#34;&#34;&#34;
+        self.__page.flush_cache()
+        self.__page.close()
+
+    def __extend_explicit_lines_dict(self, explicit_lines_dict, bbox):
+        &#34;&#34;&#34;
+        Extends the explicit lines dictionary by adding or updating the horizontal line data in the dictionary.
+
+        Args:
+            explicit_lines_dict (dict): The dictionary to be extended with new horizontal lines.
+            bbox (tuple): The bounding box coordinates (x0, y0, x1, y1) defining the line.
+
+        Returns:
+            dict: The updated dictionary containing the horizontal lines.
+        &#34;&#34;&#34;
+        x0, y0, x1, y1 = bbox
+
+        if y0 not in explicit_lines_dict:
+            explicit_lines_dict[y0] = UtilsVLM.construct_hline(x0, x1, y0)
+        else:
+            if x0 &gt;= explicit_lines_dict[y0][&#34;x1&#34;]:
+                explicit_lines_dict[y0][&#34;x1&#34;] = x1
+                explicit_lines_dict[y0][&#34;width&#34;] = abs(
+                    x1 - explicit_lines_dict[y0][&#34;x0&#34;]
+                )
+
+            if x1 &lt;= explicit_lines_dict[y0][&#34;x0&#34;]:
+                explicit_lines_dict[y0][&#34;x0&#34;] = x0
+                explicit_lines_dict[y0][&#34;width&#34;] = abs(
+                    explicit_lines_dict[y0][&#34;x1&#34;] - x0
+                )
+
+        if y1 not in explicit_lines_dict:
+            explicit_lines_dict[y1] = UtilsVLM.construct_hline(x0, x1, y1)
+        else:
+            if x0 &gt;= explicit_lines_dict[y1][&#34;x1&#34;]:
+                explicit_lines_dict[y1][&#34;x1&#34;] = x1
+                explicit_lines_dict[y1][&#34;width&#34;] = abs(
+                    x1 - explicit_lines_dict[y1][&#34;x0&#34;]
+                )
+
+            if x1 &lt;= explicit_lines_dict[y1][&#34;x0&#34;]:
+                explicit_lines_dict[y1][&#34;x0&#34;] = x0
+                explicit_lines_dict[y1][&#34;width&#34;] = abs(
+                    explicit_lines_dict[y1][&#34;x1&#34;] - x0
+                )
+
+        return explicit_lines_dict
+
+    def generate_explicit_hlines(self):
+        &#34;&#34;&#34;
+        Generates explicit horizontal lines from the page&#39;s lines, rect_edges, and curve_edges and returns them in a dictionary.
+
+        The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.
+
+        Returns:
+            dict: A dictionary containing explicit horizontal lines, indexed by their y-coordinate.
+        &#34;&#34;&#34;
+        explicit_lines_dict = {}
+
+        page_lines = []
+        for line in self.__page.lines:
+            if line not in page_lines:
+                page_lines.append(line)
+
+        for line in page_lines:
+            if line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+                x0 = line[&#34;pts&#34;][0][0]
+                y0 = line[&#34;pts&#34;][0][1]
+                x1 = line[&#34;pts&#34;][1][0]
+                y1 = line[&#34;pts&#34;][1][1]
+
+                explicit_lines_dict = self.__extend_explicit_lines_dict(
+                    explicit_lines_dict, (x0, y0, x1, y1)
+                )
+
+        for line in self.__page.rect_edges:
+            if abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0]) &lt; abs(
+                line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1]
+            ):
+                x0 = line[&#34;pts&#34;][3][0]
+                y0 = line[&#34;pts&#34;][3][1]
+                x1 = line[&#34;pts&#34;][1][0]
+                y1 = line[&#34;pts&#34;][1][1]
+
+                explicit_lines_dict = self.__extend_explicit_lines_dict(
+                    explicit_lines_dict, (x0, y0, x1, y1)
+                )
+
+        for line in self.__page.curve_edges:
+            if line[&#34;x0&#34;] == line[&#34;x1&#34;] and line[&#34;orientation&#34;] == &#34;v&#34;:
+                x0 = line[&#34;x0&#34;]
+                y0 = line[&#34;top&#34;]
+                x1 = line[&#34;x1&#34;]
+                y1 = line[&#34;bottom&#34;]
+
+                explicit_lines_dict = self.__extend_explicit_lines_dict(
+                    explicit_lines_dict, (x0, y0, x1, y1)
+                )
+
+        explicit_lines_dict = dict(sorted(explicit_lines_dict.items()))
+
+        self.__page.flush_cache()
+
+        return explicit_lines_dict</code></pre>
+</details>
+<div class="desc"><p>A class to handle the generation of explicit horizontal lines from a given page, based on its lines, rect_edges, and curve_edges.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing line, rect_edges, and curve_edges data.</dd>
+</dl>
+<p>Initializes the PageExplicitHLines object with the given page.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing the page's data such as lines, rect_edges, and curve_edges.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_vlm.PageExplicitHLines.generate_explicit_hlines"><code class="name flex">
+<span>def <span class="ident">generate_explicit_hlines</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_explicit_hlines(self):
+    &#34;&#34;&#34;
+    Generates explicit horizontal lines from the page&#39;s lines, rect_edges, and curve_edges and returns them in a dictionary.
+
+    The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.
+
+    Returns:
+        dict: A dictionary containing explicit horizontal lines, indexed by their y-coordinate.
+    &#34;&#34;&#34;
+    explicit_lines_dict = {}
+
+    page_lines = []
+    for line in self.__page.lines:
+        if line not in page_lines:
+            page_lines.append(line)
+
+    for line in page_lines:
+        if line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+            x0 = line[&#34;pts&#34;][0][0]
+            y0 = line[&#34;pts&#34;][0][1]
+            x1 = line[&#34;pts&#34;][1][0]
+            y1 = line[&#34;pts&#34;][1][1]
+
+            explicit_lines_dict = self.__extend_explicit_lines_dict(
+                explicit_lines_dict, (x0, y0, x1, y1)
+            )
+
+    for line in self.__page.rect_edges:
+        if abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0]) &lt; abs(
+            line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1]
+        ):
+            x0 = line[&#34;pts&#34;][3][0]
+            y0 = line[&#34;pts&#34;][3][1]
+            x1 = line[&#34;pts&#34;][1][0]
+            y1 = line[&#34;pts&#34;][1][1]
+
+            explicit_lines_dict = self.__extend_explicit_lines_dict(
+                explicit_lines_dict, (x0, y0, x1, y1)
+            )
+
+    for line in self.__page.curve_edges:
+        if line[&#34;x0&#34;] == line[&#34;x1&#34;] and line[&#34;orientation&#34;] == &#34;v&#34;:
+            x0 = line[&#34;x0&#34;]
+            y0 = line[&#34;top&#34;]
+            x1 = line[&#34;x1&#34;]
+            y1 = line[&#34;bottom&#34;]
+
+            explicit_lines_dict = self.__extend_explicit_lines_dict(
+                explicit_lines_dict, (x0, y0, x1, y1)
+            )
+
+    explicit_lines_dict = dict(sorted(explicit_lines_dict.items()))
+
+    self.__page.flush_cache()
+
+    return explicit_lines_dict</code></pre>
+</details>
+<div class="desc"><p>Generates explicit horizontal lines from the page's lines, rect_edges, and curve_edges and returns them in a dictionary.</p>
+<p>The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing explicit horizontal lines, indexed by their y-coordinate.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData"><code class="flex name class">
+<span>class <span class="ident">ProcessNonLatticeVLMData</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProcessNonLatticeVLMData(AbstractPDFProcessor):
+    &#34;&#34;&#34;
+    A class for processing non-lattice VLM (Vertical Lines and Metadata) data from a PDF.
+
+    This class extracts tables from a PDF document by detecting explicit horizontal and vertical lines and processes them into DataFrames.
+
+    Attributes:
+        __header_col_block (list): A list of column blocks found in the headers.
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        Initializes the ProcessNonLatticeVLMData object by setting up an empty list for header column blocks.
+        &#34;&#34;&#34;
+        self.__header_col_block = []
+
+    def extract_pdf(self, pdf_path, batch):
+        &#34;&#34;&#34;
+        Extracts data from the specified PDF file for a given batch of pages, processes the tables on those pages, and returns the extracted DataFrames.
+
+        This method uses `pdfplumber` to extract tables from the PDF, using strategies based on explicit lines for horizontal and vertical line detections.
+        It processes each table, validates the extracted data, and appends it to a list of DataFrames to be returned.
+
+        Args:
+            pdf_path (str): The file path to the PDF from which data is to be extracted.
+            batch (list): A list of page indices to process from the PDF.
+
+        Returns:
+            tuple: A tuple containing a list of DataFrames extracted from the PDF tables and a constant indicating the extraction type (NONLATTICE_VLM).
+        &#34;&#34;&#34;
+        # Initialize an empty list to hold DataFrames from each page&#39;s tables
+        pdf_data_frames = []
+
+        # Open the PDF using pdfplumber
+        with pdfplumber.open(pdf_path) as pdf:
+            # Process each page in the PDF
+            for page_index in batch:
+                page = pdf.pages[page_index]
+                extractor = WordExtractor(page)
+                explicit_lines_dict = {}
+
+                explicit_lines_dict = PageExplicitHLines(
+                    page
+                ).generate_explicit_hlines()
+
+                table_settings = {
+                    &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                    &#34;vertical_strategy&#34;: &#34;lines_strict&#34;,
+                    &#34;explicit_horizontal_lines&#34;: explicit_lines_dict.values(),
+                    &#34;explicit_vertical_lines&#34;: [(page.bbox[2] / 2)],
+                }
+
+                # Extract tables and check validity
+                tables_initial = page.find_tables(table_settings)
+
+                if not tables_initial:
+                    page.flush_cache()
+                    continue
+
+                tables_mid = None
+                explicit_hlines = []
+                for _, table in enumerate(tables_initial):
+                    x0, y0, x1, y1 = table.bbox
+
+                    if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                        continue
+                    if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                        continue
+
+                    explicit_hlines.append(UtilsVLM.construct_hline(x0, x1, y0))
+                    explicit_hlines.append(UtilsVLM.construct_hline(x0, x1, y1))
+
+                explicit_hlines.append(
+                    UtilsVLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[1])
+                )
+                explicit_hlines.append(
+                    UtilsVLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[3])
+                )
+
+                table_settings[&#34;explicit_horizontal_lines&#34;] = explicit_hlines
+                tables_mid = page.find_tables(table_settings)
+
+                if not tables_mid:
+                    page.flush_cache()
+                    continue
+
+                tables = []
+                explicit_vlines = []
+                for table in tables_mid:
+                    blocks = extractor.extract_blocks(pdf_path)
+                    table_vlines, self.__header_col_block = (
+                        UtilsVLM.detect_vlines_based_on_blocks(
+                            blocks, table, self.__header_col_block
+                        )
+                    )
+                    explicit_vlines.extend(table_vlines)
+
+                if not explicit_vlines:
+                    page.flush_cache()
+                    continue
+
+                table_settings[&#34;vertical_strategy&#34;] = &#34;explicit&#34;
+                table_settings[&#34;explicit_vertical_lines&#34;] = explicit_vlines
+
+                tables = page.find_tables(table_settings)
+
+                if not tables:
+                    page.flush_cache()
+                    continue
+
+                extractor = WordExtractor(page)
+                extracted_tables = extractor.extract_text_from_tables(tables, pdf_path)
+
+                page_data_frames = []
+                for table_index, table in enumerate(tables):
+                    extracted_table = extracted_tables[table_index]
+                    if (
+                        extracted_table
+                        and len(extracted_table) &gt;= 1
+                        and len(extracted_table[0]) &gt;= 4
+                    ):
+                        df = pd.DataFrame(extracted_table)
+
+                        if not UtilsVLM.is_table_grid_valid(df, table, page.bbox):
+                            page.flush_cache()
+                            pdf.flush_cache()
+                            raise CustomError.InvalidGridError(pdf_path)
+                        
+                        df = UtilsVLM.merge_description(df)
+
+                        df[&#34;page_num&#34;] = page_index
+                        df[&#34;table_seq&#34;] = table_index
+                        page_data_frames.append(df)
+
+                if page_data_frames:
+                    pdf_data_frames.extend(page_data_frames)
+
+                page.flush_cache()
+
+            pdf.flush_cache()
+
+        return pdf_data_frames, LatticeType.NONLATTICE_VLM</code></pre>
+</details>
+<div class="desc"><p>A class for processing non-lattice VLM (Vertical Lines and Metadata) data from a PDF.</p>
+<p>This class extracts tables from a PDF document by detecting explicit horizontal and vertical lines and processes them into DataFrames.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__header_col_block</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of column blocks found in the headers.</dd>
+</dl>
+<p>Initializes the ProcessNonLatticeVLMData object by setting up an empty list for header column blocks.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData.extract_pdf"><code class="name flex">
+<span>def <span class="ident">extract_pdf</span></span>(<span>self, pdf_path, batch)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_pdf(self, pdf_path, batch):
+    &#34;&#34;&#34;
+    Extracts data from the specified PDF file for a given batch of pages, processes the tables on those pages, and returns the extracted DataFrames.
+
+    This method uses `pdfplumber` to extract tables from the PDF, using strategies based on explicit lines for horizontal and vertical line detections.
+    It processes each table, validates the extracted data, and appends it to a list of DataFrames to be returned.
+
+    Args:
+        pdf_path (str): The file path to the PDF from which data is to be extracted.
+        batch (list): A list of page indices to process from the PDF.
+
+    Returns:
+        tuple: A tuple containing a list of DataFrames extracted from the PDF tables and a constant indicating the extraction type (NONLATTICE_VLM).
+    &#34;&#34;&#34;
+    # Initialize an empty list to hold DataFrames from each page&#39;s tables
+    pdf_data_frames = []
+
+    # Open the PDF using pdfplumber
+    with pdfplumber.open(pdf_path) as pdf:
+        # Process each page in the PDF
+        for page_index in batch:
+            page = pdf.pages[page_index]
+            extractor = WordExtractor(page)
+            explicit_lines_dict = {}
+
+            explicit_lines_dict = PageExplicitHLines(
+                page
+            ).generate_explicit_hlines()
+
+            table_settings = {
+                &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                &#34;vertical_strategy&#34;: &#34;lines_strict&#34;,
+                &#34;explicit_horizontal_lines&#34;: explicit_lines_dict.values(),
+                &#34;explicit_vertical_lines&#34;: [(page.bbox[2] / 2)],
+            }
+
+            # Extract tables and check validity
+            tables_initial = page.find_tables(table_settings)
+
+            if not tables_initial:
+                page.flush_cache()
+                continue
+
+            tables_mid = None
+            explicit_hlines = []
+            for _, table in enumerate(tables_initial):
+                x0, y0, x1, y1 = table.bbox
+
+                if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                    continue
+                if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                    continue
+
+                explicit_hlines.append(UtilsVLM.construct_hline(x0, x1, y0))
+                explicit_hlines.append(UtilsVLM.construct_hline(x0, x1, y1))
+
+            explicit_hlines.append(
+                UtilsVLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[1])
+            )
+            explicit_hlines.append(
+                UtilsVLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[3])
+            )
+
+            table_settings[&#34;explicit_horizontal_lines&#34;] = explicit_hlines
+            tables_mid = page.find_tables(table_settings)
+
+            if not tables_mid:
+                page.flush_cache()
+                continue
+
+            tables = []
+            explicit_vlines = []
+            for table in tables_mid:
+                blocks = extractor.extract_blocks(pdf_path)
+                table_vlines, self.__header_col_block = (
+                    UtilsVLM.detect_vlines_based_on_blocks(
+                        blocks, table, self.__header_col_block
+                    )
+                )
+                explicit_vlines.extend(table_vlines)
+
+            if not explicit_vlines:
+                page.flush_cache()
+                continue
+
+            table_settings[&#34;vertical_strategy&#34;] = &#34;explicit&#34;
+            table_settings[&#34;explicit_vertical_lines&#34;] = explicit_vlines
+
+            tables = page.find_tables(table_settings)
+
+            if not tables:
+                page.flush_cache()
+                continue
+
+            extractor = WordExtractor(page)
+            extracted_tables = extractor.extract_text_from_tables(tables, pdf_path)
+
+            page_data_frames = []
+            for table_index, table in enumerate(tables):
+                extracted_table = extracted_tables[table_index]
+                if (
+                    extracted_table
+                    and len(extracted_table) &gt;= 1
+                    and len(extracted_table[0]) &gt;= 4
+                ):
+                    df = pd.DataFrame(extracted_table)
+
+                    if not UtilsVLM.is_table_grid_valid(df, table, page.bbox):
+                        page.flush_cache()
+                        pdf.flush_cache()
+                        raise CustomError.InvalidGridError(pdf_path)
+                    
+                    df = UtilsVLM.merge_description(df)
+
+                    df[&#34;page_num&#34;] = page_index
+                    df[&#34;table_seq&#34;] = table_index
+                    page_data_frames.append(df)
+
+            if page_data_frames:
+                pdf_data_frames.extend(page_data_frames)
+
+            page.flush_cache()
+
+        pdf.flush_cache()
+
+    return pdf_data_frames, LatticeType.NONLATTICE_VLM</code></pre>
+</details>
+<div class="desc"><p>Extracts data from the specified PDF file for a given batch of pages, processes the tables on those pages, and returns the extracted DataFrames.</p>
+<p>This method uses <code>pdfplumber</code> to extract tables from the PDF, using strategies based on explicit lines for horizontal and vertical line detections.
+It processes each table, validates the extracted data, and appends it to a list of DataFrames to be returned.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pdf_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The file path to the PDF from which data is to be extracted.</dd>
+<dt><strong><code>batch</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of page indices to process from the PDF.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing a list of DataFrames extracted from the PDF tables and a constant indicating the extraction type (NONLATTICE_VLM).</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></b></code>:
+<ul class="hlist">
+<li><code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf">process_pdf</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="PDF_Extraction.processing.processing_vlm.UtilsVLM"><code class="flex name class">
+<span>class <span class="ident">UtilsVLM</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UtilsVLM:
+    @staticmethod
+    def construct_vline(y0, y1, x):
+        &#34;&#34;&#34;
+        Constructs a vertical line object with the given coordinates and height.
+
+        Args:
+            y0 (float): The top Y-coordinate of the line.
+            y1 (float): The bottom Y-coordinate of the line.
+            x (float): The X-coordinate of the vertical line.
+
+        Returns:
+            dict: A dictionary representing the vertical line with its coordinates and height.
+        &#34;&#34;&#34;
+        line = {
+            &#34;x0&#34;: x,
+            &#34;top&#34;: y0,
+            &#34;x1&#34;: x,
+            &#34;bottom&#34;: y1,
+            &#34;object_type&#34;: &#34;line&#34;,
+            &#34;height&#34;: y1 - y0,
+        }
+
+        return line
+
+    @staticmethod
+    def construct_hline(x0, x1, y):
+        &#34;&#34;&#34;
+        Constructs a horizontal line object with the given coordinates and width.
+
+        Args:
+            x0 (float): The left X-coordinate of the line.
+            x1 (float): The right X-coordinate of the line.
+            y (float): The Y-coordinate of the horizontal line.
+
+        Returns:
+            dict: A dictionary representing the horizontal line with its coordinates and width.
+        &#34;&#34;&#34;
+        line = {
+            &#34;x0&#34;: x0,
+            &#34;top&#34;: y,
+            &#34;x1&#34;: x1,
+            &#34;bottom&#34;: y,
+            &#34;object_type&#34;: &#34;line&#34;,
+            &#34;width&#34;: abs(x1 - x0),
+        }
+        return line
+
+    @staticmethod
+    def __generate_date_mask_for_ignore_list(df):
+        &#34;&#34;&#34;
+        Generates a mask to ignore rows that contain dates or certain keywords.
+
+        Args:
+            df (DataFrame): The dataframe to analyze.
+
+        Returns:
+            Series: A boolean mask indicating which rows should be ignored.
+        &#34;&#34;&#34;
+        date_mask = df.apply(
+            lambda row: (
+                any(UtilFunctions.has_date(cell) for cell in row)
+                and not any(
+                    &#34;generated&#34; in str(cell).lower()
+                    or &#34;date&#34; in str(cell).lower()
+                    or (
+                        &#34;statement&#34; in str(cell).lower() and &#34;from&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;closing&#34; in str(cell).lower()
+                        and &#34;balance&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;opening&#34; in str(cell).lower()
+                        and &#34;balance&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;brought&#34; in str(cell).lower()
+                        and &#34;forward&#34; in str(cell).lower()
+                    )
+                    or (
+                        &#34;carried&#34; in str(cell).lower()
+                        and &#34;forward&#34; in str(cell).lower()
+                    )
+                    for cell in row
+                )
+            ),
+            axis=1,
+        )
+        return date_mask
+
+    @staticmethod
+    def __generate_ignore_list(df, table, page_bbox):
+        &#34;&#34;&#34;
+        Generates a list of bounding boxes to ignore based on date mask and table structure.
+
+        Args:
+            df (DataFrame): The dataframe to analyze.
+            table (Table): The table object containing rows and cells.
+            page_bbox (tuple): The bounding box of the page.
+
+        Returns:
+            tuple: A boolean indicating whether the table is junk, and a list of ignore bounding boxes.
+        &#34;&#34;&#34;
+        date_mask = UtilsVLM.__generate_date_mask_for_ignore_list(df)
+
+        ignore_list = []
+        is_table_junk = True
+        for i in range(len(table.rows)):
+            if i &gt;= df.shape[0]:
+                break
+
+            row_x0, row_y0, row_x1, row_y1 = table.rows[i].bbox
+
+            if row_y0 &gt;= page_bbox[3] or row_y1 &lt;= 0:
+                continue
+            if row_x0 &gt;= page_bbox[2] or row_x1 &lt;= 0:
+                continue
+
+            row_padding = 1
+            row_x0 = max(row_x0 - row_padding, 0)
+            row_y0 = max(row_y0 - row_padding, 0)
+            row_x1 = min(row_x1 + row_padding, page_bbox[2])
+            row_y1 = min(row_y1 + row_padding, page_bbox[3])
+            row_bbox = (row_x0, row_y0, row_x1, row_y1)
+
+            if not date_mask[i]:
+                ignore_list.append(row_bbox)
+            else:
+                is_table_junk = False
+
+        return is_table_junk, ignore_list
+
+    @staticmethod
+    def __lies_inside(cell, bbox):
+        &#34;&#34;&#34;
+        Checks if the boundaries of the cell lie completely inside or on the bbox.
+
+        Args:
+            cell (dict): The cell bounding box coordinates.
+            bbox (tuple): The bounding box to check against.
+
+        Returns:
+            bool: True if the cell is inside the bounding box, False otherwise.
+        &#34;&#34;&#34;
+        if (
+            cell[&#34;x0&#34;] &gt;= bbox[0]
+            and cell[&#34;y0&#34;] &gt;= bbox[1]
+            and cell[&#34;x1&#34;] &lt;= bbox[2]
+            and cell[&#34;y1&#34;] &lt;= bbox[3]
+        ):
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def __modify_cells_to_rects(cells):
+        &#34;&#34;&#34;
+        Converts a list of cell coordinates into rectangle objects.
+
+        Args:
+            cells (list): A list of cell coordinates in the format [x0, y0, x1, y1].
+
+        Returns:
+            list: A list of unique rectangles represented as dictionaries.
+        &#34;&#34;&#34;
+        rects = [
+            {&#34;x0&#34;: cell[0], &#34;y0&#34;: cell[1], &#34;x1&#34;: cell[2], &#34;y1&#34;: cell[3]}
+            for cell in cells
+        ]
+        return list({tuple(sorted(d.items())): d for d in rects}.values())
+
+    @staticmethod
+    def __find_rect_in_ignore_list(rect, ignore_list, page_bbox):
+        &#34;&#34;&#34;
+        Checks if a rectangle is within any of the ignore list bounding boxes.
+
+        Args:
+            rect (dict): The rectangle coordinates to check.
+            ignore_list (list): The list of bounding boxes to ignore.
+            page_bbox (tuple): The bounding box of the page.
+
+        Returns:
+            bool: True if the rectangle is found in the ignore list, False otherwise.
+        &#34;&#34;&#34;
+        for bbox in ignore_list:
+            rect[&#34;x0&#34;] = max(0, rect[&#34;x0&#34;])
+            rect[&#34;x1&#34;] = min(page_bbox[2], rect[&#34;x1&#34;])
+            rect[&#34;y0&#34;] = max(0, rect[&#34;y0&#34;])
+            rect[&#34;y1&#34;] = min(page_bbox[3], rect[&#34;y1&#34;])
+            if UtilsVLM.__lies_inside(rect, bbox):
+                return True
+        return False
+
+    @staticmethod
+    def __rect_out_of_page_bbox(rect, bbox):
+        &#34;&#34;&#34;
+        Checks if a rectangle lies outside the page bounding box.
+
+        Args:
+            rect (dict): The rectangle to check.
+            bbox (tuple): The page bounding box.
+
+        Returns:
+            bool: True if the rectangle is outside the page bounding box, False otherwise.
+        &#34;&#34;&#34;
+        return (
+            rect[&#34;x1&#34;] &lt; 0
+            or rect[&#34;x0&#34;] &gt; bbox[2]
+            or rect[&#34;y1&#34;] &lt; 0
+            or rect[&#34;y0&#34;] &gt; bbox[3]
+        )
+
+    @staticmethod
+    def __check_valid_grid(
+        item_list, ignore_list, page_bbox, min_allowed_cols=1, min_allowed_rows=1
+    ):
+        &#34;&#34;&#34;
+        Validates the grid structure based on cell positions and grid dimensions.
+
+        Args:
+            item_list (list): The list of items (cells) to check.
+            ignore_list (list): The list of bounding boxes to ignore.
+            page_bbox (tuple): The bounding box of the page.
+            min_allowed_cols (int): The minimum number of columns required in the grid.
+            min_allowed_rows (int): The minimum number of rows required in the grid.
+
+        Returns:
+            bool: True if the grid is valid, False otherwise.
+        &#34;&#34;&#34;
+        rects = UtilsVLM.__modify_cells_to_rects(item_list)
+
+        rows_c1 = defaultdict(int)
+        cols_c1 = defaultdict(int)
+        rows_c2 = defaultdict(int)
+        cols_c2 = defaultdict(int)
+
+        for rect in rects:
+            if UtilsVLM.__rect_out_of_page_bbox(rect, page_bbox):
+                continue
+
+            found = UtilsVLM.__find_rect_in_ignore_list(rect, ignore_list, page_bbox)
+
+            if not found:
+                rows_c1[rect[&#34;y0&#34;]] += 1
+                cols_c1[rect[&#34;x0&#34;]] += 1
+                rows_c2[rect[&#34;y1&#34;]] += 1
+                cols_c2[rect[&#34;x1&#34;]] += 1
+
+        if (
+            len(set(rows_c1.values())) == 1
+            and len(set(cols_c1.values())) == 1
+            and len(set(rows_c2.values())) == 1
+            and len(set(rows_c2.values())) == 1
+        ):
+            if len(cols_c1) &gt;= min_allowed_cols and len(rows_c1) &gt;= min_allowed_rows:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    @staticmethod
+    def is_table_grid_valid(df, table, page_bbox):
+        &#34;&#34;&#34;
+        Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.
+
+        Args:
+            df (DataFrame): The dataframe to check.
+            table (Table): The table object containing rows and cells.
+            page_bbox (tuple): The bounding box of the page.
+
+        Returns:
+            bool: True if the grid is valid, False otherwise.
+        &#34;&#34;&#34;
+        is_table_junk, ignore_list = UtilsVLM.__generate_ignore_list(
+            df, table, page_bbox
+        )
+
+        is_grid_valid = False
+        if not is_table_junk:
+            if len(table.rows) &gt; 10 and len(ignore_list) / len(table.rows) &gt; 0.6:
+                is_grid_valid = False
+            else:
+                is_grid_valid = UtilsVLM.__check_valid_grid(
+                    table.cells,
+                    ignore_list,
+                    page_bbox,
+                    min_allowed_cols=4,
+                    min_allowed_rows=1,
+                )
+        else:
+            is_grid_valid = True
+
+        return is_grid_valid
+
+    @staticmethod
+    def __blocks_overlapping(block1, block2):
+        &#34;&#34;&#34;
+        Checks if two blocks overlap.
+
+        Args:
+            block1 (tuple): The first block defined by a start and end point.
+            block2 (tuple): The second block defined by a start and end point.
+
+        Returns:
+            bool: True if the blocks overlap, False otherwise.
+        &#34;&#34;&#34;
+        if (
+            block1[0] &lt;= block2[0] &lt;= block1[1]
+            or block1[0] &lt;= block2[1] &lt;= block1[1]
+            or (block1[0] &gt;= block2[0] and block1[1] &lt;= block2[1])
+        ):
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def __merge_blocks(block1, block2):
+        &#34;&#34;&#34;
+        Merges two overlapping blocks into one.
+
+        Args:
+            block1 (tuple): The first block.
+            block2 (tuple): The second block.
+
+        Returns:
+            tuple: The merged block.
+        &#34;&#34;&#34;
+        return (min(block1[0], block2[0]), max(block1[1], block2[1]))
+
+    @staticmethod
+    def __combine_header_and_column_blocks(header_col_blocks, col_blocks):
+        &#34;&#34;&#34;
+        Combines header and column blocks by merging overlapping blocks.
+
+        Args:
+            header_col_blocks (list): The list of header column blocks.
+            col_blocks (list): The list of column blocks.
+
+        Returns:
+            list: The combined list of column blocks.
+        &#34;&#34;&#34;
+        result = []
+        i, j = 0, 0
+        while i &lt; len(header_col_blocks) and j &lt; len(col_blocks):
+            if UtilsVLM.__blocks_overlapping(header_col_blocks[i], col_blocks[j]):
+                result.append(
+                    UtilsVLM.__merge_blocks(header_col_blocks[i], col_blocks[j])
+                )
+                i += 1
+                j += 1
+            else:
+                next_idx = 1
+                overlap_found = False
+                while i + next_idx &lt; len(header_col_blocks):
+                    if col_blocks[j][1] &lt;= header_col_blocks[i + next_idx][0]:
+                        break
+
+                    if UtilsVLM.__blocks_overlapping(
+                        header_col_blocks[i + next_idx], col_blocks[j]
+                    ):
+                        overlap_found = True
+                        result.extend(header_col_blocks[i : i + next_idx])
+                        result.append(
+                            UtilsVLM.__merge_blocks(
+                                header_col_blocks[i + next_idx], col_blocks[j]
+                            )
+                        )
+                        i += next_idx + 1
+                        j += 1
+                        break
+
+                    next_idx += 1
+
+                if not overlap_found:
+                    result.extend(header_col_blocks[i : i + next_idx - 1])
+                    result.append(
+                        UtilsVLM.__merge_blocks(
+                            header_col_blocks[i + next_idx - 1], col_blocks[j]
+                        )
+                    )
+                    i += next_idx
+                    j += 1
+
+        if i &lt; len(header_col_blocks):
+            result.extend(header_col_blocks[i:])
+        if j &lt; len(col_blocks):
+            result.extend(col_blocks[j:])
+
+        return result
+
+    @staticmethod
+    def __merge_intervals(intervals):
+        &#34;&#34;&#34;
+        Merges overlapping intervals into a single interval.
+
+        Args:
+            intervals (list): A list of intervals to merge.
+
+        Returns:
+            list: A list of merged intervals.
+        &#34;&#34;&#34;
+        intervals.sort(key=lambda x: x[0])
+        merged_intervals = []
+        for interval in intervals:
+            if not merged_intervals or merged_intervals[-1][1] &lt; interval[0]:
+                merged_intervals.append(interval)
+            else:
+                merged_intervals[-1] = (
+                    merged_intervals[-1][0],
+                    max(merged_intervals[-1][1], interval[1]),
+                )
+        return merged_intervals
+
+    @staticmethod
+    def __cluster_blocks_in_rows(blocks, table_rows):
+        &#34;&#34;&#34;
+        Clusters the given blocks into rows based on their bounding box coordinates and the provided table rows.
+
+        Args:
+            blocks (list): List of blocks to be clustered.
+            table_rows (list): List of table rows with bounding box information.
+
+        Returns:
+            list: A list of rows, where each row is a list of blocks contained within that row.
+        &#34;&#34;&#34;
+        blocks_rowwise = []
+        for row_index, row in enumerate(table_rows):
+            row_blocks = []
+            for block in blocks:
+                if (
+                    row.bbox[0] &lt;= block[&#34;x0&#34;] &lt;= row.bbox[2]
+                    and row.bbox[1] &lt;= block[&#34;top&#34;] &lt;= row.bbox[3]
+                ):
+                    row_blocks.append(block)
+            blocks_rowwise.append(row_blocks)
+        return blocks_rowwise
+
+    @staticmethod
+    def __is_date_header_candidate(text):
+        &#34;&#34;&#34;
+        Checks if the given text is a potential date header based on the presence of the word &#39;date&#39; and absence of &#39;dated&#39;.
+
+        Args:
+            text (str): The text to check.
+
+        Returns:
+            bool: True if the text contains &#39;date&#39; and not &#39;dated&#39;, otherwise False.
+        &#34;&#34;&#34;
+        text_lower = text.lower()
+        return (&#34;date&#34; in text_lower) and (&#34;dated&#34; not in text_lower)
+
+    @staticmethod
+    def __get_next_nonempty_row(blocks_rowwise, start_index):
+        &#34;&#34;&#34;
+        Finds the next non-empty row in the blocks_rowwise list starting from the given index.
+
+        Args:
+            blocks_rowwise (list): A list of rows, each containing a list of blocks.
+            start_index (int): The index to start searching from.
+
+        Returns:
+            int: The index of the next non-empty row.
+        &#34;&#34;&#34;
+        idx = start_index
+        while idx &lt; len(blocks_rowwise):
+            row_text = &#34; &#34;.join(b[&#34;text&#34;] for b in blocks_rowwise[idx]).strip()
+            if row_text != &#34;&#34;:
+                break
+            idx += 1
+        return idx
+
+    @staticmethod
+    def __find_date_header(blocks_rowwise):
+        &#34;&#34;&#34;
+        Searches for a row that contains a date header and returns the index of that row.
+
+        Args:
+            blocks_rowwise (list): A list of rows, each containing a list of blocks.
+
+        Returns:
+            tuple: A tuple containing a boolean indicating whether a date header was found,
+                and the index of the date header row (if found).
+        &#34;&#34;&#34;
+        date_header_found = False
+        date_row_index = 0
+
+        for row_index, row_blocks in enumerate(blocks_rowwise):
+            for block in row_blocks:
+                if UtilsVLM.__is_date_header_candidate(block[&#34;text&#34;]):
+                    next_row_index = UtilsVLM.__get_next_nonempty_row(
+                        blocks_rowwise, row_index + 1
+                    )
+
+                    if next_row_index &gt;= len(blocks_rowwise):
+                        break
+
+                    for next_block in blocks_rowwise[next_row_index]:
+                        if UtilsVLM.__blocks_overlapping(
+                            (next_block[&#34;x0&#34;], next_block[&#34;x1&#34;]),
+                            (block[&#34;x0&#34;], block[&#34;x1&#34;]),
+                        ) and UtilFunctions.has_date(next_block[&#34;text&#34;]):
+                            date_header_found = True
+                            date_row_index = row_index
+                            break
+
+                    if date_header_found:
+                        break
+
+            if date_header_found:
+                break
+
+        return date_header_found, date_row_index
+
+    @staticmethod
+    def __find_and_extend_column_blocks(block, col_blocks):
+        &#34;&#34;&#34;
+        Extends the given column blocks to include the bounds of the given block if there is an overlap.
+
+        Args:
+            block (dict): The block to check for overlap with the column blocks.
+            col_blocks (list): The list of column blocks to be extended.
+
+        Returns:
+            tuple: A tuple containing the extended column blocks and a flag indicating whether an extension occurred.
+        &#34;&#34;&#34;
+        flag = False
+        extended_blocks = []
+        for x0, x1 in col_blocks:
+            if (
+                block[&#34;x0&#34;] &lt;= x0 &lt;= block[&#34;x1&#34;]
+                or block[&#34;x0&#34;] &lt;= x1 &lt;= block[&#34;x1&#34;]
+                or (block[&#34;x0&#34;] &gt;= x0 and block[&#34;x1&#34;] &lt;= x1)
+            ):
+                flag = True
+                extended_blocks.append((min(x0, block[&#34;x0&#34;]), max(x1, block[&#34;x1&#34;])))
+            else:
+                extended_blocks.append((x0, x1))
+
+        return extended_blocks, flag
+
+    @staticmethod
+    def __update_column_blocks(row_blocks, col_blocks):
+        &#34;&#34;&#34;
+        Updates the column blocks by extending them to include the bounds of the blocks in the given row.
+
+        Args:
+            row_blocks (list): The blocks in the current row.
+            col_blocks (list): The list of column blocks to be updated.
+
+        Returns:
+            list: The updated list of column blocks.
+        &#34;&#34;&#34;
+        for block in row_blocks:
+            extended_blocks, overlap_found = UtilsVLM.__find_and_extend_column_blocks(
+                block, col_blocks
+            )
+
+            if not overlap_found:
+                pos_found = False
+                for i, (start, end) in enumerate(extended_blocks):
+                    if block[&#34;x0&#34;] &lt; start:
+                        pos_found = True
+                        extended_blocks.insert(i, (block[&#34;x0&#34;], block[&#34;x1&#34;]))
+                        break
+
+                if not pos_found:
+                    extended_blocks.append((block[&#34;x0&#34;], block[&#34;x1&#34;]))
+
+            col_blocks = UtilsVLM.__merge_intervals(extended_blocks)
+
+        return col_blocks
+
+    @staticmethod
+    def __generate_column_blocks(blocks_rowwise, date_header_found, header_col_blocks):
+        &#34;&#34;&#34;
+        Generates the column blocks based on the given row-wise blocks, date header status, and existing header column blocks.
+
+        Args:
+            blocks_rowwise (list): A list of rows, each containing a list of blocks.
+            date_header_found (bool): A flag indicating if a date header was found.
+            header_col_blocks (list): The existing header column blocks to be used for further processing.
+
+        Returns:
+            tuple: A tuple containing the generated column blocks and updated header column blocks.
+        &#34;&#34;&#34;
+        if date_header_found:
+            date_header_index = 0
+            header_seperated = False
+        else:
+            date_header_index = -1
+            header_seperated = True
+
+        col_blocks = []
+        for row_index, row_blocks in enumerate(blocks_rowwise):
+            if row_index &gt; date_header_index:
+                row_text = (&#34; &#34;.join([block[&#34;text&#34;] for block in row_blocks])).lower()
+
+                if not UtilFunctions.has_date(row_text):
+                    continue
+
+                if (
+                    &#34;opening&#34; in row_text or &#34;closing&#34; in row_text
+                ) and &#34;balance&#34; in row_text:
+                    continue
+
+            if not col_blocks:
+                col_blocks = UtilsVLM.__update_column_blocks(row_blocks, col_blocks)
+                if not header_seperated:
+                    header_col_blocks = col_blocks
+                    col_blocks = []
+                    header_seperated = True
+            else:
+                col_blocks = UtilsVLM.__update_column_blocks(row_blocks, col_blocks)
+
+        return col_blocks, header_col_blocks
+
+    @staticmethod
+    def detect_vlines_based_on_blocks(blocks, table, header_col_blocks):
+        &#34;&#34;&#34;
+        Detects vertical lines in the table layout based on the positions of blocks, and returns the constructed vertical lines.
+
+        Args:
+            blocks (list): List of blocks in the page.
+            table (object): The table object containing table boundaries and other properties.
+            header_col_blocks (list): The header column blocks to be used for alignment.
+
+        Returns:
+            tuple: A tuple containing a list of explicit vertical lines and the updated header column blocks.
+        &#34;&#34;&#34;
+        blocks_rowwise = UtilsVLM.__cluster_blocks_in_rows(blocks, table.rows)
+        date_header_found, date_row_index = UtilsVLM.__find_date_header(blocks_rowwise)
+
+        if date_header_found:
+            blocks_rowwise = blocks_rowwise[date_row_index:]
+        else:
+            if not header_col_blocks:
+                return [], header_col_blocks
+
+        col_blocks, header_col_blocks = UtilsVLM.__generate_column_blocks(
+            blocks_rowwise, date_header_found, header_col_blocks
+        )
+
+        if date_header_found and len(col_blocks) == len(header_col_blocks):
+            for i in range(len(header_col_blocks)):
+                col_blocks[i] = (
+                    min(col_blocks[i][0], header_col_blocks[i][0]),
+                    max(col_blocks[i][1], header_col_blocks[i][1]),
+                )
+
+        if len(col_blocks) &lt;= len(header_col_blocks):
+            col_blocks = UtilsVLM.__merge_intervals(col_blocks)
+            col_blocks = UtilsVLM.__combine_header_and_column_blocks(
+                header_col_blocks, col_blocks
+            )
+            col_blocks = UtilsVLM.__merge_intervals(col_blocks)
+
+        if len(col_blocks) &gt;= 4:
+            explicit_vlines = [
+                UtilsVLM.construct_vline(
+                    table.bbox[1], table.bbox[3], col_blocks[0][0]
+                ),
+                UtilsVLM.construct_vline(
+                    table.bbox[1], table.bbox[3], col_blocks[-1][1]
+                ),
+            ]
+
+            for i in range(0, len(col_blocks) - 1):
+                explicit_vlines.append(
+                    UtilsVLM.construct_vline(
+                        table.bbox[1],
+                        table.bbox[3],
+                        (col_blocks[i][1] + col_blocks[i + 1][0]) / 2.0,
+                    )
+                )
+
+            return explicit_vlines, header_col_blocks
+        else:
+            return [], header_col_blocks
+        
+    @staticmethod
+    def merge_description(df):
+        &#34;&#34;&#34;
+        Merges the description column in the dataframe where the description is split into multiple rows.
+        &#34;&#34;&#34;
+        for i in range(1, len(df)):
+            non_nan_count = (
+                df.iloc[i]
+                .apply(
+                    lambda x: not (
+                        pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                    )
+                )
+                .sum()
+            )
+            if non_nan_count == 1:
+                col = (
+                    df.iloc[i]
+                    .apply(
+                        lambda x: not (
+                            pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                        )
+                    )
+                    .idxmax()
+                )
+                value = df.at[i, col]
+                if isinstance(value, str) and &#34;closing balance&#34; not in str(value).strip().lower():
+                    df.at[i - 1, col] = f&#34;{str(df.at[i-1, col])} {str(value)}&#34;
+                    df.at[i, col] = &#34;&#34;
+        return df</code></pre>
+</details>
+<div class="desc"></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_vlm.UtilsVLM.construct_hline"><code class="name flex">
+<span>def <span class="ident">construct_hline</span></span>(<span>x0, x1, y)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def construct_hline(x0, x1, y):
+    &#34;&#34;&#34;
+    Constructs a horizontal line object with the given coordinates and width.
+
+    Args:
+        x0 (float): The left X-coordinate of the line.
+        x1 (float): The right X-coordinate of the line.
+        y (float): The Y-coordinate of the horizontal line.
+
+    Returns:
+        dict: A dictionary representing the horizontal line with its coordinates and width.
+    &#34;&#34;&#34;
+    line = {
+        &#34;x0&#34;: x0,
+        &#34;top&#34;: y,
+        &#34;x1&#34;: x1,
+        &#34;bottom&#34;: y,
+        &#34;object_type&#34;: &#34;line&#34;,
+        &#34;width&#34;: abs(x1 - x0),
+    }
+    return line</code></pre>
+</details>
+<div class="desc"><p>Constructs a horizontal line object with the given coordinates and width.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x0</code></strong> :&ensp;<code>float</code></dt>
+<dd>The left X-coordinate of the line.</dd>
+<dt><strong><code>x1</code></strong> :&ensp;<code>float</code></dt>
+<dd>The right X-coordinate of the line.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>float</code></dt>
+<dd>The Y-coordinate of the horizontal line.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary representing the horizontal line with its coordinates and width.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_vlm.UtilsVLM.construct_vline"><code class="name flex">
+<span>def <span class="ident">construct_vline</span></span>(<span>y0, y1, x)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def construct_vline(y0, y1, x):
+    &#34;&#34;&#34;
+    Constructs a vertical line object with the given coordinates and height.
+
+    Args:
+        y0 (float): The top Y-coordinate of the line.
+        y1 (float): The bottom Y-coordinate of the line.
+        x (float): The X-coordinate of the vertical line.
+
+    Returns:
+        dict: A dictionary representing the vertical line with its coordinates and height.
+    &#34;&#34;&#34;
+    line = {
+        &#34;x0&#34;: x,
+        &#34;top&#34;: y0,
+        &#34;x1&#34;: x,
+        &#34;bottom&#34;: y1,
+        &#34;object_type&#34;: &#34;line&#34;,
+        &#34;height&#34;: y1 - y0,
+    }
+
+    return line</code></pre>
+</details>
+<div class="desc"><p>Constructs a vertical line object with the given coordinates and height.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>y0</code></strong> :&ensp;<code>float</code></dt>
+<dd>The top Y-coordinate of the line.</dd>
+<dt><strong><code>y1</code></strong> :&ensp;<code>float</code></dt>
+<dd>The bottom Y-coordinate of the line.</dd>
+<dt><strong><code>x</code></strong> :&ensp;<code>float</code></dt>
+<dd>The X-coordinate of the vertical line.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary representing the vertical line with its coordinates and height.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_vlm.UtilsVLM.detect_vlines_based_on_blocks"><code class="name flex">
+<span>def <span class="ident">detect_vlines_based_on_blocks</span></span>(<span>blocks, table, header_col_blocks)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def detect_vlines_based_on_blocks(blocks, table, header_col_blocks):
+    &#34;&#34;&#34;
+    Detects vertical lines in the table layout based on the positions of blocks, and returns the constructed vertical lines.
+
+    Args:
+        blocks (list): List of blocks in the page.
+        table (object): The table object containing table boundaries and other properties.
+        header_col_blocks (list): The header column blocks to be used for alignment.
+
+    Returns:
+        tuple: A tuple containing a list of explicit vertical lines and the updated header column blocks.
+    &#34;&#34;&#34;
+    blocks_rowwise = UtilsVLM.__cluster_blocks_in_rows(blocks, table.rows)
+    date_header_found, date_row_index = UtilsVLM.__find_date_header(blocks_rowwise)
+
+    if date_header_found:
+        blocks_rowwise = blocks_rowwise[date_row_index:]
+    else:
+        if not header_col_blocks:
+            return [], header_col_blocks
+
+    col_blocks, header_col_blocks = UtilsVLM.__generate_column_blocks(
+        blocks_rowwise, date_header_found, header_col_blocks
+    )
+
+    if date_header_found and len(col_blocks) == len(header_col_blocks):
+        for i in range(len(header_col_blocks)):
+            col_blocks[i] = (
+                min(col_blocks[i][0], header_col_blocks[i][0]),
+                max(col_blocks[i][1], header_col_blocks[i][1]),
+            )
+
+    if len(col_blocks) &lt;= len(header_col_blocks):
+        col_blocks = UtilsVLM.__merge_intervals(col_blocks)
+        col_blocks = UtilsVLM.__combine_header_and_column_blocks(
+            header_col_blocks, col_blocks
+        )
+        col_blocks = UtilsVLM.__merge_intervals(col_blocks)
+
+    if len(col_blocks) &gt;= 4:
+        explicit_vlines = [
+            UtilsVLM.construct_vline(
+                table.bbox[1], table.bbox[3], col_blocks[0][0]
+            ),
+            UtilsVLM.construct_vline(
+                table.bbox[1], table.bbox[3], col_blocks[-1][1]
+            ),
+        ]
+
+        for i in range(0, len(col_blocks) - 1):
+            explicit_vlines.append(
+                UtilsVLM.construct_vline(
+                    table.bbox[1],
+                    table.bbox[3],
+                    (col_blocks[i][1] + col_blocks[i + 1][0]) / 2.0,
+                )
+            )
+
+        return explicit_vlines, header_col_blocks
+    else:
+        return [], header_col_blocks</code></pre>
+</details>
+<div class="desc"><p>Detects vertical lines in the table layout based on the positions of blocks, and returns the constructed vertical lines.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>blocks</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of blocks in the page.</dd>
+<dt><strong><code>table</code></strong> :&ensp;<code>object</code></dt>
+<dd>The table object containing table boundaries and other properties.</dd>
+<dt><strong><code>header_col_blocks</code></strong> :&ensp;<code>list</code></dt>
+<dd>The header column blocks to be used for alignment.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing a list of explicit vertical lines and the updated header column blocks.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_vlm.UtilsVLM.is_table_grid_valid"><code class="name flex">
+<span>def <span class="ident">is_table_grid_valid</span></span>(<span>df, table, page_bbox)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_table_grid_valid(df, table, page_bbox):
+    &#34;&#34;&#34;
+    Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.
+
+    Args:
+        df (DataFrame): The dataframe to check.
+        table (Table): The table object containing rows and cells.
+        page_bbox (tuple): The bounding box of the page.
+
+    Returns:
+        bool: True if the grid is valid, False otherwise.
+    &#34;&#34;&#34;
+    is_table_junk, ignore_list = UtilsVLM.__generate_ignore_list(
+        df, table, page_bbox
+    )
+
+    is_grid_valid = False
+    if not is_table_junk:
+        if len(table.rows) &gt; 10 and len(ignore_list) / len(table.rows) &gt; 0.6:
+            is_grid_valid = False
+        else:
+            is_grid_valid = UtilsVLM.__check_valid_grid(
+                table.cells,
+                ignore_list,
+                page_bbox,
+                min_allowed_cols=4,
+                min_allowed_rows=1,
+            )
+    else:
+        is_grid_valid = True
+
+    return is_grid_valid</code></pre>
+</details>
+<div class="desc"><p>Checks if the table grid is valid based on the dataframe, table structure, and page bounding box.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>The dataframe to check.</dd>
+<dt><strong><code>table</code></strong> :&ensp;<code>Table</code></dt>
+<dd>The table object containing rows and cells.</dd>
+<dt><strong><code>page_bbox</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>The bounding box of the page.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the grid is valid, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_vlm.UtilsVLM.merge_description"><code class="name flex">
+<span>def <span class="ident">merge_description</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def merge_description(df):
+    &#34;&#34;&#34;
+    Merges the description column in the dataframe where the description is split into multiple rows.
+    &#34;&#34;&#34;
+    for i in range(1, len(df)):
+        non_nan_count = (
+            df.iloc[i]
+            .apply(
+                lambda x: not (
+                    pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                )
+            )
+            .sum()
+        )
+        if non_nan_count == 1:
+            col = (
+                df.iloc[i]
+                .apply(
+                    lambda x: not (
+                        pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                    )
+                )
+                .idxmax()
+            )
+            value = df.at[i, col]
+            if isinstance(value, str) and &#34;closing balance&#34; not in str(value).strip().lower():
+                df.at[i - 1, col] = f&#34;{str(df.at[i-1, col])} {str(value)}&#34;
+                df.at[i, col] = &#34;&#34;
+    return df</code></pre>
+</details>
+<div class="desc"><p>Merges the description column in the dataframe where the description is split into multiple rows.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.processing" href="index.html">PDF_Extraction.processing</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_vlm.PageExplicitHLines" href="#PDF_Extraction.processing.processing_vlm.PageExplicitHLines">PageExplicitHLines</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_vlm.PageExplicitHLines.generate_explicit_hlines" href="#PDF_Extraction.processing.processing_vlm.PageExplicitHLines.generate_explicit_hlines">generate_explicit_hlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData" href="#PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData">ProcessNonLatticeVLMData</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData.extract_pdf" href="#PDF_Extraction.processing.processing_vlm.ProcessNonLatticeVLMData.extract_pdf">extract_pdf</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_vlm.UtilsVLM" href="#PDF_Extraction.processing.processing_vlm.UtilsVLM">UtilsVLM</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_vlm.UtilsVLM.construct_hline" href="#PDF_Extraction.processing.processing_vlm.UtilsVLM.construct_hline">construct_hline</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_vlm.UtilsVLM.construct_vline" href="#PDF_Extraction.processing.processing_vlm.UtilsVLM.construct_vline">construct_vline</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_vlm.UtilsVLM.detect_vlines_based_on_blocks" href="#PDF_Extraction.processing.processing_vlm.UtilsVLM.detect_vlines_based_on_blocks">detect_vlines_based_on_blocks</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_vlm.UtilsVLM.is_table_grid_valid" href="#PDF_Extraction.processing.processing_vlm.UtilsVLM.is_table_grid_valid">is_table_grid_valid</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_vlm.UtilsVLM.merge_description" href="#PDF_Extraction.processing.processing_vlm.UtilsVLM.merge_description">merge_description</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

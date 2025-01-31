@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.processing.processing_hlm API documentation</title>
+<meta name="description" content="Module for processing non-lattice PDFs with missing horizontal lines using Pdfplumber …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.processing.processing_hlm</code></h1>
+</header>
+<section id="section-intro">
+<p>Module for processing non-lattice PDFs with missing horizontal lines using Pdfplumber.</p>
+<p>This module defines the <code><a title="PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData" href="#PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData">ProcessNonLatticeHLMData</a></code> class, which extends the <code>AbstractPDFProcessor</code>
+to provide methods for analyzing non-lattice tables, specifically looking for rows without horizontal
+lines where data continuity is indicated by date patterns. The module includes methods for constructing
+horizontal lines, detecting lines based on date patterns, merging row words, processing row words, and
+extracting tables from PDF files.</p>
+<h2 id="classes">Classes</h2>
+<p>ProcessNonLatticeHLMData: A processor class for handling non-lattice PDFs with missing horizontal lines.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.processing.processing_hlm.PageExplicitHLines"><code class="flex name class">
+<span>class <span class="ident">PageExplicitHLines</span></span>
+<span>(</span><span>page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PageExplicitHLines:
+    &#34;&#34;&#34;
+    A class to handle the generation of explicit horizontal lines from a given page, based on its lines, rect_edges, and curve_edges.
+
+    Attributes:
+        __page (object): The page object containing line, rect_edges, and curve_edges data.
+    &#34;&#34;&#34;
+
+    def __init__(self, page):
+        &#34;&#34;&#34;
+        Initializes the PageExplicitHLines object with the given page.
+
+        Args:
+            page (object): The page object containing the page&#39;s data such as lines, rect_edges, and curve_edges.
+        &#34;&#34;&#34;
+        self.__page = page
+
+    def __del__(self):
+        &#34;&#34;&#34;
+        Cleans up the resources by flushing the page&#39;s cache and closing the page when the object is destroyed.
+        &#34;&#34;&#34;
+        self.__page.flush_cache()
+        self.__page.close()
+
+    def __extend_explicit_lines_dict(self, explicit_lines_dict, bbox):
+        &#34;&#34;&#34;
+        Extends the explicit lines dictionary by adding or updating the horizontal line data in the dictionary.
+
+        Args:
+            explicit_lines_dict (dict): The dictionary to be extended with new horizontal lines.
+            bbox (tuple): The bounding box coordinates (x0, y0, x1, y1) defining the line.
+
+        Returns:
+            dict: The updated dictionary containing the horizontal lines.
+        &#34;&#34;&#34;
+        x0, y0, x1, y1 = bbox
+
+        if y0 not in explicit_lines_dict:
+            explicit_lines_dict[y0] = UtilsHLM.construct_hline(x0, x1, y0)
+        else:
+            if x0 &gt;= explicit_lines_dict[y0][&#34;x1&#34;]:
+                explicit_lines_dict[y0][&#34;x1&#34;] = x1
+                explicit_lines_dict[y0][&#34;width&#34;] = abs(
+                    x1 - explicit_lines_dict[y0][&#34;x0&#34;]
+                )
+
+            if x1 &lt;= explicit_lines_dict[y0][&#34;x0&#34;]:
+                explicit_lines_dict[y0][&#34;x0&#34;] = x0
+                explicit_lines_dict[y0][&#34;width&#34;] = abs(
+                    explicit_lines_dict[y0][&#34;x1&#34;] - x0
+                )
+
+        if y1 not in explicit_lines_dict:
+            explicit_lines_dict[y1] = UtilsHLM.construct_hline(x0, x1, y1)
+        else:
+            if x0 &gt;= explicit_lines_dict[y1][&#34;x1&#34;]:
+                explicit_lines_dict[y1][&#34;x1&#34;] = x1
+                explicit_lines_dict[y1][&#34;width&#34;] = abs(
+                    x1 - explicit_lines_dict[y1][&#34;x0&#34;]
+                )
+
+            if x1 &lt;= explicit_lines_dict[y1][&#34;x0&#34;]:
+                explicit_lines_dict[y1][&#34;x0&#34;] = x0
+                explicit_lines_dict[y1][&#34;width&#34;] = abs(
+                    explicit_lines_dict[y1][&#34;x1&#34;] - x0
+                )
+
+        return explicit_lines_dict
+
+    def generate_explicit_hlines(self):
+        &#34;&#34;&#34;
+        Generates explicit horizontal lines from the page&#39;s lines, rect_edges, and curve_edges and returns them in a dictionary.
+
+        The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.
+
+        Returns:
+            dict: A dictionary containing explicit horizontal lines, indexed by their y-coordinate.
+        &#34;&#34;&#34;
+        explicit_lines_dict = {}
+
+        page_lines = []
+        for line in self.__page.lines:
+            if line not in page_lines:
+                page_lines.append(line)
+
+        for line in page_lines:
+            if line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+                x0 = line[&#34;pts&#34;][0][0]
+                y0 = line[&#34;pts&#34;][0][1]
+                x1 = line[&#34;pts&#34;][1][0]
+                y1 = line[&#34;pts&#34;][1][1]
+
+                explicit_lines_dict = self.__extend_explicit_lines_dict(
+                    explicit_lines_dict, (x0, y0, x1, y1)
+                )
+
+        for line in self.__page.rect_edges:
+            if abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0]) &lt; abs(
+                line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1]
+            ):
+                x0 = line[&#34;pts&#34;][3][0]
+                y0 = line[&#34;pts&#34;][3][1]
+                x1 = line[&#34;pts&#34;][1][0]
+                y1 = line[&#34;pts&#34;][1][1]
+
+                explicit_lines_dict = self.__extend_explicit_lines_dict(
+                    explicit_lines_dict, (x0, y0, x1, y1)
+                )
+
+        for line in self.__page.curve_edges:
+            if line[&#34;x0&#34;] == line[&#34;x1&#34;] and line[&#34;orientation&#34;] == &#34;v&#34;:
+                x0 = line[&#34;x0&#34;]
+                y0 = line[&#34;top&#34;]
+                x1 = line[&#34;x1&#34;]
+                y1 = line[&#34;bottom&#34;]
+
+                explicit_lines_dict = self.__extend_explicit_lines_dict(
+                    explicit_lines_dict, (x0, y0, x1, y1)
+                )
+
+        explicit_lines_dict = dict(sorted(explicit_lines_dict.items()))
+
+        self.__page.flush_cache()
+
+        return explicit_lines_dict</code></pre>
+</details>
+<div class="desc"><p>A class to handle the generation of explicit horizontal lines from a given page, based on its lines, rect_edges, and curve_edges.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing line, rect_edges, and curve_edges data.</dd>
+</dl>
+<p>Initializes the PageExplicitHLines object with the given page.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>page</code></strong> :&ensp;<code>object</code></dt>
+<dd>The page object containing the page's data such as lines, rect_edges, and curve_edges.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_hlm.PageExplicitHLines.generate_explicit_hlines"><code class="name flex">
+<span>def <span class="ident">generate_explicit_hlines</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_explicit_hlines(self):
+    &#34;&#34;&#34;
+    Generates explicit horizontal lines from the page&#39;s lines, rect_edges, and curve_edges and returns them in a dictionary.
+
+    The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.
+
+    Returns:
+        dict: A dictionary containing explicit horizontal lines, indexed by their y-coordinate.
+    &#34;&#34;&#34;
+    explicit_lines_dict = {}
+
+    page_lines = []
+    for line in self.__page.lines:
+        if line not in page_lines:
+            page_lines.append(line)
+
+    for line in page_lines:
+        if line[&#34;x0&#34;] == line[&#34;x1&#34;]:
+            x0 = line[&#34;pts&#34;][0][0]
+            y0 = line[&#34;pts&#34;][0][1]
+            x1 = line[&#34;pts&#34;][1][0]
+            y1 = line[&#34;pts&#34;][1][1]
+
+            explicit_lines_dict = self.__extend_explicit_lines_dict(
+                explicit_lines_dict, (x0, y0, x1, y1)
+            )
+
+    for line in self.__page.rect_edges:
+        if abs(line[&#34;pts&#34;][0][0] - line[&#34;pts&#34;][1][0]) &lt; abs(
+            line[&#34;pts&#34;][1][1] - line[&#34;pts&#34;][2][1]
+        ):
+            x0 = line[&#34;pts&#34;][3][0]
+            y0 = line[&#34;pts&#34;][3][1]
+            x1 = line[&#34;pts&#34;][1][0]
+            y1 = line[&#34;pts&#34;][1][1]
+
+            explicit_lines_dict = self.__extend_explicit_lines_dict(
+                explicit_lines_dict, (x0, y0, x1, y1)
+            )
+
+    for line in self.__page.curve_edges:
+        if line[&#34;x0&#34;] == line[&#34;x1&#34;] and line[&#34;orientation&#34;] == &#34;v&#34;:
+            x0 = line[&#34;x0&#34;]
+            y0 = line[&#34;top&#34;]
+            x1 = line[&#34;x1&#34;]
+            y1 = line[&#34;bottom&#34;]
+
+            explicit_lines_dict = self.__extend_explicit_lines_dict(
+                explicit_lines_dict, (x0, y0, x1, y1)
+            )
+
+    explicit_lines_dict = dict(sorted(explicit_lines_dict.items()))
+
+    self.__page.flush_cache()
+
+    return explicit_lines_dict</code></pre>
+</details>
+<div class="desc"><p>Generates explicit horizontal lines from the page's lines, rect_edges, and curve_edges and returns them in a dictionary.</p>
+<p>The dictionary keys are the y-coordinates of the lines, and the values are dictionaries containing the x0, x1, and width of the horizontal lines.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary containing explicit horizontal lines, indexed by their y-coordinate.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData"><code class="flex name class">
+<span>class <span class="ident">ProcessNonLatticeHLMData</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProcessNonLatticeHLMData(AbstractPDFProcessor):
+    &#34;&#34;&#34;
+    A processor class for handling non-lattice PDFs with missing horizontal lines using Pdfplumber.
+
+    This class extends AbstractPDFProcessor and provides methods to analyze non-lattice tables,
+    specifically looking for rows without horizontal lines where data continuity is indicated
+    by date patterns.
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        Initializes the ProcessNonLatticeHLMData object.
+
+        This constructor doesn&#39;t perform any specific actions at the moment but can be
+        extended in the future if needed for initialization processes.
+        &#34;&#34;&#34;
+        pass
+
+    def extract_pdf(self, pdf_path, batch):
+        &#34;&#34;&#34;
+        Extracts tables from a PDF file and returns them as a list of DataFrames, one per table.
+
+        This method processes each page of the PDF to identify horizontal and vertical lines,
+        as well as rectangular edges, to construct table boundaries. It uses pdfplumber to extract
+        tables based on these boundaries and applies additional settings to refine the table
+        extraction. The extracted data from each table is converted into a DataFrame, which
+        includes the page number and table sequence on that page.
+
+        Args:
+            pdf_path (str): The file path to the PDF to be processed.
+
+        Returns:
+            List[pd.DataFrame]: A list of DataFrames, where each DataFrame represents a table found
+                                within the PDF. Each DataFrame includes columns for the page number
+                                and the sequence of the table on that page. If no tables are found,
+                                an empty list is returned.
+        &#34;&#34;&#34;
+        pdf_data_frames = []
+
+        with pdfplumber.open(pdf_path) as pdf:
+            for page_index in batch:
+                page = pdf.pages[page_index]
+
+                explicit_lines_dict = PageExplicitHLines(
+                    page
+                ).generate_explicit_hlines()
+
+                table_settings = {
+                    &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                    &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                    &#34;explicit_horizontal_lines&#34;: explicit_lines_dict.values(),
+                }
+
+                tables_initial = page.find_tables(table_settings)
+
+                if not tables_initial:
+                    page.flush_cache()
+                    continue
+
+                explicit_lines = []
+                for _, table in enumerate(tables_initial):
+                    x0, y0, x1, y1 = table.bbox
+
+                    if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                        continue
+                    if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                        continue
+
+                    explicit_lines.append(UtilsHLM.construct_hline(x0, x1, y0))
+                    explicit_lines.append(UtilsHLM.construct_hline(x0, x1, y1))
+
+                explicit_lines.append(
+                    UtilsHLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[1])
+                )
+                explicit_lines.append(
+                    UtilsHLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[3])
+                )
+
+                if list(explicit_lines_dict.values()):
+                    explicit_lines.append(list(explicit_lines_dict.values())[0])
+                    explicit_lines.append(list(explicit_lines_dict.values())[-1])
+
+                table_settings[&#34;explicit_horizontal_lines&#34;] = explicit_lines
+
+                tables_mid = page.find_tables(table_settings)
+                if not tables_mid:
+                    page.flush_cache()
+                    continue
+
+                for table in tables_mid:
+                    hlines_based_on_date = UtilsHLM.detect_lines_based_on_date(
+                        table, page
+                    )
+
+                    explicit_lines.extend(hlines_based_on_date)
+
+                table_settings[&#34;explicit_horizontal_lines&#34;] = explicit_lines
+
+                tables = page.find_tables(table_settings)
+                if not tables:
+                    page.flush_cache()
+                    continue
+
+                extractor = WordExtractor(page)
+                extracted_tables = extractor.extract_text_from_tables(tables, pdf_path)
+
+                page_data_frames = []
+                for table_index, table in enumerate(tables):
+                    extracted_table = extracted_tables[table_index]
+                    if (
+                        extracted_table
+                        and len(extracted_table) &gt;= 1
+                        and len(extracted_table[0]) &gt;= 4
+                    ):
+
+                        df = pd.DataFrame(extracted_table)
+
+                        is_table_valid = UtilsHLM.check_valid_table(df, table)
+                        if not is_table_valid:
+                            page.flush_cache()
+                            pdf.flush_cache()
+                            raise CustomError.InvalidGridError(pdf_path)
+
+                        df = UtilsHLM.merge_description(df)
+
+                        df[&#34;page_num&#34;] = page_index
+                        df[&#34;table_seq&#34;] = table_index
+
+                        df_array = UtilsHLM.divide_df(df)
+                        page_data_frames.extend(df_array)
+
+                if page_data_frames:
+                    pdf_data_frames.extend(page_data_frames)
+
+                page.flush_cache()
+
+            pdf.flush_cache()
+
+        return pdf_data_frames, LatticeType.NONLATTICE_HLM</code></pre>
+</details>
+<div class="desc"><p>A processor class for handling non-lattice PDFs with missing horizontal lines using Pdfplumber.</p>
+<p>This class extends AbstractPDFProcessor and provides methods to analyze non-lattice tables,
+specifically looking for rows without horizontal lines where data continuity is indicated
+by date patterns.</p>
+<p>Initializes the ProcessNonLatticeHLMData object.</p>
+<p>This constructor doesn't perform any specific actions at the moment but can be
+extended in the future if needed for initialization processes.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData.extract_pdf"><code class="name flex">
+<span>def <span class="ident">extract_pdf</span></span>(<span>self, pdf_path, batch)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_pdf(self, pdf_path, batch):
+    &#34;&#34;&#34;
+    Extracts tables from a PDF file and returns them as a list of DataFrames, one per table.
+
+    This method processes each page of the PDF to identify horizontal and vertical lines,
+    as well as rectangular edges, to construct table boundaries. It uses pdfplumber to extract
+    tables based on these boundaries and applies additional settings to refine the table
+    extraction. The extracted data from each table is converted into a DataFrame, which
+    includes the page number and table sequence on that page.
+
+    Args:
+        pdf_path (str): The file path to the PDF to be processed.
+
+    Returns:
+        List[pd.DataFrame]: A list of DataFrames, where each DataFrame represents a table found
+                            within the PDF. Each DataFrame includes columns for the page number
+                            and the sequence of the table on that page. If no tables are found,
+                            an empty list is returned.
+    &#34;&#34;&#34;
+    pdf_data_frames = []
+
+    with pdfplumber.open(pdf_path) as pdf:
+        for page_index in batch:
+            page = pdf.pages[page_index]
+
+            explicit_lines_dict = PageExplicitHLines(
+                page
+            ).generate_explicit_hlines()
+
+            table_settings = {
+                &#34;horizontal_strategy&#34;: &#34;lines&#34;,
+                &#34;vertical_strategy&#34;: &#34;lines&#34;,
+                &#34;explicit_horizontal_lines&#34;: explicit_lines_dict.values(),
+            }
+
+            tables_initial = page.find_tables(table_settings)
+
+            if not tables_initial:
+                page.flush_cache()
+                continue
+
+            explicit_lines = []
+            for _, table in enumerate(tables_initial):
+                x0, y0, x1, y1 = table.bbox
+
+                if y0 &gt;= page.bbox[3] or y1 &lt;= 0:
+                    continue
+                if x0 &gt;= page.bbox[2] or x1 &lt;= 0:
+                    continue
+
+                explicit_lines.append(UtilsHLM.construct_hline(x0, x1, y0))
+                explicit_lines.append(UtilsHLM.construct_hline(x0, x1, y1))
+
+            explicit_lines.append(
+                UtilsHLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[1])
+            )
+            explicit_lines.append(
+                UtilsHLM.construct_hline(page.bbox[0], page.bbox[2], page.bbox[3])
+            )
+
+            if list(explicit_lines_dict.values()):
+                explicit_lines.append(list(explicit_lines_dict.values())[0])
+                explicit_lines.append(list(explicit_lines_dict.values())[-1])
+
+            table_settings[&#34;explicit_horizontal_lines&#34;] = explicit_lines
+
+            tables_mid = page.find_tables(table_settings)
+            if not tables_mid:
+                page.flush_cache()
+                continue
+
+            for table in tables_mid:
+                hlines_based_on_date = UtilsHLM.detect_lines_based_on_date(
+                    table, page
+                )
+
+                explicit_lines.extend(hlines_based_on_date)
+
+            table_settings[&#34;explicit_horizontal_lines&#34;] = explicit_lines
+
+            tables = page.find_tables(table_settings)
+            if not tables:
+                page.flush_cache()
+                continue
+
+            extractor = WordExtractor(page)
+            extracted_tables = extractor.extract_text_from_tables(tables, pdf_path)
+
+            page_data_frames = []
+            for table_index, table in enumerate(tables):
+                extracted_table = extracted_tables[table_index]
+                if (
+                    extracted_table
+                    and len(extracted_table) &gt;= 1
+                    and len(extracted_table[0]) &gt;= 4
+                ):
+
+                    df = pd.DataFrame(extracted_table)
+
+                    is_table_valid = UtilsHLM.check_valid_table(df, table)
+                    if not is_table_valid:
+                        page.flush_cache()
+                        pdf.flush_cache()
+                        raise CustomError.InvalidGridError(pdf_path)
+
+                    df = UtilsHLM.merge_description(df)
+
+                    df[&#34;page_num&#34;] = page_index
+                    df[&#34;table_seq&#34;] = table_index
+
+                    df_array = UtilsHLM.divide_df(df)
+                    page_data_frames.extend(df_array)
+
+            if page_data_frames:
+                pdf_data_frames.extend(page_data_frames)
+
+            page.flush_cache()
+
+        pdf.flush_cache()
+
+    return pdf_data_frames, LatticeType.NONLATTICE_HLM</code></pre>
+</details>
+<div class="desc"><p>Extracts tables from a PDF file and returns them as a list of DataFrames, one per table.</p>
+<p>This method processes each page of the PDF to identify horizontal and vertical lines,
+as well as rectangular edges, to construct table boundaries. It uses pdfplumber to extract
+tables based on these boundaries and applies additional settings to refine the table
+extraction. The extracted data from each table is converted into a DataFrame, which
+includes the page number and table sequence on that page.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pdf_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The file path to the PDF to be processed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[pd.DataFrame]</code></dt>
+<dd>A list of DataFrames, where each DataFrame represents a table found
+within the PDF. Each DataFrame includes columns for the page number
+and the sequence of the table on that page. If no tables are found,
+an empty list is returned.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor">AbstractPDFProcessor</a></b></code>:
+<ul class="hlist">
+<li><code><a title="PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf" href="pdf_processing_strategy.html#PDF_Extraction.processing.pdf_processing_strategy.AbstractPDFProcessor.process_pdf">process_pdf</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="PDF_Extraction.processing.processing_hlm.UtilsHLM"><code class="flex name class">
+<span>class <span class="ident">UtilsHLM</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UtilsHLM:
+    @staticmethod
+    def construct_hline(x0, x1, y):
+        &#34;&#34;&#34;
+        Constructs a horizontal line object with the given coordinates and width.
+
+        Args:
+            x0 (float): The left X-coordinate of the line.
+            x1 (float): The right X-coordinate of the line.
+            y (float): The Y-coordinate of the horizontal line.
+
+        Returns:
+            dict: A dictionary representing the horizontal line with its coordinates and width.
+        &#34;&#34;&#34;
+        line = {
+            &#34;x0&#34;: x0,
+            &#34;top&#34;: y,
+            &#34;x1&#34;: x1,
+            &#34;bottom&#34;: y,
+            &#34;object_type&#34;: &#34;line&#34;,
+            &#34;width&#34;: abs(x1 - x0),
+        }
+        return line
+
+    @staticmethod
+    def __lies_inside(cell, bbox):
+        &#34;&#34;&#34;
+        Checks if the boundaries of the cell lie completely inside or on the bbox.
+
+        Args:
+            cell (dict): The cell bounding box coordinates.
+            bbox (tuple): The bounding box to check against.
+
+        Returns:
+            bool: True if the cell is inside the bounding box, False otherwise.
+        &#34;&#34;&#34;
+
+        return (
+            cell[0] &gt;= bbox[0]
+            and cell[1] &gt;= bbox[1]
+            and cell[2] &lt;= bbox[2]
+            and cell[3] &lt;= bbox[3]
+        )
+
+    @staticmethod
+    def __cell_count_valid(cell_rows, mask, table):
+        &#34;&#34;&#34;
+        Validates the consistency of the number of cells in consecutive rows of a table.
+
+        This function checks whether the number of cells in each row of the table is consistent.
+        It compares the cell count of each row with the previous row and ensures that the rows
+        containing fewer cells are not surrounded by rows with more cells unless the adjacent rows
+        are both masked. If any inconsistency is found between consecutive rows, it returns False.
+
+        Args:
+            cell_rows (dict): A dictionary where keys are row identifiers and values are lists of cell objects in that row.
+            mask (list): A list of boolean values indicating which rows should be ignored (masked).
+            table (object): The table object containing row information, including bounding boxes.
+
+        Returns:
+            bool: True if the cell count is valid (consistent across rows), False otherwise.
+        &#34;&#34;&#34;
+        last_row_key = None
+        for key, cell_row in cell_rows.items():
+            if last_row_key is None:
+                last_row_key = key
+                continue
+            if len(cell_row) &lt; len(cell_rows[last_row_key]):
+                for cell in cell_row:
+                    row_index = next(
+                        (
+                            idx
+                            for idx, row in enumerate(table.rows)
+                            if UtilsHLM.__lies_inside(cell, row.bbox)
+                        ),
+                        None,
+                    )
+                    if row_index is not None and 0 &lt; row_index &lt; len(table.rows) - 1:
+                        if mask[row_index - 1] and mask[row_index + 1]:
+                            return False
+            last_row_key = key
+        return True
+
+    @staticmethod
+    def check_valid_table(df, table):
+        &#34;&#34;&#34;
+        Checks if the table is valid based on the presence of date patterns and closing balance strings.
+        &#34;&#34;&#34;
+
+        def row_condition(row):
+            return any(
+                UtilFunctions.has_date(cell)
+                or (&#34;closing&#34; in str(cell).lower() and &#34;balance&#34; in str(cell).lower())
+                or (&#34;opening&#34; in str(cell).lower() and &#34;balance&#34; in str(cell).lower())
+                or (&#34;brought&#34; in str(cell).lower() and &#34;forward&#34; in str(cell).lower())
+                or (&#34;carried&#34; in str(cell).lower() and &#34;forward&#34; in str(cell).lower())
+                for cell in row
+            )
+
+        mask = df.apply(row_condition, axis=1).values
+
+        cell_rows = defaultdict(list)
+        for cell in table.cells:
+            cell_rows[cell[1]].append(cell)
+            if cell[0] &lt;= table.bbox[0] and cell[2] &gt;= table.bbox[2]:
+                row_index = next(
+                    (
+                        idx
+                        for idx, row in enumerate(table.rows)
+                        if UtilsHLM.__lies_inside(cell, row.bbox)
+                    ),
+                    None,
+                )
+                if row_index is not None and 0 &lt; row_index &lt; len(table.rows) - 1:
+                    if mask[row_index - 1] and mask[row_index + 1]:
+                        return False
+        cell_rows = dict(sorted(cell_rows.items()))
+
+        if not UtilsHLM.__cell_count_valid(cell_rows, mask, table):
+            return False
+
+        return True
+
+    @staticmethod
+    def __explicit_hlines_within_row(row_words, row, tolerance):
+        &#34;&#34;&#34;
+        Identifies and constructs explicit horizontal lines within a row based on certain keywords and a tolerance threshold.
+
+        This function searches for specific keywords (like &#34;date&#34;, &#34;closing balance&#34;, or &#34;grand total&#34;) within the row&#39;s text,
+        and based on the position of these keywords, it identifies potential horizontal lines. For each identified keyword,
+        the function finds the appropriate top coordinate for the horizontal line by checking adjacent words within the row
+        and taking into account a given tolerance.
+
+        Args:
+            row_words (list): A list of dictionaries, where each dictionary contains details about a word within the row
+                            (e.g., text, top and bottom bounding box coordinates).
+            row (object): The row object that contains the bounding box (bbox) of the row.
+            tolerance (float): A tolerance value used to determine the proximity of words for horizontal line detection.
+
+        Returns:
+            list: A list of horizontal line objects, each represented by a dictionary with the line&#39;s coordinates.
+        &#34;&#34;&#34;
+        explicit_lines = []
+        for index, row_section in enumerate(row_words):
+            if (
+                UtilFunctions.has_date(row_section[&#34;text&#34;])
+                or &#34;closing balance&#34; in row_section[&#34;text&#34;].lower()
+                or &#34;grand total&#34; in row_section[&#34;text&#34;].lower()
+            ):
+                upper = index - 1
+                top = row_section[&#34;top&#34;]
+                while upper &gt;= 0 and row_words[upper][&#34;bottom&#34;] + tolerance &gt; top:
+                    top = row_words[upper][&#34;top&#34;]
+                    upper -= 1
+
+                explicit_line_top_coord = 0
+                if upper &gt;= 0:
+                    explicit_line_top_coord = (top + row_words[upper][&#34;bottom&#34;]) / 2
+
+                else:
+                    if len(row_words) &gt; 0:
+                        explicit_line_top_coord = row_words[0][&#34;top&#34;]
+
+                explicit_lines.append(
+                    UtilsHLM.construct_hline(
+                        row.bbox[0], row.bbox[2], explicit_line_top_coord
+                    )
+                )
+
+        return explicit_lines
+
+    @staticmethod
+    def __flatten_row_words(row_words, row):
+        &#34;&#34;&#34;
+        Flattens a list of words within a row by combining them into a single entry based on their vertical alignment.
+
+        This function processes the list of words in a given row, consolidating those that share the same vertical
+        position (top coordinate). It combines the text of words that belong to the same vertical level into a single
+        entry and updates their bounding box to cover the entire horizontal span of the words.
+
+        Args:
+            row_words (list): A list of dictionaries, where each dictionary represents a word with its bounding box
+                            and text content. Each dictionary contains keys such as &#39;top&#39;, &#39;x0&#39;, &#39;x1&#39;, &#39;text&#39;, etc.
+            row (object): The row object that contains the bounding box of the entire row (bbox).
+
+        Returns:
+            list: A list of dictionaries, where each dictionary contains the combined data for words at the same vertical
+                level, with updated bounding boxes and text.
+        &#34;&#34;&#34;
+        temp = {}
+        for word in row_words:
+            if word[&#34;top&#34;] not in temp:
+                temp[word[&#34;top&#34;]] = word
+                temp[word[&#34;top&#34;]][&#34;x0&#34;] = row.bbox[0]
+                temp[word[&#34;top&#34;]][&#34;x1&#34;] = row.bbox[2]
+                temp[word[&#34;top&#34;]][&#34;bbox&#34;] = (
+                    temp[word[&#34;top&#34;]][&#34;x0&#34;],
+                    temp[word[&#34;top&#34;]][&#34;top&#34;],
+                    temp[word[&#34;top&#34;]][&#34;x1&#34;],
+                    temp[word[&#34;top&#34;]][&#34;bottom&#34;],
+                )
+            else:
+                temp[word[&#34;top&#34;]][&#34;text&#34;] += f&#34; {word[&#39;text&#39;]}&#34;
+                temp[word[&#34;top&#34;]][&#34;x0&#34;] = min(temp[word[&#34;top&#34;]][&#34;x0&#34;], word[&#34;x0&#34;])
+                temp[word[&#34;top&#34;]][&#34;x1&#34;] = max(temp[word[&#34;top&#34;]][&#34;x1&#34;], word[&#34;x1&#34;])
+                temp[word[&#34;top&#34;]][&#34;bottom&#34;] = max(
+                    temp[word[&#34;top&#34;]][&#34;bottom&#34;], word[&#34;bottom&#34;]
+                )
+                temp[word[&#34;top&#34;]][&#34;top&#34;] = min(temp[word[&#34;top&#34;]][&#34;top&#34;], word[&#34;top&#34;])
+                temp[word[&#34;top&#34;]][&#34;bbox&#34;] = (
+                    temp[word[&#34;top&#34;]][&#34;x0&#34;],
+                    temp[word[&#34;top&#34;]][&#34;top&#34;],
+                    temp[word[&#34;top&#34;]][&#34;x1&#34;],
+                    temp[word[&#34;top&#34;]][&#34;bottom&#34;],
+                )
+                temp[word[&#34;top&#34;]][&#34;height&#34;] = abs(
+                    temp[word[&#34;top&#34;]][&#34;bottom&#34;] - word[&#34;top&#34;]
+                )
+                temp[word[&#34;top&#34;]][&#34;width&#34;] = abs(
+                    temp[word[&#34;top&#34;]][&#34;x1&#34;] - temp[word[&#34;top&#34;]][&#34;x0&#34;]
+                )
+
+        temp = dict(sorted(temp.items()))
+        return list(temp.values())
+
+    @staticmethod
+    def detect_lines_based_on_date(table, page):
+        &#34;&#34;&#34;
+        Detects horizontal lines based on date patterns in the table.
+        &#34;&#34;&#34;
+        explicit_lines = []
+
+        words = page.extract_words()
+
+        for row in table.rows:
+            if row is None:
+                continue
+            row_words = []
+            for word in words:
+                if (
+                    row.bbox[0] - 5 &lt;= word[&#34;x0&#34;] &lt;= row.bbox[2] + 5
+                    and row.bbox[1] &lt;= word[&#34;top&#34;] &lt;= row.bbox[3]
+                ):
+                    row_words.append(word)
+
+            row_words = UtilsHLM.__flatten_row_words(row_words, row)
+
+            tolerance = 1.5
+            merged_row_words = []
+            i = 0
+            while i &lt; len(row_words):
+                row_section = row_words[i]
+                temp = row_section
+                j = i + 1
+                while j &lt; len(row_words):
+                    if temp[&#34;bottom&#34;] &lt; row_words[j][&#34;top&#34;]:
+                        break
+
+                    tolerance = min(
+                        0.5 * (row_words[j][&#34;bottom&#34;] - row_words[j][&#34;top&#34;]),
+                        max(
+                            tolerance,
+                            (row_words[j][&#34;bottom&#34;] - row_words[j][&#34;top&#34;])
+                            - 2 * (temp[&#34;bottom&#34;] - row_words[j][&#34;top&#34;]),
+                        ),
+                    )
+
+                    temp[&#34;text&#34;] = f&#34;{temp[&#39;text&#39;]} {row_words[j][&#39;text&#39;]}&#34;
+                    temp[&#34;top&#34;] = min(temp[&#34;top&#34;], row_words[j][&#34;top&#34;])
+                    temp[&#34;bottom&#34;] = max(temp[&#34;bottom&#34;], row_words[j][&#34;bottom&#34;])
+                    temp[&#34;x0&#34;] = min(temp[&#34;x0&#34;], row_words[j][&#34;x0&#34;])
+                    temp[&#34;x1&#34;] = max(temp[&#34;x1&#34;], row_words[j][&#34;x1&#34;])
+                    temp[&#34;bbox&#34;] = (temp[&#34;x0&#34;], temp[&#34;top&#34;], temp[&#34;x1&#34;], temp[&#34;bottom&#34;])
+                    temp[&#34;height&#34;] = abs(temp[&#34;bottom&#34;] - temp[&#34;top&#34;])
+                    temp[&#34;width&#34;] = abs(temp[&#34;x1&#34;] - temp[&#34;x0&#34;])
+
+                    j += 1
+
+                merged_row_words.append(temp)
+                i = j
+
+            row_words = merged_row_words
+
+            explicit_lines.extend(
+                UtilsHLM.__explicit_hlines_within_row(row_words, row, tolerance)
+            )
+
+        return explicit_lines
+
+    @staticmethod
+    def divide_df(df):
+        &#34;&#34;&#34;
+        Divides the dataframe into multiple dataframes. Each new dataframe starts
+        from the row just below the one that contains the string &#34;closing balance&#34;.
+
+        Parameters:
+            df (pd.DataFrame): The dataframe to be divided.
+
+        Returns:
+            list: A list of dataframes created from the divisions.
+        &#34;&#34;&#34;
+        closing_balance_indices = df[
+            df.apply(
+                lambda row: (
+                    row.astype(str)
+                    .str.contains(&#34;closing balance&#34;, case=False, na=False)
+                    .any()
+                    or row.astype(str)
+                    .str.contains(&#34;closing blance&#34;, case=False, na=False)
+                    .any()
+                )
+                and not row.astype(str)
+                .str.contains(&#34;date&#34;, case=False, na=False)
+                .any(),
+                axis=1,
+            )
+        ].index.tolist()
+        if not closing_balance_indices:
+            return [df]
+
+        result_dfs = []
+        start_idx = 0
+
+        for index in closing_balance_indices:
+            result_dfs.append(df.iloc[start_idx : index + 1])
+            start_idx = index + 1
+
+        if start_idx &lt; len(df):
+            result_dfs.append(df.iloc[start_idx:])
+
+        return result_dfs
+
+    @staticmethod
+    def merge_description(df):
+        &#34;&#34;&#34;
+        Merges the description column in the dataframe where the description is split into multiple rows.
+        &#34;&#34;&#34;
+        for i in range(1, len(df)):
+            non_nan_count = (
+                df.iloc[i]
+                .apply(
+                    lambda x: not (
+                        pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                    )
+                )
+                .sum()
+            )
+
+            if non_nan_count == 1:
+                col = (
+                    df.iloc[i]
+                    .apply(
+                        lambda x: not (
+                            pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                        )
+                    )
+                    .idxmax()
+                )
+                value = df.at[i, col]
+                if isinstance(value, str) and UtilFunctions.has_date(value):
+                    df.at[i - 1, col] = f&#34;{str(df.at[i-1, col])} {str(value)}&#34;
+                    df.at[i, col] = &#34;&#34;
+
+        return df</code></pre>
+</details>
+<div class="desc"></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="PDF_Extraction.processing.processing_hlm.UtilsHLM.check_valid_table"><code class="name flex">
+<span>def <span class="ident">check_valid_table</span></span>(<span>df, table)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def check_valid_table(df, table):
+    &#34;&#34;&#34;
+    Checks if the table is valid based on the presence of date patterns and closing balance strings.
+    &#34;&#34;&#34;
+
+    def row_condition(row):
+        return any(
+            UtilFunctions.has_date(cell)
+            or (&#34;closing&#34; in str(cell).lower() and &#34;balance&#34; in str(cell).lower())
+            or (&#34;opening&#34; in str(cell).lower() and &#34;balance&#34; in str(cell).lower())
+            or (&#34;brought&#34; in str(cell).lower() and &#34;forward&#34; in str(cell).lower())
+            or (&#34;carried&#34; in str(cell).lower() and &#34;forward&#34; in str(cell).lower())
+            for cell in row
+        )
+
+    mask = df.apply(row_condition, axis=1).values
+
+    cell_rows = defaultdict(list)
+    for cell in table.cells:
+        cell_rows[cell[1]].append(cell)
+        if cell[0] &lt;= table.bbox[0] and cell[2] &gt;= table.bbox[2]:
+            row_index = next(
+                (
+                    idx
+                    for idx, row in enumerate(table.rows)
+                    if UtilsHLM.__lies_inside(cell, row.bbox)
+                ),
+                None,
+            )
+            if row_index is not None and 0 &lt; row_index &lt; len(table.rows) - 1:
+                if mask[row_index - 1] and mask[row_index + 1]:
+                    return False
+    cell_rows = dict(sorted(cell_rows.items()))
+
+    if not UtilsHLM.__cell_count_valid(cell_rows, mask, table):
+        return False
+
+    return True</code></pre>
+</details>
+<div class="desc"><p>Checks if the table is valid based on the presence of date patterns and closing balance strings.</p></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_hlm.UtilsHLM.construct_hline"><code class="name flex">
+<span>def <span class="ident">construct_hline</span></span>(<span>x0, x1, y)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def construct_hline(x0, x1, y):
+    &#34;&#34;&#34;
+    Constructs a horizontal line object with the given coordinates and width.
+
+    Args:
+        x0 (float): The left X-coordinate of the line.
+        x1 (float): The right X-coordinate of the line.
+        y (float): The Y-coordinate of the horizontal line.
+
+    Returns:
+        dict: A dictionary representing the horizontal line with its coordinates and width.
+    &#34;&#34;&#34;
+    line = {
+        &#34;x0&#34;: x0,
+        &#34;top&#34;: y,
+        &#34;x1&#34;: x1,
+        &#34;bottom&#34;: y,
+        &#34;object_type&#34;: &#34;line&#34;,
+        &#34;width&#34;: abs(x1 - x0),
+    }
+    return line</code></pre>
+</details>
+<div class="desc"><p>Constructs a horizontal line object with the given coordinates and width.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x0</code></strong> :&ensp;<code>float</code></dt>
+<dd>The left X-coordinate of the line.</dd>
+<dt><strong><code>x1</code></strong> :&ensp;<code>float</code></dt>
+<dd>The right X-coordinate of the line.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>float</code></dt>
+<dd>The Y-coordinate of the horizontal line.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A dictionary representing the horizontal line with its coordinates and width.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_hlm.UtilsHLM.detect_lines_based_on_date"><code class="name flex">
+<span>def <span class="ident">detect_lines_based_on_date</span></span>(<span>table, page)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def detect_lines_based_on_date(table, page):
+    &#34;&#34;&#34;
+    Detects horizontal lines based on date patterns in the table.
+    &#34;&#34;&#34;
+    explicit_lines = []
+
+    words = page.extract_words()
+
+    for row in table.rows:
+        if row is None:
+            continue
+        row_words = []
+        for word in words:
+            if (
+                row.bbox[0] - 5 &lt;= word[&#34;x0&#34;] &lt;= row.bbox[2] + 5
+                and row.bbox[1] &lt;= word[&#34;top&#34;] &lt;= row.bbox[3]
+            ):
+                row_words.append(word)
+
+        row_words = UtilsHLM.__flatten_row_words(row_words, row)
+
+        tolerance = 1.5
+        merged_row_words = []
+        i = 0
+        while i &lt; len(row_words):
+            row_section = row_words[i]
+            temp = row_section
+            j = i + 1
+            while j &lt; len(row_words):
+                if temp[&#34;bottom&#34;] &lt; row_words[j][&#34;top&#34;]:
+                    break
+
+                tolerance = min(
+                    0.5 * (row_words[j][&#34;bottom&#34;] - row_words[j][&#34;top&#34;]),
+                    max(
+                        tolerance,
+                        (row_words[j][&#34;bottom&#34;] - row_words[j][&#34;top&#34;])
+                        - 2 * (temp[&#34;bottom&#34;] - row_words[j][&#34;top&#34;]),
+                    ),
+                )
+
+                temp[&#34;text&#34;] = f&#34;{temp[&#39;text&#39;]} {row_words[j][&#39;text&#39;]}&#34;
+                temp[&#34;top&#34;] = min(temp[&#34;top&#34;], row_words[j][&#34;top&#34;])
+                temp[&#34;bottom&#34;] = max(temp[&#34;bottom&#34;], row_words[j][&#34;bottom&#34;])
+                temp[&#34;x0&#34;] = min(temp[&#34;x0&#34;], row_words[j][&#34;x0&#34;])
+                temp[&#34;x1&#34;] = max(temp[&#34;x1&#34;], row_words[j][&#34;x1&#34;])
+                temp[&#34;bbox&#34;] = (temp[&#34;x0&#34;], temp[&#34;top&#34;], temp[&#34;x1&#34;], temp[&#34;bottom&#34;])
+                temp[&#34;height&#34;] = abs(temp[&#34;bottom&#34;] - temp[&#34;top&#34;])
+                temp[&#34;width&#34;] = abs(temp[&#34;x1&#34;] - temp[&#34;x0&#34;])
+
+                j += 1
+
+            merged_row_words.append(temp)
+            i = j
+
+        row_words = merged_row_words
+
+        explicit_lines.extend(
+            UtilsHLM.__explicit_hlines_within_row(row_words, row, tolerance)
+        )
+
+    return explicit_lines</code></pre>
+</details>
+<div class="desc"><p>Detects horizontal lines based on date patterns in the table.</p></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_hlm.UtilsHLM.divide_df"><code class="name flex">
+<span>def <span class="ident">divide_df</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def divide_df(df):
+    &#34;&#34;&#34;
+    Divides the dataframe into multiple dataframes. Each new dataframe starts
+    from the row just below the one that contains the string &#34;closing balance&#34;.
+
+    Parameters:
+        df (pd.DataFrame): The dataframe to be divided.
+
+    Returns:
+        list: A list of dataframes created from the divisions.
+    &#34;&#34;&#34;
+    closing_balance_indices = df[
+        df.apply(
+            lambda row: (
+                row.astype(str)
+                .str.contains(&#34;closing balance&#34;, case=False, na=False)
+                .any()
+                or row.astype(str)
+                .str.contains(&#34;closing blance&#34;, case=False, na=False)
+                .any()
+            )
+            and not row.astype(str)
+            .str.contains(&#34;date&#34;, case=False, na=False)
+            .any(),
+            axis=1,
+        )
+    ].index.tolist()
+    if not closing_balance_indices:
+        return [df]
+
+    result_dfs = []
+    start_idx = 0
+
+    for index in closing_balance_indices:
+        result_dfs.append(df.iloc[start_idx : index + 1])
+        start_idx = index + 1
+
+    if start_idx &lt; len(df):
+        result_dfs.append(df.iloc[start_idx:])
+
+    return result_dfs</code></pre>
+</details>
+<div class="desc"><p>Divides the dataframe into multiple dataframes. Each new dataframe starts
+from the row just below the one that contains the string "closing balance".</p>
+<h2 id="parameters">Parameters</h2>
+<p>df (pd.DataFrame): The dataframe to be divided.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of dataframes created from the divisions.</dd>
+</dl></div>
+</dd>
+<dt id="PDF_Extraction.processing.processing_hlm.UtilsHLM.merge_description"><code class="name flex">
+<span>def <span class="ident">merge_description</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def merge_description(df):
+    &#34;&#34;&#34;
+    Merges the description column in the dataframe where the description is split into multiple rows.
+    &#34;&#34;&#34;
+    for i in range(1, len(df)):
+        non_nan_count = (
+            df.iloc[i]
+            .apply(
+                lambda x: not (
+                    pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                )
+            )
+            .sum()
+        )
+
+        if non_nan_count == 1:
+            col = (
+                df.iloc[i]
+                .apply(
+                    lambda x: not (
+                        pd.isna(x) or (isinstance(x, str) and x.strip() == &#34;&#34;)
+                    )
+                )
+                .idxmax()
+            )
+            value = df.at[i, col]
+            if isinstance(value, str) and UtilFunctions.has_date(value):
+                df.at[i - 1, col] = f&#34;{str(df.at[i-1, col])} {str(value)}&#34;
+                df.at[i, col] = &#34;&#34;
+
+    return df</code></pre>
+</details>
+<div class="desc"><p>Merges the description column in the dataframe where the description is split into multiple rows.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.processing" href="index.html">PDF_Extraction.processing</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_hlm.PageExplicitHLines" href="#PDF_Extraction.processing.processing_hlm.PageExplicitHLines">PageExplicitHLines</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_hlm.PageExplicitHLines.generate_explicit_hlines" href="#PDF_Extraction.processing.processing_hlm.PageExplicitHLines.generate_explicit_hlines">generate_explicit_hlines</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData" href="#PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData">ProcessNonLatticeHLMData</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData.extract_pdf" href="#PDF_Extraction.processing.processing_hlm.ProcessNonLatticeHLMData.extract_pdf">extract_pdf</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="PDF_Extraction.processing.processing_hlm.UtilsHLM" href="#PDF_Extraction.processing.processing_hlm.UtilsHLM">UtilsHLM</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.processing.processing_hlm.UtilsHLM.check_valid_table" href="#PDF_Extraction.processing.processing_hlm.UtilsHLM.check_valid_table">check_valid_table</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_hlm.UtilsHLM.construct_hline" href="#PDF_Extraction.processing.processing_hlm.UtilsHLM.construct_hline">construct_hline</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_hlm.UtilsHLM.detect_lines_based_on_date" href="#PDF_Extraction.processing.processing_hlm.UtilsHLM.detect_lines_based_on_date">detect_lines_based_on_date</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_hlm.UtilsHLM.divide_df" href="#PDF_Extraction.processing.processing_hlm.UtilsHLM.divide_df">divide_df</a></code></li>
+<li><code><a title="PDF_Extraction.processing.processing_hlm.UtilsHLM.merge_description" href="#PDF_Extraction.processing.processing_hlm.UtilsHLM.merge_description">merge_description</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

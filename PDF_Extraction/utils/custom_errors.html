@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>PDF_Extraction.utils.custom_errors API documentation</title>
+<meta name="description" content="This module defines custom exceptions for the PDF extraction utility.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>PDF_Extraction.utils.custom_errors</code></h1>
+</header>
+<section id="section-intro">
+<p>This module defines custom exceptions for the PDF extraction utility.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError"><code class="flex name class">
+<span>class <span class="ident">CustomError</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CustomError:
+    &#34;&#34;&#34;
+    Class containing custom exceptions for the PDF extraction utility.
+    &#34;&#34;&#34;
+    class CustomErrorWrapper(Exception):
+        &#34;&#34;&#34;
+        Base class for all custom exceptions.
+        &#34;&#34;&#34;
+        def __init__(self, message, errorcode=None):
+            super().__init__(message)
+            self.code = errorcode
+    class FileNotFoundError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the file is not found at the specified location.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The file {pdf_file} was not found at the specified location.&#34;,
+                ErrorCode.E404,
+            )
+    class PDFParsingError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the PDF file could not be parsed properly by pdfplumber.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The file {pdf_file} could not be parsed properly by pdfplumber.&#34;,
+                ErrorCode.E700,
+            )
+    class ProcessingError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the PDF file could not be processed properly.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The file {pdf_file} could not be extracted properly by processing.&#34;,
+                ErrorCode.E800,
+            )
+    class DataFrameMergingError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the dataframes corresponding to the PDF file could not be merged properly.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The dataframes corresponding to file {pdf_file} could not be merged properly.&#34;,
+                ErrorCode.E801,
+            )
+    class DataFrameCleaningError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the dataframes corresponding to the PDF file could not be cleaned properly.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The dataframes corresponding to file {pdf_file} could not be cleaned properly.&#34;,
+                ErrorCode.E802,
+            )
+    class ColumnMismatchError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the dataframes corresponding to the PDF file have different number of columns.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The dataframes corresponding to file {pdf_file} have different number of columns.&#34;,
+                ErrorCode.E803,
+            )
+    class MultiRowsUnderSameDate(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the dataframes corresponding to the PDF file have multiple transaction rows under same date.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The pdf file {pdf_file} have multiple transaction rows under same date.&#34;,
+                ErrorCode.E804,
+            )
+    class InvalidGridError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the PDF file does not have a valid grid.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The pdf file {pdf_file} does not have valid grid.&#34;, ErrorCode.E805
+            )
+    class InvalidLatticeTypeError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the lattice type for the PDF file does not qualify.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The provided lattice type for the file {pdf_file} does not qualify.&#34;,
+                ErrorCode.E806,
+            )
+    class MissingPagesError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the extracted dataframes from the PDF file have some missing pages.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The extracted dataframes from the file {pdf_file} have some missing pages.&#34;,
+                ErrorCode.E807,
+            )
+    class MultiLineDescriptionExceedingLimitError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the number of rows in extracted dataframes from the PDF file with multiline description exceeds limit.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The number of rows in extracted dataframes from the file {pdf_file} with multiline description exceeds limit.&#34;,
+                ErrorCode.E808,
+            )
+    class MultipleTransactionsError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the extracted dataframes from the PDF file have multiple transactions within the same row.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The {pdf_file} contains atleast one row with multiple transactions within the same row.&#34;,
+                ErrorCode.E809,
+            )
+    class AlternateRowMissError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the extracted dataframes from the PDF file have alternate rows missing.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The pdf file {pdf_file} has alternate rows missing.&#34;, ErrorCode.E810
+            )
+    class InvalidTransactionsError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the extracted dataframes from the PDF file have invalid transactions within the same row.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The {pdf_file} contains atleast one row with invalid transactions within the same row.&#34;,
+                ErrorCode.E811,
+            )
+    class TableExtractionError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the tables from the PDF file could not be extracted properly.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The tables from the {pdf_file} could not be extracted properly.&#34;,
+                ErrorCode.E812,
+            )
+    class ClosingBalanceInHeader(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the header in the PDF file contains closing balance.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The header in {pdf_file} contains closing balance.&#34;, ErrorCode.E813
+            )
+    class OverlappingWordsError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the table cells in the PDF file contain overlapping words.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The {pdf_file} contains some overlapping words in the table cells.&#34;,
+                ErrorCode.E814,
+            )
+    class SingleCellOnLastPageError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the last page in the PDF file contains only one single cell which could not be merged with rest of the data.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The {pdf_file} contains one single cell on last page which could not be merged with rest of the data.&#34;,
+                ErrorCode.E815,
+            )
+    class JunkDataInLastRowError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the last row in the PDF file contains some junk data.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;The {pdf_file} contains some junk data in the last row.&#34;,
+                ErrorCode.E816,
+            )
+    class MultipleJunkDatesError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the date cells in the PDF file contain multiple junk dates.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;Some of the date cells in {pdf_file} contains extra junk dates.&#34;,
+                ErrorCode.E817,
+            )
+    class TableAsImageError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the table in the PDF file is in the form of an image.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(f&#34;the table is an image in {pdf_file}&#34;, ErrorCode.E818)
+    class RowMismatchError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when some rows in the PDF file are missing due to incorrect date.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(
+                f&#34;Some rows in the pdf are missing due to incorrect date {pdf_file}&#34;,
+                ErrorCode.E819,
+            )
+    class PdfIsEncryptedError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the PDF file is encrypted.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(f&#34;{pdf_file} is encrypted.&#34;, ErrorCode.E820)
+    class InvalidSerialNoError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the serial number in the PDF file is invalid.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(f&#34;Serial number in {pdf_file} is invalid.&#34;, ErrorCode.E821)
+    class ColumnBreakError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        Exception raised when the columns in the table are missing.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(f&#34;Serial number in {pdf_file} is invalid.&#34;, ErrorCode.E822)
+
+    class InvalidDatesError(CustomErrorWrapper):
+        &#34;&#34;&#34;
+        The dates column has junk data.
+        &#34;&#34;&#34;
+        def __init__(self, pdf_file):
+            super().__init__(f&#34;Dates in {pdf_file} are invalid.&#34;, ErrorCode.E823)</code></pre>
+</details>
+<div class="desc"><p>Class containing custom exceptions for the PDF extraction utility.</p></div>
+<h3>Class variables</h3>
+<dl>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.AlternateRowMissError"><code class="name">var <span class="ident">AlternateRowMissError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the extracted dataframes from the PDF file have alternate rows missing.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.ClosingBalanceInHeader"><code class="name">var <span class="ident">ClosingBalanceInHeader</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the header in the PDF file contains closing balance.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.ColumnBreakError"><code class="name">var <span class="ident">ColumnBreakError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the columns in the table are missing.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.ColumnMismatchError"><code class="name">var <span class="ident">ColumnMismatchError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the dataframes corresponding to the PDF file have different number of columns.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.CustomErrorWrapper"><code class="name">var <span class="ident">CustomErrorWrapper</span></code></dt>
+<dd>
+<div class="desc"><p>Base class for all custom exceptions.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.DataFrameCleaningError"><code class="name">var <span class="ident">DataFrameCleaningError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the dataframes corresponding to the PDF file could not be cleaned properly.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.DataFrameMergingError"><code class="name">var <span class="ident">DataFrameMergingError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the dataframes corresponding to the PDF file could not be merged properly.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.FileNotFoundError"><code class="name">var <span class="ident">FileNotFoundError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the file is not found at the specified location.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.InvalidDatesError"><code class="name">var <span class="ident">InvalidDatesError</span></code></dt>
+<dd>
+<div class="desc"><p>The dates column has junk data.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.InvalidGridError"><code class="name">var <span class="ident">InvalidGridError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the PDF file does not have a valid grid.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.InvalidLatticeTypeError"><code class="name">var <span class="ident">InvalidLatticeTypeError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the lattice type for the PDF file does not qualify.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.InvalidSerialNoError"><code class="name">var <span class="ident">InvalidSerialNoError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the serial number in the PDF file is invalid.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.InvalidTransactionsError"><code class="name">var <span class="ident">InvalidTransactionsError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the extracted dataframes from the PDF file have invalid transactions within the same row.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.JunkDataInLastRowError"><code class="name">var <span class="ident">JunkDataInLastRowError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the last row in the PDF file contains some junk data.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.MissingPagesError"><code class="name">var <span class="ident">MissingPagesError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the extracted dataframes from the PDF file have some missing pages.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.MultiLineDescriptionExceedingLimitError"><code class="name">var <span class="ident">MultiLineDescriptionExceedingLimitError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the number of rows in extracted dataframes from the PDF file with multiline description exceeds limit.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.MultiRowsUnderSameDate"><code class="name">var <span class="ident">MultiRowsUnderSameDate</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the dataframes corresponding to the PDF file have multiple transaction rows under same date.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.MultipleJunkDatesError"><code class="name">var <span class="ident">MultipleJunkDatesError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the date cells in the PDF file contain multiple junk dates.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.MultipleTransactionsError"><code class="name">var <span class="ident">MultipleTransactionsError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the extracted dataframes from the PDF file have multiple transactions within the same row.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.OverlappingWordsError"><code class="name">var <span class="ident">OverlappingWordsError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the table cells in the PDF file contain overlapping words.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.PDFParsingError"><code class="name">var <span class="ident">PDFParsingError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the PDF file could not be parsed properly by pdfplumber.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.PdfIsEncryptedError"><code class="name">var <span class="ident">PdfIsEncryptedError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the PDF file is encrypted.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.ProcessingError"><code class="name">var <span class="ident">ProcessingError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the PDF file could not be processed properly.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.RowMismatchError"><code class="name">var <span class="ident">RowMismatchError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when some rows in the PDF file are missing due to incorrect date.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.SingleCellOnLastPageError"><code class="name">var <span class="ident">SingleCellOnLastPageError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the last page in the PDF file contains only one single cell which could not be merged with rest of the data.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.TableAsImageError"><code class="name">var <span class="ident">TableAsImageError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the table in the PDF file is in the form of an image.</p></div>
+</dd>
+<dt id="PDF_Extraction.utils.custom_errors.CustomError.TableExtractionError"><code class="name">var <span class="ident">TableExtractionError</span></code></dt>
+<dd>
+<div class="desc"><p>Exception raised when the tables from the PDF file could not be extracted properly.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="PDF_Extraction.utils" href="index.html">PDF_Extraction.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="PDF_Extraction.utils.custom_errors.CustomError" href="#PDF_Extraction.utils.custom_errors.CustomError">CustomError</a></code></h4>
+<ul class="">
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.AlternateRowMissError" href="#PDF_Extraction.utils.custom_errors.CustomError.AlternateRowMissError">AlternateRowMissError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.ClosingBalanceInHeader" href="#PDF_Extraction.utils.custom_errors.CustomError.ClosingBalanceInHeader">ClosingBalanceInHeader</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.ColumnBreakError" href="#PDF_Extraction.utils.custom_errors.CustomError.ColumnBreakError">ColumnBreakError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.ColumnMismatchError" href="#PDF_Extraction.utils.custom_errors.CustomError.ColumnMismatchError">ColumnMismatchError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.CustomErrorWrapper" href="#PDF_Extraction.utils.custom_errors.CustomError.CustomErrorWrapper">CustomErrorWrapper</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.DataFrameCleaningError" href="#PDF_Extraction.utils.custom_errors.CustomError.DataFrameCleaningError">DataFrameCleaningError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.DataFrameMergingError" href="#PDF_Extraction.utils.custom_errors.CustomError.DataFrameMergingError">DataFrameMergingError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.FileNotFoundError" href="#PDF_Extraction.utils.custom_errors.CustomError.FileNotFoundError">FileNotFoundError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.InvalidDatesError" href="#PDF_Extraction.utils.custom_errors.CustomError.InvalidDatesError">InvalidDatesError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.InvalidGridError" href="#PDF_Extraction.utils.custom_errors.CustomError.InvalidGridError">InvalidGridError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.InvalidLatticeTypeError" href="#PDF_Extraction.utils.custom_errors.CustomError.InvalidLatticeTypeError">InvalidLatticeTypeError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.InvalidSerialNoError" href="#PDF_Extraction.utils.custom_errors.CustomError.InvalidSerialNoError">InvalidSerialNoError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.InvalidTransactionsError" href="#PDF_Extraction.utils.custom_errors.CustomError.InvalidTransactionsError">InvalidTransactionsError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.JunkDataInLastRowError" href="#PDF_Extraction.utils.custom_errors.CustomError.JunkDataInLastRowError">JunkDataInLastRowError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.MissingPagesError" href="#PDF_Extraction.utils.custom_errors.CustomError.MissingPagesError">MissingPagesError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.MultiLineDescriptionExceedingLimitError" href="#PDF_Extraction.utils.custom_errors.CustomError.MultiLineDescriptionExceedingLimitError">MultiLineDescriptionExceedingLimitError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.MultiRowsUnderSameDate" href="#PDF_Extraction.utils.custom_errors.CustomError.MultiRowsUnderSameDate">MultiRowsUnderSameDate</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.MultipleJunkDatesError" href="#PDF_Extraction.utils.custom_errors.CustomError.MultipleJunkDatesError">MultipleJunkDatesError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.MultipleTransactionsError" href="#PDF_Extraction.utils.custom_errors.CustomError.MultipleTransactionsError">MultipleTransactionsError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.OverlappingWordsError" href="#PDF_Extraction.utils.custom_errors.CustomError.OverlappingWordsError">OverlappingWordsError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.PDFParsingError" href="#PDF_Extraction.utils.custom_errors.CustomError.PDFParsingError">PDFParsingError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.PdfIsEncryptedError" href="#PDF_Extraction.utils.custom_errors.CustomError.PdfIsEncryptedError">PdfIsEncryptedError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.ProcessingError" href="#PDF_Extraction.utils.custom_errors.CustomError.ProcessingError">ProcessingError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.RowMismatchError" href="#PDF_Extraction.utils.custom_errors.CustomError.RowMismatchError">RowMismatchError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.SingleCellOnLastPageError" href="#PDF_Extraction.utils.custom_errors.CustomError.SingleCellOnLastPageError">SingleCellOnLastPageError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.TableAsImageError" href="#PDF_Extraction.utils.custom_errors.CustomError.TableAsImageError">TableAsImageError</a></code></li>
+<li><code><a title="PDF_Extraction.utils.custom_errors.CustomError.TableExtractionError" href="#PDF_Extraction.utils.custom_errors.CustomError.TableExtractionError">TableExtractionError</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>
